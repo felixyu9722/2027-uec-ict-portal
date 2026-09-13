@@ -1,0 +1,888 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2027 高中统考全真押题模拟卷 · 第二套 ｜ 综合情境大题精析与参考答案</title>
+    <meta name="description" content="2027 高中统考全真押题模拟卷 · 第二套 综合主观作答题精研、深度剖析、参考答案与董总官方四栏评分量规。">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary-blue: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --accent-purple: #7c3aed;
+            --border-color: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 24px rgba(37,99,235,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 80px;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-subj {
+            background: #dbeafe;
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: #fff;
+            border: 1px solid var(--primary-blue);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 980px;
+            margin: 32px auto 0;
+            padding: 0 20px;
+        }
+
+        /* 顶部横幅 */
+        .header-banner {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .banner-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .banner-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .banner-desc {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* 工具栏：全局控制 */
+        .global-ctrl-bar {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ctrl-info {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .ctrl-info strong {
+            color: #0f172a;
+        }
+
+        .ctrl-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-toggle-all {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-toggle-all:hover {
+            background: #e2e8f0;
+        }
+
+        /* 题目卡片 */
+        .q-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .q-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .q-card-header {
+            padding: 20px 24px;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .q-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-pill {
+            background: #dbeafe;
+            color: var(--primary-blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .q-card-body {
+            padding: 24px;
+        }
+
+        /* 情境材料框 */
+        .scenario-box {
+            background: #f1f5f9;
+            border-left: 4px solid var(--primary-blue);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+
+        .scenario-label {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 小问排版 */
+        .question-content {
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: #1e293b;
+            margin-bottom: 22px;
+        }
+
+        .question-content ol, .question-content ul {
+            padding-left: 24px;
+            margin: 10px 0;
+        }
+
+        .question-content li {
+            margin-bottom: 10px;
+        }
+
+        /* 展开参考答案按钮 */
+        .ans-toggle-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #bfdbfe;
+            color: var(--primary-dark);
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .ans-toggle-btn:hover {
+            background: #dbeafe;
+            border-color: #93c5fd;
+        }
+
+        .ans-toggle-btn .arrow-icon {
+            transition: transform 0.2s ease;
+            font-size: 0.85rem;
+        }
+
+        .ans-toggle-btn.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* 折叠答案容器 */
+        .answer-collapse {
+            display: none;
+            margin-top: 14px;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .answer-collapse.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ans-block-title {
+            color: var(--accent-purple);
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f3e8ff;
+        }
+
+        .ans-text-content {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: #1e293b;
+        }
+
+        .ans-text-content p {
+            margin-bottom: 10px;
+        }
+
+        /* 结构化子设问标题（彻底取代原始 #### 标记） */
+        .sub-ans-heading {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #3b0764;
+            background: #f5f3ff;
+            border-left: 4px solid #7c3aed;
+            padding: 9px 14px;
+            border-radius: 4px 8px 8px 4px;
+            margin: 20px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sub-ans-heading:first-child {
+            margin-top: 4px;
+        }
+
+        /* 官方答案与评分量规徽章（彻底取代生硬 - **【...】** 标记） */
+        .ans-badge-row {
+            margin: 12px 0 10px 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .ans-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #7c3aed;
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+        .ans-tag-rubric {
+            background: #0284c7;
+        }
+        .ans-tag-desc {
+            color: #475569;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        /* 列表项与编号条目排版 */
+        .ans-num-item {
+            margin-bottom: 10px;
+            padding-left: 6px;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+        .ans-bullet-item {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            color: #334155;
+            line-height: 1.65;
+        }
+        .ans-bullet-item .bullet-dot {
+            position: absolute;
+            left: 4px;
+            color: #7c3aed;
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1;
+            top: 2px;
+        }
+        .ans-sub-item {
+            margin-left: 20px;
+            margin-top: 4px;
+            color: #475569;
+            font-size: 0.92rem;
+        }
+
+        /* 专业代码块容器（彻底杜绝 <br> 裸露，等宽字体与纯净换行缩进） */
+        .code-container {
+            margin: 14px 0 18px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            background: #0f172a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        .code-header {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 6px 14px;
+            font-size: 0.76rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+        .code-block {
+            margin: 0;
+            padding: 14px 18px;
+            overflow-x: auto;
+            background: #0f172a;
+            color: #f1f5f9;
+            font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            tab-size: 4;
+            white-space: pre;
+        }
+        .code-block code {
+            font-family: inherit;
+            color: inherit;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        .inline-code {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.88em;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* 官方四栏评分量规表格 */
+        .rubric-wrap {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        .rubric-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #cbd5e1;
+            margin: 10px 0 16px 0;
+        }
+
+        .rubric-table th, .rubric-table td {
+            border: 1px solid #e2e8f0;
+            padding: 9px 12px;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .rubric-table th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            font-size: 0.84rem;
+        }
+        .rubric-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 640px) {
+            .header-banner { padding: 24px 18px; }
+            .banner-title { font-size: 1.45rem; }
+            .global-ctrl-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .rubric-table { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部固定导航 -->
+    <header class="top-nav">
+        <div class="nav-title">
+            <span class="badge-subj">主观大题精研</span>
+            <span>2027 高中统考全真押题模拟卷 · 第二套</span>
+        </div>
+        <div class="nav-actions">
+            <a href="2027高中统考全真押题模拟卷_第二套_在线考场.html" class="btn-link btn-primary">⚡ 返回机读考场</a>
+            <a href="../../index.html" class="btn-link btn-outline" onclick="if(window.history.length>1){window.history.back();return false;}else{window.location.href='../../index.html';return false;}">⬅ 返回总控大厅</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- 横幅说明 -->
+        <section class="header-banner">
+            <div class="banner-tag">📖 董总独中高中统考资讯科技 · 主观大题采分精讲</div>
+            <h1 class="banner-title">2027 高中统考全真押题模拟卷 · 第二套 · 综合情境大题精析</h1>
+            <p class="banner-desc">
+                本页面汇集全卷综合主观大题、深度情境材料、参考答案要点及官方四栏评分量规。免除在浏览器打字作答的繁琐，随时点击展开对照学习，精准掌握考官采分要义。
+            </p>
+        </section>
+
+        <!-- 全局展开/折叠控制 -->
+        <div class="global-ctrl-bar">
+            <div class="ctrl-info">
+                共 <strong>5</strong> 道综合情境大题 ｜ 满分 <strong>50</strong> 分
+            </div>
+            <div class="ctrl-btns">
+                <button class="btn-toggle-all" onclick="toggleAllAnswers(true)">📖 全部展开答案</button>
+                <button class="btn-toggle-all" onclick="toggleAllAnswers(false)">📕 全部收起答案</button>
+            </div>
+        </div>
+
+        <!-- 题目列表容器 -->
+        <section class="questions-list">
+              <article class='q-card' id='qcard-1'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 1 题：数据流图（DFD）分析、分层规范与黑洞排查</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独中科技处正在开发一套“智慧校园课外活动选课与学分认定系统”。<br>业务流程梳理如下：<br>- <strong>外部实体</strong>：包含“学生”、“社团指导教师”与“教务主任”；<br>- <strong>选课业务</strong>：每学期初，【发布可选社团清单】程序从【社团课程档案仓】中读取本学期开放的所有社团名单与名额上限；学生在前端登录后提交选课意愿，【核验选课资格与名额】程序会查询【学生学籍数据仓】与【选课记录数据仓】，若名额未满且学生无冲突选课，则由【确认选课登记】程序更新【选课记录数据仓】并在【社团课程档案仓】中扣减一个可用名额，最后向学生发出“选课成功确认回执”；<br>- <strong>考核业务</strong>：学期末，指导教师提交学生平时出勤与考核成绩，【成绩登记与学分核算】程序核算后将学分写入【学生学籍数据仓】，并向“教务主任”打印汇总全校社团成绩分析报表。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> 结合上述情境，请完整写出本系统的：<br>- 所有的<strong>外部实体（External Entities）</strong>；（3分）<br>- 所有的<strong>数据储存 / 数据仓（Data Stores）</strong>。（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> 在绘制数据流图（DFD）时，必须严格遵守语法规范。请指出下列两种画法是否存在逻辑错误，并简述理由：（2分）<br>- <strong>情形 A</strong>：一个名为【社团名额统计】的处理（Process）有多条来自不同数据仓的数据流输入，但没有任何一条数据流流出该处理；<br>- <strong>情形 B</strong>：在【社团课程档案仓】与【选课记录数据仓】之间，直接画了一条带双向箭头的单条数据流连线。</li>
+          <li style='margin-bottom: 12px;'><strong>3.</strong> 简述在系统分析中，绘制“0 阶数据流图（Diagram 0 / Level 0 DFD）”相较于“环境图（Context Diagram / 顶层图）”的最主要区别是什么？（2分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-1' onclick='toggleAnswer(1)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-1'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. 外部实体与数据储存提炼（6分，各1分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>外部实体（3分，各1分）</strong></div>
+<div class='ans-sub-item'><strong>①</strong> 学生；</div>
+<div class='ans-sub-item'><strong>②</strong> 社团指导教师；</div>
+<div class='ans-sub-item'><strong>③</strong> 教务主任。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>数据储存 / 数据仓（3分，各1分）</strong></div>
+<div class='ans-sub-item'><strong>①</strong> 社团课程档案仓；</div>
+<div class='ans-sub-item'><strong>②</strong> 学生学籍数据仓；</div>
+<div class='ans-sub-item'><strong>③</strong> 选课记录数据仓。</div>
+<div class='ans-num-item'><strong>2. DFD 语法错误判定与理由（2分，各1分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>情形 A 判定</strong>：<strong>存在逻辑错误（不合规）</strong>（0.5分）。<strong>理由</strong>：此现象在 DFD 规范中称为“<strong>黑洞</strong>”（Black Hole）。一个合法的处理（Process）必须有输入也有输出，只有输入而没有任何输出意味着该处理没有产生任何业务价值，违反了数据守恒原则（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>情形 B 判定</strong>：<strong>存在逻辑错误（不合规）</strong>（0.5分）。<strong>理由</strong>：DFD 语法严禁在两个数据储存（Data Store）之间直接连线流动。数据从一个数据仓转移到另一个数据仓，必须经过某个具体的“处理/程序”来进行读取与转换加工（0.5分）。</div>
+<div class='ans-num-item'><strong>3. 0 阶 DFD 与环境图的核心区别（2分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>环境图（Context Diagram / 顶层图）</strong>：将整个资讯系统视为一个单一的顶层处理圆圈（编号为 0），仅展现系统与外部实体之间的高层数据输入与输出交互，不展示系统内部的任何子程序与数据储存（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>0 阶图（Diagram 0 / Level 0 DFD）</strong>：对顶层系统进行第一次逻辑分解，展现系统内部的核心主要子处理程序（如 1.0、2.0、3.0）、主要数据储存（数据仓）以及子处理之间流转的详细数据流（1分）。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>实体与数据仓提取（6分）</strong></td><td>3 个外部实体与 3 个数据仓完全精准提取，无任何概念混淆。</td><td>提取出大部分，漏写 1 个实体或数据仓。</td><td>将内部处理程序误当做外部实体。</td><td>概念完全混乱。</td></tr><tr><td><strong>语法错误判定（2分）</strong></td><td>精准指出“黑洞”与“数据仓不能直连”，理由阐述符合系统分析学规范。</td><td>判定正确，但未能准确说出“黑洞”术语。</td><td>仅判定出一处错误。</td><td>误认为合规。</td></tr><tr><td><strong>0阶图 vs 环境图（2分）</strong></td><td>从“单一顶层黑盒”与“核心子模块/数据仓展开”两维度深入对比。</td><td>能答出 0 阶图更详细，但表述略显通俗。</td><td>仅回答其中一个图的特点。</td><td>未作答。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-2'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 2 题：Python 算法实现、时间复杂度分析与取模运算实战</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独中电脑科学学会正在设计一个“数字安全校验码生成器”。<br>已知算法规则如下：接收一个正整数列表 <code class='inline-code'>num_list</code>，算法需要执行两项核心任务：<br>- <strong>任务 1</strong>：过滤出列表中所有能够被 3 整除但不能被 5 整除的奇数；<br>- <strong>任务 2</strong>：将这些筛选出的数字按升序进行排序并输出最终列表。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> 请阅读并分析下列 Python 代码段：<br>``<code class='inline-code'>python&lt;br&gt;def filter_numbers(num_list):&lt;br&gt;result = []&lt;br&gt;for x in num_list:&lt;br&gt;if x % 3 == 0 and x % 5 != 0 and x % 2 != 0:&lt;br&gt;result.append(x)&lt;br&gt;return result&lt;br&gt;</code>`<code class='inline-code'>&lt;br&gt;- 若传入参数 </code>num_list = [9, 15, 21, 30, 33, 45, 27, 18]<code class='inline-code'>，请严格推导循环过程，写出 </code>filter_numbers<code class='inline-code'> 函数返回的 </code>result` 列表内容；（3分）<br>- 请指出该过滤函数在最坏情况下的时间复杂度（用大 O 符号表示，设列表长度为 n）。（1分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> 若指导教师要求小明使用 Python 内置的高阶函数或列表推导式（List Comprehension）将上述循环过滤代码改写为<strong>一行优雅高效的 Python 代码</strong>，请写出改写后的单行代码。（2分）</li>
+          <li style='margin-bottom: 12px;'><strong>3.</strong> 请阅读下列二分查找（Binary Search）函数的 Python 实现：<br>``<code class='inline-code'>python&lt;br&gt;def binary_search(arr, target):&lt;br&gt;left = 0&lt;br&gt;right = len(arr) - 1&lt;br&gt;while left &lt;= right:&lt;br&gt;mid = (left + right) // 2&lt;br&gt;if arr[mid] == target:&lt;br&gt;return mid&lt;br&gt;elif arr[mid] &lt; target:&lt;br&gt;left = mid + 1&lt;br&gt;else:&lt;br&gt;right = mid - 1&lt;br&gt;return -1&lt;br&gt;</code>`<code class='inline-code'>&lt;br&gt;- 若执行调用 </code>binary_search([10, 23, 35, 47, 59, 68, 77, 88, 99], 68)<code class='inline-code'>：&lt;br&gt;请按时序推导写出：第 1 次循环与第 2 次循环计算出的 </code>mid<code class='inline-code'> 索引值以及对应的 </code>arr[mid]` 数值，并指出最终函数返回的索引位置；（3分）<br>- 该二分查找算法的时间复杂度是多少？（1分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-2' onclick='toggleAnswer(2)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-2'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. 循环过程推导与复杂度（4分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>推导过程</strong>：条件为 <code class='inline-code'>x % 3 == 0</code>（能被3整除）且 <code class='inline-code'>x % 5 != 0</code>（不能被5整除）且 <code class='inline-code'>x % 2 != 0</code>（奇数）。</div>
+<div class='ans-sub-item'><strong>9</strong> ：9\%3=0, 9\%5=4, 9\%2=1（<strong>保留</strong>）；</div>
+<div class='ans-sub-item'><strong>15</strong> ：15\%5=0（排除）；</div>
+<div class='ans-sub-item'><strong>21</strong> ：21\%3=0, 21\%5=1, 21\%2=1（<strong>保留</strong>）；</div>
+<div class='ans-sub-item'><strong>30</strong> ：偶数（排除）；</div>
+<div class='ans-sub-item'><strong>33</strong> ：33\%3=0, 33\%5=3, 33\%2=1（<strong>保留</strong>）；</div>
+<div class='ans-sub-item'><strong>45</strong> ：45\%5=0（排除）；</div>
+<div class='ans-sub-item'><strong>27</strong> ：27\%3=0, 27\%5=2, 27\%2=1（<strong>保留</strong>）；</div>
+<div class='ans-sub-item'><strong>18</strong> ：偶数（排除）。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>返回的列表</strong>：<code class='inline-code'>[9, 21, 33, 27]</code>（3分，顺序与元素完全正确给满分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>时间复杂度</strong>：单重循环线性遍历，复杂度为 O(n)（1分）。</div>
+<div class='ans-num-item'><strong>2. 列表推导式单行代码（2分）：</strong> </div>
+<div class='code-container'><div class='code-header'><span>🐍 Python 3 核心算法实现</span><span>PYTHON</span></div><pre class='code-block'><code>   result = [x for x in num_list if x % 3 == 0 and x % 5 != 0 and x % 2 != 0]
+   </code></pre></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> （评分标准：列表推导式语法正确给2分，若使用 <code class='inline-code'>filter(lambda ...)</code> 亦同等满分）。</div>
+<div class='ans-num-item'><strong>3. 二分查找执行时序推导（4分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 数组：<code class='inline-code'>[10, 23, 35, 47, 59, 68, 77, 88, 99]</code>，长度为 9，目标值 <code class='inline-code'>target = 68</code>。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>第 1 次循环（1.5分）</strong></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <code class='inline-code'>left = 0, right = 8</code>；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <code class='inline-code'>mid = (0 + 8) // 2 = 4</code>；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <code class='inline-code'>arr[4] = 59</code>。由于 59 < 68，更新 <code class='inline-code'>left = mid + 1 = 5</code>。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>第 2 次循环（1.5分）</strong></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <code class='inline-code'>left = 5, right = 8</code>；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <code class='inline-code'>mid = (5 + 8) // 2 = 6</code>；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <code class='inline-code'>arr[6] = 77</code>。由于 77 > 68，更新 <code class='inline-code'>right = mid - 1 = 5</code>。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>第 3 次循环</strong></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <code class='inline-code'>left = 5, right = 5</code>，<code class='inline-code'>mid = 5</code>，<code class='inline-code'>arr[5] = 68 == target</code>，匹配成功！</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>最终返回的索引</strong>：<strong>5</strong>（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>二分查找时间复杂度</strong>：O(\log n)（0.5分）。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>循环推导与列表（4分）</strong></td><td><code class='inline-code'>[9, 21, 33, 27]</code> 准确无误，O(n) 复杂度判定正确。</td><td>列表漏掉一个元素或多写了一个元素（扣1分）。</td><td>排除条件逻辑理解错误。</td><td>结果完全错误。</td></tr><tr><td><strong>单行列表推导式（2分）</strong></td><td>一行代码语法规范，无语法报错。</td><td>逻辑正确但有轻微拼写失误（扣1分）。</td><td>依然写成了多行循环。</td><td>未作答。</td></tr><tr><td><strong>二分查找时序推导（4分）</strong></td><td>两次循环的 <code class='inline-code'>mid</code>（4与6）及其对应的元素（59与77）推导工整，返回索引 5 准确。</td><td>推导过程大体正确，但中间索引计算有微小偏差（扣1分）。</td><td>仅直接猜出最终返回 5，未展现中间推导步骤。</td><td>算法时序混乱。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-3'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 3 题：计算机网络拓扑规划、VLSM 划分与传输时延推导</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独中新落成一栋 5 层楼的“资讯科技与创客大楼”。<br>校方为该大楼分配了一个私有 C 类连续 IP 地址块：<code class='inline-code'>192.168.10.0/24</code>。<br>大楼内部各部门的物理接入点分布规划如下：<br>- <strong>部门甲（创客人工智能实验室）</strong>：需要容纳至少 <strong>60 台</strong> 智能设备；<br>- <strong>部门乙（教师多媒体教研室）</strong>：需要容纳至少 <strong>28 台</strong> 电脑终端；<br>- <strong>部门丙（大楼网络设备互联管理子网）</strong>：需要容纳至少 <strong>12 台</strong> 交换机管理接口与 IP 摄像头。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> <strong>VLSM 可变长子网划分设计</strong>：<br>请严格按照容纳主机数“从大到小”的分配原则，对网段 <code class='inline-code'>192.168.10.0/24</code> 进行不重叠、无冲突的 VLSM 切分：<br>- 请分别写出<strong>部门甲、部门乙、部门丙</strong>的<strong>网络地址（含掩码位数，如 <code class='inline-code'>X.X.X.X/YY</code>）</strong>、各自的<strong>标准子网掩码（十进制表示）</strong>以及各自的<strong>有效可用主机 IP 地址范围</strong>。（6分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> <strong>多媒体网络传输时延深度计算题</strong>：<br>部门甲实验室需要通过网络从校内文件服务器下载一个大小为 1.2 GB 的深度学习图像训练数据集压缩包。<br>已知该部门千兆交换机到实验室主机的实际可用平均下行带宽为 160 Mbps。<br>网络单向物理传播时延与设备处理时延总和为 15 ms（毫秒）。<br>请严格写出容量与速率单位的转换推导步骤，计算该主机下载该数据集所需的理论净传输时间（单位：秒，保留至整数）。（4分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-3' onclick='toggleAnswer(3)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-3'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. VLSM 可变长子网划分设计（6分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>主机需求排序</strong>：<strong>部门甲（ ≥  60 台）  →  部门乙（ ≥  28 台）  →  部门丙（ ≥  12 台）</strong>。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>① 部门甲（创客人工智能实验室，需 60 台）</strong>：（2分）：</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 主机位需求：2^h - 2  ≥  60 \implies h = 6（容纳 64 - 2 = 62 台）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 网络前缀：32 - 6 = /26；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>网络地址</strong>：<code class='inline-code'>192.168.10.0/26</code>（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>标准子网掩码</strong>：<code class='inline-code'>255.255.255.192</code>（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>有效可用主机范围</strong>：<code class='inline-code'>192.168.10.1 ~ 192.168.10.62</code>（1分）。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>② 部门乙（教师多媒体教研室，需 28 台）</strong>：（2分）：</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 主机位需求：2^h - 2  ≥  28 \implies h = 5（容纳 32 - 2 = 30 台）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 网络前缀：32 - 5 = /27；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>网络地址</strong>：<code class='inline-code'>192.168.10.64/27</code>（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>标准子网掩码</strong>：<code class='inline-code'>255.255.255.224</code>（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>有效可用主机范围</strong>：<code class='inline-code'>192.168.10.65 ~ 192.168.10.94</code>（1分）。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>③ 部门丙（网络设备互联管理，需 12 台）</strong>：（2分）：</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 主机位需求：2^h - 2  ≥  12 \implies h = 4（容纳 16 - 2 = 14 台）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 网络前缀：32 - 4 = /28；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>网络地址</strong>：<code class='inline-code'>192.168.10.96/28</code>（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>标准子网掩码</strong>：<code class='inline-code'>255.255.255.240</code>（0.5分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>有效可用主机范围</strong>：<code class='inline-code'>192.168.10.97 ~ 192.168.10.110</code>（1分）。</div>
+<div class='ans-num-item'><strong>2. 多媒体网络传输计算题推导（4分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>步骤一：将数据集容量转换为位元数（Bits）</strong>：（1分）</div>
+<p class='ans-p'>1.2 GB = 1.2  ×  1024  ×  1024  ×  1024  Bytes  ×  8  bits  ≈  10,307,921,510 bits</p>
+<p class='ans-p'>（<em>注：若按十进制标准计算：1.2  ×  10⁹  ×  8 = 9,600,000,000 bits 亦完全给予满分</em>）；</p>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>步骤二：转换网络传输速率</strong>：（1分）</div>
+<p class='ans-p'>160 Mbps = 160  ×  10⁶ bps = 160,000,000 bits/s；</p>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>步骤三：计算传输时延与总耗时</strong>：（2分）</div>
+<p class='ans-p'>传输发送时延  T_{trans} = (10,307,921,510 bits ÷ 160,000,000 bits/s)  ≈  64.42 秒</p>
+<p class='ans-p'>（<em>若按十进制计算：T_{trans} = (9,600,000,000 ÷ 160,000,000) = 60 秒</em>）；</p>
+<p class='ans-p'>加上物理与设备时延 15 ms = 0.015 秒，总时延约为 64.44 秒  ≈  64 秒（或十进制 60.015 秒  ≈  60 秒）。</p>
+<p class='ans-p'>答：单台主机下载完成该数据集理论上需要约 <strong>64 秒</strong>（或 <strong>60 秒</strong>）。</p>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>VLSM 子网切分（6分）</strong></td><td>甲(/26)、乙(/27)、丙(/28) 划分严谨，起始网段、掩码与可用范围毫无冲突。</td><td>划分原则正确，但主机可用范围计算有 1 处越界（扣1分）。</td><td>未从大到小分配导致网段重叠。</td><td>掩码与地址计算混乱。</td></tr><tr><td><strong>传输时延计算（4分）</strong></td><td>字节到位元乘 8、除以速率、考虑时延加和，推导极其规范完整。</td><td>步骤清晰，漏加上 15ms（由于对总秒数影响极小，扣0.5分）。</td><td>漏乘 8，单位换算混乱。</td><td>结果完全错误。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-4'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 4 题：关系数据库设计、规范化范式与 SQL 综合实战</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独中财务处管理“学生奖助学金与爱心捐助系统”，一名新进程序员设计了如下一张初级数据表：<br><code class='inline-code'>【奖学金发放记录表】</code>（字段：<code class='inline-code'>记录流水号, 学号, 姓名, 班级, 奖学金项目编号, 奖学金项目名称, 颁发金额, 颁发日期</code>）。<br>已知核心函数依赖关系如下：<br>- <code class='inline-code'>记录流水号</code> 为该表的唯一主键；<br>- 存在依赖关系：<code class='inline-code'>学号 -&gt; (姓名, 班级)</code>；<br>- 存在依赖关系：<code class='inline-code'>奖学金项目编号 -&gt; 奖学金项目名称</code>。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> <strong>数据库规范化范式剖析</strong>：<br>- 请问上述单表设计存在什么严重的结构性弊端（如数据冗余、更新异常等）？（1分）<br>- 该表设计违反了关系数据库的第几范式（Normal Form）？并简述违反该范式的判定理由。（2分）<br>- 请给出符合第三范式（3NF）的拆分重构方案：写出拆分后的<strong>三张实体表名称</strong>以及各自包含的<strong>字段清单</strong>，并在各表中明确标注出<strong>主键（PK）</strong>与<strong>外键（FK）</strong>。（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> <strong>SQL 实战编程</strong>：<br>假设重构后的标准数据库包含两张表：<br>- <code class='inline-code'>Student</code> 表（字段：<code class='inline-code'>student_id [PK], name, class_name</code>）；<br>- <code class='inline-code'>Scholarship_Award</code> 表（字段：<code class='inline-code'>award_id [PK], student_id [FK], project_name, amount, award_date</code>）。<br>- 请编写一条标准 SQL 查询语句：<strong>“查询班级为 ‘Senior3A’ 且累计获得奖学金总金额大于等于 1000.00 元的所有学生的学号（student_id）、姓名（name）以及其获得的‘累计奖学金总额’，结果按总额从大到小降序排列”</strong>。（4分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-4' onclick='toggleAnswer(4)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-4'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. 规范化范式剖析与重构（6分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>结构性弊端（1分）</strong>：存在严重的<strong>数据冗余</strong>（每发一次奖学金，学生的姓名班级及项目名称就要重复记录一次），并极易导致<strong>修改异常</strong>（如学生改名需全表修改多行）与<strong>删除异常</strong>（删除发放记录导致项目信息丢失）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>违反的范式与理由（2分）</strong>：违反了<strong>第三范式（3NF）</strong>（1分）。<strong>理由</strong>：表中存在非主属性对主键的传递函数依赖：<code class='inline-code'>记录流水号 -&gt; 学号 -&gt; (姓名, 班级)</code> 以及 <code class='inline-code'>记录流水号 -&gt; 奖学金项目编号 -&gt; 奖学金项目名称</code>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>拆分重构方案（3分，各1分）</strong></div>
+<div class='ans-sub-item'><strong>①</strong> <strong>【学生表】（Student）</strong>：<code class='inline-code'>学号 [PK], 姓名, 班级</code>；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>【奖学金项目表】（Scholarship_Project）</strong>：<code class='inline-code'>项目编号 [PK], 项目名称</code>；</div>
+<div class='ans-sub-item'><strong>③</strong> <strong>【奖学金发放表】（Scholarship_Award）</strong>：<code class='inline-code'>记录流水号 [PK], 学号 [FK], 项目编号 [FK], 颁发金额, 颁发日期</code>。</div>
+<div class='ans-num-item'><strong>2. 多表聚合筛选标准 SQL（4分）：</strong> </div>
+<div class='code-container'><div class='code-header'><span>🗄️ SQL 结构化查询语言脚本</span><span>SQL</span></div><pre class='code-block'><code>   SELECT Student.student_id, Student.name, SUM(Scholarship_Award.amount) AS 累计奖学金总额
+   FROM Student
+   JOIN Scholarship_Award ON Student.student_id = Scholarship_Award.student_id
+   WHERE Student.class_name = &#39;Senior3A&#39;
+   GROUP BY Student.student_id, Student.name
+   HAVING SUM(Scholarship_Award.amount) &gt;= 1000.00
+   ORDER BY 累计奖学金总额 DESC;
+   </code></pre></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> （评分细则：SELECT 与 JOIN 关联给1分；WHERE 班级过滤给1分；GROUP BY 与 HAVING 聚合筛选给1分；ORDER BY DESC 降序给1分）。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>3NF 弊端与理由（3分）</strong></td><td>深刻指出数据冗余与更新异常，精准识别 3NF 传递依赖关系。</td><td>识别出 3NF，但传递依赖关系的箭头表述不够规范（扣1分）。</td><td>误答为 2NF。</td><td>概念完全不懂。</td></tr><tr><td><strong>三表拆分重构（3分）</strong></td><td>学生表、项目表、发放表三表结构清晰，PK 与两个 FK 标注完全正确。</td><td>拆分正确，但漏标了外键字段（扣1分）。</td><td>拆分为两张表，依然残留冗余。</td><td>拆分不合理。</td></tr><tr><td><strong>SQL 聚合查询（4分）</strong></td><td>JOIN、WHERE、GROUP BY、HAVING 与 ORDER BY 组合完美无瑕。</td><td>语法正确，但将 HAVING 聚合条件错误地写进了 WHERE 中（扣1分）。</td><td>漏掉 GROUP BY 分组语句。</td><td>SQL 语法完全错误。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-5'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 5 题：现代网络安全全方位防御实战与企业级纵深防御体系</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独立中学搭建的面向全马招生的“高一新生在线报到与缴费系统”在开放报名的首日遭遇了严重的网络安全攻击：<br>- <strong>攻击现象 1</strong>：清晨 8:00 报名开启瞬间，系统遭受到来自全球数百个外部 IP 的海量伪造 SYN 握手包冲击，带宽被打满，服务器 CPU 负载飙升至 100%，正常家长无法打开网站；<br>- <strong>攻击现象 2</strong>：上午 10:00，黑客利用自动化脚本扫描，在报名查询界面的身份证号输入框中提交了精心构造的 SQL 注入攻击载荷，企图拖取后台包含数千名新生敏感家庭住址与银行卡信息的数据库。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> 针对<strong>攻击现象 1</strong>：指出该攻击的专业网络安全术语名称是什么？学校若要从网络架构层面迅速缓解该攻击以保障正常家长访问，可采取哪两项主流技术方案？（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> 针对<strong>攻击现象 2</strong>：指出该攻击的攻击类型，并简述网站后端软件开发团队在编写数据库交互代码时，彻底根治该安全漏洞的核心编程防御规范。（2分）</li>
+          <li style='margin-bottom: 12px;'><strong>3.</strong> 在保障网络传输机密性与防篡改方面，学校必须为该缴费网站全面启用 HTTPS 协议。<br>请简述浏览器在与服务器建立 HTTPS 安全会话时，由<strong>权威证书颁发机构（CA）签发的数字证书</strong>在其中发挥的核心安全认证作用。（2分）</li>
+          <li style='margin-bottom: 12px;'><strong>4.</strong> 从信息安全管理与“纵深防御”（Defense in Depth）理念出发，学校在防范内外部网络安全威胁时，应建立怎样的多层防御纵深架构？请列举覆盖“网络边界、主机终端、数据存储与人员素养”四个维度的具体管理与技术防护措施。（3分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-5' onclick='toggleAnswer(5)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-5'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. DDoS 攻击名称与架构缓解方案（3分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>专业术语</strong>：<strong>SYN Flood（SYN 洪水攻击）</strong> 或 <strong>分布式拒绝服务攻击（DDoS）</strong>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>两项缓解方案（2分，各1分）</strong></div>
+<div class='ans-sub-item'><strong>①</strong> <strong>引入云端抗 D 高防服务（如 Cloudflare / 运营商高防清洗中心）</strong>：利用云端海量带宽在网络边缘清洗过滤恶意 SYN 伪造流量，仅将合法请求回源到学校服务器；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>在边界防火墙或服务器启用 SYN Cookie 机制与连接限速</strong>：阻止未完成三次握手的半连接占满操作系统内核 TCP 连接队列（Backlog）。</div>
+<div class='ans-num-item'><strong>2. SQL 注入攻击与核心编程防御规范（2分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>攻击类型</strong>：<strong>SQL 注入攻击（SQL Injection）</strong>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>核心编程防御规范</strong>：后端开发必须彻底摒弃通过字符串拼接构造 SQL 的不良做法，<strong>全面强制采用参数化查询（Parameterized Queries）与预编译语句（Prepared Statements）</strong>，使传入的用户输入仅作为普通参数常量处理，绝不被数据库引擎当作可执行指令解析（1分）。</div>
+<div class='ans-num-item'><strong>3. CA 数字证书的核心安全认证作用（2分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>防伪与身份认证</strong>：由受信任的权威 CA 机构对学校网站的公钥及所有者身份信息进行数字签名，浏览器利用内置的受信任根证书验证该签名，从而<strong>确保证书真实可信，彻底挫败假冒钓鱼网站与中间人拦截伪造公钥的企图</strong>（2分）。</div>
+<div class='ans-num-item'><strong>4. 全方位“纵深防御”四维度防护措施（3分）：</strong> </div>
+<div class='ans-sub-item'><strong>①</strong> <strong>网络边界层</strong>：部署硬件下一代防火墙与入侵防御系统（IPS），阻断非法端口扫描与 DDoS 洪水；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>主机终端层</strong>：开启自动打补丁，安装终端杀毒防护软件（EDR），并强制通过组策略禁用宏代码执行；</div>
+<div class='ans-sub-item'><strong>③</strong> <strong>数据存储层</strong>：落实高强度 AES-256 全盘加密与基于 3-2-1 原则的物理隔离（Air-Gapped）离线冷备份；</div>
+<div class='ans-sub-item'><strong>④</strong> <strong>人员素养层</strong>：开展全员反钓鱼社会工程学防范培训，推行强密码策略与多因素身份认证（MFA）。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> （评分标准：答全上述 4 个维度给3分，答出 2-3 个维度给2分，答出 1 个给1分）。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>SYN Flood 与抗 D 缓解（3分）</strong></td><td>识别 SYN Flood，提出高防清洗与 SYN Cookie 专业技术方案。</td><td>识别出 DDoS，缓解方案仅提到“拔掉网线”或“换更大带宽”（扣1分）。</td><td>攻击类型判定错误。</td><td>未作答。</td></tr><tr><td><strong>SQL 注入与参数化防御（2分）</strong></td><td>精准指出参数化查询与预编译，深刻阐述指令与数据分离原理。</td><td>识别出 SQL 注入，但防御方案仅泛泛回答“加强密码”。</td><td>仅建议在前端限制字符。</td><td>回答错误。</td></tr><tr><td><strong>CA 证书认证作用（2分）</strong></td><td>深刻阐释 CA 根证书验证、公钥身份绑定与挫败中间人伪造之核心作用。</td><td>提到了加密和认证，但解释偏向日常通俗语言。</td><td>误认为证书是用来拦截病毒的。</td><td>未作答。</td></tr><tr><td><strong>纵深防御四维度（3分）</strong></td><td>边界、主机、数据、人员四个维度全面覆盖，技术与管理措施极其完备。</td><td>覆盖了 3 个维度，缺少人员意识培训或数据离线备份。</td><td>仅罗列 1-2 条零散措施。</td><td>概念完全脱节。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+
+        </section>
+
+        <footer class="footer-note">
+            <p><strong>© 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程</strong></p>
+            <p style="margin-top: 6px; font-size: 0.8rem; opacity: 0.85;">欢迎分享本网页链接供学习使用；未经许可，不得复制、转载网页内的文字、题目及答案，不得公开发布于其他网站或平台，亦不得用于商业销售。</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function toggleAnswer(idx) {
+            const btn = document.getElementById('btn-ans-' + idx);
+            const ans = document.getElementById('ans-' + idx);
+            if (ans.classList.contains('show')) {
+                ans.classList.remove('show');
+                btn.classList.remove('active');
+            } else {
+                ans.classList.add('show');
+                btn.classList.add('active');
+            }
+        }
+
+        function toggleAllAnswers(expand) {
+            const btns = document.querySelectorAll('.ans-toggle-btn');
+            const collapses = document.querySelectorAll('.answer-collapse');
+            collapses.forEach(c => {
+                if (expand) c.classList.add('show');
+                else c.classList.remove('show');
+            });
+            btns.forEach(b => {
+                if (expand) b.classList.add('active');
+                else b.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>

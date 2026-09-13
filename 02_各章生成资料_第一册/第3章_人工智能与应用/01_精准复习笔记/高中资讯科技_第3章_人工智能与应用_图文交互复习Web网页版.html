@@ -1,0 +1,2735 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>高中资讯科技（第一册）第 3 章 人工智能与应用 ｜ 董总统考对齐 2026 全景交互复习门户</title>
+  <meta name="description" content="董总华文独中高中资讯科技第一册第3章人工智能与应用：全面覆盖AI技术发展、五大核心支柱、三大核心优势、商业变现闭环与伦理监管红线，含12页全景教学简报、3张核心信息图与35道全真互动题库。">
+  <style>
+    :root {
+      --primary: #1E40AF;
+      --primary-hover: #1D4ED8;
+      --primary-light: #EFF6FF;
+      --accent-teal: #0D9488;
+      --accent-purple: #7C3AED;
+      --bg-body: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --sidebar-width: 300px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3.5px; background: linear-gradient(90deg, #3B82F6, #10B981, #7C3AED); z-index: 1000; width: 0%; transition: width .1s; }
+    
+    /* Mobile Header */
+    .mobile-header {
+      display: none;
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      background: #1E3A8A;
+      color: #FFF;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 500;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .mobile-title { font-size: 15px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 75%; }
+    .menu-btn { background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); color: #FFF; padding: 6px 12px; border-radius: 6px; font-size: 14px; cursor: pointer; }
+    
+    /* Layout */
+    .layout-wrapper { display: flex; min-height: 100vh; }
+    #backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 550; }
+    
+    /* Modern Academic Light Sidebar */
+    #sidebar {
+      width: var(--sidebar-width);
+      height: 100vh;
+      position: fixed;
+      left: 0; top: 0;
+      background: #FFFFFF;
+      color: var(--text-main);
+      overflow-y: auto;
+      padding: 0;
+      border-right: 1px solid var(--border-color);
+      z-index: 600;
+      transition: transform .3s ease;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-header {
+      padding: 22px 20px 16px;
+      border-bottom: 1px solid var(--border-color);
+      background: #F8FAFC;
+    }
+    .brand-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      background: #DBEAFE;
+      color: #1E40AF;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #1E3A8A;
+      line-height: 1.3;
+    }
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .current-chapter-card {
+      margin: 14px 16px;
+      padding: 12px 14px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 10px;
+    }
+    .chap-tag { font-size: 11px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 0.5px; }
+    .chap-name { font-size: 14px; font-weight: 800; color: #1E40AF; margin-top: 2px; }
+    .chap-desc { font-size: 11.5px; color: #64748B; margin-top: 2px; line-height: 1.4; }
+    .sidebar-nav { padding: 8px 12px; flex: 1; }
+    .nav-group-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 10px 12px 6px;
+    }
+    #sidebar ul { list-style: none; }
+    #sidebar li { margin-bottom: 3px; }
+    #sidebar a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      transition: all .15s ease;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    #sidebar a:hover {
+      background: #F1F5F9;
+      color: #1E40AF;
+    }
+    #sidebar a.active {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      font-weight: 700;
+      border-left-color: #2563EB;
+    }
+    .nav-icon { font-size: 16px; flex-shrink: 0; width: 20px; text-align: center; }
+    .nav-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid var(--border-color);
+      background: #F8FAFC;
+    }
+    .quick-launch-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #7C3AED, #4F46E5);
+      color: #FFF;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.25);
+      transition: all .2s;
+    }
+    .quick-launch-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(124, 58, 237, 0.35);
+    }
+    
+    /* Main Content */
+    #main-content {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      max-width: 980px;
+      margin-right: auto;
+      padding: 32px 36px 90px;
+      box-sizing: border-box;
+      width: calc(100% - var(--sidebar-width));
+    }
+    
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 50%, #2563EB 100%);
+      color: #FFF !important;
+      padding: 36px 32px;
+      border-radius: 16px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, .3);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-tagline {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .hero-banner h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFF !important;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .hero-subtitle {
+      font-size: 14.5px;
+      color: #DBEAFE;
+      line-height: 1.6;
+      max-width: 720px;
+    }
+    .hero-slides-showcase {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .pdf-card-interactive {
+      flex: 1;
+      min-width: 240px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: #FFF !important;
+      transition: all .2s;
+    }
+    .pdf-card-interactive:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+    .pdf-card-icon { font-size: 32px; flex-shrink: 0; }
+    .pdf-card-info { flex: 1; }
+    .pdf-card-title { font-size: 14px; font-weight: 700; }
+    .pdf-card-meta { font-size: 11.5px; color: #BFDBFE; margin-top: 2px; }
+    .pdf-card-action {
+      font-size: 12px;
+      font-weight: 700;
+      background: #FFF;
+      color: #1E3A8A;
+      padding: 5px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+    
+    /* Section Cards & Typography */
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 34px 38px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 14px -2px rgba(0,0,0,.04);
+    }
+    h2 {
+      font-size: 21px;
+      color: #1E3A8A;
+      font-weight: 800;
+      margin: 32px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #DBEAFE;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h3 { font-size: 17.5px; color: #1E40AF; font-weight: 700; margin: 24px 0 12px; }
+    h4 { font-size: 15.5px; color: var(--accent-teal); font-weight: 700; margin: 18px 0 8px; }
+    p { margin-bottom: 12px; font-size: 15.5px; color: #1E293B; line-height: 1.75; }
+    ul, ol { margin-left: 22px; margin-bottom: 14px; }
+    li { margin-bottom: 6px; font-size: 15px; color: #334155; line-height: 1.7; }
+    strong { color: #0F172A; font-weight: 700; }
+    code { background: #F1F5F9; padding: 2px 7px; border-radius: 4px; font-size: 13.5px; color: #7C3AED; font-family: Consolas, monospace; }
+    
+    /* Tables */
+    .table-container { overflow-x: auto; margin: 20px 0; border-radius: 10px; border: 1px solid #CBD5E1; }
+    table { width: 100%; border-collapse: collapse; font-size: 14.5px; background: #FFF; }
+    th { background: #1E3A8A; color: #FFF !important; font-weight: 700; text-align: left; padding: 12px 16px; border: 1px solid #1E3A8A; }
+    td { padding: 11px 16px; border: 1px solid #E2E8F0; vertical-align: top; color: #1F2937; line-height: 1.6; }
+    tr:nth-child(even) td { background: #F8FAFC; }
+    tr:hover td { background: #F1F5F9; }
+    
+    /* Quotes & Checklists */
+    .quote-container { background: #EFF6FF; border-left: 4px solid #3B82F6; padding: 14px 18px; margin: 16px 0; border-radius: 0 10px 10px 0; }
+    .quote-text { font-size: 15px; color: #1E3A8A; line-height: 1.65; margin-bottom: 6px; }
+    .quote-text:last-child { margin-bottom: 0; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; font-size: 15px; color: #1E293B; cursor: pointer; padding: 7px 10px; border-radius: 6px; transition: background .15s; }
+    .checklist-item:hover { background: #EFF6FF; }
+    .checklist-item input[type='checkbox'] { margin-top: 4px; accent-color: #2563EB; transform: scale(1.2); cursor: pointer; }
+    .checklist-item.done span { text-decoration: line-through; color: #94A3B8; }
+    
+    /* Feature grids */
+    .advantage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 20px 0; }
+    .advantage-card { background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 18px; }
+    .advantage-num { font-size: 20px; font-weight: 800; color: #2563EB; margin-bottom: 6px; }
+    .advantage-title { font-size: 15px; font-weight: 700; color: #1E3A8A; margin-bottom: 6px; }
+    .advantage-desc { font-size: 13.5px; color: #475569; line-height: 1.6; }
+    
+    .tech-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+    .tech-pill { font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 20px; }
+    .pill-blue { background: #DBEAFE; color: #1E40AF; }
+    .pill-teal { background: #CCFBF1; color: #0F766E; }
+    .pill-purple { background: #EDE9FE; color: #6D28D9; }
+    .pill-amber { background: #FEF3C7; color: #92400E; }
+    .pill-red { background: #FEE2E2; color: #991B1B; }
+    
+    /* Slides figures */
+    .slide-figure { margin: 22px 0; border: 1px solid #E2E8F0; border-radius: 12px; overflow: hidden; background: #FFF; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+    .slide-img { width: 100%; height: auto; display: block; cursor: zoom-in; }
+    .slide-caption { font-size: 13px; color: #475569; padding: 10px 14px; background: #F8FAFC; border-top: 1px solid #E2E8F0; display: flex; align-items: center; justify-content: space-between; }
+    .zoom-badge { font-size: 11.5px; color: #2563EB; background: #EFF6FF; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+    
+    /* Infographic Panel */
+    .info-panel { background: #FFF; border-radius: 14px; padding: 22px 26px; margin: 20px 0; border: 2px solid #0D9488; box-shadow: 0 4px 16px rgba(13, 148, 136, .1); }
+    .info-panel-title { font-size: 16px; font-weight: 800; color: #0D9488; margin-bottom: 14px; }
+    .info-gallery { display: flex; flex-wrap: wrap; gap: 14px; }
+    .info-thumb { flex: 1; min-width: 220px; border-radius: 10px; overflow: hidden; border: 1px solid #E2E8F0; cursor: zoom-in; background: #F8FAFC; }
+    .info-thumb img { width: 100%; height: auto; display: block; transition: transform .2s; }
+    .info-thumb img:hover { transform: scale(1.02); }
+    .info-thumb-caption { font-size: 12.5px; color: #475569; text-align: center; padding: 8px 10px; background: #F8FAFC; font-weight: 600; }
+    
+    /* Speed Cards */
+    .speed-card { background: #FFF; border-radius: 16px; padding: 34px 38px; margin-bottom: 28px; border: 1px solid #E2E8F0; box-shadow: 0 4px 14px -2px rgba(0,0,0,.04); }
+    .speed-rows-container { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .speed-row { display: flex; align-items: flex-start; gap: 14px; padding: 12px 16px; border-radius: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; }
+    .speed-tag { font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+    .speed-tag-blue { background: #DBEAFE; color: #1E40AF; }
+    .speed-tag-green { background: #D1FAE5; color: #065F46; }
+    .speed-tag-orange { background: #FFEDD5; color: #C2410C; }
+    .speed-tag-purple { background: #EDE9FE; color: #6D28D9; }
+    .speed-tag-red { background: #FEE2E2; color: #991B1B; }
+    .speed-content { font-size: 14.5px; color: #334155; line-height: 1.6; }
+    .speed-content em { display: block; font-size: 12.5px; color: #64748B; font-style: normal; margin-top: 3px; }
+    
+    /* === 课本学习评量原题与详析卡片美化 (Issue 1 FIX) === */
+    .eval-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 24px 26px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      transition: all 0.2s ease;
+    }
+    .eval-card:hover {
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      border-color: #CBD5E1;
+    }
+    .eval-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .eval-badge {
+      background: #EFF6FF;
+      color: #1E40AF;
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid #BFDBFE;
+    }
+    .eval-topic {
+      font-size: 13px;
+      color: #64748B;
+      font-weight: 600;
+    }
+    .eval-stem {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1E293B;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .eval-sub-list {
+      margin: 10px 0 12px 18px;
+      font-size: 14.5px;
+      color: #374151;
+      line-height: 1.7;
+    }
+    .eval-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .eval-opt {
+      padding: 12px 16px;
+      border-radius: 8px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      font-size: 14.5px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.15s ease;
+    }
+    .eval-opt:hover {
+      background: #F1F5F9;
+      border-color: #CBD5E1;
+    }
+    .eval-opt.correct {
+      background: #F0FDF4;
+      border-color: #22C55E;
+      color: #166534;
+      font-weight: 600;
+    }
+    .opt-tag-correct {
+      font-size: 12px;
+      background: #22C55E;
+      color: #FFF;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+    .eval-analysis {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 4px solid #2563EB;
+      border-radius: 0 10px 10px 0;
+      padding: 18px 20px;
+      margin-top: 14px;
+    }
+    .eval-ans-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #CBD5E1;
+    }
+    .ans-label {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1E3A8A;
+    }
+    .ans-value {
+      font-size: 15px;
+      font-weight: 800;
+      color: #065F46;
+      background: #D1FAE5;
+      padding: 3px 12px;
+      border-radius: 6px;
+    }
+    .ans-page {
+      font-size: 13px;
+      color: #64748B;
+      font-weight: 600;
+    }
+    .eval-exp-text {
+      font-size: 14.5px;
+      line-height: 1.8;
+      color: #334155;
+    }
+    .eval-point-box {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .eval-point-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #FFFFFF;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+    }
+    .point-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1E40AF;
+      color: #FFF;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .point-text {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #1E293B;
+    }
+    
+    /* === 互动题库 PORTAL 卡片 === */
+    .quiz-portal-card {
+      background: #FFF;
+      border: 2px solid #7C3AED;
+      border-radius: 16px;
+      padding: 34px 38px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 25px -5px rgba(124, 58, 237, 0.15);
+    }
+    .quiz-portal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .quiz-portal-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #5B21B6;
+    }
+    .quiz-portal-badge {
+      background: #EDE9FE;
+      color: #6D28D9;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .quiz-portal-desc {
+      font-size: 14.5px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .quiz-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .quiz-stat-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+    .quiz-stat-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: #6D28D9;
+      line-height: 1.2;
+    }
+    .quiz-stat-lbl {
+      font-size: 12.5px;
+      color: #64748B;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .quiz-launch-main-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #7C3AED, #4F46E5);
+      color: #FFF;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3);
+      transition: all .2s;
+    }
+    .quiz-launch-main-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(124, 58, 237, 0.4);
+    }
+    
+    /* === 全景互动题库 MODAL OVERLAY (Chapter 2 Style) === */
+    #quiz-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 20000;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 16px;
+      overflow-y: auto;
+    }
+    .quiz-modal {
+      background: #FFF;
+      border-radius: 20px;
+      max-width: 860px;
+      width: 100%;
+      margin: auto;
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+    .quiz-modal-title { font-size: 21px; font-weight: 800; color: #1E3A8A; margin-bottom: 4px; }
+    .quiz-modal-sub { font-size: 13.5px; color: #6B7280; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 2px solid #E2E8F0; }
+    .quiz-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: #F1F5F9;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      color: #374151;
+      font-weight: 700;
+      transition: background .2s;
+    }
+    .quiz-close-btn:hover { background: #E2E8F0; }
+    
+    /* Quiz Tabs */
+    .quiz-tabs-bar { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .qtab-btn { padding: 9px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .2s; }
+    .qtab-btn.active { background: #7C3AED; color: #FFF; border: 2px solid #7C3AED; }
+    .qtab-btn:not(.active) { background: #FFF; color: #6D28D9; border: 2px solid #DDD6FE; }
+    .qtab-btn:not(.active):hover { background: #F5F3FF; }
+    .quiz-tab-content { display: none; }
+    
+    /* MCQ Cards */
+    .mcq-page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #EDE9FE;
+      border-radius: 8px;
+      padding: 8px 14px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #5B21B6;
+    }
+    .mcq-card {
+      background: #F8FAFC;
+      border-radius: 12px;
+      padding: 18px;
+      margin: 12px 0;
+      border: 1px solid #E2E8F0;
+    }
+    .mcq-stem-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: flex-start; }
+    .mcq-qnum { background: #7C3AED; color: #FFF; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; margin-top: 3px; }
+    .mcq-stem { font-size: 14.5px; font-weight: 700; color: #1F2937; line-height: 1.65; white-space: pre-wrap; }
+    .mcq-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    .mcq-opt {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 2px solid #E2E8F0;
+      cursor: pointer;
+      background: #FFF;
+      font-size: 14px;
+      text-align: left;
+      transition: all .15s;
+      color: #374151;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .mcq-opt:hover:not([disabled]) { border-color: #A78BFA; background: #F5F3FF; }
+    .opt-letter { font-weight: 800; color: #7C3AED; flex-shrink: 0; }
+    .mcq-opt.opt-correct { border-color: #22C55E !important; background: #F0FDF4 !important; color: #166534 !important; }
+    .mcq-opt.opt-wrong { border-color: #EF4444 !important; background: #FEF2F2 !important; color: #991B1B !important; }
+    .mcq-feedback { display: none; margin-top: 10px; padding: 12px 16px; border-radius: 8px; font-size: 13.5px; line-height: 1.65; }
+    .mcq-feedback.fb-correct { background: #F0FDF4; border: 1px solid #86EFAC; color: #166534; }
+    .mcq-feedback.fb-wrong { background: #FEF2F2; border: 1px solid #FCA5A5; color: #991B1B; }
+    .mcq-card-footer { display: flex; justify-content: flex-end; align-items: center; margin-top: 8px; }
+    .mcq-reset { background: none; border: 1px solid #CBD5E1; padding: 4px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; color: #6B7280; }
+    .mcq-reset:hover { background: #F1F5F9; }
+    .mcq-nav-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; gap: 8px; flex-wrap: wrap; }
+    .mcq-nav-btn { padding: 9px 18px; background: linear-gradient(135deg, #7C3AED, #5B21B6); color: #FFF; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all .2s; }
+    .mcq-nav-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(124,58,237,.35); }
+    
+    /* Open Questions Accordion */
+    .open-accordion-list { display: flex; flex-direction: column; gap: 14px; }
+    .open-accordion-item { border: 1px solid #CBD5E1; border-radius: 14px; overflow: hidden; background: #FFF; }
+    .open-accordion-header { padding: 16px 20px; background: #F8FAFC; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background .15s; }
+    .open-accordion-header:hover { background: #EFF6FF; }
+    .open-item-title { font-size: 15px; font-weight: 700; color: #1E293B; }
+    .open-item-arrow { font-size: 12px; color: #64748B; transition: transform .25s; }
+    .open-accordion-header.open .open-item-arrow { transform: rotate(180deg); }
+    .open-accordion-body { display: none; padding: 22px 24px; background: #FFF; border-top: 1px solid #E2E8F0; font-size: 14.5px; line-height: 1.7; }
+    .open-context-block { background: #F8FAFC; border-left: 4px solid #3B82F6; padding: 14px 16px; border-radius: 0 10px 10px 0; margin-bottom: 16px; color: #1E293B; font-size: 14.5px; line-height: 1.7; }
+    .open-subq-card { background: #FFF; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px 16px; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px; }
+    .subq-badge { background: #EFF6FF; color: #1D4ED8; font-weight: 800; font-size: 13px; padding: 3px 8px; border-radius: 6px; flex-shrink: 0; border: 1px solid #BFDBFE; min-width: 28px; text-align: center; }
+    .subq-body { flex: 1; color: #334155; line-height: 1.65; }
+    .view-ans-btn { background: #0D9488; color: #FFF; border: none; padding: 10px 20px; border-radius: 8px; font-size: 13.5px; font-weight: 700; cursor: pointer; transition: background .2s; margin-top: 8px; display: block; }
+    .view-ans-btn:hover { background: #0F766E; }
+    .open-ans-box { display: none; margin-top: 16px; padding: 20px; background: #F0FDFA; border: 1px solid #99F6E4; border-left: 5px solid #0D9488; border-radius: 0 12px 12px 0; }
+    .ans-box-title { font-weight: 800; color: #0F766E; font-size: 15px; margin-bottom: 14px; }
+    
+    /* Lightbox & Top Button */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.88); z-index: 99999; justify-content: center; align-items: center; cursor: zoom-out; padding: 20px; }
+    #lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 8px; }
+    .lightbox-close { position: absolute; top: 16px; right: 20px; color: #FFF; font-size: 28px; font-weight: 700; cursor: pointer; }
+    #btn-top { display: none; position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: #2563EB; color: #FFF; border: none; box-shadow: 0 4px 12px rgba(37,99,235,.4); cursor: pointer; font-size: 18px; z-index: 500; }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .mobile-header { display: flex; }
+      #sidebar { transform: translateX(-100%); }
+      #sidebar.open { transform: translateX(0); }
+      #main-content { margin-left: 0; padding: 20px 16px 60px; width: 100%; }
+      .section-card, .speed-card, .quiz-portal-card { padding: 22px 20px; }
+      .quiz-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .mcq-options, .eval-options { grid-template-columns: 1fr; }
+      .hero-slides-showcase { flex-direction: column; }
+    }
+      /* 章节页面底部版权声明 */
+    .chapter-footer {
+      margin-top: 50px;
+      padding: 30px 20px 24px;
+      border-top: 1px solid #E2E8F0;
+      text-align: center;
+      color: #64748B;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .chapter-footer p { margin: 0 0 6px 0; }
+    .chapter-footer strong { color: #1E293B; }
+    .chapter-footer-sub { font-size: 12px; color: #94A3B8; }
+      /* 平台主页返回按钮 */
+    .nav-back-home-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 9px 12px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-back-home-btn:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+      color: #ffffff !important;
+    }
+    .mobile-back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 10px;
+      background: #2563eb;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+    .mobile-back-home-btn:hover {
+      background: #1d4ed8;
+      color: #ffffff !important;
+    }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<header class="mobile-header" role="banner">
+  <div class="mobile-title">第 3 章 人工智能与应用</div>
+  <button class="menu-btn" onclick="toggleSidebar()" aria-label="打开导航菜单">☰ 目录导航</button>
+</header>
+
+<div id="backdrop" onclick="toggleSidebar()"></div>
+
+<div class="layout-wrapper">
+  <nav id="sidebar" aria-label="章节精准复习导航">
+    <div class="sidebar-header">
+        <a href="../../../index.html" class="nav-back-home-btn" onclick="return handleChapterBackHome();">
+          ⬅ 返回总控大厅
+        </a>
+      <div class="brand-badge">2026 统考对齐版</div>
+      <div class="brand-title">📘 独中高中资讯科技</div>
+      <div class="brand-subtitle">第一册 复习专栏 ｜ 全景互动学习</div>
+    </div>
+    <div class="current-chapter-card">
+      <div class="chap-tag">当前章节</div>
+      <div class="chap-name">第 3 章 人工智能与应用</div>
+      <div class="chap-desc">AI发展 · 核心分支技术 · 专家系统 · 现代生活应用</div>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-group-title">本章精准复习目录</div>
+      <ul id="nav-list">
+        <li><a href="#sec-goals" onclick="closeSidebar()" class="active"><span class="nav-icon">🎯</span><span class="nav-text">一、 教学与复习目标导航</span></a></li>
+        <li><a href="#sec-terms" onclick="closeSidebar()"><span class="nav-icon">📖</span><span class="nav-text">二、 核心术语速查表</span></a></li>
+        <li><a href="#sec-31" onclick="closeSidebar()"><span class="nav-icon">🧠</span><span class="nav-text">三、 人工智能技术发展</span></a></li>
+        <li><a href="#sec-32" onclick="closeSidebar()"><span class="nav-icon">🌐</span><span class="nav-text">四、 现实生活应用与影响</span></a></li>
+        <li><a href="#sec-answers" onclick="closeSidebar()"><span class="nav-icon">✅</span><span class="nav-text">五、 课后学习评量原题详解</span></a></li>
+        <li><a href="#sec-infographics" onclick="closeSidebar()"><span class="nav-icon">🗺️</span><span class="nav-text">六、 配套全景考点图谱</span></a></li>
+        <li><a href="#sec-speed" onclick="closeSidebar()"><span class="nav-icon">⚡</span><span class="nav-text">七、 考前 3 分钟极速速记卡</span></a></li>
+        <li><a href="#sec-quiz" onclick="closeSidebar()"><span class="nav-icon">📝</span><span class="nav-text">八、 全景互动题库 (双卷)</span></a></li>
+        <li><a href="../03_NotebookLM产出_简报与信息图/Tactical_AI_Exam_Dashboard.pdf" target="_blank" style="color:#2563EB;font-weight:700;"><span class="nav-icon">📑</span><span class="nav-text">打开备考冲刺简报 PDF ↗</span></a></li>
+      </ul>
+    </div>
+    <div class="sidebar-footer">
+      <button class="quick-launch-btn" onclick="openQuiz()">🚀 打开全景互动题库</button>
+    </div>
+  </nav>
+
+  <main id="main-content" role="main">
+
+    <div class="hero-banner">
+      <span class="hero-tagline">董总统一教材 · 第一册复习章节</span>
+      <h1>高中资讯科技（第一册）第 3 章 人工智能与应用<br><small style="font-size:16px;font-weight:600;opacity:.88;">Artificial Intelligence and Applications</small></h1>
+      <p class="hero-subtitle">全景图文融合与思维导图精编版 ｜ 严格对齐统考课程标准 ｜ 配套全景互动题库与教师采分量规。全面覆盖 AI 核心技术（ML · DL · CV · NLP · 专家系统）、人机协作三大优势、产业落地矩阵与敏感红线伦理治理。</p>
+      <div class="hero-slides-showcase">
+        <a class="pdf-card-interactive" href="../03_NotebookLM产出_简报与信息图/Tactical_AI_Exam_Dashboard.pdf" target="_blank" title="在新标签页中打开完整 12 页备考简报 PDF">
+          <span class="pdf-card-icon">📑</span>
+          <div class="pdf-card-info">
+            <div class="pdf-card-title">人工智能战术冲刺简报 (Tactical Dashboard)</div>
+            <div class="pdf-card-meta">NotebookLM 精编 12 页 · 全景教学课件</div>
+          </div>
+          <span class="pdf-card-action">打开 PDF ↗</span>
+        </a>
+        <a class="pdf-card-interactive" href="../03_NotebookLM产出_简报与信息图/UEC_AI_Exam_Sprint.pdf" target="_blank" title="在新标签页中打开统考精要通关简报 PDF">
+          <span class="pdf-card-icon">📈</span>
+          <div class="pdf-card-info">
+            <div class="pdf-card-title">董总统考精要通关简报 (Exam Sprint)</div>
+            <div class="pdf-card-meta">核心考点与底层原理图解 · 备考冲刺</div>
+          </div>
+          <span class="pdf-card-action">打开 PDF ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <section class="section-card" id="sec-goals">
+      <h2>🎯 一、 单元教学与复习目标导航</h2>
+      <h3>1.1 课程标准核心素养</h3>
+      <p>依据董教总华文独中工委会统一课程委员会《资讯科技课程标准》，本章旨在引领学生建立对人工智能的科学认知、批判性辨析与数字化伦理思维：</p>
+      <div class="advantage-grid">
+        <div class="advantage-card">
+          <div class="advantage-num">01</div>
+          <div class="advantage-title">🔬 AI 核心技术认知</div>
+          <div class="advantage-desc">准确掌握 AI 定义、图灵测试，以及机器学习（ML）、深度学习（DL）、电脑视觉（CV）、自然语言处理（NLP）的核心机制与典型生活场景匹配。</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">02</div>
+          <div class="advantage-title">⚖️ 人机协作优势辨析</div>
+          <div class="advantage-desc">深入理解 AI 相比人类专家的三大核心优势：感知极其敏锐及早微调、不知疲倦持续高精作业、经验数字化永续传承。</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">03</div>
+          <div class="advantage-title">💰 商业逻辑与应用解析</div>
+          <div class="advantage-desc">洞察免费搜索引擎与电邮服务背后，互联网企业利用 NLP 挖掘意图并精准投放客制化广告向商家变现的完整闭环。</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">04</div>
+          <div class="advantage-title">🛡️ 数字伦理与社会责任</div>
+          <div class="advantage-desc">辩证认识 AI 带来的隐私侵犯风险、敏感区域监控绝对红线（洗手间禁区）、算法偏见与深度伪造（Deepfake）治理。</div>
+        </div>
+      </div>
+
+      <h3>1.2 师生教学达成清单 (Checklist)</h3>
+      <div id="checklist-container">
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>能够准确阐述人工智能（AI）的概念，并理解图灵测试（Turing Test）的判定原理</span></label>
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>能够准确将日常生活常见 AI 应用与底层技术相配对（如文法检查→NLP，语音识别→NLP，刷脸解锁→CV，商品推荐→ML）</span></label>
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>掌握机器学习与传统基于硬编码规则的专家系统的本质区别</span></label>
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>熟练回答并论述人工智能相比人类专家的三大核心超越优势（统考必考题）</span></label>
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>能够举出 AI 在教育（个性化习题推荐、学龄前启蒙游戏）与居家（陪伴机器人、摔倒安全报警）的具体实践</span></label>
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>深刻剖析提供“免费”电邮与搜索服务的互联网企业如何利用 AI 获利的商业闭环</span></label>
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>明确指出使用 AI 监控技术侵犯隐私的高危敏感场所（家庭室内、密码输入处、洗手间法定禁区）</span></label>
+        <label class="checklist-item" onclick="toggleCheck(this)"><input type="checkbox"> <span>理解算法偏见（Algorithmic Bias）、深度伪造（Deepfake）对现代信息社会的潜在安全与伦理冲击</span></label>
+      </div>
+    </section>
+
+    <section class="section-card" id="sec-terms">
+      <h2>📖 二、课本官方中英对照核心术语速查表</h2>
+      <p>严格依据董总《资讯科技第 1 册：中英名词对照表》收录，为统考试卷名词翻译与概念定义提供标准依据：</p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr><th>中文术语</th><th>英文术语</th><th>课本核心概念阐释</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>人工智能 / 人工智慧</strong></td><td>Artificial Intelligence (AI)</td><td>让计算机系统模拟、延伸和扩展人类智能（感知、学习、推理、决策）的科学与技术。</td></tr>
+            <tr><td><strong>图灵测试</strong></td><td>Turing Test</td><td>由艾伦·图灵提出，通过隔离文字盲测问答判断机器是否具备与人类等同思考能力的实验。</td></tr>
+            <tr><td><strong>机器学习</strong></td><td>Machine Learning (ML)</td><td>使计算机无需显式编写规则，而是通过从海量数据中自主学习规律并进行预测的算法分支。</td></tr>
+            <tr><td><strong>深度学习</strong></td><td>Deep Learning (DL)</td><td>基于多层人工神经网络模型，能够自动提取高阶抽象特征的先进机器学习方法。</td></tr>
+            <tr><td><strong>电脑视觉 / 计算机视觉</strong></td><td>Computer Vision (CV)</td><td>研究如何让电脑“看懂”客观世界图像或视频，实现目标检测、人脸识别和场景理解的技术。</td></tr>
+            <tr><td><strong>自然语言处理</strong></td><td>Natural Language Processing (NLP)</td><td>研究人与计算机之间用自然语言进行有效通信的理论与方法（涵盖文本理解 NLU 与生成 NLG）。</td></tr>
+            <tr><td><strong>专家系统</strong></td><td>Expert System</td><td>内部含有大量特定领域专家知识与经验，利用知识库和推理引擎解决复杂问题的系统。</td></tr>
+            <tr><td><strong>知识库</strong></td><td>Knowledge Base</td><td>专家系统中用于结构化存储领域专家经验事实与推理规则（IF-THEN）的数据库。</td></tr>
+            <tr><td><strong>推理引擎</strong></td><td>Inference Engine</td><td>专家系统中依据知识库中的规则，按照逻辑关系推导出新结论的核心计算组件。</td></tr>
+            <tr><td><strong>语音识别</strong></td><td>Speech Recognition</td><td>将人类连续声波讯号转换为文字或机器可执行控制指令的技术。</td></tr>
+            <tr><td><strong>聊天机器人</strong></td><td>Chatbot</td><td>利用自然语言处理技术模拟人类日常对话，提供在线客服或智能问答服务的系统。</td></tr>
+            <tr><td><strong>人脸检测 / 识别</strong></td><td>Facial Detection / Recognition</td><td>定位图像中人脸位置（检测）并比对确认特定个人身份（识别）的生物特征技术。</td></tr>
+            <tr><td><strong>推荐系统</strong></td><td>Recommendation System</td><td>根据用户历史行为和兴趣画像，预测并主动推送感兴趣商品或资讯的算法系统。</td></tr>
+            <tr><td><strong>人形机器人</strong></td><td>Humanoid Robot</td><td>外形仿造人类形态，能够执行复杂动作并与物理环境交互的智能机器人。</td></tr>
+            <tr><td><strong>执行器 / 致动器</strong></td><td>Actuator</td><td>机器人的运动控制部件，负责将控制指令转化为机械物理动作（如电机、机械臂关节）。</td></tr>
+            <tr><td><strong>传感器 / 感应器</strong></td><td>Sensor</td><td>负责采集现实世界物理量（温度、光线、声音、距离）并转换为电讯号的感知装置。</td></tr>
+            <tr><td><strong>算法偏见</strong></td><td>Algorithmic Bias</td><td>由于训练数据本身含有性别、种族或地域偏见，导致 AI 模型学会并放大不公决策的现象。</td></tr>
+            <tr><td><strong>深度伪造</strong></td><td>Deepfake</td><td>利用生成式 AI 技术伪造人物声音与面孔，极易引发电信网络诈骗与名誉侵权的技术手段。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section-card" id="sec-31">
+      <h2>🧠 三、3.1 人工智能的发展与技术</h2>
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0001.jpg" class="slide-img" alt="全章知识架构与核心素养" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 01</strong> · 全章知识架构与核心素养总览 <span class="zoom-badge">点击放大</span></div>
+      </div>
+
+      <h3>（一）人工智能的概念与图灵测试判定</h3>
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0002.jpg" class="slide-img" alt="人工智能定义与图灵测试" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 02</strong> · 人工智能定义与图灵测试判定法则 <span class="zoom-badge">点击放大</span></div>
+      </div>
+      <p><strong>1. 什么是人工智能 (AI)</strong>：<br>人工智能并不是指某种特定的软件或单一技术，而是一门<strong>涉及多种大相径庭技术的新兴科学领域</strong>。其主要研究方向是如何让计算机系统模拟人类的思考模式与认知功能（学习、推理、判断、感知与语言交流）。</p>
+      <p><strong>2. 图灵测试 (Turing Test) 实验机制</strong>：</p>
+      <div class="quote-container">
+        <p class="quote-text">📌 <strong>提出者</strong>：1950 年由“计算机科学之父”艾伦·图灵 (Alan Turing) 在论文《计算机械与智能》中提出。</p>
+        <p class="quote-text">🔬 <strong>双盲实验设置</strong>：人类测试员与被测试者（一台电脑和一位真实人类）分别隔在不同房间，仅通过文字键盘终端自由提问对话。</p>
+        <p class="quote-text">⚖️ <strong>判定准绳</strong>：如果人类裁判在规定时间内<strong>无法分辨出跟自己对话的到底是一个人还是一台机器</strong>，则认为这台机器通过了图灵测试，展现出等同于人类水平的智能！</p>
+      </div>
+
+      <h3>（二）AI 核心技术支柱全景剖析</h3>
+      <div class="tech-pills">
+        <span class="tech-pill pill-blue">🤖 机器学习 ML</span>
+        <span class="tech-pill pill-green">🧬 深度学习 DL</span>
+        <span class="tech-pill pill-orange">👁️ 电脑视觉 CV</span>
+        <span class="tech-pill pill-purple">💬 自然语言处理 NLP</span>
+        <span class="tech-pill pill-red">🏛️ 专家系统 ES</span>
+      </div>
+
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0003.jpg" class="slide-img" alt="机器学习" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 03</strong> · AI 核心技术支柱一：机器学习 (ML) <span class="zoom-badge">点击放大</span></div>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-card-header"><span class="tech-card-icon">🤖</span><div><span class="tech-card-abbr">ML</span><div class="tech-card-title">机器学习</div></div></div>
+          <p class="tech-card-desc">不同于传统程序员写死规则，机器学习让电脑直接从<strong>海量数据</strong>中自主挖掘统计规律，训练出数学模型用于预测未知数据。包含监督学习、非监督学习与强化学习三种范式。</p>
+          <div class="tech-card-apps">📌 课本官方对应：电商推荐系统（如 Amazon 猜你喜欢商品推荐）、垃圾邮件智能拦截。</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-header"><span class="tech-card-icon">🧬</span><div><span class="tech-card-abbr">DL</span><div class="tech-card-title">深度学习</div></div></div>
+          <p class="tech-card-desc">机器学习的尖端前沿，构建模拟人脑神经元的多层<strong>人工神经网络 (ANN)</strong>。无需人工设计特征，具备强大的“端到端”自主抽象特征提取能力。</p>
+          <div class="tech-card-apps">📌 课本官方对应：自动驾驶环境感知、AlphaGo 围棋对弈、医学 CT 肿瘤病灶早筛。</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-header"><span class="tech-card-icon">👁️</span><div><span class="tech-card-abbr">CV</span><div class="tech-card-title">电脑视觉</div></div></div>
+          <p class="tech-card-desc">让电脑拥有“视觉”，通过传感器采集客观图像，经由灰阶数字矩阵运算、边缘滤波与特征比对，实现图像分类与模式识别。</p>
+          <div class="tech-card-apps">📌 课本官方对应：智能手机刷脸解锁 (Face Unlock)、火车站人脸闸机、车牌识别、图像破损修复。</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-header"><span class="tech-card-icon">💬</span><div><span class="tech-card-abbr">NLP</span><div class="tech-card-title">自然语言处理</div></div></div>
+          <p class="tech-card-desc">融合语言学与计算机科学，让电脑理解人类日常语言的语法、语义与语境。涵盖 NLU（自然语言理解）与 NLG（自然语言生成，如 ChatGPT）。</p>
+          <div class="tech-card-apps">📌 课本官方对应：输入文字时自动检查文法错误 (Word/Grammarly)、语音助理 (Siri/Google Assistant)、机器翻译。</div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-card-header"><span class="tech-card-icon">🏛️</span><div><span class="tech-card-abbr">ES</span><div class="tech-card-title">专家系统</div></div></div>
+          <p class="tech-card-desc">经典符号主义代表。包含两大核心组件：<strong>知识库 (Knowledge Base)</strong>（存储领域专家的 IF-THEN 规则）与<strong>推理引擎 (Inference Engine)</strong>（负责逻辑推演）。</p>
+          <div class="tech-card-apps">📌 特点：依据死规则推理，无法从新数据中自主进化与自我学习。</div>
+        </div>
+      </div>
+
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0004.jpg" class="slide-img" alt="深度学习与神经网络" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 04</strong> · AI 核心技术支柱二：深度学习与神经网络结构 <span class="zoom-badge">点击放大</span></div>
+      </div>
+
+      <h3>（三）课本原题高频配对专栏（统考核心送分题）</h3>
+      <div class="quote-container quote-amber">
+        <p class="quote-text">🔥 <strong>【课本 3.1 应用配对题 7】官方权威技术匹配标准</strong>：</p>
+        <p class="quote-text">📝 <em>输入文字时，发现/检查文法错误</em> ➔ <strong>自然语言处理 (NLP)</strong></p>
+        <p class="quote-text">📝 <em>语音识别（如 Siri、Google Assistant）</em> ➔ <strong>自然语言处理 (NLP)</strong></p>
+        <p class="quote-text">📝 <em>刷脸解锁手机 (Face Unlock)</em> ➔ <strong>电脑视觉 (CV)</strong></p>
+        <p class="quote-text">📝 <em>推荐系统（如 Amazon 推荐商品）</em> ➔ <strong>机器学习 (ML)</strong></p>
+      </div>
+
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0005.jpg" class="slide-img" alt="电脑视觉与自然语言处理" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 05</strong> · AI 核心技术支柱三：电脑视觉与自然语言处理 <span class="zoom-badge">点击放大</span></div>
+      </div>
+    </section>
+
+    <section class="section-card" id="sec-32">
+      <h2>🌐 四、3.2 人工智能的应用与影响</h2>
+      <h3>（一）人工智能相比人类专家的三大核心超越优势（统考核心必考题）</h3>
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0006.jpg" class="slide-img" alt="AI相比人类专家的三大核心优势" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 06</strong> · 人工智能相比人类专家的核心优势 <span class="zoom-badge">点击放大</span></div>
+      </div>
+      <p>董总新版教材与官方参考答案明确规范了 AI 相比人类专家的三大本质优势：</p>
+      <div class="advantage-grid">
+        <div class="advantage-card">
+          <div class="advantage-num">①</div>
+          <div class="advantage-title">🔍 感知敏锐度极高，及早微调</div>
+          <div class="advantage-desc">电脑配合高精度传感器，能够捕捉到极其微弱、人类感官与肉眼完全无法察觉的微小物理变化，并在事故或隐患萌芽阶段及早做出精确微调。</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">②</div>
+          <div class="advantage-title">⏰ 不知疲倦，24小时连续高精工作</div>
+          <div class="advantage-desc">人类专家长时间高度集中作业容易产生生理疲劳、注意力涣散，从而导致误判和差错；AI 只要供电网络稳定即可全天候持续运行，无情绪波动。</div>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-num">③</div>
+          <div class="advantage-title">💾 经验数字化永续传承，零人员流失风险</div>
+          <div class="advantage-desc">人类专家个人经验难以完整言传身教，专家辞职或退休会导致经验断层流失，且新人培养周期漫长；AI 的模型与知识库可无限复制、永久保存、秒级同步至全系统。</div>
+        </div>
+      </div>
+
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0007.jpg" class="slide-img" alt="AI行业应用：智慧医疗与教育" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 07</strong> · AI 行业应用落地：智慧医疗与智慧教育 <span class="zoom-badge">点击放大</span></div>
+      </div>
+
+      <h3>（二）人工智能在现代社会各领域的落地矩阵</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr><th>应用领域</th><th>课本核心落地场景</th><th>底层 AI 核心技术</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>🎓 现代教育 (Education)</strong></td><td>自适应个性化题库：根据每个学生的做题历史和学习进度，精准推荐难度匹配的练习题；学龄前儿童通过搭载 AI 的互动游戏进行启蒙启发式学习。</td><td>机器学习 (ML)、推荐系统、自然语言处理</td></tr>
+            <tr><td><strong>🏠 居家生活 (Home Care)</strong></td><td>智能陪伴：宠物/人形机器人陪伴独居老人排解孤独；主动安全防护：通过红外感应监测突发摔倒或火灾险情并立即发出急救警报。</td><td>电脑视觉 (CV)、机器人学、传感器物联网</td></tr>
+            <tr><td><strong>🏥 智慧医疗 (Smart Health)</strong></td><td>辅助放射科医生高效筛查肺部 CT 结节与早期皮肤癌病变，极大降低医生疲劳造成的漏诊率与误判率。</td><td>深度学习 (DL)、电脑视觉 (CV)</td></tr>
+            <tr><td><strong>🏭 工业 4.0 (Manufacturing)</strong></td><td>工业流水线机械臂毫米级质检、实时微调工件公差、无人工厂全天候熄灯自动化作业。</td><td>电脑视觉、执行器致动技术、强化学习</td></tr>
+            <tr><td><strong>🚗 自动驾驶 (Autonomous)</strong></td><td>通过车载毫米波雷达、LiDAR 激光雷达与高清摄像头感知周围交通要素，并在毫秒级完成路径避障规划。</td><td>深度学习、电脑视觉、多模态决策系统</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0008.jpg" class="slide-img" alt="AI行业应用：智能制造与自动驾驶" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 08</strong> · AI 行业应用落地：智能制造与自动驾驶 <span class="zoom-badge">点击放大</span></div>
+      </div>
+
+      <h3>（三）商业运作机制：免费网络服务背后的 AI 变现逻辑（课本核心论述大题）</h3>
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0009.jpg" class="slide-img" alt="免费服务背后的AI变现逻辑" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 09</strong> · 商业运作机制：免费服务背后的 AI 变现闭环 <span class="zoom-badge">点击放大</span></div>
+      </div>
+      <div class="quote-container quote-amber">
+        <p class="quote-text">💡 <strong>【董总课本权威深度思考题】</strong><br>“为什么 Google 搜索引擎与 Gmail 免费电邮对全球数亿普通使用者完全免费开放？这些跨国科技巨头靠什么维持海量服务器的高昂营运成本？”</p>
+      </div>
+      <p><strong>商业与技术运作四步闭环推演：</strong></p>
+      <div class="flow-chain">
+        <div class="flow-step">① NLP 深度<br>意图全量分析</div>
+        <span class="flow-arrow">➔</span>
+        <div class="flow-step">② 建立多维精准<br>用户兴趣画像</div>
+        <span class="flow-arrow">➔</span>
+        <div class="flow-step flow-step-amber">③ 向广告主提供<br>定向客制化展示</div>
+        <span class="flow-arrow">➔</span>
+        <div class="flow-step flow-step-amber">④ 用户消费付费<br>“羊毛出在猪身上”</div>
+      </div>
+      <ul>
+        <li><strong>NLP 全自动意图挖掘</strong>：互联网企业借助自然语言处理系统，全天候全自动解析使用者的搜索关键词、邮件往来文本内容，挖掘其生活痛点与即时消费倾向；</li>
+        <li><strong>定向精准广告收费</strong>：根据分析模型，系统将高度吻合的客制化商业广告精准展示在用户屏幕上，并向企业广告商收取丰厚的广告投放服务费；</li>
+        <li><strong>实质间接买单</strong>：消费者受到定向广告吸引购买了商家的商品，<strong>其实质是在通过购买商品间接为免费的电邮与搜索引擎支付了运营服务费</strong>！</li>
+        <li><strong>AI 的不可或缺性</strong>：每秒全球产生海量并发请求，人工绝无可能实时处理；且人工直接阅读私人信件属于严重侵犯隐私犯罪，而借助 AI 算法自动化处理则长期游走在商业与隐私法规的灰色地带。</li>
+      </ul>
+
+      <h3>（四）人工智能带来的伦理红线与社会挑战</h3>
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0010.jpg" class="slide-img" alt="伦理红线与社会挑战" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 10</strong> · 伦理红线与社会挑战：算法偏见与隐私危机 <span class="zoom-badge">点击放大</span></div>
+      </div>
+      <div class="advantage-grid">
+        <div class="advantage-card" style="border-left-color:#E53E3E;">
+          <div class="advantage-title" style="color:#9B2C2C;">🔒 个人隐私侵犯与监控绝对禁区</div>
+          <div class="advantage-desc">
+            <p style="margin-bottom:6px;">监控摄像头与传感器具有严重侵犯隐私嫌疑，尤其在以下敏感场所严禁滥用：</p>
+            <ul style="margin-left:16px;">
+              <li>家庭住宅室内（卧室、起居私人领地）；</li>
+              <li>输入个人私密密码、PIN 码或金融账号的键盘区域；</li>
+              <li style="font-weight:700;color:#9B2C2C;">⛔ 洗手间 / 卫生间是道德与法律的绝对禁止红线！</li>
+            </ul>
+            <p style="margin-top:6px;font-size:12.5px;color:#718096;">此外，集中在云端服务器的海量人脸、声纹等不可更改的生物特征数据，一旦遭到黑客窃取泄漏，将对受害者造成不可逆的终身安全风险！</p>
+          </div>
+        </div>
+        <div class="advantage-card" style="border-left-color:#DD6B20;">
+          <div class="advantage-title" style="color:#7B341E;">⚖️ 算法偏见 (Algorithmic Bias)</div>
+          <div class="advantage-desc">若训练数据本身包含历史偏见（如性别、种族、地域歧视），AI 模型将不自觉地学会并成倍放大这种偏颇决策，导致招聘简历初筛或信贷审批产生系统性不公。</div>
+        </div>
+        <div class="advantage-card" style="border-left-color:#7C3AED;">
+          <div class="advantage-title" style="color:#44337A;">🎭 深度伪造 (Deepfake)</div>
+          <div class="advantage-desc">利用生成式对抗技术高保真伪造特定人物的面孔表情与声音，极易被不法分子用于电信网络换脸欺诈、虚假新闻编造以及名誉污蔑，严重破坏人际社会信任基石。</div>
+        </div>
+      </div>
+
+      <div class="slide-figure">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0011.jpg" class="slide-img" alt="就业重塑与人机协同未来" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 11</strong> · 就业结构重塑与“以人为本”人机协同未来 <span class="zoom-badge">点击放大</span></div>
+      </div>
+      <div class="slide-figure" style="margin-top:24px;">
+        <img src="pdf 简报 to PNG/第一册 第三章 AI_Foundations_and_Impact_page-0012.jpg" class="slide-img" alt="全章知识体系图谱与统考避坑速记卡" onclick="openLightbox(this.src)">
+        <div class="slide-caption">🖼️ <strong>全景幻灯 12</strong> · 全章知识体系图谱与统考避坑速记卡（核心压轴总复习） <span class="zoom-badge">点击放大</span></div>
+      </div>
+    </section>
+
+    <section class="section-card" id="sec-answers">
+      <h2>✅ 五、课本课后“学习评量”官方全真题目与参考答案详解</h2>
+      <p style="margin-bottom: 22px; color: var(--text-muted);">本节完整收录董总 2024 年版新教材第一册第 3 章 <strong>3.1 节</strong> 与 <strong>3.2 节</strong> 课后“学习评量”全部原始题干、完整备选选项、官方标准答案及逐题深度解析与课本出处：</p>
+
+      <!-- 3.1 节学习评量 -->
+      <div style="background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border-left: 5px solid #1A365D; border-radius: 8px; padding: 12px 18px; margin: 20px 0 16px;">
+        <h3 style="margin: 0; color: #1A365D; font-size: 16px;">📚 3.1 【人工智能的发展与技术】课后学习评量（原题 + 详析）</h3>
+      </div>
+
+      <!-- 3.1 题 1 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">选择题 · 第 1 题</span>
+          <span class="eval-topic">考点：图灵测试的本质定义与判定逻辑</span>
+        </div>
+        <div class="eval-stem"><strong>1. 图灵测试的结果，告诉我们：</strong></div>
+        <div class="eval-options">
+          <div class="eval-opt correct"><span><strong>A.</strong> 一个系统，在使用者不知情的情况下，会不会被使用者误以为是人类而非电脑</span> <span class="opt-tag-correct">✓ 官方答案</span></div>
+          <div class="eval-opt"><span><strong>B.</strong> 一个人工智能系统，是不是被图灵测试过了</span></div>
+          <div class="eval-opt"><span><strong>C.</strong> 这个人工智能系统使用的是哪一种技术</span></div>
+          <div class="eval-opt"><span><strong>D.</strong> 系统诞生的年代</span></div>
+        </div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案】</span>
+            <span class="ans-value">A</span>
+            <span class="ans-page">📖 课本出处：第 84 页正文</span>
+          </div>
+          <div class="eval-exp-text">
+            <strong>💡 权威深度解析：</strong><br>
+            • <strong>核心考点</strong>：1950 年英国数学家艾伦·图灵（Alan Turing）提出“图灵测试”。测试时，人类裁判在隔开且不知情的状态下通过纯文本与对方交谈。如果机器的智能程度足以使裁判<strong>无法分辨跟自己对话的是人还是电脑</strong>，则判定该机器通过了图灵测试。<br>
+            • <strong>避坑辨析</strong>：图灵测试侧重于<strong>外在行为表现是否达到人类同等智能</strong>，并不涉及测试系统内部的具体演算法技术（C 错）、测试历史履历（B 错）或诞生年代（D 错）。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 题 2 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">选择题 · 第 2 题</span>
+          <span class="eval-topic">考点：人工智能里三大常见核心分支技术辨析</span>
+        </div>
+        <div class="eval-stem">
+          <strong>2. 以下哪一个是人工智能里常见的技术？</strong>
+          <div class="eval-sub-list">
+            <div>Ⅰ. 模糊逻辑（Fuzzy Logic）</div>
+            <div>Ⅱ. 自然语言处理（Natural Language Processing）</div>
+            <div>Ⅲ. 深度学习（Deep Learning）</div>
+          </div>
+        </div>
+        <div class="eval-options">
+          <div class="eval-opt"><span><strong>A.</strong> Ⅰ, Ⅱ</span></div>
+          <div class="eval-opt"><span><strong>B.</strong> Ⅱ, Ⅲ</span></div>
+          <div class="eval-opt"><span><strong>C.</strong> Ⅰ, Ⅲ</span></div>
+          <div class="eval-opt correct"><span><strong>D.</strong> Ⅰ, Ⅱ, Ⅲ</span> <span class="opt-tag-correct">✓ 官方答案</span></div>
+        </div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案】</span>
+            <span class="ans-value">D (Ⅰ, Ⅱ, Ⅲ)</span>
+            <span class="ans-page">📖 课本出处：第 86~92 页</span>
+          </div>
+          <div class="eval-exp-text">
+            <strong>💡 权威深度解析：</strong><br>
+            • <strong>Ⅰ 正确</strong>：模糊逻辑能很好地处理“对与错”、“快与慢”之间的模糊地带，是模拟人类专家推理的重要技术（第 91 页）；<br>
+            • <strong>Ⅱ 正确</strong>：自然语言处理致力于让电脑理解和处理人类自然语言（第 86 页）；<br>
+            • <strong>Ⅲ 正确</strong>：深度学习由多层人工神经元组成，是当前机器学习最重要的突破分支（第 89 页）。三项均为课本重点讲授的常见 AI 技术，故选 D。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 题 3 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">选择题 · 第 3 题</span>
+          <span class="eval-topic">考点：光学字符识别 (OCR) 图像转文本技术</span>
+        </div>
+        <div class="eval-stem"><strong>3. 我们使用扫描器扫描了课本上的一篇文章后，发现在电脑上可以使用文字搜寻功能来搜寻文章里出现的文字。我们已经使用了以下哪项技术？</strong></div>
+        <div class="eval-options">
+          <div class="eval-opt"><span><strong>A.</strong> 自然语言处理</span></div>
+          <div class="eval-opt"><span><strong>B.</strong> 模糊逻辑</span></div>
+          <div class="eval-opt correct"><span><strong>C.</strong> 光学字符识别（Optical Character Recognition, OCR）</span> <span class="opt-tag-correct">✓ 官方答案</span></div>
+          <div class="eval-opt"><span><strong>D.</strong> 进化计算</span></div>
+        </div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案】</span>
+            <span class="ans-value">C (光学字符识别)</span>
+            <span class="ans-page">📖 课本出处：第 88 页正文</span>
+          </div>
+          <div class="eval-exp-text">
+            <strong>💡 权威深度解析：</strong><br>
+            • 扫描器直接生成的文章是图片格式（像素网格），电脑无法直接检索其中的文字。<br>
+            • <strong>光学字符识别 (OCR)</strong> 属于电脑视觉分支技术，它能够自动检测分析图片中的文字笔画特征，将其提取转换成计算机可搜索、复制、编辑的文本字符编码。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 题 4 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">选择题 · 第 4 题</span>
+          <span class="eval-topic">考点：自然语言处理 (NLP) 的多任务处理能力</span>
+        </div>
+        <div class="eval-stem">
+          <strong>4. 自然语言处理系统能够处理以下哪些任务？</strong>
+          <div class="eval-sub-list">
+            <div>Ⅰ. 不同语言间的翻译（机器翻译）</div>
+            <div>Ⅱ. 让使用者口述，系统转换成文字以供记录存档（语音识别 / 语音转文字）</div>
+            <div>Ⅲ. 以语音发问问题，电脑以文字回答（智能人机问答系统）</div>
+          </div>
+        </div>
+        <div class="eval-options">
+          <div class="eval-opt"><span><strong>A.</strong> Ⅰ, Ⅱ</span></div>
+          <div class="eval-opt"><span><strong>B.</strong> Ⅱ, Ⅲ</span></div>
+          <div class="eval-opt"><span><strong>C.</strong> Ⅰ, Ⅲ</span></div>
+          <div class="eval-opt correct"><span><strong>D.</strong> Ⅰ, Ⅱ, Ⅲ</span> <span class="opt-tag-correct">✓ 官方答案</span></div>
+        </div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案】</span>
+            <span class="ans-value">D (Ⅰ, Ⅱ, Ⅲ)</span>
+            <span class="ans-page">📖 课本出处：第 86~87 页</span>
+          </div>
+          <div class="eval-exp-text">
+            <strong>💡 权威深度解析：</strong><br>
+            • <strong>Ⅰ</strong> 对应机器翻译（将一种自然语言翻译为另一种自然语言）；<br>
+            • <strong>Ⅱ</strong> 对应语音识别（将人类连续语音信号转换为对应文本文字）；<br>
+            • <strong>Ⅲ</strong> 对应人机对话与智能问答系统（如沃森 Watson、Siri、智能客服）。三者全属于自然语言处理的研究与应用任务，故选 D。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 题 5 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">选择题 · 第 5 题</span>
+          <span class="eval-topic">考点：电脑视觉 (CV) 在社交网络中的人脸识别落地</span>
+        </div>
+        <div class="eval-stem"><strong>5. 小华上传与同学的合照到社交媒体时，社交媒体标示合照中的同学小明，这样的技术与以下哪项最有关系？</strong></div>
+        <div class="eval-options">
+          <div class="eval-opt"><span><strong>A.</strong> 机器翻译</span></div>
+          <div class="eval-opt"><span><strong>B.</strong> 虹膜辨识</span></div>
+          <div class="eval-opt correct"><span><strong>C.</strong> 人脸识别（Face Recognition）</span> <span class="opt-tag-correct">✓ 官方答案</span></div>
+          <div class="eval-opt"><span><strong>D.</strong> 机器人学</span></div>
+        </div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案】</span>
+            <span class="ans-value">C (人脸识别)</span>
+            <span class="ans-page">📖 课本出处：第 88 页正文</span>
+          </div>
+          <div class="eval-exp-text">
+            <strong>💡 权威深度解析：</strong><br>
+            • 社交媒体运用<strong>电脑视觉</strong>中的人脸检测定位与特征抽取算法，将合影照片中的面部生物特征与已存的小明面部特征进行比对匹配，进而自动标示出对应姓名，属于典型的<strong>人脸识别</strong>。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 题 6 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">选择题 · 第 6 题</span>
+          <span class="eval-topic">考点：机器学习 (ML) 的特征工程与模型反复训练原理</span>
+        </div>
+        <div class="eval-stem"><strong>6. 植物学家尝试“教”电脑如何辨识植物，于是想到取出植物的特征来反复训练电脑，这样的过程与以下哪项最有关系？</strong></div>
+        <div class="eval-options">
+          <div class="eval-opt"><span><strong>A.</strong> 虹膜辨识</span></div>
+          <div class="eval-opt correct"><span><strong>B.</strong> 机器学习（Machine Learning）</span> <span class="opt-tag-correct">✓ 官方答案</span></div>
+          <div class="eval-opt"><span><strong>C.</strong> 进化计算</span></div>
+          <div class="eval-opt"><span><strong>D.</strong> 机器人学</span></div>
+        </div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案】</span>
+            <span class="ans-value">B (机器学习)</span>
+            <span class="ans-page">📖 课本出处：第 89 页正文</span>
+          </div>
+          <div class="eval-exp-text">
+            <strong>💡 权威深度解析：</strong><br>
+            • 传统规则编程必须人工预设所有逻辑分支。而<strong>机器学习</strong>致力于让电脑系统通过大量数据进行“自主学习”，通过提取植物样本的关键特征（叶形、脉络、花色），反复迭代调整模型参数（训练过程），从而具备对未知样本的准确辨识预测能力。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.1 题 7 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">应用综合题 · 第 7 题</span>
+          <span class="eval-topic">考点：生活实际 AI 产品与其底层核心支柱技术配对</span>
+        </div>
+        <div class="eval-stem"><strong>7. 试说出两种你使用过的人工智能产品应用，以及它们使用了什么人工智能技术？</strong></div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方标准答案技术对应表】</span>
+            <span class="ans-page">📖 课本出处：第 3 章参考答案</span>
+          </div>
+          <div class="table-container" style="margin-top:10px;">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:50%;">生活中的实际 AI 应用场景</th>
+                  <th style="width:50%;">对应底层核心技术（官方规范答案）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>输入文字时，发现 / 检查文法错误</strong>（如 Word 语法波浪线、Grammarly 纠错）</td>
+                  <td><span class="tech-tag" style="background:#FAF5FF;color:#6B21A8;border:1px solid #E9D5FF;font-weight:700;">自然语言处理 (Natural Language Processing, NLP)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>语音识别与智能语音助理</strong>（如 Siri、Google Assistant 听懂说话）</td>
+                  <td><span class="tech-tag" style="background:#FAF5FF;color:#6B21A8;border:1px solid #E9D5FF;font-weight:700;">自然语言处理 (Natural Language Processing, NLP)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>刷脸解锁手机 / 人脸门禁闸机</strong> (Face Unlock)</td>
+                  <td><span class="tech-tag" style="background:#FFF7ED;color:#C2410C;border:1px solid #FFEDD5;font-weight:700;">电脑视觉 (Computer Vision, CV)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>电商平台与视频个性化推荐系统</strong>（如 Amazon 猜你喜欢、YouTube 推荐视频）</td>
+                  <td><span class="tech-tag" style="background:#EFF6FF;color:#1E40AF;border:1px solid #DBEAFE;font-weight:700;">机器学习 (Machine Learning, ML)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="eval-exp-text" style="margin-top:12px;">
+            <strong>💡 统考应答规范：</strong>学生在作答此题时，任选其中<strong>两项</strong>，写清具体功能场景与对应 AI 分支技术全称（或中英文名称）即可获满分。切勿仅笼统写“使用了人工智能”。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 节学习评量 -->
+      <div style="background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border-left: 5px solid #2D6A4F; border-radius: 8px; padding: 12px 18px; margin: 30px 0 16px;">
+        <h3 style="margin: 0; color: #166534; font-size: 16px;">🌐 3.2 【人工智能的应用与影响】课后学习评量（原题 + 详析）</h3>
+      </div>
+
+      <!-- 3.2 题 1 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">选择题 · 第 1 题</span>
+          <span class="eval-topic">考点：AI 发展历史上最早应用且取得最大成功的领域</span>
+        </div>
+        <div class="eval-stem"><strong>1. 以下哪一项最早开始使用人工智能，且取得最大的成功？</strong></div>
+        <div class="eval-options">
+          <div class="eval-opt"><span><strong>A.</strong> 作曲</span></div>
+          <div class="eval-opt"><span><strong>B.</strong> 编剧</span></div>
+          <div class="eval-opt correct"><span><strong>C.</strong> 游戏（Game）</span> <span class="opt-tag-correct">✓ 官方答案</span></div>
+          <div class="eval-opt"><span><strong>D.</strong> 作画</span></div>
+        </div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案】</span>
+            <span class="ans-value">C (游戏)</span>
+            <span class="ans-page">📖 课本出处：第 98 页正文</span>
+          </div>
+          <div class="eval-exp-text">
+            <strong>💡 权威深度解析：</strong><br>
+            • 棋类游戏（西洋跳棋、国际象棋、围棋等）拥有清晰明确的胜负判定条件与有限规则空间，因此是人工智能最早探索切入的试验场，并取得了极具历史轰动性的成功（1997 年深蓝击败国际象棋世界冠军卡斯帕罗夫；2016 年 AlphaGo 击败世界围棋冠军李世石）。<br>
+            • 作曲、编剧、作画涉及高度人类主观情感与艺术审美，属于近年来生成式 AI 发展的新兴成果，远晚于游戏领域。
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 题 2 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">核心简答大题 · 第 2 题</span>
+          <span class="eval-topic">考点：产品生产中 AI 相比人类专家的三大核心优势（统考高频必背）</span>
+        </div>
+        <div class="eval-stem"><strong>2. 为什么在产品生产过程中，使用人工智能来调控环境参数比人类调控更为理想？</strong></div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方标准参考答案（三大采分要点）】</span>
+            <span class="ans-page">📖 课本出处：第 95 页正文</span>
+          </div>
+          <div class="eval-point-box">
+            <div class="eval-point-item">
+              <span class="point-num">①</span>
+              <div class="point-text"><strong>捕捉极其细微变化，及早做出微调</strong>：电脑与高精度传感器能够敏锐察觉人类感官无法察觉的微小物理变化（如温度、气压、原料配比波动），并在第一时间内即时进行自动化微调，防患于未然，极大减少残次品产生。</div>
+            </div>
+            <div class="eval-point-item">
+              <span class="point-num">②</span>
+              <div class="point-text"><strong>不知疲倦，24 小时维持高精度与稳定一致性</strong>：人类工人可能因为长时间连续高强度工作而产生身体疲劳、注意力涣散，从而导致误判或失误；电脑与 AI 系统不知疲倦，能实现 7×24 小时不间断保持极高精度稳定运行。</div>
+            </div>
+            <div class="eval-point-item">
+              <span class="point-num">③</span>
+              <div class="point-text"><strong>经验数字化永续传承，消除人才流失断层风险</strong>：人类依据个人主观经验工作，一旦关键员工离职或退休，经验传承容易残缺不全（许多隐性经验极难仅凭口传心授或文字传承），新人需要漫长周期与高额成本学习；而 AI 模型将经验规律算法化固化，永不遗失且可瞬间多线复制应用。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 题 3 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">拓展情境大题 · 第 3 题</span>
+          <span class="eval-topic">考点：人工智能在教育与居家生活领域的赋能角色探讨</span>
+        </div>
+        <div class="eval-stem"><strong>3. 试提出一个本书未提出的应用领域，并探讨人工智能在该领域中扮演的角色。（或列举教育与居家领域的具体应用）</strong></div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方参考答案典型领域范例】</span>
+            <span class="ans-page">📖 课本出处：第 3 章参考答案</span>
+          </div>
+          <div class="eval-point-box">
+            <div class="eval-point-item">
+              <span class="point-num">🎓</span>
+              <div class="point-text">
+                <strong>教育领域应用 (Education)：</strong><br>
+                • <strong>自适应因材施教</strong>：根据学生的学习进度、答题准确率与能力强弱，智能推荐难度适中的梯度个性化练习题，帮助学生高效查漏补缺；<br>
+                • <strong>学龄前启蒙学习</strong>：幼儿可通过具备语音交互与趣味视觉反馈的人工智能益智游戏，在互动探索中快乐学习。
+              </div>
+            </div>
+            <div class="eval-point-item">
+              <span class="point-num">🏠</span>
+              <div class="point-text">
+                <strong>居家生活与养老安防应用 (Home Living)：</strong><br>
+                • <strong>情感陪护</strong>：智能宠物机器人或陪伴机器人能够与独居老人聊天互动，排解精神孤独感；<br>
+                • <strong>突发事故预警</strong>：居家安全监控系统能结合电脑视觉或红外传感器，监测老人摔倒、火灾等突发危险，并即时触发警报呼叫救援。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 题 4 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">思辨问答大题 · 第 4 题</span>
+          <span class="eval-topic">考点：电脑视觉在保安领域的局限性、个人隐私侵犯与绝对禁区</span>
+        </div>
+        <div class="eval-stem"><strong>4. 电脑视觉技术可应用于保安领域，试思考该技术在保安领域的限制。</strong></div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方标准采分点】</span>
+            <span class="ans-page">📖 课本出处：第 96~97 页、第 100 页</span>
+          </div>
+          <div class="eval-point-box">
+            <div class="eval-point-item">
+              <span class="point-num" style="background:#E53E3E;">🚨</span>
+              <div class="point-text">
+                <strong style="color:#9B2C2C;">侵犯个人隐私的嫌疑：</strong><br>
+                监控摄像设备的普及具有极高的侵犯个人隐私嫌疑，尤其是在私人住家内部室内、以及需要输入电脑或手机银行密码的键盘私密区域。
+              </div>
+            </div>
+            <div class="eval-point-item">
+              <span class="point-num" style="background:#9B2C2C;">⛔</span>
+              <div class="point-text">
+                <strong style="color:#9B2C2C;">法定绝对红线禁区：</strong><br>
+                <strong>厕所 / 洗手间、浴室及更衣室等极度私密的场所，是法律法规与社会公序良俗上绝对不可安装或使用任何监控设备的法定红线禁区！</strong>
+              </div>
+            </div>
+            <div class="eval-point-item">
+              <span class="point-num" style="background:#DD6B20;">💾</span>
+              <div class="point-text">
+                <strong>中心化敏感数据泄漏风险：</strong><br>
+                被系统长期采集并集中存储在云端的人脸生物特征、体貌与日常活动轨迹数据，一旦遭遇黑客非法入侵或内部泄露，将引发不可挽回的长期人身与财产安全隐患。
+              </div>
+            </div>
+            <div class="eval-point-item">
+              <span class="point-num" style="background:#4A5568;">⚙️</span>
+              <div class="point-text">
+                <strong>物理环境限制与算法偏差（技术局限）：</strong><br>
+                电脑视觉极易受到现场光线剧烈明暗变化、逆光、阴影、雨雾等极端恶劣天气以及帽子、口罩遮挡影响导致误判或漏报；同时，人脸识别算法在不同人种与性别间可能存在准确率偏差。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 题 5 -->
+      <div class="eval-card">
+        <div class="eval-header">
+          <span class="eval-badge">商业闭环论述题 · 第 5 题</span>
+          <span class="eval-topic">考点：“免费”互联网服务的商业盈利闭环与 AI 扮演的核心角色</span>
+        </div>
+        <div class="eval-stem"><strong>5. 许多同学都在使用著名科技企业提供的所谓“免费”电子邮件和上网搜寻服务。然而，这些服务并非真正免费。请和同学一起讨论，这些企业是如何通过提供服务而获取利润？在这个过程中，人工智能扮演了什么角色？</strong></div>
+        <div class="eval-analysis">
+          <div class="eval-ans-row">
+            <span class="ans-label">【官方权威完整答案深度剖析】</span>
+            <span class="ans-page">📖 课本出处：第 3 章参考答案</span>
+          </div>
+          <div class="eval-point-box">
+            <div class="eval-point-item">
+              <span class="point-num">💰</span>
+              <div class="point-text">
+                <strong>一、科技企业的商业盈利闭环机制（用户实质为“免费”间接买单）：</strong><br>
+                • <strong>语义挖掘与意图理解</strong>：提供电子邮件及上网搜寻服务的科技企业，使用<strong>自然语言处理（NLP）</strong>系统深度分析使用者的电子邮件正文内容、搜索关键词与浏览行为，从而深刻理解与使用者相关的兴趣领域、生活痛点及即时消费需求。<br>
+                • <strong>精准客制化广告变现</strong>：企业基于深度意图画像，向商业广告主收取高额广告费，将精准匹配的客制化定向广告直接推送到用户屏幕上。<br>
+                • <strong>消费者间接买单</strong>：广大用户在客制化广告影响下购买了商家的产品，<strong>从而间接地为原本所谓的“免费”电子邮件和上网搜寻服务支付了高昂的服务费</strong>（“当你没有为产品付费时，你本身就是被出售的产品”）。
+              </div>
+            </div>
+            <div class="eval-point-item">
+              <span class="point-num">🤖</span>
+              <div class="point-text">
+                <strong>二、人工智能在这一商业运作中扮演的人力不可替代的关键角色：</strong><br>
+                • <strong>① 解决天量高并发的即时响应（人类人力绝无可能胜任）</strong>：全世界每秒钟有海量用户发出天文数字般的电子邮件并进行海量网络搜索，依赖人工审查与广告匹配根本无法做到即时性，必须依靠 AI 自然语言处理系统在毫秒级时间内全自动完成意图提取与广告竞价分发。<br>
+                • <strong>② 游走在法律与隐私监管的灰色地带</strong>：若由企业雇员以人工肉眼直接读取他人的私人电邮，属于严重触犯法律的侵犯个人隐私犯罪；而借由 AI 机器算法在后台自动化扫描匹配，则让科技企业得以在伦理与法律的灰色地带中隐蔽高效运作。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section-card" id="sec-infographics">
+      <h2>🗺️ 六、配套全景高精思维导图与核心考点信息图 (Infographics)</h2>
+      <p>3 张全彩高精长图，全面梳理技术脉络与考点图谱，点击任意图片可全屏放大浏览：</p>
+      <div class="info-panel">
+        <div class="info-panel-title">📊 核心考点视觉长图展示</div>
+        <div class="info-gallery">
+          <div class="info-thumb">
+            <img src="配套信息图/第一册 03章 人工智能核心复习指南.png" alt="第3章人工智能核心复习指南" onclick="openLightbox(this.src)">
+            <div class="info-thumb-caption">📌 第 3 章 人工智能核心复习指南</div>
+          </div>
+          <div class="info-thumb">
+            <img src="配套信息图/人工智能流派与前沿技术.png" alt="人工智能流派与前沿技术全景图" onclick="openLightbox(this.src)">
+            <div class="info-thumb-caption">📌 人工智能流派与前沿技术全景图</div>
+          </div>
+          <div class="info-thumb">
+            <img src="配套信息图/人工智能的发展与应用.png" alt="人工智能发展脉络与行业应用图谱" onclick="openLightbox(this.src)">
+            <div class="info-thumb-caption">📌 人工智能发展脉络与行业应用图谱</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="speed-card" id="sec-speed">
+      <h2>⚡ 七、师生考前 3 分钟速记卡与板书框架</h2>
+      <div class="speed-rows-container">
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-blue">📐 判定准绳</span>
+          <div class="speed-content">
+            <strong>图灵测试 (Turing Test)：人机隔离纯文字盲测，人类无法分辨即判定机器具备思考能力</strong>
+            <em>提出者：Alan Turing（1950 年）</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-blue">🤖 机器学习</span>
+          <div class="speed-content">
+            <strong>从数据中自主统计学习规律，无需预设死逻辑 ➔ 经典代表：Amazon 猜你喜欢商品推荐系统</strong>
+            <em>三大范式：监督学习、非监督学习、强化学习</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-green">🧬 深度学习</span>
+          <div class="speed-content">
+            <strong>多层人工神经网络模型，端到端自主抽象提取深层特征 ➔ 自动驾驶感知 / 医疗肿瘤筛查</strong>
+            <em>ML 的高级分支；模拟人脑神经突触</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-orange">👁️ 电脑视觉</span>
+          <div class="speed-content">
+            <strong>让电脑看懂图像与视频 ➔ 刷脸解锁 (Face Unlock) / 门禁人脸闸机 / 车牌识别 / 图像破损修复</strong>
+            <em>高频配对必考题：刷脸解锁 ➔ CV</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-purple">💬 自然语言</span>
+          <div class="speed-content">
+            <strong>让电脑理解人类日常语言与语义 ➔ 输入文字文法纠错 / Siri 语音助理 / 机器翻译 / 聊天机器人</strong>
+            <em>高频配对必考题：文法纠错 ➔ NLP；语音识别 ➔ NLP</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-blue">🏛️ 专家系统</span>
+          <div class="speed-content">
+            <strong>知识库（规则事实） + 推理引擎（逻辑推导） ➔ 符号主义经典代表，无法自我进化</strong>
+            <em>两大部件必须准确写出中英文名称</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-green">🏆 三大优势</span>
+          <div class="speed-content">
+            <strong>① 捕捉极其微小变化及早微调；② 不知疲倦 24 小时高精作业；③ 经验数字化永续传承</strong>
+            <em>课本原题核心必背简答大题！</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-orange">🎓 教育应用</span>
+          <div class="speed-content">
+            <strong>个性化自适应题库推荐（按进度与能力精准推送） + 学龄前儿童 AI 互动游戏趣味启蒙</strong>
+            <em>结合生活实例情境简答</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-orange">🏠 居家应用</span>
+          <div class="speed-content">
+            <strong>宠物/人形机器人情感陪伴独居老人 + 突发摔倒或火灾主动安全报警与急救通知</strong>
+            <em>养老与现代居家安防标准考点</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-blue">💰 免费商业</span>
+          <div class="speed-content">
+            <strong>免费电邮/搜索 ➔ AI用NLP挖掘兴趣 ➔ 向商家收费展示客制化广告 ➔ 羊毛出在羊身上</strong>
+            <em>商业闭环：用户买商品间接为免费服务买单</em>
+          </div>
+        </div>
+        <div class="speed-row">
+          <span class="speed-tag speed-tag-red">🚨 伦理禁区</span>
+          <div class="speed-content">
+            <strong>敏感私人领地（住家室内、密码键盘输入区）严禁安装；卫生间是绝对禁止使用的法定禁区！</strong>
+            <em>此外防止云端集中存储生物特征数据泄漏！</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-portal-card" id="sec-quiz">
+      <div class="quiz-portal-header">
+        <div class="quiz-portal-title">📝 八、 互动题库与全景智能评测系统</div>
+        <span class="quiz-portal-badge">全卷 A · 基础巩固 ＋ 全卷 B · 综合进阶</span>
+      </div>
+      <p class="quiz-portal-desc">第 3 章人工智能与应用完整题库：严格依据董总 2024 年版新教材规范编制，完整收录：卷A基础巩固（30题）、卷B综合进阶（30题），配套10道综合情境作答大题，每组10题分页演练，即判即析，含教师官方阶梯评分量规。</p>
+      <div class="quiz-stats-grid">
+        <div class="quiz-stat-box">
+          <div class="quiz-stat-num">60</div>
+          <div class="quiz-stat-lbl">选择题（即判即析）</div>
+        </div>
+        <div class="quiz-stat-box">
+          <div class="quiz-stat-num">10</div>
+          <div class="quiz-stat-lbl">综合情境作答大题</div>
+        </div>
+        <div class="quiz-stat-box">
+          <div class="quiz-stat-num">200</div>
+          <div class="quiz-stat-lbl">满分考核设定</div>
+        </div>
+        <div class="quiz-stat-box">
+          <div class="quiz-stat-num">⭐</div>
+          <div class="quiz-stat-lbl">董总统考对齐</div>
+        </div>
+      </div>
+      <button class="quiz-launch-main-btn" onclick="openQuiz()">🚀 启动全景互动题库</button>
+    </section>
+
+          <!-- 章节版权声明与底部信息 -->
+        <footer class="chapter-footer">
+          <p><strong>© 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程</strong></p>
+          <p class="chapter-footer-sub">欢迎分享本网页链接供学习使用；未经许可，不得复制、转载网页内的文字、题目及答案，不得公开发布于其他网站或平台，亦不得用于商业销售。</p>
+        </footer>
+    </main>
+</div>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <div id="lightbox-close" onclick="closeLightbox()">✕</div>
+  <img id="lightbox-img" src="" alt="放大图片">
+</div>
+
+<button id="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="放大图片">
+</div>
+
+<!-- 全景互动题库 MODAL (Chapter 2 Full Dual-Paper System) -->
+<div id="quiz-overlay" onclick="handleOverlayClick(event)">
+  <div class="quiz-modal">
+    <button class="quiz-close-btn" onclick="closeQuiz()">✕</button>
+    <div class="quiz-modal-title">🧩 第 3 章 人工智能与应用 · 全景互动题库</div>
+    <div class="quiz-modal-sub">选择题：点击选项即判断 ｜ 作答题：按 a / b / c 分段展开参考答案</div>
+    
+    <div class="quiz-tabs-bar">
+      <button class="qtab-btn active" id="tab-A-btn" onclick="switchTab('tabA',this)">📋 卷A 基础 (30题)</button>
+      <button class="qtab-btn" id="tab-B-btn" onclick="switchTab('tabB',this)">📋 卷B 进阶 (30题)</button>
+      <button class="qtab-btn" id="tab-Open-btn" onclick="switchTab('tabOpen',this)">💡 综合大题 (10题)</button>
+    </div>
+
+    <!-- 卷A -->
+    <div id="tabA" class="quiz-tab-content" style="display:block;">
+<div style='font-size:13px;color:#475569;margin-bottom:16px;padding:10px 14px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;'>卷A 基础巩固 · 30题 · 共3组 · 每组10题。覆盖：AI定义与历史、图灵测试、NLP分支技术、电脑视觉五大应用、机器学习与专家系统、人机协作与社会落地。</div>
+<div id='page_a_1' class='mcq-page-block' style='display:block;'>
+  <div class='mcq-page-header'><span>a · 第 1–10 题</span><span id='score_a1'>得分: 0 / 10</span></div>
+  <div class='mcq-card' id='aq1' data-exp="• 【答案说明】：&lt;br>• B 正确：根据新课本第 84 页正文，“人工智能并非一种技术名称，也不是一种软体，而是一门新兴的科学领域，这个领域涉及多种大相径庭的技术”，其主要研究方向是如何让电脑模拟人类的思考模式（如学习、推理和解决问题）。&lt;br>• A、C、D 错误：将 AI 矮化为某一特定应用软件、单一操作系统框架或机械手臂微控制器指令均违背学科定义。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q1</span><span class='mcq-stem'>现代学术界对“人工智能 (Artificial Intelligence, AI)”的本质属性达成了广泛共识，下列哪项表述最符合新课本定义？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq1','a1')"><span class='opt-letter'>A</span> 它是指某一类能够完全独立替代人类全部复杂情感与生理机能的特定计算机应用软件</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq1','a1')"><span class='opt-letter'>B</span> 它并不是指某一种具体技术或单一软件，而是一门涉及让电脑模拟人类思考的新兴科学领域</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq1','a1')"><span class='opt-letter'>C</span> 它是指由国际电气电子工程师学会统一命名且拥有绝对固定标准定义的单一操作系统框架</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq1','a1')"><span class='opt-letter'>D</span> 它是专门用于驱动工业机械手臂并在极高温度极端物理环境下保持连续作业的微控制器指令</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq1','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq2' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 84 页明确指出，图灵测试是指一个人在隔开的情况下，通过装置与一台机器沟通，如果机器的智能程度足以使这个人无法分辨跟自己对话的是一个人还是一台机器，这台机器就通过了图灵测试。&lt;br>• A、C、D 错误：均偏离了图灵测试关于“机器能否表现出与人类无法区分的智能行为”的哲学与技术本质。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q2</span><span class='mcq-stem'>1950 年，英国著名数学家艾伦&#183;图灵 (Alan Turing) 提出了著名的“图灵测试 (Turing Test)”，其核心目标是什么？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq2','a1')"><span class='opt-letter'>A</span> 测试计算机微处理器的浮点运算速度是否能够在特定基准测试中超越人类数学家</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq2','a1')"><span class='opt-letter'>B</span> 测试机器是否具备足以让人类测试员在隔开沟通时无法分辨对方是人还是机器的智能程度</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq2','a1')"><span class='opt-letter'>C</span> 检验计算机网络通讯协议在遭遇高延迟与高丢包恶劣网络环境下是否仍能维持会话连接</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq2','a1')"><span class='opt-letter'>D</span> 评估数据加密演算法在面对全球分布式暴力破解攻击时的抗逆力与数学复杂性指标</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq2','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq3' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 84 页记载，“在 1956 年于美国达特茅斯学院举办的一个工作坊中，‘人工智能’一词首次被提出”。&lt;br>• A 错误：1946 年 ENIAC 诞生；B 错误：1950 年图灵发表《计算机械与智能》提出图灵测试；D 错误：1997 年为深蓝获胜年份。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q3</span><span class='mcq-stem'>“人工智能 (Artificial Intelligence)”这一专业科学术语，最初是在哪一年召开的历史性学术会议上被正式提出的？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq3','a1')"><span class='opt-letter'>A</span> 1946 年于美国宾夕法尼亚大学召开的首台电子计算机 ENIAC 正式落成与验收发布会</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq3','a1')"><span class='opt-letter'>B</span> 1950 年于英国伦敦皇家学会由艾伦&#183;图灵亲自主持召开的关于机器思考能力的哲学研讨会</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq3','a1')"><span class='opt-letter'>C</span> 1956 年于美国达特茅斯学院举办的一个专注于探讨机器模拟人类智能的学术工作坊</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq3','a1')"><span class='opt-letter'>D</span> 1997 年于美国纽约由 IBM 研发团队举办的深蓝超级电脑击败国际象棋世界冠军发布会</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq3','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq4' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 84~85 页记载，1997 年 IBM 开发的人工智能电脑深蓝 (Deep Blue) 战胜国际象棋世界冠军卡斯帕罗夫，这场比赛显示出人工智能在需要推演和思考的棋盘游戏上超越了人类。&lt;br>• A、B、D 错误：深蓝是专注于国际象棋规则搜索与博弈树评估的专用系统，不具备自主情感意识或机器翻译能力。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q4</span><span class='mcq-stem'>1997 年，IBM 研发的超级电脑“深蓝 (Deep Blue)”战胜了国际象棋世界冠军加里&#183;卡斯帕罗夫，这一里程碑标志着什么？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq4','a1')"><span class='opt-letter'>A</span> 人工智能系统在文字润色与多语种即时同声传译的文学创作领域全面超越了人类大师</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq4','a1')"><span class='opt-letter'>B</span> 人工智能系统在无需任何预设规则的前提下自发产生了独立于人类的自主情感与意识</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq4','a1')"><span class='opt-letter'>C</span> 人工智能在需要复杂逻辑推演与多步博弈思考的高水平棋盘对抗游戏中首次超越了人类冠军</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq4','a1')"><span class='opt-letter'>D</span> 计算机视觉系统在对极其模糊的微观生物细胞病变图像识别精度上首次达到了百分之百</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq4','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq5' data-exp="• 【答案说明】：&lt;br>• A 正确（仅 I、II、IV）：&lt;br>• I、II、IV 正确揭示了自然语言的多义性（如 present 可表示现在、礼物、呈现）、文法结构差异以及语境文化复杂性，是机器翻译面临的核心挑战（课本第 86 页）；&lt;br>• III 错误：计算机可以通过 ASCII、Unicode 等编码标准完美在内存中存储任何文本字符，存储本身不存在硬件障碍。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q5</span><span class='mcq-stem'>【罗马组合题 1】 自然语言处理 (NLP) 致力于让电脑读懂并理解人类日常语言。在实现机器翻译 (Machine Translation) 时，电脑常面临极大困难，其根本原因包括下列哪些陈述？<br>I. 人类自然语言的文法结构极其复杂且不同语种之间句法差异巨大<br>II. 很多单字在不同上下文句子中具有截然不同的多重含义与歧义性<br>III. 计算机内存芯片无法以二进制机器码的形式存储英文字符文本数据<br>IV. 自然语言常常包含文化俚语、修辞隐喻以及高度模糊的语境信息</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','aq5','a1')"><span class='opt-letter'>A</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','aq5','a1')"><span class='opt-letter'>B</span> 仅 I、III、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','aq5','a1')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','aq5','a1')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq5','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq6' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 86 页定义：语音识别是指“通过读取人类的语音，然后将其转换为相应的文字或命令，并对其进行识别认知和处理”。&lt;br>• A 错误：属于计算机视觉 3D 重建；C 错误：属于指纹识别；D 错误：属于虚假水军生成。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q6</span><span class='mcq-stem'>自然语言处理中的“语音识别 (Speech Recognition)”技术，其在现实场景中的核心工作原理为何？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq6','a1')"><span class='opt-letter'>A</span> 将使用者输入的高清摄影图片通过几何边缘检测算法精准转换为三维空间立体建模坐标</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq6','a1')"><span class='opt-letter'>B</span> 读取人类发出的语音声波信号并将其转换为对应的文字符号或机器可理解的系统控制命令</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq6','a1')"><span class='opt-letter'>C</span> 对人类手指表面凹凸不平的脊线几何分布进行特征提取并与中央云端数据库进行快速比对</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq6','a1')"><span class='opt-letter'>D</span> 分析整段文章段落中的情感色彩倾向并自动为电子商务平台生成虚假的正面五星好评文本</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq6','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq7' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 87 页指出，2011 年 IBM 的问答系统沃森 (Watson) 击败人类冠军夺冠，它依赖于读取人类语言输入、理解输入内容、检索关联数据并产生反馈的问答系统技术。&lt;br>• A、B、D 错误：均非电视常识问答系统的核心支撑技术。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q7</span><span class='mcq-stem'>2011 年，IBM 研发的问答系统“沃森 (Watson)”登上美国著名电视有奖问答节目《Jeopardy!》并勇夺冠军，该系统主要综合运用了哪些 AI 技术？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq7','a1')"><span class='opt-letter'>A</span> 模糊逻辑推理控制与无人机空气动力学航线优化算法</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq7','a1')"><span class='opt-letter'>B</span> 工业级机器手臂物理逆运动学精密求解与高压焊接技术</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq7','a1')"><span class='opt-letter'>C</span> 自然语言理解、大规模海量数据库快速检索与问答反馈系统</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq7','a1')"><span class='opt-letter'>D</span> 基于达特茅斯学院纯手工硬编码规则库的二分查找检索系统</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq7','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq8' data-exp="• 【答案说明】：&lt;br>• D 正确：新课本第 88 页“小知识”指出，生成式人工智能 (Generative AI) 是一种能生成新资讯的人工智能，如 ChatGPT 具备对话能力，能生成文本、创作诗歌甚至写代码。&lt;br>• A、B、C 错误：分别属于传统判别式分类器或非文本算法范畴。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q8</span><span class='mcq-stem'>2022 年底 ChatGPT 的问世标志着自然语言生成技术迈向新高度，其在技术分类上属于哪一种人工智能范式？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','D','aq8','a1')"><span class='opt-letter'>A</span> 专门用于识别红绿灯与交通违章车辆的传统分类人工智能</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','D','aq8','a1')"><span class='opt-letter'>B</span> 仅能依据死记硬背的机械规则执行固定加减乘除的符号运算系统</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','D','aq8','a1')"><span class='opt-letter'>C</span> 严格基于生物蚁群觅食路径规划的最短路线进化计算系统</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','D','aq8','a1')"><span class='opt-letter'>D</span> 能够理解使用者输入的复杂意图并自主生成全新文字或代码资讯的生成式人工智能</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq8','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq9' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 89 页明确区分：“人脸检测 (Face Detection)”是指检测图像中是否出现人脸以及人脸所在的位置（用于相机自动对焦）；而“人脸识别”则是比对已知数据库确认是谁。&lt;br>• B、C、D 错误：混淆了检测位置与辨识身份的区别。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q9</span><span class='mcq-stem'>电脑视觉 (Computer Vision) 旨在分析并理解图像或视频中的资讯。在数字相机拍照时，若画面能自动用方框圈出人脸所在位置，属于下列哪项技术？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','aq9','a1')"><span class='opt-letter'>A</span> 人脸检测 (Face Detection)</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','aq9','a1')"><span class='opt-letter'>B</span> 人脸识别 (Face Recognition)</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','aq9','a1')"><span class='opt-letter'>C</span> 光学字符识别 (OCR)</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','aq9','a1')"><span class='opt-letter'>D</span> 生物特征虹膜验证 (Iris Verification)</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq9','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq10' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 89 页指出，“人脸识别 (Face Recognition) 是将图像中的人脸与已有的记录进行比对，以分辨图中人物身份”。&lt;br>• A、C、D 错误：门禁确认“是谁”并放行是典型的人脸识别过程。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q10</span><span class='mcq-stem'>学校图书馆使用智能门禁系统，学生站在摄像头前，系统将其面部特征与学籍数据库中的照片进行精准比对以确认身份，这属于哪项技术？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq10','a1')"><span class='opt-letter'>A</span> 图像破损恢复与自动去噪 (Image Restoration)</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq10','a1')"><span class='opt-letter'>B</span> 人脸识别 (Face Recognition)</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq10','a1')"><span class='opt-letter'>C</span> 仅检测画面中是否有人脸存在的人脸检测技术</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq10','a1')"><span class='opt-letter'>D</span> 物体空间三维定位与几何测量 (Object Detection)</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq10','a1')">↺ 重试</button></div>
+  </div>  <div class='mcq-nav-footer'>
+    <div></div><button class='mcq-nav-btn' onclick="showMcqPage('page_a_1', 'page_a_2')">下一组 (11–20题) →</button>
+  </div>
+</div>
+<div id='page_a_2' class='mcq-page-block' style='display:none;'>
+  <div class='mcq-page-header'><span>a · 第 11–20 题</span><span id='score_a2'>得分: 0 / 10</span></div>
+  <div class='mcq-card' id='aq11' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 89 页指出，光学字符识别 (Optical Character Recognition, OCR) 是一种利用电脑视觉和机器学习技术从图像中识别字符的过程，将图像中的文字转换为机器可编辑的文本。&lt;br>• A、B、D 错误：均与印刷文字数字化识别无关。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q11</span><span class='mcq-stem'>使用扫描器将纸质课本的一页内容扫描保存为图像后，为了能够用文字处理软件对其进行编辑，应使用下列哪项技术？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq11','a2')"><span class='opt-letter'>A</span> 人工蜂群启发式觅食演算法</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq11','a2')"><span class='opt-letter'>B</span> 模糊逻辑洗衣机水位智能调控</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq11','a2')"><span class='opt-letter'>C</span> 光学字符识别 (Optical Character Recognition, OCR)</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq11','a2')"><span class='opt-letter'>D</span> 汽车制造流水线上的六轴工业焊接机器手臂</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq11','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq12' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 89 页明确提出，“电脑视觉还可以协助图像恢复 (Image Restoration)。例如，陈旧或已破损的照片可以通过此技术进行修复”。&lt;br>• A、B、D 错误：图像修旧如新是标准的图像恢复技术。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q12</span><span class='mcq-stem'>博物馆将馆藏的一批严重褪色、存在大量折痕与物理划痕的历史老照片输入电脑系统进行清晰度复原，这体现了电脑视觉的哪项应用？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq12','a2')"><span class='opt-letter'>A</span> 自然语言机器翻译与跨文化语意校正系统</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq12','a2')"><span class='opt-letter'>B</span> 传统二维平面直角坐标系下的几何变换缩放</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq12','a2')"><span class='opt-letter'>C</span> 基于深度学习特征重建的图像恢复 (Image Restoration) 技术</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq12','a2')"><span class='opt-letter'>D</span> 依据肯定前件逻辑推理的大型商业专家决策系统</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq12','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq13' data-exp="• 【答案说明】：&lt;br>• B 正确（仅 I、II、IV）：&lt;br>• I、II、IV 均符合课本第 90 页关于生物特征识别（指纹、虹膜、人脸）的定义及马来西亚 1998 年全球首创电子护照晶片储存指纹的事实；&lt;br>• III 错误：生物特征数据一旦被泄露具有不可更改性（人不可能换指纹），具有极高的隐私泄露与滥用风险。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q13</span><span class='mcq-stem'>【罗马组合题 2】 生物特征识别 (Biometric Recognition) 是利用人体固有的生理特征进行身份认证的高可靠技术。下列关于该技术的陈述，哪些是完全正确的？<br>I. 人类指纹、掌纹、视网膜虹膜及人脸轮廓均属于常见的生理特征认证载体<br>II. 马来西亚是世界上较早（1998年）在电子护照芯片中储存指纹数据的国家<br>III. 生物特征识别技术由于具有唯一性，在任何应用场景下均绝对没有任何隐私泄露风险<br>IV. 该技术已被广泛部署于现代智能手机屏幕指纹解锁、考勤打卡以及国际机场海关安检</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq13','a2')"><span class='opt-letter'>A</span> 仅 I、II、III</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq13','a2')"><span class='opt-letter'>B</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq13','a2')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq13','a2')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq13','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq14' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 90 页定义：机器学习指的是“从数据中自动找出有用资讯的演算法……这个从现有数据中找出规律的过程被称为‘训练’，训练后建立模型用于预测新数据”。&lt;br>• A 错误：手工写规则是传统专家系统而非机器学习；C、D 错误：荒谬干扰项。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q14</span><span class='mcq-stem'>机器学习 (Machine Learning) 是当前人工智能发展最核心的驱动引擎，其最本质的运作机理为何？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq14','a2')"><span class='opt-letter'>A</span> 必须由资深工程师手工将数百万条具体执行规则一条条预先编写进电脑程序代码中</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq14','a2')"><span class='opt-letter'>B</span> 计算机演算法自动从大量的训练数据中发掘潜在的规律与模式，并以此建立预测模型</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq14','a2')"><span class='opt-letter'>C</span> 电脑仅能在完全没有电源供应且脱离互联网络连接的孤立离线环境下自发产生规律</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq14','a2')"><span class='opt-letter'>D</span> 只要让电脑不间断地重复格式化固态硬盘，就能自动提升对图像分类识别的准确率</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq14','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq15' data-exp="• 【答案说明】：&lt;br>• B 正确：课本第 90~91 页图 3.6 详细阐述，算法“阅读”已标记的邮件样本并发现规律的过程称为“训练 (Training)”，完成后建立模型。&lt;br>• A、C、D 错误：均非机器学习从数据中建立模型的专业术语。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q15</span><span class='mcq-stem'>电子邮件服务商为了能准确过滤垃圾邮件 (Spam Mail)，系统通常先“阅读”数万封已被人工标记为“正常”或“垃圾”的邮件样本，这个过程被称为：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq15','a2')"><span class='opt-letter'>A</span> 系统冷启动部署 (Cold Boot Deployment)</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq15','a2')"><span class='opt-letter'>B</span> 演算法模型训练 (Algorithm Model Training)</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq15','a2')"><span class='opt-letter'>C</span> 数据链路层帧校验与错误重传</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq15','a2')"><span class='opt-letter'>D</span> 数据库结构化查询语言 (SQL) 逻辑优化</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq15','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq16' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 91 页指出，人工神经网络模仿生物神经网络而建，由多个人工神经元 (Neurons) 组成，“每一个神经元实际上是一个数学函数，神经元与神经元之间建立连接”。&lt;br>• B 错误：人工神经元是数学虚拟模型而非有机生物芯片；C、D 错误：为纯硬件与网络路由干扰项。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q16</span><span class='mcq-stem'>人工神经网络 (Artificial Neural Network, ANN) 是模仿生物神经系统结构建立的算法模型，其中每一个“人工神经元”在数学本质上是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','aq16','a2')"><span class='opt-letter'>A</span> 一个具备特定数学计算函数且与其他神经元建立加权连接的离散处理单元</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','aq16','a2')"><span class='opt-letter'>B</span> 一种能够物理发射生物化学电脉冲信号并自行进行细胞分裂增殖的有机微晶片</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','aq16','a2')"><span class='opt-letter'>C</span> 一根专门用于连接电脑主机箱内部固态硬盘与电源供电接口的高速铜制排线</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','aq16','a2')"><span class='opt-letter'>D</span> 一种用于在广域网路由器之间交换路由转发表项的动态距离矢量路由协议报文</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq16','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq17' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 91 页指出，人工神经网络“由多层的神经元组成，功能强大，相关的演算法被称为深度学习 (Deep Learning)”。&lt;br>• A 错误：深度学习必须包含多个隐藏层；C 错误：高度依赖 GPU 并行算力；D 错误：深度学习具有著名的黑箱特性。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q17</span><span class='mcq-stem'>深度学习 (Deep Learning) 近年来在计算机视觉与自然语言处理领域取得了惊人突破，它的结构核心特征是什么？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq17','a2')"><span class='opt-letter'>A</span> 仅由单个神经元构成且完全抛弃任何非线性激活函数的极其简化的扁平模型</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq17','a2')"><span class='opt-letter'>B</span> 由多层互相紧密连接的人工神经元组合而成，拥有强大的多层次抽象表征能力</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq17','a2')"><span class='opt-letter'>C</span> 完全不需要借助任何图形处理器 (GPU) 进行并行计算的纯手工纸笔推演算法</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq17','a2')"><span class='opt-letter'>D</span> 运算输出结果完全透明且每一步内部推理因果关系都能被人类直观清晰解释的系统</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq17','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq18' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 92 页指出，“它的‘黑箱特性’也常为人诟病。无论它的预测结果准确与否，这预测结果的获得方式都是无法被解释的，使用者也无法在输入和输出之间找到一个直观的因果关系”。&lt;br>• A、C、D 错误：黑箱特性是指逻辑不可解释性，而非物理箱体或数据量限制。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q18</span><span class='mcq-stem'>尽管深度学习性能卓越，但工业界与学术界常指出其存在“黑箱特性 (Black Box)”，这一缺点具体是指：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq18','a2')"><span class='opt-letter'>A</span> 该算法模型只能在完全没有光线照射的黑暗机房机柜环境中才能维持正常运算</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq18','a2')"><span class='opt-letter'>B</span> 模型的预测结果高度准确但其内部复杂的决策机制与因果关系难以被人类直观解释</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq18','a2')"><span class='opt-letter'>C</span> 该模型必须封装在黑色金属外壳的物理机箱内且严禁任何人打开外壳检修电路</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq18','a2')"><span class='opt-letter'>D</span> 算法必须严格限制训练样本的数据总量不得超过十个独立的数据记录或文本段落</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq18','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq19' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 92 页“小知识”明确指出，图形处理器 (GPU)“在并行处理大量数据方面具有卓越的性能。因此，GPU 被大量使用于深度学习等需要大量运算的人工智能研究上”。&lt;br>• A、B、D 错误：均不具备用于神经网络矩阵并行加速运算的功能。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q19</span><span class='mcq-stem'>在进行深度学习模型训练与大规模矩阵并行运算时，下列哪种硬件单元展现出了远优于传统 CPU 的卓越性能？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq19','a2')"><span class='opt-letter'>A</span> 只读存储器芯片 (ROM)</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq19','a2')"><span class='opt-letter'>B</span> 电脑电源变压供应器 (PSU)</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq19','a2')"><span class='opt-letter'>C</span> 图形处理器显示芯片 (GPU)</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq19','a2')"><span class='opt-letter'>D</span> 机械硬盘磁头控制马达 (HDD Actuator)</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq19','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq20' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 92 页指出，传统逻辑只能处理“对/错”、“是/非”，而模糊逻辑能够“接受定义模糊，甚至不完整的数据，也能够很好地处理‘对’和‘错’之间的模糊地带”（如车速快与慢的过渡状态）。&lt;br>• A、C、D 错误：二分法才是严格 0 或 1；模糊逻辑不能直接剥夺医师执业资格。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q20</span><span class='mcq-stem'>传统形式逻辑学通常遵循二分法（非真即假），而“模糊逻辑 (Fuzzy Logic)”被引入人工智能系统的最大价值在于：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq20','a2')"><span class='opt-letter'>A</span> 使得电脑系统只能在严格等于 0 或绝对等于 1 的绝对极端状态下进行逻辑推演</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq20','a2')"><span class='opt-letter'>B</span> 能够很好地容忍不完整数据并处理现实世界中大量存在于“对”与“错”之间的中间模糊地带</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq20','a2')"><span class='opt-letter'>C</span> 完全取代人类医疗专家的专业行医资格并从法律上剥夺执业医师的终审诊断权力</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq20','a2')"><span class='opt-letter'>D</span> 强行要求所有受控工业电器的温度与转速参数必须严格保持完全相同的常数数值</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq20','a2')">↺ 重试</button></div>
+  </div>  <div class='mcq-nav-footer'>
+    <button class='mcq-nav-btn' onclick="showMcqPage('page_a_2', 'page_a_1')">← 上一组 (1–10题)</button><button class='mcq-nav-btn' onclick="showMcqPage('page_a_2', 'page_a_3')">下一组 (21–30题) →</button>
+  </div>
+</div>
+<div id='page_a_3' class='mcq-page-block' style='display:none;'>
+  <div class='mcq-page-header'><span>a · 第 21–30 题</span><span id='score_a3'>得分: 0 / 10</span></div>
+  <div class='mcq-card' id='aq21' data-exp="• 【答案说明】：&lt;br>• A 正确（仅 I、II、III）：&lt;br>• I、II、III 均符合课本第 92~93 页正文关于模糊逻辑依赖专家经验规则、不需要海量数据、成功应用于家电控制与铁路列车平稳制动的论述；&lt;br>• IV 错误：模糊逻辑依然包含“IF 前提 THEN 结论”的推理分支，并未废除自动化控制。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q21</span><span class='mcq-stem'>【罗马组合题 3】 关于模糊逻辑 (Fuzzy Logic) 在现实生活中的实际工程应用，下列哪些描述是完全正确的？<br>I. 模糊逻辑系统不需要依赖海量大数据进行暴力训练，但依赖领域专家制定的推理规则<br>II. 现代变频智能洗衣机利用模糊逻辑根据衣物重量与脏污浑浊度平滑调控电机转速与进水量<br>III. 日本新干线高速列车利用模糊逻辑控制电机的加速与制动，实现极其平稳舒适的停车控制<br>IV. 模糊逻辑在形式上完全废除了条件分支判断，使得系统再也无法执行任何自动化逻辑任务</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','aq21','a3')"><span class='opt-letter'>A</span> 仅 I、II、III</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','aq21','a3')"><span class='opt-letter'>B</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','aq21','a3')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','aq21','a3')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq21','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq22' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 93 页明确指出，进化计算“受达尔文生物进化论启发……以擅长最优化解决方案 (Optimization) 而著称”，通过多代相互参考演化寻找全局最优解。&lt;br>• A、C、D 错误：均与进化计算寻找多目标最优化数学解的本质不符。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q22</span><span class='mcq-stem'>受达尔文生物进化论自然选择学说启发的演算法总称为“进化计算 (Evolutionary Computation)”，它在工程领域最擅长解决哪类问题？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq22','a3')"><span class='opt-letter'>A</span> 高精度数码相机的光学镜头变焦机械马达物理组装与焊接调试</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq22','a3')"><span class='opt-letter'>B</span> 在庞大复杂的解空间中不断迭代演化以寻找全局最优化解决方案 (Optimization)</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq22','a3')"><span class='opt-letter'>C</span> 对计算机局域网内传输的未经加密的网络数据数据包进行实时窃听与劫持</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq22','a3')"><span class='opt-letter'>D</span> 将多张两寸蓝底证件照片以无损数据压缩算法快速打包并发送至电子邮箱</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq22','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq23' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 94 页明确记载，“源于蚂蚁群寻找通往食物路径的蚁群演算法 (Ant Colony Algorithm)”。&lt;br>• B、C、D 错误：分别为视觉、经典排序与声学分析算法。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q23</span><span class='mcq-stem'>模拟自然界蚂蚁在寻找通往食物源路径过程中留下信息素并找到最短路径的演算法，被称为：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','aq23','a3')"><span class='opt-letter'>A</span> 蚁群演算法 (Ant Colony Algorithm)</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','aq23','a3')"><span class='opt-letter'>B</span> 人脸表情特征点检测演算法</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','aq23','a3')"><span class='opt-letter'>C</span> 快速排序与二分查找算法</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','aq23','a3')"><span class='opt-letter'>D</span> 语音声学信号共振峰提取演算法</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq23','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq24' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 95 页明确列出机器人的三大必备组成部分：传感器（探知外部世界）、执行器（Actuator，执行物理操纵如机器手臂、轮子）以及电源系统（如电池）。&lt;br>• A、C、D 错误：不属于机器人物理交互核心本体构成。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q24</span><span class='mcq-stem'>在机器人学 (Robotics) 领域，一个完整的现代机器人硬件系统通常必备的三大核心物理组成部分为：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq24','a3')"><span class='opt-letter'>A</span> 显示器玻璃面板、无线蓝牙鼠标以及标准的机械键盘按键组件</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq24','a3')"><span class='opt-letter'>B</span> 探知外部世界的传感器 (Sensor)、执行操控的执行器 (Actuator) 以及稳定电源系统</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq24','a3')"><span class='opt-letter'>C</span> 纸质打印机出纸托盘、高保真立体声音响喇叭以及散热风扇扇叶</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq24','a3')"><span class='opt-letter'>D</span> 外部塑料外壳注塑模具、包装纸箱缓冲泡沫以及多国语言纸质说明书</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq24','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq25' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 95 页图 3.10 及正文明确指出，“机器人已大量地被使用在工业生产上。这个领域内的机器人多以机器手臂形式出现”，负责组装与焊接。&lt;br>• A、B、D 错误：工业重型流水线不需要人形皮肤外表，主要采用高效机器手臂。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q25</span><span class='mcq-stem'>在现代汽车装配自动化流水线上，最常见且应用最为广泛的工业机器人形态是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq25','a3')"><span class='opt-letter'>A</span> 具有高度逼真人脸硅胶皮肤与仿真毛发的类人形接待迎宾机器人</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq25','a3')"><span class='opt-letter'>B</span> 能够在大街上自主避开行人并运送外卖披萨的双轮自平衡软体机器人</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq25','a3')"><span class='opt-letter'>C</span> 具备多自由度运动能力、负责精准搬运、点焊与喷漆作业的工业机器手臂</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq25','a3')"><span class='opt-letter'>D</span> 专门用于在池塘水面捕捞漂浮水草与水质取样的仿生机器机械游鱼</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq25','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq26' data-exp="• 【答案说明】：&lt;br>• D 正确（无法实现）：人工智能与无人机是农业监测与作业工具，不可能改变大自然的气候物理法则或消除台风。&lt;br>• A、B、C 均为课本第 98~99 页明确记载的无人机与 AI 在农业中的真实赋能场景。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q26</span><span class='mcq-stem'>现代农业将无人机 (Drone) 与电脑视觉技术深度结合，在实际农业生产中无法直接实现下列哪项功能？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','D','aq26','a3')"><span class='opt-letter'>A</span> 航拍巡视大面积农田地形并精准规划最优化的作物播种与灌溉喷洒路线</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','D','aq26','a3')"><span class='opt-letter'>B</span> 对农作物叶片病斑图像进行实时特征比对，智能推断其感染的病虫害种类</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','D','aq26','a3')"><span class='opt-letter'>C</span> 自动分析油棕果实或水果表皮的颜色色调与饱满度，科学建议最佳采收时机</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','D','aq26','a3')"><span class='opt-letter'>D</span> 瞬间直接改变当地未来三个月的天气气候并彻底消除一切自然界台风与干旱</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq26','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq27' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 101 页明确定义：2011 年提出的工业 4.0 (Industry 4.0) 是指一场由人工智能及其他科技（云计算、物联网等）带动的一场工业革命。&lt;br>• A、C、D 错误：工业 4.0 强调高度数字化、智能化协同，而非倒退回手工时代。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q27</span><span class='mcq-stem'>“工业 4.0 (Industry 4.0)”是近年来全球制造业的重要变革，其核心特征主要体现为：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq27','a3')"><span class='opt-letter'>A</span> 全面淘汰一切数字化工厂管理系统并彻底回归传统十九世纪纯手工匠人作坊打造模式</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq27','a3')"><span class='opt-letter'>B</span> 深度融合人工智能、物联网 (IoT)、大数据与云计算技术，实现制造全流程的智能化监控与协同</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq27','a3')"><span class='opt-letter'>C</span> 规定全球所有工业制成品必须完全由单片微控制器进行简单算术加减法控制生产流程</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq27','a3')"><span class='opt-letter'>D</span> 完全停止在生产流水线上使用任何传感器与工业摄像头，纯粹依赖工人的肉眼经验质检</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq27','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq28' data-exp="• 【答案说明】：&lt;br>• C 正确（仅 I、II、III）：&lt;br>• I、II、III 均完全符合课本第 101~103 页关于医疗专家系统诊断辅助、多手臂手术机器人微创操作以及公共场所人群踩踏预警的论述；&lt;br>• IV 错误：课本第 102 页明确指出“由于人工智能在医疗卫生的使用上还面对法律与技术等问题，所以短时间内还不太可能出现人工智能取代专业医生的趋势”。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q28</span><span class='mcq-stem'>【罗马组合题 4】 在现代医疗卫生与社会公共安全领域，人工智能系统的落地应用带来了显著成效，包括下列哪些实践？<br>I. 医疗专家系统读取患者化验数据与症状，为临床医生制定靶向治疗方案提供有力参考<br>II. 外科医生在控制台精准远程操控多手臂手术机器人，完成微创高难度血管缝合手术<br>III. 大型集会活动现场利用人流密集度监控视觉系统，在出现踩踏风险前提前发出预警<br>IV. 目前的人工智能医疗系统已在法律和伦理上完全替代专科医生，医院无需再聘用人类主治医师</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','aq28','a3')"><span class='opt-letter'>A</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','aq28','a3')"><span class='opt-letter'>B</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','aq28','a3')"><span class='opt-letter'>C</span> 仅 I、II、III</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','aq28','a3')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq28','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq29' data-exp="• 【答案说明】：&lt;br>• D 正确（仅 I、II、III）：&lt;br>• I、II、III 均符合课本第 104 页关于电商个性化推荐、客服聊天机器人及反虚假评论水军账号的真实商业实践；&lt;br>• IV 错误：未经许可强行扣除用户存款属于严重违法网络金融犯罪行为。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q29</span><span class='mcq-stem'>【罗马组合题 5】 商业电子商务平台（如亚马逊或虾皮）深度应用人工智能技术来提升经营效益，下列哪些属于其典型应用？<br>I. 记录并分析顾客过往的历史浏览与消费轨迹，精准向顾客推送客制化的商品优惠广告<br>II. 部署全天候在线智能客服聊天机器人 (Chatbot)，即时回答顾客关于订单物流的常见疑问<br>III. 利用自然语言与账号行为分析算法，识别并向平台举报雇佣水军刷单的虚假评论账号<br>IV. 完全接管顾客的私人银行储蓄账户，并在未经用户知情同意的情况下强制直接自动划扣货款</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','D','aq29','a3')"><span class='opt-letter'>A</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','D','aq29','a3')"><span class='opt-letter'>B</span> 仅 I、III、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','D','aq29','a3')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','D','aq29','a3')"><span class='opt-letter'>D</span> 仅 I、II、III</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq29','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='aq30' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 107 页明确警示：人脸识别除了有被滥用于侵犯个人隐私的危机外，由于算法训练数据分布不均，“在识别白种人和男性时准确率较高，但对于黑人和女性则相对较低”，存在种族与性别歧视隐患，因此欧美从 2019 年开始进行管制。&lt;br>• A、C、D 错误：均非人脸识别监管的根本伦理与人权原因。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q30</span><span class='mcq-stem'>随着人工智能技术的迅猛普及，国际社会与欧美各国纷纷对人脸识别等技术展开立法监管，其引发广泛担忧的核心隐患是什么？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','aq30','a3')"><span class='opt-letter'>A</span> 造成全球电脑硬件设备出厂成本出现大幅度断崖式下跌从而损害科技跨国巨头的商业垄断利润</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','aq30','a3')"><span class='opt-letter'>B</span> 容易侵犯公民个人生物私隐权，且因训练数据偏差可能在识别特定族群或性别时产生算法偏见与歧视</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','aq30','a3')"><span class='opt-letter'>C</span> 导致所有传统纸质护照与公民身份证件在物理世界彻底失效且无法再由政府移民局签发管理</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','aq30','a3')"><span class='opt-letter'>D</span> 使得全球各地的智能手机电池蓄电寿命全部由于算法运算负荷过重而在二十四小时内彻底损坏</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('aq30','a3')">↺ 重试</button></div>
+  </div>  <div class='mcq-nav-footer'>
+    <button class='mcq-nav-btn' onclick="showMcqPage('page_a_3', 'page_a_2')">← 上一组 (11–20题)</button><button class='mcq-nav-btn' style='background:#10B981;' onclick="alert('恭喜完成本卷所有 30 道精选选择题！')">✓ 完成本卷！</button>
+  </div>
+</div>
+
+    </div>
+
+    <!-- 卷B -->
+    <div id="tabB" class="quiz-tab-content" style="display:none;">
+<div style='font-size:13px;color:#475569;margin-bottom:16px;padding:10px 14px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;'>卷B 综合进阶 · 30题 · 共3组 · 每组10题。覆盖：技术深层机制、跨学科融合、群体智能与演化、极端场景辨析、数字伦理与监管治理。</div>
+<div id='page_b_1' class='mcq-page-block' style='display:block;'>
+  <div class='mcq-page-header'><span>b · 第 1–10 题</span><span id='score_b1'>得分: 0 / 10</span></div>
+  <div class='mcq-card' id='bq1' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 84 页明确指出：“一些学者认为，人工智能的研究应专注于使电脑等设备能具有如人类般思考的能力；而另一些学者则认为应该专注于绝对理性的思考模式”。这是 AI 领域两大经典的流派分歧。&lt;br>• B、C、D 错误：纯属硬件材料、行政禁令与军事机密的非技术干扰项。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q1</span><span class='mcq-stem'>哲学与认知科学界关于人工智能的研究长期存在两大主要流派，新课本 3.1 节指出这两种流派的根本分歧在于：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','bq1','b1')"><span class='opt-letter'>A</span> 究竟应该专注于使设备具有如人类般思考的能力，还是专注于建立绝对理性的纯数学思考模式</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','bq1','b1')"><span class='opt-letter'>B</span> 究竟应该完全基于纯机械齿轮搭建计算机，还是完全依赖基于量子纠缠理论的超导光子计算机</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','bq1','b1')"><span class='opt-letter'>C</span> 究竟应该全面禁止在中小学校园讲授人工智能，还是强制将所有编程语言统一替换为机器指令码</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','bq1','b1')"><span class='opt-letter'>D</span> 究竟应该将所有深度神经网络模型开源共享，还是由联合国安理会实施全球军事级最高机密封锁</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq1','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq2' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 84 页图 3.1 明确图灵测试规范：测试者 C 隔开阅读机器 A 与人类 B 的纯文本回答，若无法分辨 A 究竟是一台机器还是人类，则机器通过图灵测试。&lt;br>• A、C、D 错误：图灵测试考查的是外在表现出的智能对话行为，而非代码审查、极寒耐受力或国际象棋面对面下棋。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q2</span><span class='mcq-stem'>在评测一个聊天机器人是否通过图灵测试时，下列哪种情境最能体现测试的核心评判设计要求？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq2','b1')"><span class='opt-letter'>A</span> 让人类工程师进入机房直接阅读电脑内部执行的数十万行底层 C++ 源代码并进行语法静态排查</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq2','b1')"><span class='opt-letter'>B</span> 让测试者在完全隔开的盲测环境下与对方进行纯文本打字对话，且测试者无法分辨对方是人是机</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq2','b1')"><span class='opt-letter'>C</span> 将机器人置于零下五十度的极端严寒极地环境中并要求其持续高速运转四十八小时不出现蓝屏死机</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq2','b1')"><span class='opt-letter'>D</span> 让机器人与国际象棋职业特级大师进行面对面物理下棋比赛并要求机器人在五分钟内取得完胜</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq2','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq3' data-exp="• 【答案说明】：&lt;br>• C 正确：新课本第 85 页记载，2016 年 AlphaGo 击败世界冠军李世乭，2017 年团队对程式重新设计，“经过仅 3 天的自我训练就超越了原有版本，并在 21 天的自我训练后打败了世界第一的柯洁”，体现了深度学习自我对弈强化的飞跃。&lt;br>• A、B、D 错误：均严重偏离了 AlphaGo 深度强化学习的算法本质。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q3</span><span class='mcq-stem'>2016 年与 2017 年，谷歌 DeepMind 团队开发的围棋程序 AlphaGo 震动全球，其版本演进的核心技术突破在于：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','bq3','b1')"><span class='opt-letter'>A</span> 放弃了一切机器学习模型而完全采用查阅人类古籍棋谱的大型关系型 SQL 数据库检索技术</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','bq3','b1')"><span class='opt-letter'>B</span> 彻底抛弃了 GPU 并行图形芯片而纯粹依赖传统微控制器进行每秒一次的极其缓慢的算术计算</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','bq3','b1')"><span class='opt-letter'>C</span> 通过引入深度学习与强化学习机制，仅经历数星期的自我对弈训练即超越了人类所有顶尖高手</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','bq3','b1')"><span class='opt-letter'>D</span> 必须由全球五百名九段专业棋手在云端实时远程协助输入每一步走棋坐标才能维持系统运行</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq3','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq4' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 87 页记载，问答系统（如沃森系统）能够深入理解使用者输入的自然语言或语音，“并在理解输入内容后，产生相应的回馈（直接精准答案）”，区别于传统只返回包含关键词的一长串网页链接。&lt;br>• A、C、D 错误：均违背了问答系统的智能人机对话特性。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q4</span><span class='mcq-stem'>自然语言处理 (NLP) 中的“问答系统 (QA System)”与传统搜索引擎的“关键字模糊匹配”相比，其最核心的本质优势是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq4','b1')"><span class='opt-letter'>A</span> 只能对完全不包含任何英文字母的纯阿拉伯数字序列进行简单的升序或降序排列显示</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq4','b1')"><span class='opt-letter'>B</span> 能够深度理解用户输入的自然语言提问语义，并在后台知识库综合推理后直接给出针对性答案</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq4','b1')"><span class='opt-letter'>C</span> 可以在完全没有连接互联网且没有存储任何本地数据库的离线环境下凭空猜出客观历史事实</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq4','b1')"><span class='opt-letter'>D</span> 强制要求所有提问者必须按照严格的汇编语言指令格式书写查询语句否则直接报错终止</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq4','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq5' data-exp="• 【答案说明】：&lt;br>• B 正确（仅 I、II、III）：&lt;br>• I、II、III 均完全符合课本第 88 页对判别式 vs 生成式 AI 的划分以及 ChatGPT 的技术集成定位；&lt;br>• IV 错误：生成式 AI 具有著名的“幻觉 (Hallucination)”问题，可能自信地生成完全虚假的事实，因此人类必须进行严谨的人工核实。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q5</span><span class='mcq-stem'>【罗马组合题 1】 近年来“生成式人工智能 (Generative AI)”迅速崛起并在各行各业引发变革，下列关于该技术的陈述，哪些是完全正确的？<br>I. 传统的判别式人工智能主要集中于对输入数据进行分类标签判断或回归数值预测<br>II. 生成式人工智能能够根据用户给出的提示词 (Prompt) 相对独立地生成全新的文字、画作或代码<br>III. ChatGPT 是先进的自然语言理解问答系统与自然语言生成技术的集大成者<br>IV. 生成式人工智能生成的所有事实性内容均百分之百准确无误，人类用户在使用时完全无需核实</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq5','b1')"><span class='opt-letter'>A</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq5','b1')"><span class='opt-letter'>B</span> 仅 I、II、III</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq5','b1')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq5','b1')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq5','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq6' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 85 页与第 89 页明确指出，相机拍照首先必须进行“人脸检测”确定脸在何处，接着分析面部微表情（如微笑），进而触发自动拍摄与局部美颜渲染。&lt;br>• A、C、D 错误：颠倒了视觉检测与图像渲染的先后逻辑次序。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q6</span><span class='mcq-stem'>现代智能手机相机普遍具备“微笑抓拍”与“人脸美颜”功能，系统在底层执行视觉图像处理的正确逻辑先后顺序是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq6','b1')"><span class='opt-letter'>A</span> 优先执行整张照片像素风格化重绘 → 然后检测画面中是否存在人脸 → 最后确认用户银行卡余额</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq6','b1')"><span class='opt-letter'>B</span> 首先进行人脸检测并定位面部五官坐标 → 进而识别人脸表情变化特征 → 触发自动拍照与美化渲染</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq6','b1')"><span class='opt-letter'>C</span> 直接在未开启手机摄像头的情况下通过麦克风录制心跳频率 → 盲猜用户此刻的面部肌肉微笑状态</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq6','b1')"><span class='opt-letter'>D</span> 将整张拍摄照片直接转换为八位无损 ASCII 字符文本 → 强行抹除照片中所有人类生物眼睛特征</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq6','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq7' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 103 页明确指出，在车站、机场等大量人流处，“一些电脑视觉系统能发现在这些地方徘徊的人，也能发现在流动的人潮中被留下的物品（可疑包裹），以预防恐怖分子的袭击”。&lt;br>• B、C、D 错误：安防系统的核心目标是生命财产安全预防，而非商业推销或打印纸张。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q7</span><span class='mcq-stem'>在火车站或大型国际机场的公共安全智能监控系统中，电脑视觉系统最关键的异常预警功能体现为：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','bq7','b1')"><span class='opt-letter'>A</span> 能够精准检测出在特定安检敏感区域长时间无故徘徊的可疑人员，以及在密集人流中被遗弃的可疑包裹</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','bq7','b1')"><span class='opt-letter'>B</span> 能够自动向每一位路过旅客的智能手机强行推送当地商业免税店最新折扣代金券与营销推销短信</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','bq7','b1')"><span class='opt-letter'>C</span> 能够在旅客尚未购买飞机票的前提下由电脑系统越权自动扣除其银行信用卡账户资金购买航班座椅</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','bq7','b1')"><span class='opt-letter'>D</span> 能够将整个火车站候车大厅的现场所有高保真监控视频以未压缩的原始格式直接打印在物理纸张上</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq7','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq8' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 89~90 页指出，图像恢复系统通过大量正常图像的特征训练（深度学习技术），学习到自然图像的纹理连续性规律，从而高保真地对破损与褪色区域进行智能重建补全。&lt;br>• A、C、D 错误：二值化会丢失色彩，风格化重绘不是真实修复，屏幕涂抹更是荒唐。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q8</span><span class='mcq-stem'>在对历史破损老照片进行数字修复（图像恢复 Image Restoration）时，电脑视觉模型通常依赖下列哪项技术机制？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq8','b1')"><span class='opt-letter'>A</span> 依赖人工蜂群算法在二维平面上进行简单的黑白二值化像素反转与物理擦除</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq8','b1')"><span class='opt-letter'>B</span> 借助深度学习模型学习大量未破损图像的高阶先验特征分布，从而智能填补缺失的破损纹理</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq8','b1')"><span class='opt-letter'>C</span> 将破损老照片中的人物轮廓强行套用为梵谷《星夜》后印象派油画笔触以遮盖照片物理裂痕</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq8','b1')"><span class='opt-letter'>D</span> 强制要求用户使用铅笔在电脑液晶显示屏表面直接涂抹修补以物理消除屏幕上的老旧划痕</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq8','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq9' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 90 页记载：“马来西亚于 1998 年开始使用世界首创的电子护照，内部具有晶片以储存指纹数据，可以提高机场保安”。&lt;br>• A、C、D 错误：均为虚构的不实历史事件。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q9</span><span class='mcq-stem'>马来西亚在智能安全管理领域走在世界前列，新课本记载马来西亚政府于 1998 年创下的一项世界首创成就是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq9','b1')"><span class='opt-letter'>A</span> 在全球范围内首次开发出能够完全脱离人类电力供应并连续自动巡航作业的深海潜水机器人</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq9','b1')"><span class='opt-letter'>B</span> 在世界范围内首创在电子护照芯片中储存持有人的指纹生理特征数据，大幅提高了出入境安全</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq9','b1')"><span class='opt-letter'>C</span> 首次将国际象棋特级大师深蓝超级电脑的主板电路移植到全国各州公立小学的教室电风扇中</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq9','b1')"><span class='opt-letter'>D</span> 在联合国大会上首次提出通过修改全球自然语言文法规则来彻底消除计算机机器翻译歧义性</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq9','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq10' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 90 页阐明：“这个从现有数据中找出规律的过程被称为‘训练’。在完成训练后，机器学习会依据所提供的数据建立模型。这个模型可以用来预测新数据的属性”。若未经训练，则模型根本不存在，自然无法预测。&lt;br>• A、C、D 错误：缺乏模型就根本无法执行可靠推断。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q10</span><span class='mcq-stem'>在机器学习流程中，若研发人员直接将未经过任何算法模型训练的全新测试数据输入系统，系统通常会表现出：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq10','b1')"><span class='opt-letter'>A</span> 依然能够以百分之百的超高精度准确预测出每一条数据的类别归属与高阶特征标签</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq10','b1')"><span class='opt-letter'>B</span> 由于缺乏从训练数据中发掘规律并构建的数学模型，系统根本无法执行任何可靠的属性预测</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq10','b1')"><span class='opt-letter'>C</span> 自动在计算机物理内存硬件芯片内部瞬间自发演化出完全等同于人类成年人的自主灵魂意识</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq10','b1')"><span class='opt-letter'>D</span> 使得整台服务器主机的中央处理器核心温度在零点一秒内下降至绝对零度并永久停止运转</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq10','b1')">↺ 重试</button></div>
+  </div>  <div class='mcq-nav-footer'>
+    <div></div><button class='mcq-nav-btn' onclick="showMcqPage('page_b_1', 'page_b_2')">下一组 (11–20题) →</button>
+  </div>
+</div>
+<div id='page_b_2' class='mcq-page-block' style='display:none;'>
+  <div class='mcq-page-header'><span>b · 第 11–20 题</span><span id='score_b2'>得分: 0 / 10</span></div>
+  <div class='mcq-card' id='bq11' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 91 页指出：“一般上，训练所使用的数据越多，建立的模型准确度就越高”。气象预测必须依赖多维历史样本进行算法训练以发现气压、温度与降水的复杂规律。&lt;br>• A、C、D 错误：删除数据、主观硬编码或跨领域瞎套算法均违背机器学习基本科学原则。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q11</span><span class='mcq-stem'>某气象观测站试图利用机器学习算法预测明日降雨概率。研发团队拥有过去十年的气象历史数据，以下哪种做法最符合科学训练范式？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq11','b2')"><span class='opt-letter'>A</span> 将所有历史气象数据全部删除以确保机器学习算法在完全没有任何历史偏见的空白状态下起步</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq11','b2')"><span class='opt-letter'>B</span> 利用包含温度、湿度、气压、风向等大量历史气象样本数据对模型进行充分训练以提炼预测规律</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq11','b2')"><span class='opt-letter'>C</span> 仅凭工程师个人的主观心情手工在软件界面编写一条“逢星期五必定下暴雨”的绝对固定规则</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq11','b2')"><span class='opt-letter'>D</span> 强行将该算法模型直接部署在国际象棋博弈程序中以测试其能否战胜现役人类职业围棋世界冠军</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq11','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq12' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 91 页明确定义：“人工神经网络由多个人工神经元 (Neurons) 组成，每一个神经元实际上是一个数学函数，神经元与神经元之间建立连接”。输入加权通过数学激活函数映射为输出。&lt;br>• B、C、D 错误：神经元在算法中是虚拟数学函数，绝非物理超导或文件操作系统。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q12</span><span class='mcq-stem'>人工神经网络模型中的“人工神经元 (Neuron)”接收来自多个前级神经元的输入信号，其内部计算过程本质上是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','bq12','b2')"><span class='opt-letter'>A</span> 对各个输入信号进行加权求和并经过特定的非线性激活数学函数转换后输出新的数值</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','bq12','b2')"><span class='opt-letter'>B</span> 在微观量子层面上诱发金属导线产生物理超导效应从而实现无阻抗的生物电脉冲传导</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','bq12','b2')"><span class='opt-letter'>C</span> 直接调用操作系统的文件管理系统在固态硬盘上随机创建一个指定大小的空白二进制文档</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','bq12','b2')"><span class='opt-letter'>D</span> 将输入的电信号以极高频率直接转化为人类耳朵能够清晰听见的模拟音频高保真广播音乐</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq12','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq13' data-exp="• 【答案说明】：&lt;br>• C 正确（仅 I、II、III）：&lt;br>• I、II、III 完全符合新课本第 92 页“小知识”关于 GPU 与 CPU 特性对比（GPU 拥有大量核心，并行吞吐大量矩阵数据性能卓越）；&lt;br>• IV 错误：GPU 是无机半导体硅芯片，不具备生物递质或自我意识。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q13</span><span class='mcq-stem'>【罗马组合题 2】 在深度学习 (Deep Learning) 模型的工程落地与实际部署中，图形处理器 (GPU) 扮演着不可替代的角色，其根本原因包括：<br>I. 深度神经网络模型的训练包含极其庞大的矩阵乘法与高并发张量运算<br>II. GPU 拥有成百上千个轻量级计算核心，在处理高并发并行数据流方面展现出卓越性能<br>III. 传统中央处理器 (CPU) 虽然擅长处理复杂的分支逻辑控制，但在极高并发数据吞吐上逊色于 GPU<br>IV. GPU 内部集成了能够产生自我意识的生物化学神经递质，能够自发感悟人类高阶艺术灵感</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','C','bq13','b2')"><span class='opt-letter'>A</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','C','bq13','b2')"><span class='opt-letter'>B</span> 仅 I、III、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','C','bq13','b2')"><span class='opt-letter'>C</span> 仅 I、II、III</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','C','bq13','b2')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq13','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq14' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 92 页阐明：“无论它的预测结果准确与否，这预测结果的获得方式都是无法被解释的，使用者也无法在输入和输出之间找到一个直观的因果关系”。量刑如果无法解释因果，严重违背程序正义与人权保障。&lt;br>• A、C、D 错误：黑箱特性是指因果不可解释，而非物理外壳或字体乱码。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q14</span><span class='mcq-stem'>深度学习系统的“黑箱特性 (Black Box)”对人工智能工程落地构成了重大挑战，这一特性在司法审判辅助系统中最致命的隐患是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq14','b2')"><span class='opt-letter'>A</span> 审判系统在运行五分钟后机箱外壳会自动脱落导致法院内部计算机硬件受到不可逆物理损坏</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq14','b2')"><span class='opt-letter'>B</span> 当系统给出重刑量刑建议时，法官与被告律师均无法理解其底层因果逻辑，违背了司法审判的透明性</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq14','b2')"><span class='opt-letter'>C</span> 系统会强制将所有法律文书由现代华文翻译成古埃及象形文字导致法庭工作人员完全无法阅读</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq14','b2')"><span class='opt-letter'>D</span> 算法模型只能在完全没有安装显示器的老式计算机上运行从而使得庭审现场所有人无法查看大屏幕</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq14','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq15' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 92 页阐释：“传统逻辑常采用‘肯定前件’……若应用于肯定前件时，模糊逻辑可以处理定义模糊的推理。比如说若规则‘如果汽车速度慢，就可以在短距离内停车’，且知道‘小明的车开得不太快’，模糊逻辑便可以计算出小明可以停车的距离”。&lt;br>• A、C、D 错误：模糊逻辑处理的是现实语言中的模糊程度，而非破坏因果。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q15</span><span class='mcq-stem'>传统形式逻辑学常采用“肯定前件 (Modus Ponens)”作为推理准则（如“若 A 则 B；已知 A；故推出 B”）。当这一模式应用于模糊逻辑时，其优势在于：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq15','b2')"><span class='opt-letter'>A</span> 能够严苛要求前提条件 A 必须绝对满足数学整数 1，且结论 B 必须绝对属于布尔逻辑中的 False</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq15','b2')"><span class='opt-letter'>B</span> 能够顺利处理带有“稍微”、“比较”、“不太”等现实模糊语意的前提输入并推导出平滑的决策结论</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq15','b2')"><span class='opt-letter'>C</span> 强行切断前提条件与输出结论之间的全部因果关联，使得每次系统执行推理都能得到纯随机结果</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq15','b2')"><span class='opt-letter'>D</span> 使得计算机控制系统彻底脱离物理现实世界的反馈信号，纯粹依赖虚拟时间戳进行盲目指令输出</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq15','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq16' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 93 页明确阐述：“相对于机器学习，模糊逻辑系统不需要使用大量的数据便可建立，但需要相关领域的专家提供用于判断的规则。模糊逻辑在许多领域里都被使用，特别是在医疗与工程控制”。高炉事故数据稀少且昂贵，专家经验规则是最佳选择。&lt;br>• A、C、D 错误：纯属荒谬编造。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q16</span><span class='mcq-stem'>某高科技炼钢厂需要在炼铁高炉温度波动时动态微调泄压阀开度。工程师选用“模糊逻辑系统”而非“深度学习模型”，主要技术考量是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq16','b2')"><span class='opt-letter'>A</span> 炼铁高炉内部必须由多臂机器人在一千摄氏度高温铁水中直接游泳作业因此无法使用神经网络</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq16','b2')"><span class='opt-letter'>B</span> 模糊逻辑能够直接将资深炼钢技师几十年的定性控制经验转化为规则库，无需收集海量爆炸危险数据</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq16','b2')"><span class='opt-letter'>C</span> 模糊逻辑系统所消耗的工业动力电源电压远超国家电网安全极限从而能产生极强的人工电磁脉冲</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq16','b2')"><span class='opt-letter'>D</span> 深度学习模型在处理高温数据时会直接导致机房内所有的固态硬盘与机械硬盘发生自燃爆炸事故</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq16','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq17' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 93 页阐述进化计算机制：“进化计算会先找出一系列的初始解决方案。通过评估每个解决方案后，进化计算会选出最好的几个，并让它们‘演化’——即相互参考以产生新一代的解决方案。这个过程会一直重复直到解决方案足够完善为止”。&lt;br>• A、C、D 错误：单次方案违背进化思想，硬件融化和活体蜜蜂更是荒谬。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q17</span><span class='mcq-stem'>进化计算 (Evolutionary Computation) 在求解工程领域极度繁杂的“最优化问题”时，其独特的群体迭代机制是指：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq17','b2')"><span class='opt-letter'>A</span> 仅生成一个绝对不可更改的单一代解方案，并在该方案失败后立刻永久终止所有优化程序的运行</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq17','b2')"><span class='opt-letter'>B</span> 先产生一系列初始候选解，通过适应度评估选出优秀个体并进行交叉“演化”，循环迭代直至解足够完善</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq17','b2')"><span class='opt-letter'>C</span> 要求所有参与运算的计算机处理器必须在硬件层面上物理融化并重新结晶成新型半导体合金芯片</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq17','b2')"><span class='opt-letter'>D</span> 必须在每年春天召集数百万只真实的野生活体蜜蜂进入机房服务器集群内部进行物理筑巢传粉</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq17','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq18' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 94 页明确记载：“源于蜜蜂群觅食行为的人工蜂群演算法等”。&lt;br>• A 属于蚁群算法；C、D 并非蜂群算法灵感源泉。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q18</span><span class='mcq-stem'>在快递物流配送路径规划中，物流企业常借鉴“人工蜂群演算法”来寻找最优派送路线，该演算法的核心生物学灵感来自：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq18','b2')"><span class='opt-letter'>A</span> 蚂蚁在雨林地面攀爬树木寻找新鲜嫩叶并在树枝分叉口处分泌具有挥发性气味的微观化学信息素</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq18','b2')"><span class='opt-letter'>B</span> 蜜蜂群体在自然界野外搜寻蜜源花丛过程中通过特定蜂舞交流距离方向并实现高效食物采样的协作机制</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq18','b2')"><span class='opt-letter'>C</span> 候鸟在季节交替时沿着地球南北地磁场方向进行跨越数千公里的长距离季节性迁徙导航本能</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq18','b2')"><span class='opt-letter'>D</span> 企鹅群体在南极严寒暴风雪天气中为了抵御寒流而紧密依偎在一起进行体温互相传递的保暖行为</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq18','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq19' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 95 页明确定义：“机器人也具备执行器 (Actuator)，以对物理世界执行操纵，完成工作。常见的执行器以机器手臂、轮子等形象出现”。&lt;br>• A 属于传感器；C 属于供电部件；D 属于外部包装。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q19</span><span class='mcq-stem'>在机器人学 (Robotics) 领域，能够让机器人对外部物理世界执行操纵、施加机械力量并完成位移工作的核心部件是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq19','b2')"><span class='opt-letter'>A</span> 用于感知环境光线强度与反射红外线信号的光学摄像头传感器 (Sensor)</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq19','b2')"><span class='opt-letter'>B</span> 负责将控制指令转化为机械动作的执行器 (Actuator，如机器手臂或动力轮组)</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq19','b2')"><span class='opt-letter'>C</span> 用于为主板主控芯片与散热风扇提供稳定直流电能的锂电池电源模块</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq19','b2')"><span class='opt-letter'>D</span> 贴在机器人外壳表面用于标明产品出厂批次与售后服务热线的防伪条形码标签</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq19','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq20' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 94 页明确区分：“那些具有类似人类四肢、躯干及头部，但大小不一定和人类一样的机器，称为类人形机器人 (Humanoid Robot)；而那些外观长得和真人很相似，几乎可以以假乱真的机器称为人形机器人 (Android)”。&lt;br>• A、C、D 错误：区分的关键在于外观是否极度仿真拟人。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q20</span><span class='mcq-stem'>人形机器人 (Android) 与一般的类人形机器人 (Humanoid Robot) 相比，新课本 3.1.2 节指出的核心区别在于：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq20','b2')"><span class='opt-letter'>A</span> 人形机器人必须完全由纯木材手工雕刻打造而成，而类人形机器人必须采用纯碳纤维复合材料</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq20','b2')"><span class='opt-letter'>B</span> 人形机器人外观长得和真人极度相似几乎可以以假乱真，而类人形机器人仅具有类似人类的四肢躯干框架</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq20','b2')"><span class='opt-letter'>C</span> 人形机器人只能在深海一万米高压环境中作业，而类人形机器人只能在国际空间站微重力舱内漂浮</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq20','b2')"><span class='opt-letter'>D</span> 人形机器人内部完全没有任何电子集成电路，纯粹依靠发条发条弹簧机械机构驱动运转</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq20','b2')">↺ 重试</button></div>
+  </div>  <div class='mcq-nav-footer'>
+    <button class='mcq-nav-btn' onclick="showMcqPage('page_b_2', 'page_b_1')">← 上一组 (1–10题)</button><button class='mcq-nav-btn' onclick="showMcqPage('page_b_2', 'page_b_3')">下一组 (21–30题) →</button>
+  </div>
+</div>
+<div id='page_b_3' class='mcq-page-block' style='display:none;'>
+  <div class='mcq-page-header'><span>b · 第 21–30 题</span><span id='score_b3'>得分: 0 / 10</span></div>
+  <div class='mcq-card' id='bq21' data-exp="• 【答案说明】：&lt;br>• B 正确（仅 I、II、III）：&lt;br>• I、II、III 分别对应课本第 95 页与第 99 页关于无人机在灾难救援、农业精准飞防植保及物流运输中的正规合法应用；&lt;br>• IV 属于严重危害公共航空安全的严重违法犯罪行为。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q21</span><span class='mcq-stem'>【罗马组合题 3】 现代无人机 (Drone / UAV) 作为飞行机器人的一种重要形态，其在社会公共服务与现代农业中的典型合法应用包括：<br>I. 搭载高清摄像机与多光谱雷达，深入大地震、山体滑坡或洪涝受灾区域执行灾情高空侦察<br>II. 依照北斗或 GPS 导航路线规划，在乡村平原大面积水稻与油棕种植园上空精准喷洒农药与叶面肥<br>III. 配合智能识别演算法，在偏远海岛与交通受阻的山区之间进行紧急医疗急救血浆与样品的无人化物流运输<br>IV. 在未经民航管理部门许可的情况下，擅自闯入国际机场核心跑道起降净空保护区进行特技飞行炫技</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq21','b3')"><span class='opt-letter'>A</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq21','b3')"><span class='opt-letter'>B</span> 仅 I、II、III</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq21','b3')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq21','b3')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq21','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq22' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 95 页与第 100 页指出：“那些单调、重复或危险的工作可以被机器人替代，而员工则从原本的‘执行者’角色转变为‘监督者’”，机器手臂能够保持长时间极高精度与抗恶劣环境能力。&lt;br>• B、C、D 错误：违背物理学与工程常识。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q22</span><span class='mcq-stem'>在现代汽车装配自动化流水线上，工业机器手臂正在逐步全面取代传统工人进行精密点焊与车体喷漆作业，这种变革的主要原因是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','bq22','b3')"><span class='opt-letter'>A</span> 机器手臂在执行高重复度、单调繁重或高毒性挥发喷漆危险作业时，具备远超人类的耐受力与作业一致性</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','bq22','b3')"><span class='opt-letter'>B</span> 机器手臂在生产过程中不需要消耗任何电能与润滑油，能够完全违反能量守恒定律无限期自主运作</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','bq22','b3')"><span class='opt-letter'>C</span> 汽车工厂只要采购了一台机器手臂，就可以依法向当地政府申请免除全厂未来一百年的所有企业所得税</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','bq22','b3')"><span class='opt-letter'>D</span> 人类工人的手指表面由于存在微观指纹纹路，在接触汽车钢板时会瞬间导致高强度钢板发生严重氧化穿孔</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq22','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq23' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 101 页指出：“医疗专家系统可以读取病患的数据，分析症状，然后为病患的治疗提供参考意见”。&lt;br>• A 错误：课本第 102 页强调 AI 无法取代专业医生；C、D 错误：荒唐干扰项。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q23</span><span class='mcq-stem'>医疗专家系统 (Medical Expert System) 是人工智能在医疗健康领域的早期经典落地形态，其临床定位通常应当是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq23','b3')"><span class='opt-letter'>A</span> 完全废除公立医院的人类执业医师队伍并由中央服务器自动开具一切处方并强制执行截肢手术</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq23','b3')"><span class='opt-letter'>B</span> 读取病患的生化检验数据与临床症状描述，经过规则库与推理机制为专科医生提供极具价值的诊疗参考意见</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq23','b3')"><span class='opt-letter'>C</span> 强制要求所有就医患者在挂号前必须首先在计算机上完整默写出《希波克拉底誓词》的英文全文</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq23','b3')"><span class='opt-letter'>D</span> 将患者所有的病历隐私数据直接打包并自动以拍卖形式挂售在暗网网络黑市中以牟取高额非法暴利</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq23','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq24' data-exp="• 【答案说明】：&lt;br>• A 正确：新课本第 101 页图 3.15 明确展示：“使用电脑视觉协助专家分析细胞病变。A至C图为专家分析结果，D至F图为人工智能预测结果”。AI 协助定位病变提高筛查效率。&lt;br>• B、C、D 错误：脱离医学检验基本常识。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q24</span><span class='mcq-stem'>结合新课本图 3.15 所展示的人工智能在病理学医学影像中的实际应用，电脑视觉技术能够为病理学家提供哪项关键协助？</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','bq24','b3')"><span class='opt-letter'>A</span> 将显微镜下的微观人体细胞组织切片图像进行像素级定量分析与病变区域高亮标注，预测早期癌变机率</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','bq24','b3')"><span class='opt-letter'>B</span> 在完全不需要采集任何人体活检细胞样本的前提下凭空为远在千里之外的患者出具终审癌症确诊报告</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','bq24','b3')"><span class='opt-letter'>C</span> 强行修改显微镜光学目镜的玻璃物理折射率使得所有显微镜下原本正常的健康细胞看起来全部呈现恶性病变</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','bq24','b3')"><span class='opt-letter'>D</span> 使得医院所有的病理分析切片玻璃在接触到紫外线照射后瞬间转化为高纯度的贵金属黄金薄片</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq24','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq25' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 104 页记载：“银行及信用卡公司也使用人工智能系统来对贷款及信用卡申请者的信誉进行评估，评估结果可成为银行和信用卡公司的参考依据”。&lt;br>• A、C、D 错误：纯属非理性干扰项。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q25</span><span class='mcq-stem'>在现代商业银行与金融机构中，信贷审批系统深度引入人工智能模型的主要业务目标是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq25','b3')"><span class='opt-letter'>A</span> 纯粹根据申请人的星座性格与生肖属相随机决定是否批准其数百万林吉特的商业贷款额度</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq25','b3')"><span class='opt-letter'>B</span> 综合分析借款人的信用消费历史、收入稳定性及多维大数据画像，科学评估其违约风险与信贷额度参考</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq25','b3')"><span class='opt-letter'>C</span> 强行将所有按时还款的优质借款人的征信记录篡改为恶意严重逾期老赖名单以勒索巨额征信修复费</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq25','b3')"><span class='opt-letter'>D</span> 彻底停止发放任何以国家法定货币结算的商业抵押贷款并强行要求客户必须使用虚拟游戏金币结算</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq25','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq26' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 104 页指出：“电子商务网站里，也可能会出现虚假账号，并提供虚假评论，以不道德的手法抬高商家的声誉。人工智能可以协助发现虚假账号，并向电子商务公司举报”。&lt;br>• A、C、D 错误：均为正常合法的商业与消费行为。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q26</span><span class='mcq-stem'>电子商务平台利用自然语言处理算法对商品评价区的大量文本进行深度挖掘，其主要防范的不道德商业行为是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq26','b3')"><span class='opt-letter'>A</span> 顾客在购买商品后在个人社交媒体主页分享自己拆箱验货时的真实喜悦心情与高质量实物拍照</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq26','b3')"><span class='opt-letter'>B</span> 不良商家通过雇佣水军建立大批虚假买家账号、发布整齐划一的虚假好评以恶意操纵商家商业声誉的行为</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq26','b3')"><span class='opt-letter'>C</span> 顾客在收到存在严重质量瑕疵的破损商品后依法向官方消费者权益保护委员会发起正式退款维权投诉</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq26','b3')"><span class='opt-letter'>D</span> 国际物流快递小哥在极端恶劣暴风雨天气中通过电话耐心与买家沟通协商推迟派送具体时间的礼貌行为</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq26','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq27' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 107 页明确阐释监管根源：“欧美国家从 2019 年开始对其应用进行管制。这是因为这种技术除了有被滥用于侵犯隐私的危机外，也还隐藏着种族与性别歧视等其他问题。这种人脸识别技术在识别白种人和男性时准确率较高，但对于黑人和女性则相对较低”。&lt;br>• A、C、D 错误：非科技伦理管制的实际理由。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q27</span><span class='mcq-stem'>针对欧美国家从 2019 年开始对商业安防人脸识别技术采取立法管制措施的事实，新课本指出的核心根源包括：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq27','b3')"><span class='opt-letter'>A</span> 人脸识别摄像头出厂时所使用的光学玻璃镜头会自发向外界释放大量具有高放射性的伽马射线</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq27','b3')"><span class='opt-letter'>B</span> 存在严重的个人私隐侵犯风险，且算法模型在识别白种人与男性时精度高而在黑人与女性群体上准确率较低</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq27','b3')"><span class='opt-letter'>C</span> 人脸识别系统在扫描人类面部时会永久性抹除被拍摄者脸上的自然皮肤毛孔导致严重皮肤病变</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq27','b3')"><span class='opt-letter'>D</span> 国际反垄断执法机构认定人脸识别技术侵犯了传统反光镜片与普通梳妆镜制造厂商的合法商业利益</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq27','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq28' data-exp="• 【答案说明】：&lt;br>• A 正确（仅 I、II、IV）：&lt;br>• I、II 对应课本第 105 页图 3.20 学习梵谷《星夜》画风与相对独立作画写小说的前沿应用；&lt;br>• IV 对应课本关于 AI 衍生社会争议的客观事实；&lt;br>• III 错误：课本第 105 页明确指出电脑是“毫无情感的”，并不具备真正的生命情感体验。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q28</span><span class='mcq-stem'>【罗马组合题 4】 在人工智能与艺术创作的交融中，电脑视觉与深度学习模型展现出了令人惊叹的能力。下列关于该领域的描述，哪些是正确的？<br>I. 算法模型能够深入“学习”梵谷、毕加索等著名画家的标志性构图与色彩画风，并将日常风景照片重绘为对应艺术风格<br>II. 现代生成式 AI 系统已经能够相对独立地进行旋律谱曲、撰写中长篇科幻小说以及根据文本提示作画<br>III. 计算机在进行艺术创作时已经具备了完全等同于人类艺术家的丰富生命情感体验与哲学痛苦感悟<br>IV. AI 艺术创作的大量普及也引发了关于训练数据集未经授权抓取人类艺术家版权作品的巨大法律争议</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','A','bq28','b3')"><span class='opt-letter'>A</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','A','bq28','b3')"><span class='opt-letter'>B</span> 仅 I、III、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','A','bq28','b3')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','A','bq28','b3')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq28','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq29' data-exp="• 【答案说明】：&lt;br>• B 正确（仅 I、II、IV）：&lt;br>• I、II、IV 均符合课本第 86 页（马来西亚路线图）及第 102~106 页关于用 AI 应对危机、智能看护老人的善用举措；&lt;br>• III 深度伪造涉黄诈骗属于滥用 AI 危害社会的违法行为。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q29</span><span class='mcq-stem'>【罗马组合题 5】 面对人工智能对人类社会带来的深远重塑，新课本 3.2.2 节以“水能载舟，亦能覆舟”作为深刻警示。下列哪些属于善用 AI 的正面表现？<br>I. 运用气候模型与农业物联网预测全球极端干旱与洪涝灾害，提前制定粮食安全应急调配策略<br>II. 医疗机构利用智能监测设备实时追踪重症监护病房老人的血氧与心电异常，并在意外跌倒时及时报警救援<br>III. 利用人工智能深度伪造 (Deepfake) 技术随意合成公众人物虚假涉黄及诈骗语音视频并在网络上大肆兜售牟利<br>IV. 马来西亚政府于 2021 年正式发布《国家人工智能路线图 (National AI Roadmap)》，旨在规范并积极推动健康发展</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq29','b3')"><span class='opt-letter'>A</span> 仅 I、II、III</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq29','b3')"><span class='opt-letter'>B</span> 仅 I、II、IV</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq29','b3')"><span class='opt-letter'>C</span> 仅 II、III、IV</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq29','b3')"><span class='opt-letter'>D</span> I、II、III、IV</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq29','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-card' id='bq30' data-exp="• 【答案说明】：&lt;br>• B 正确：新课本第 108 页课后答案明确揭示：“提供电子邮件及上网搜寻服务的企业使用自然语言处理系统分析我们的电子邮件及搜寻关键词，从而理解与我们相关的领域及有兴趣的事情，并向我们提供客制化的广告。这些企业在通过提供广告的活动中向商家赚取盈利”。&lt;br>• A、C、D 错误：纯属荒谬干扰项。">
+    <div class='mcq-stem-row'><span class='mcq-qnum'>Q30</span><span class='mcq-stem'>许多跨国科技巨头为全球网民提供“免费”的电子邮箱、地图导航与搜索引擎服务，新课本 3.2 节课后研讨指出，这些企业实现巨额商业变现的底层逻辑是：</span></div>
+    <div class='mcq-options'>
+      <button class='mcq-opt' data-choice='A' onclick="answerMcq(this,'A','B','bq30','b3')"><span class='opt-letter'>A</span> 用户在注册邮箱账号时实际上已经将自己名下的全部不动产房产产权永久无偿转让给了科技巨头公司</button>
+      <button class='mcq-opt' data-choice='B' onclick="answerMcq(this,'B','B','bq30','b3')"><span class='opt-letter'>B</span> 企业利用自然语言与数据挖掘算法深入分析用户电邮文本与搜索关键词，精准刻画用户兴趣并向其投放高价客制化广告</button>
+      <button class='mcq-opt' data-choice='C' onclick="answerMcq(this,'C','B','bq30','b3')"><span class='opt-letter'>C</span> 科技企业的高管秘密掌握了能够将互联网络光纤电缆中的高频光脉冲信号直接在机房内物理冷凝提炼为纯净白银的绝密魔法</button>
+      <button class='mcq-opt' data-choice='D' onclick="answerMcq(this,'D','B','bq30','b3')"><span class='opt-letter'>D</span> 联合国世界银行每年从发展中国家财政税收中直接划拨千亿特别援助资金以对冲免费互联网服务的全部电力开销</button>
+    </div>
+    <div class='mcq-feedback'></div>
+    <div class='mcq-card-footer'><button class='mcq-reset' onclick="resetMcq('bq30','b3')">↺ 重试</button></div>
+  </div>  <div class='mcq-nav-footer'>
+    <button class='mcq-nav-btn' onclick="showMcqPage('page_b_3', 'page_b_2')">← 上一组 (11–20题)</button><button class='mcq-nav-btn' style='background:#10B981;' onclick="alert('恭喜完成本卷所有 30 道精选选择题！')">✓ 完成本卷！</button>
+  </div>
+</div>
+
+    </div>
+
+    <!-- 综合大题 -->
+    <div id="tabOpen" class="quiz-tab-content" style="display:none;">
+<div style='font-size:13px;color:#475569;margin-bottom:16px;padding:10px 14px;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;'>综合大题 · 共 10 题（卷A 5题 + 卷B 5题）。涵盖图灵测试、人脸识别闸机、机器学习黑箱、模糊逻辑、智慧农业、工业4.0视觉质检、蚁群物流优化、医疗手术机器人、算法偏见与数字经济闭环。按 a / b / c 分段展开官方参考答案与采分量规。</div>
+<div class='open-accordion-list'>
+      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷A · 第 1 题 · 8分</span> 第 1 题：图灵测试与自然语言处理评估（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>为了深入探讨机器智能与人机交互的界限，某独中资讯科技学会举办了一场模拟“图灵测试”活动。在测试中，评判员小林坐在独立的测试室中，通过电脑键盘与显示终端向隔壁房间的两个对象（对象 A 为人类高中生小张，对象 B 为部署了自然语言处理模型的聊天机器人）提出了一系列涉及日常闲聊、成语理解与数学谜语的问题。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">请根据新课本定义，简述在什么评判结果下，对象 B（机器人）可被认定为成功通过了图灵测试。（2分）</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">在交流过程中，小林输入了一句英文句子：“I will present a birthday present to my teacher at the present time.”，并要求机器将其翻译为规范华文。</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(i)</span>
+          <div class="subq-body">请写出该句中三个连续出现的单词 “present” 分别所表达的词性与华文释义。（3分）<br>第一个 present：<br>第二个 present：<br>第三个 present：<br>(ii) 试从自然语言处理 (NLP) 的学科特征，分析机器翻译在处理此类句子时所面临的核心技术挑战。（3分）</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 1 题：图灵测试与自然语言处理评估（8 分）<br>(a) 认定通过图灵测试的标准（2分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.1.1 节关于艾伦·图灵 1950 年提出的图灵测试判定基准。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>在评判员处于完全隔开的情况下（仅通过键盘/屏幕沟通），如果评判员在对话后无法准确分辨跟自己对话的究竟是一个真实人类还是一台机器，那么这台机器就成功通过了图灵测试。<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 机器翻译中多义词与技术瓶颈分析（6分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查自然语言处理中“一词多义”与句法依存关系分析的技术难点（课本第 86 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>(i) 词性与华文释义：<br>• 第一个 present：动词 (Verb)，意为“赠送 / 呈献 / 递交”；（1分）<br>• 第二个 present：名词 (Noun)，意为“礼物 / 礼品”；（1分）<br>• 第三个 present：形容词 (Adjective)，意为“现在的 / 当前的”（at the present time 即当前/现在）。（1分）<br>(ii) 自然语言处理的核心技术挑战：<br>• 词义多重性与歧义性 (Ambiguity)：同一拼写的单词在不同上下文中具有完全不同的词性与语义，机器必须结合长上下文才能消歧；（1.5分）<br>• 文法结构与语境差异：自然语言包含复杂的倒装、修辞和习惯搭配，机器无法单靠机械查词典实现准确翻译，必须深入理解整段文章的深层语义与语境。（1.5分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷A · 第 2 题 · 8分</span> 第 2 题：电脑视觉技术与智慧校园安防门禁系统（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>某宽柔中学为了提升校园出入管理与学生考勤效率，在校门口与图书馆部署了一套全新的“AI 智慧人脸通道闸机”。学生在通过闸机时，摄像头会迅速捕获面部影像，闸机屏幕在 0.3 秒内显示出学生姓名并自动放行。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">该闸机系统在处理面部图像的过程中，先后经历了“人脸检测 (Face Detection)”与“人脸识别 (Face Recognition)”两个阶段。请详细区分这两个概念的技术差异。（4分）<br>人脸检测：<br><br>人脸识别：</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">若有些走读学生在清晨进校时佩戴了深色遮阳帽子或口罩，导致闸机摄像头无法完整提取人脸特征。除了面部识别之外，试列举课本中提及的另外两种常见的“生物特征识别 (Biometric Recognition)”技术，并简要说明其可用于门禁认证的可行性。（4分）<br>生物特征技术 1：<br>说明：<br>生物特征技术 2：<br>说明：</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 2 题：电脑视觉技术与智慧校园安防门禁系统（8 分）<br>(a) 人脸检测与人脸识别的本质差异（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.1.2 节对电脑视觉中两种不同层次图像处理概念的严格区分。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 人脸检测 (Face Detection)：仅分析图像中“是否存在人脸”，并确定人脸在画面中的具体空间几何位置（画出定位边框），并不关心该人脸的具体身份是谁；（2分）<br>• 人脸识别 (Face Recognition)：将检测到的人脸生物特征数据与预先录入数据库的人脸特征记录进行精准比对与分类匹配，以明确判断该人脸“究竟是谁”（确认具体人物身份）。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 替代生物特征识别技术列举与门禁可行性（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查生物特征识别技术（课本第 90 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 生物特征技术 1：指纹识别 (Fingerprint Recognition)（1分）<br>说明：每个人的手指表面纹路（脊线与谷线）具有终身不变的独特性，学生可通过按压指纹采集器在 0.5 秒内完成精准身份比对认证，不受帽子或口罩阻挡影响。（1分）<br>• 生物特征技术 2：虹膜识别 (Iris Recognition)（或掌纹识别）（1分）<br>说明：人眼虹膜内部的纹理特征极其复杂且具有高度唯一性，即使佩戴口罩，通过红外近红外摄像头扫描眼部虹膜即可高精度验证身份，防伪造能力极强。（1分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷A · 第 3 题 · 8分</span> 第 3 题：机器学习训练流与深度学习“黑箱”剖析（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>某互联网科技公司开发了一款用于识别银行支票手写数字的机器学习模型。技术研发团队首先采集了 20 万张来自不同储户手写填写的支票金额图像，并对每张图像上的真实手写数字（0~9）进行了准确的人工标注。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">请依照新课本关于机器学习运作机制的描述，完整阐述该系统从“原始数据”到“预测新支票”所经历的标准三步流程。（4分）<br>第一步（训练阶段）：<br>第二步（模型生成）：<br>第三步（预测阶段）：</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">在模型上线后，公司引入了多层人工神经网络构建的“深度学习 (Deep Learning)”算法，使得数字识别准确率从 91% 飙升至 99.6%。然而，审计风控部门却对该系统提出了“黑箱特性 (Black Box)”的质疑。<br>请解释什么是深度学习的“黑箱特性”，并说明为何该特性在金融、医疗等关键应用领域会引发人们的担忧。（4分）</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 3 题：机器学习训练流与深度学习“黑箱”剖析（8 分）<br>(a) 机器学习的标准运作三步流程（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.1.2 节图 3.6《机器学习里的训练与模型建构过程》。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 第一步（数据收集与特征训练）：将大量带有真实手写标签（0~9）的支票图像作为“训练数据 (Training Data)”输入机器学习演算法中，演算法自动从样本中寻找手写笔迹的规律；（1.5分）<br>• 第二步（构建预测模型）：演算法在完成特征提取与规律归纳后，在计算机中生成并固化一套专门用于分类的“数学模型 (Model)”；（1.5分）<br>• 第三步（预测新数据）：当遇到未曾见过的“新支票图像 (New Data)”输入时，系统使用该模型进行运算，输出最终的数字识别“预测结果 (Prediction)”。（1分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 深度学习“黑箱特性”及其风险（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查深度学习可解释性缺失的概念与现实风险（课本第 92 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 概念定义：“黑箱特性”是指深度学习系统虽然预测精度极高，但其依靠多层神经网络中海量加权参数完成决策，其内部具体的推理过程和决策逻辑是无法被人类直观理解和解释的，在输入与输出之间缺乏明确透明的因果关系。（2分）<br>• 风险担忧：在银行金融（如支票金额核验、贷款审批）与医疗诊断等关键领域，一旦系统发生误判（如将 10 万支票误判为 100 万），由于黑箱特性，审计人员和医生无法溯源系统出错的具体原因，导致权责无法划分，可能造成灾难性财产损失或医疗事故。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷A · 第 4 题 · 8分</span> 第 4 题：模糊逻辑与传统逻辑决策系统对比（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>传统布尔逻辑遵循二值化（True / False）判定规则，而现代家用电器与交通系统广泛采用了“模糊逻辑 (Fuzzy Logic)”控制理论。例如，某品牌智能电饭煲能够根据大米的硬度与吸水膨胀程度平滑调节加热功率，高速铁路列车在进站时能够依据车速平滑控制制动刹车。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">请从数据表达形式与逻辑判定范围两个维度，对比“传统二值逻辑”与“模糊逻辑”的本质差异。（4分）<br>传统二值逻辑：<br><br>模糊逻辑：</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">相比于需要海量训练样本的深度学习神经网络，模糊逻辑专家系统的建立在数据需求与规则构建上具备哪些独特优势？（4分）</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 4 题：模糊逻辑与传统逻辑决策系统对比（8 分）<br>(a) 传统二值逻辑与模糊逻辑的本质对比（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.1.2 节传统二分法与模糊逻辑连续真值的对比。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 传统二值逻辑：采用绝对“二分法”，数据与判断结果只能在非此即彼的两个离散极端状态之间选择，即只能是“对”或“错”、“是”或“非”（如 1 或 0）；（2分）<br>• 模糊逻辑：能够接受定义模糊甚至不完整的数据，引入介于绝对正确与绝对错误之间的连续过渡隶属度，能够极好地处理现实中“快与慢”、“热与冷”之间的模糊地带。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 模糊逻辑专家系统的独特优势（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查模糊逻辑在工程实现上的核心优势（课本第 93 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 不依赖海量大数据训练：模糊逻辑系统建立时，不需要收集与标注成千上万的海量历史数据样本即可快速搭建，大幅节省了数据采集与算力成本；（2分）<br>• 直接沉淀人类专家经验规则：系统可以直接将资深工程师或医疗专家长期积累的直觉与定性经验（例如“如果水温稍高且浑浊，则轻微减速”）直接转化为控制规则，易于调试且具备良好的人类可读性与确定性。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷A · 第 5 题 · 8分</span> 第 5 题：人工智能在智慧农业中的综合赋能与社会伦理考量（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>马来西亚拥有广袤的油棕种植园与热带果园。传统的油棕果采收主要依赖种植园劳工凭借肉眼观察果实表皮色泽来人工判断其成熟度，不仅劳动强度极大、作业效率低下，而且容易因工人体力疲劳导致采摘过生或过熟的果实，直接影响原棕油的出油率与品质。近年来，当地一家大型农业科技集团将无人机航测、电脑视觉分析与智能机器人手臂引入了种植园管理。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">结合新课本 3.2.1 节内容，说明“无人机 (Drone) 结合电脑视觉”在种植园地形规划与日常生长巡检中能提供哪些具体帮助。（3分）</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">简述电脑视觉系统是如何协助种植园科学鉴定油棕果成熟度并指导采摘的。（2分）</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(c)</span>
+          <div class="subq-body">“水能载舟，亦能覆舟”。虽然人工智能与工业机器人为农业与制造业带来了效率革命，但大量机器手臂与自动化算法的普及也对传统劳动者群体带来了冲击。请简述人工智能在劳动力就业方面带来的双重影响（正面机遇与潜在负面挑战各一条）。（3分）<br>正面机遇：<br>负面挑战：</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 5 题：人工智能在智慧农业中的综合赋能与社会伦理考量（8 分）<br>(a) 无人机结合电脑视觉在种植园规划与巡检中的作用（3分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查农业与 AI 结合的具体应用场景（课本第 98~99 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 地形精准测绘与土地利用：无人机高空航测结合电脑视觉能够快速建立高精度地形数字高程模型，协助农场主科学规划作物的种植分布，确保每一寸土地都被充分利用；（1.5分）<br>• 农作物健康与病虫害监测：定期巡航拍摄叶片微观图像，利用视觉算法智能比对叶片异常变色或枯斑，及早发现病虫害爆发区域，并智能指导无人机精准喷洒农药与节水灌溉。（1.5分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 电脑视觉鉴定油棕果成熟度的原理（2分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本图 3.11 油棕果图像成熟度鉴定案例。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>电脑视觉系统通过摄像头采集油棕果穗的色彩图像，利用演算法提取果实表皮的颜色色调（如 RGB 中红、绿分量比例）以及纹理特征，将其输入成熟度判定模型中，自动计算出果实属于“未熟 (Underripe)”、“成熟 (Ripe)”还是“过熟”的概率，并给出最优采收时间建议。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(c) 自动化对就业的双重影响（3分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.2.2 节关于人工智能对劳动力市场的积极与消极影响（课本第 106 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 正面机遇：在相关科技领域创造了许多全新高薪的知识型就业机会（如无人机飞控员、AI 数据标注师、机器人维护工程师），并将人类从繁重、单调重复或高危的体力劳动中解放出来，员工角色转变为高端的“监督者”；（1.5分）<br>• 负面挑战：大量从事基础采摘、流水线装配等低技能体力劳动的传统劳工面临被机器替代淘汰的失业危机，若缺乏再培训转型机制，可能进一步加剧社会的贫富分化。（1.5分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷B · 第 1 题 · 8分</span> 第 1 题：工业 4.0 智能制造流水线与机器视觉质检（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>在某跨国食品与饮品制造集团的槟城现代化智能灌装工厂中，整个生产车间全面践行了“工业 4.0 (Industry 4.0)”标准。传送带以每分钟 600 瓶的高速输送刚封装完成的维生素功能饮料。为了杜绝未拧紧盖或倾斜漏液的不合格品流入市场，工厂在流水线上方架设了搭载工业级相机的电脑视觉质检工作站。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">结合新课本 3.2.1 节内容，简述“工业 4.0”的核心定义，并说明它与传统流水线依赖人工肉眼质检相比，在生产参数调控上具备什么显著优势。（4分）<br>工业 4.0 核心定义：<br><br>参数调控优势：</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">在视觉质检环节，工业相机拍摄到瓶盖图像后，系统利用演算法精准测量瓶盖的“离瓶颈高度 (Height)”以及“水平倾斜角 (Angle)”。</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(i)</span>
+          <div class="subq-body">若规定标准合格瓶盖的高度基准为 289 像素（允许误差 ± 2 像素），倾斜角必须小于等于 2 度。若某瓶饮料测得 Height = 305 像素，Cap's angle = 12 度，请判断该样品是否合格，并指明其物理缺陷。（2分）<br>(ii) 相比于人类质检员长时间盯看流水线，使用电脑视觉进行缺陷检测可以有效避免人类工人的哪些内在生理缺陷？（2分）</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 1 题：工业 4.0 智能制造流水线与机器视觉质检（8 分）<br>(a) 工业 4.0 定义与参数动态调控优势（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.2.1 节工业 4.0 概念与智能化参数调控优势（课本第 100~101 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 工业 4.0 核心定义：2011 年提出的工业 4.0，是指一场由人工智能及其他科技（如物联网 IoT、云计算等）联合带动的全新工业革命；（2分）<br>• 参数调控优势：产品生产过程中涉及原料配比、气压、温度等多维参数，传统人工经验难以察觉微观连续波动。人工智能能够实时精准监测环境数据流，根据外部条件变化即时动态微调工艺参数，确保出厂批次产品质量保持高度均一稳定。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 瓶盖机器视觉判定与人类工人对比（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本图 3.14 工厂使用电脑视觉进行瓶盖缺陷检测案例。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>(i) 判定结果与物理缺陷：<br>• 判定结果：不合格品（缺陷样品）；（1分）<br>• 物理缺陷分析：高度达到 305 像素（远超标准基准 289 像素），且水平倾斜角度达到 12 度（超过 ≤ 2 度的合格阈值），表明该瓶盖存在“瓶盖未压紧到位且严重倾斜封装”的物理装配缺陷。（1分）<br>(ii) 避免人类工人内在生理缺陷：<br>• 避免了人类工人因长时间高强度凝视传送带产生的大脑视觉疲劳、注意力涣散，以及因工人个体经验差异、情绪起伏导致的误检与漏检，机器视觉能在极高帧率下保持 24 小时不间断的绝对一致客观判断。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷B · 第 2 题 · 8分</span> 第 2 题：群体智能演算法与跨州物流配送网络路径最优化（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>马来西亚某大型全国连锁物流快递企业在雪隆区设立了区域分拣中心，每天清晨需要派出数十辆厢式配送货车，分别前往吉隆坡、八打灵再也、梳邦再也及巴生等 30 个不同的配送网点派件。为了降低燃油成本并缩短路途耗时，企业软件工程团队引入了“进化计算 (Evolutionary Computation)”中的“蚁群演算法 (Ant Colony Algorithm)”来求解这一复杂的车辆路径最优化问题 (Vehicle Routing Problem)。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">新课本 3.1.2 节图 3.8 展示了生物学家进行的“蚂蚁双路径觅食实验”。请简述自然界中蚁群是如何在连接巢穴与食物源的长短两条不同路径中，最终自发集体收敛并找出较短路径的生物学机理。（4分）</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">软件系统在计算机中利用进化计算求解最佳行车路径时，其通用的三步迭代演化机制是什么？（4分）<br>第一步（初始化）：<br>第二步（方案评估与演化）：<br>第三步（迭代终止）：</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 2 题：群体智能演算法与跨州物流配送网络路径最优化（8 分）<br>(a) 蚁群双路径觅食自发收敛的最短路径机理（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.1.2 节图 3.8《蚁群演算法基于蚂蚁寻找较短路径的原理》。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 信息素沉积与挥发机制：蚂蚁在行走过程中会在路径上留下一种具有挥发性的化学物质（信息素）。初始时蚂蚁随机选择两条长短不同的路径；（1.5分）<br>• 单位时间往返频率差异：由于较短的路径耗时更短，选择短路径的蚂蚁能够以更快的往返频率在单位时间内往返更多次，从而在该路径上沉积越来越浓密的信息素；（1.5分）<br>• 正反馈滚雪球效应：后续蚂蚁倾向于选择信息素浓度更高的路径前进，进一步强化了短路径的信息素优势，最终整个蚁群自发集体收敛到最短路径上。（1分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 进化计算求解物流路径的三步迭代演化流程（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查进化计算核心三步机制（课本第 93 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 第一步（初始候选解生成）：系统在众多可能的行车路线解空间中，随机先生成一组初始的行车配送路线方案组合；（1.5分）<br>• 第二步（方案评估与演化）：通过适应度函数（如总行驶里程最短、油耗最小）评估每一个方案，选出表现最好的几个优秀方案，并让它们进行交叉“演化”（即相互参考重组），产生新一代更优的路线方案；（1.5分）<br>• 第三步（迭代终止与输出）：重复执行上述评估与演化过程，直到解决方案足够完善、指标趋于收敛，输出最终的全局最佳物流配送行车规划。（1分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷B · 第 3 题 · 8分</span> 第 3 题：医疗卫生中的机器人手术与重症监护守护系统（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>吉隆坡一家顶尖教学医院引进了国际先进的“多手臂机器人辅助腹腔镜微创外科手术系统”（类似达芬奇手术机器人），用于执行高难度的前列腺癌根治切除术与小儿心脏瓣膜修复手术。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">结合新课本 3.2.1 节内容，阐述外科医生使用多手臂机器人系统执行手术，能为手术操作与患者创伤恢复带来哪些核心技术优势？（3分）</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">该手术系统的控制台与病床边的机器手臂之间通过千兆医用以太网络连接。试问：主刀主治医生是否必须在物理空间上身处无菌手术室现场才能开展手术？请结合课本说明其技术延展可行性。（2分）</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(c)</span>
+          <div class="subq-body">尽管人工智能与医疗机器人日臻成熟，新课本 102 页明确指出：“在短时间内还不太可能出现人工智能取代专业医生的趋势”。请从技术安全与社会法律伦理两个层面，深入剖析目前无法完全由 AI 独立替代专科医生的核心根源。（3分）<br>技术安全层面：<br>法律伦理层面：</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 3 题：医疗卫生中的机器人手术与重症监护守护系统（8 分）<br>(a) 机器人辅助微创手术的核心技术优势（3分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.2.1 节医疗机器人技术赋能（课本第 102 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 高精度与微创减损：机器人手术能让外科医生通过高倍三维放大视野极其精准地控制微型机器手臂，有效过滤人手天然的生理震颤，实施毫米级微创操作，大幅减小伤口面积与组织损伤；（1.5分）<br>• 加快术后康复：微创手术显著减少了患者术中出血量与感染机率，减轻病患疼痛，大幅缩短病患术后的住院康复周期。（1.5分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 远程遥控手术可行性分析（2分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查远程机器人手术控制（课本第 102 页图 3.16）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>主刀医生不需要必须身处手术室现场。现代手术系统将“医生控制台”与“病床执行机器手臂”物理分离，只要依托低延迟、高可靠的专用通信网络，主刀医生完全可以在不在手术室的情况下（甚至跨国远程）操控机器人进行精准手术。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(c) 无法完全替代人类医生的深层剖析（3分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.2.1 节关于 AI 在医疗卫生领域的局限性警示。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 技术安全层面：人体生理构造与突发病理极其复杂多变，AI 系统存在“黑箱特性”和对极端罕见并发症泛化能力不足的问题，一旦遭遇算法误判或设备网络中断，缺乏人类医师在生死关头的临场应变与综合直觉判断力；（1.5分）<br>• 社会法律与伦理层面：医疗涉及最神圣的生命权与人道关怀。一旦发生医疗事故或患者死亡，目前的法律法规体系无法向无意识的机器系统追究民事或刑事法律责任，且机器无法给予患者具有同理心的人文心理慰藉。（1.5分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷B · 第 4 题 · 8分</span> 第 4 题：人脸识别技术管制成因与算法偏见防范（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>近年来，随着智能门禁、安检闸机与警务移动巡逻设备的快速部署，人脸识别技术在全世界获得了爆炸式普及。然而，欧美等许多西方发达国家自 2019 年起相继出台严格法律法规，对在公共场所滥用人脸识别技术进行了严厉的立法审查与强制管制。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">新课本 3.2.2 节明确揭示了人脸识别技术在底层算法与模型训练层面上存在一个严重的固有缺陷（算法偏见）。请指出这一缺陷在识别不同人群时的具体表现是什么，并分析导致这一偏差的技术根源。（4分）<br>具体表现：<br>技术根源：</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">除了算法偏差与歧视问题外，人脸数据作为不可更改的“生物特征识别 (Biometric Recognition)”信息，在数据存储与集中式管理中面临着极高的安全风险。试从隐私泄露与滥用后果的角度，分析为何生物特征数据一旦被黑客窃取将对公民个人造成终身且不可逆的伤害。（4分）</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 4 题：人脸识别技术管制成因与算法偏见防范（8 分）<br>(a) 人脸识别算法偏见的具体表现与技术根源（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.2.2 节人脸识别技术在不同人群上的偏差事实（课本第 107 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 具体表现：人脸识别系统在识别白种人和男性群体时准确率较高，但在识别黑人等少数族裔和女性群体时识别准确率显著偏低，容易引发种族与性别歧视或错误指控；（2分）<br>• 技术根源：机器学习模型的预测能力取决于训练数据。由于早期科技公司在收集人脸训练数据集时，样本数据大多来源于白人成年男性，黑人与女性样本数量极其稀少且分布失衡，导致算法从数据中学习到的少数群体面部特征严重不足。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) 生物特征数据泄露的终身不可逆危害（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查生物特征唯一性与隐私安全的本质（课本第 90 页与 107 页）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 生物特征的终身不可更改性：与传统由字母数字组成的“密码”不同，人脸、指纹、虹膜等生物特征是由人类先天生理结构决定的，一个人一生中无法随意修改或重置自己的生物特征；（2分）<br>• 不可逆的终身欺诈与冒用危害：一旦包含公民面部特征向量的数据库被黑客窃取或泄露，攻击者可以利用这些永久特征实施深度伪造 (Deepfake)、非法盗刷银行账户、伪造身份通关等，受害者将面临终身无法更换“密码”的长期安全梦魇，危害具有不可逆性和灾难性。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div>      <div class="open-accordion-item">
+        <div class="open-accordion-header" onclick="toggleAccordion(this)">
+          <div class="open-item-title"><span style="background:#EFF6FF;color:#1D4ED8;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:8px;border:1px solid #BFDBFE;">卷B · 第 5 题 · 8分</span> 第 5 题：生成式 AI 商业变革与数字足迹经济学剖析（8 分）</div>
+          <div class="open-item-arrow">▼</div>
+        </div>
+        <div class="open-accordion-body">
+          <div class="open-context-block"><strong>【试题情境背景】</strong><br>某高中高二资讯科技课题研究小组对“免费互联网服务背后的人工智能商业闭环”展开了专题调研。学生们发现，各大科技巨头（如 Google、Meta 等）不仅向全球数亿用户提供免费的高性能电子邮件、网络视频浏览与社交网络平台，还在 2022 年后竞相推出了强大的生成式人工智能助手。<br>配套图表占位：</div>
+                  <div class="open-subq-card">
+          <span class="subq-badge">(a)</span>
+          <div class="subq-body">新课本第 108 页课后研讨题尖锐地指出：“所谓‘免费’的电子邮件和上网搜寻服务，并非真正免费”。<br>请从商业盈利模式与用户“数字足迹”的角度，详细揭示这些科技巨头是如何通过提供上述免费服务来获取巨额商业利润的。（4分）</div>
+        </div>        <div class="open-subq-card">
+          <span class="subq-badge">(b)</span>
+          <div class="subq-body">在上述商业变现全流程中，自然语言处理 (NLP) 与机器学习技术各自扮演了什么不可替代的核心角色？（4分）<br>自然语言处理 (NLP) 的角色：<br><br>机器学习的角色：</div>
+        </div>
+          <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看官方参考答案与评分标准</button>
+          <div class="open-ans-box">
+            <div class="ans-box-title">📋 教师官方阶梯评分标准与标准参考答案：</div>
+            <div style="font-size:14px;line-height:1.7;color:#1F2937;">第 5 题：生成式 AI 商业变革与数字足迹经济学剖析（8 分）<br>(a) 免费互联网服务的商业变现闭环（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查新课本 3.2 节课后研讨第 5 题“天下没有免费的午餐”的数字经济本质（课本第 108 页参考答案）。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 羊毛出在猪身上（双边市场模型）：互联网巨头通过免费的邮箱、搜索和社交服务吸引海量用户使用，在用户日常交互中无偿收集了极其庞大的“数字足迹”（如搜索记录、邮件往来、浏览偏好）；（2分）<br>• 广告精准投放变现：企业将挖掘出的用户画像转化为商业价值，向第三方品牌广告商出售“高精度客制化广告推送服务”赚取巨额广告费。用户看似享受免费服务，实则被推荐购买了广告商品，间接为免费服务支付了高昂溢价。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div><br>(b) NLP 与机器学习在此商业模型中的核心角色（4分）<br><div style='font-weight:700;color:#1E40AF;margin-top:8px;'>📌 答案说明：</div>考查官方教材参考答案中对自然语言处理与机器学习分工协作的说明。<br><div style='font-weight:700;color:#059669;margin-top:8px;'>✅ 官方标准答案：</div><br>• 自然语言处理 (NLP) 的角色：由于每秒钟产生的电邮和搜索关键词数量极其庞大且属于非结构化自然语言，人工无法阅读。NLP 负责在后台即时读取、语义解析海量文本内容，自动提取关键词、消费意图与情感偏好；（2分）<br>• 机器学习 (ML) 的角色：负责从清洗后的海量用户行为特征数据中训练出推荐预测模型，动态计算每一位用户在此时此刻点击某类广告的概率，实现广告的毫秒级最优化自动竞价与精准推送。（2分）<br><div style='font-weight:700;color:#D97706;margin-top:10px;'>📊 官方阶梯评分量规：</div></div>
+          </div>
+        </div>
+      </div></div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Reading Progress Bar + Active ScrollSpy
+  window.addEventListener('scroll', function() {
+    var ws = document.documentElement.scrollTop || document.body.scrollTop;
+    var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    if (h > 0) document.getElementById('progress-bar').style.width = (ws / h * 100) + '%';
+    
+    var btnTop = document.getElementById('btn-top');
+    if (btnTop) btnTop.style.display = ws > 400 ? 'block' : 'none';
+    
+    var sections = ['sec-goals', 'sec-terms', 'sec-31', 'sec-32', 'sec-answers', 'sec-infographics', 'sec-speed', 'sec-quiz'];
+    var links = document.querySelectorAll('#nav-list a');
+    for (var i = sections.length - 1; i >= 0; i--) {
+      var el = document.getElementById(sections[i]);
+      if (el && el.getBoundingClientRect().top <= 140) {
+        links.forEach(function(l) { l.classList.remove('active'); });
+        if (links[i]) links[i].classList.add('active');
+        break;
+      }
+    }
+  });
+
+  // Sidebar Layout
+  function toggleSidebar() {
+    var sb = document.getElementById('sidebar'), bd = document.getElementById('backdrop');
+    var open = sb.classList.toggle('open');
+    bd.style.display = open ? 'block' : 'none';
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('backdrop').style.display = 'none';
+  }
+
+  // Checklist
+  function toggleCheck(label) {
+    var cb = label.querySelector('input[type=checkbox]');
+    label.classList.toggle('done', cb.checked);
+  }
+
+  // Lightbox
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeLightbox(); closeQuiz(); }
+  });
+
+  // Quiz Modal Controls
+  function openQuiz() {
+    document.getElementById('quiz-overlay').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeQuiz() {
+    document.getElementById('quiz-overlay').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('quiz-overlay')) closeQuiz();
+  }
+
+  // Tab Switching
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.quiz-tab-content').forEach(function(t) { t.style.display = 'none'; });
+    document.querySelectorAll('.qtab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.getElementById(tabId).style.display = 'block';
+    btn.classList.add('active');
+  }
+
+  // MCQ Pagination
+  function showMcqPage(hideId, showId) {
+    var h = document.getElementById(hideId);
+    var s = document.getElementById(showId);
+    if (h) h.style.display = 'none';
+    if (s) {
+      s.style.display = 'block';
+      s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // MCQ Scoring & Evaluation
+  var groupScores = {
+    a1: {}, a2: {}, a3: {},
+    b1: {}, b2: {}, b3: {}
+  };
+
+  function answerMcq(btn, chosen, correct, cardId, groupKey) {
+    var card = document.getElementById(cardId);
+    var opts = card.querySelectorAll('.mcq-opt');
+    opts.forEach(function(b) { b.disabled = true; });
+
+    var fb = card.querySelector('.mcq-feedback');
+    var exp = card.getAttribute('data-exp') || '';
+    var isCorrect = (chosen === correct);
+
+    if (isCorrect) {
+      btn.classList.add('opt-correct');
+      fb.innerHTML = '✅ <strong>回答正确！</strong> 选项 <strong>' + correct + '</strong> 是官方标准答案。<br><div style=\"margin-top:6px;font-size:13px;color:#1F2937;line-height:1.6;\">' + exp + '</div>';
+      fb.className = 'mcq-feedback fb-correct';
+    } else {
+      btn.classList.add('opt-wrong');
+      opts.forEach(function(b) {
+        if (b.dataset.choice === correct) b.classList.add('opt-correct');
+      });
+      fb.innerHTML = '❌ <strong>回答错误。</strong> 正确答案为选项 <strong>' + correct + '</strong>。<br><div style=\"margin-top:6px;font-size:13px;color:#1F2937;line-height:1.6;\">' + exp + '</div>';
+      fb.className = 'mcq-feedback fb-wrong';
+    }
+    fb.style.display = 'block';
+
+    if (groupKey && groupScores[groupKey]) {
+      groupScores[groupKey][cardId] = isCorrect ? 1 : 0;
+      updateGroupScore(groupKey);
+    }
+  }
+
+  function resetMcq(cardId, groupKey) {
+    var card = document.getElementById(cardId);
+    card.querySelectorAll('.mcq-opt').forEach(function(b) {
+      b.disabled = false;
+      b.className = 'mcq-opt';
+    });
+    var fb = card.querySelector('.mcq-feedback');
+    fb.style.display = 'none';
+    fb.className = 'mcq-feedback';
+
+    if (groupKey && groupScores[groupKey]) {
+      delete groupScores[groupKey][cardId];
+      updateGroupScore(groupKey);
+    }
+  }
+
+  function updateGroupScore(groupKey) {
+    var count = 0;
+    for (var k in groupScores[groupKey]) {
+      count += groupScores[groupKey][k];
+    }
+    var el = document.getElementById('score_' + groupKey);
+    if (el) el.textContent = '得分: ' + count + ' / 10';
+  }
+
+  // Open Questions Accordion
+  function toggleAccordion(header) {
+    var body = header.nextElementSibling;
+    var isOpen = body.style.display === 'block';
+    body.style.display = isOpen ? 'none' : 'block';
+    header.classList.toggle('open', !isOpen);
+  }
+
+  function toggleOpenAns(btn) {
+    var box = btn.nextElementSibling;
+    var isOpen = box.style.display === 'block';
+    box.style.display = isOpen ? 'none' : 'block';
+    btn.textContent = isOpen ? '📖 查看官方参考答案与评分标准' : '🔼 收起参考答案';
+  }
+    // 返回平台主页处理函数
+    function handleChapterBackHome() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = '../../../index.html';
+      }
+      return false;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,1195 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高中资讯科技 ｜ 董总统考对齐 全景交互数字学习与在线模考总控平台</title>
+    <meta name="description" content="亚罗士打新民独立中学高中资讯科技全套图文交互复习门户、阶段跨章段考与2027统考全真押题模考总控平台。">
+    <style>
+        :root {
+            --bg-primary: #0b1120;
+            --bg-secondary: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --bg-card-hover: rgba(30, 41, 59, 0.95);
+            --accent-blue: #38bdf8;
+            --accent-indigo: #6366f1;
+            --accent-purple: #a855f7;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(56, 189, 248, 0.35);
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-primary);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 顶部导航 */
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-badge {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+            color: #0b1120;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .nav-link-item {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-link-item:hover, .nav-link-item.active {
+            color: var(--accent-blue);
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        /* 页面主要容器 */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 30px 24px 80px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* 巨幕看板区域 */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: 48px 40px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent-blue);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-size: 2.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+            background: linear-gradient(120deg, #ffffff 40%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1.08rem;
+            max-width: 860px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* 核心指标统计卡片组 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .stat-card {
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .stat-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .stat-num {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .stat-num span {
+            font-size: 0.95rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* 板块标题 */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 45px 0 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .section-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .icon-book1 { background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); }
+        .icon-book2 { background: rgba(168, 85, 247, 0.15); color: var(--accent-purple); }
+        .icon-stage { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+        .icon-uec { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); }
+
+        .section-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .section-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .badge-count {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* 章节卡片网格 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 22px;
+        }
+
+        .portal-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: var(--shadow-card);
+        }
+
+        .portal-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow), var(--shadow-card);
+        }
+
+        .card-top {
+            margin-bottom: 20px;
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .card-ch-num {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 3px 9px;
+            border-radius: 6px;
+        }
+
+        .ch-num-b1 { background: rgba(56, 189, 248, 0.12); color: var(--accent-blue); }
+        .ch-num-b2 { background: rgba(168, 85, 247, 0.12); color: var(--accent-purple); }
+        .ch-num-stage { background: rgba(245, 158, 11, 0.12); color: var(--accent-amber); }
+        .ch-num-uec { background: rgba(244, 63, 94, 0.12); color: var(--accent-rose); }
+
+        .card-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.76rem;
+            color: var(--accent-emerald);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-emerald);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .card-summary {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 10px;
+        }
+
+        .ft-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            font-size: 0.76rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .card-bottom {
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-meta-info {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent-blue);
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.88rem;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            transition: all 0.2s;
+        }
+
+        .card-btn:hover {
+            background: var(--accent-blue);
+            color: #0b1120;
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+            transform: translateX(2px);
+        }
+
+        .card-btn-purple {
+            background: rgba(168, 85, 247, 0.12);
+            color: var(--accent-purple);
+            border-color: rgba(168, 85, 247, 0.25);
+        }
+        .card-btn-purple:hover {
+            background: var(--accent-purple);
+            color: #0b1120;
+            box-shadow: 0 0 16px rgba(168, 85, 247, 0.4);
+        }
+
+        .card-btn-amber {
+            background: rgba(245, 158, 11, 0.12);
+            color: var(--accent-amber);
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+        .card-btn-amber:hover {
+            background: var(--accent-amber);
+            color: #0b1120;
+            box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+        }
+
+        .card-btn-rose {
+            background: rgba(244, 63, 94, 0.15);
+            color: var(--accent-rose);
+            border-color: rgba(244, 63, 94, 0.35);
+        }
+        .card-btn-rose:hover {
+            background: var(--accent-rose);
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(244, 63, 94, 0.45);
+        }
+
+        .card-actions-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .card-btn-sub {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .card-btn-sub:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+
+        /* 全真大模考特别横幅卡片 */
+        .exam-hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+            gap: 24px;
+        }
+
+        .exam-card-full {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(24, 24, 37, 0.9));
+            border: 1px solid rgba(244, 63, 94, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s;
+        }
+
+        .exam-card-full:hover {
+            border-color: var(--accent-rose);
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(244, 63, 94, 0.25), var(--shadow-card);
+        }
+
+        .exam-card-full::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 140px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* 备考指南信息箱 */
+        .guide-box {
+            margin-top: 50px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+        }
+
+        .guide-col h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-col p, .guide-col li {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .guide-col ul {
+            padding-left: 18px;
+        }
+
+        /* 页脚 */
+        .footer {
+            border-top: 1px solid var(--border-color);
+            padding: 30px 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: rgba(11, 17, 32, 0.95);
+        }
+
+        .footer p {
+            margin: 4px 0;
+        }
+
+        /* 响应式断点 */
+        @media (max-width: 768px) {
+            .cards-grid, .exam-hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-banner {
+                padding: 30px 20px;
+            }
+            .top-navbar {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部固定导航栏 -->
+    <header class="top-navbar">
+        <a href="#" class="brand-logo">
+            <span class="brand-badge">UEC 2026/2027</span>
+            <span>独中高中资讯科技 ｜ 全景学习考场平台</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#book1" class="nav-link-item">第一册基础 (6章)</a>
+            <a href="#book2" class="nav-link-item">第二册进阶 (5章)</a>
+            <a href="#stage-exams" class="nav-link-item">阶段综合模考 (4套)</a>
+            <a href="#uec-exams" class="nav-link-item">统考全真押题 (2套)</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- 迎宾巨幕大看板 -->
+        <section class="hero-banner">
+            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 20px;">
+                <div class="hero-tag" style="margin-bottom: 0;">
+                    <span>🎓 董总独中高中统考全真考纲对齐标准体系</span>
+                </div>
+                <div class="live-date-badge" style="display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 9999px; color: #38bdf8; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.3px; backdrop-filter: blur(8px);">
+                    <span style="font-size: 1rem;">📅</span>
+                    <span id="liveCurrentDate">2026年9月13日 星期日</span>
+                </div>
+            </div>
+            <h1 class="hero-title">亚罗士打新民独立中学 · 高中资讯科技</h1>
+            <p class="hero-subtitle">
+                集结 11 大核心单章图文交互复习门户、4 套 90 分钟阶段跨章大模拟卷及 2 套 120 分钟 2027 高中统考全真押题大考场。配套权威四维考点解析、考官机读答题卡联动及官方四栏评分量规，构筑一站式数字备考总矩阵。
+            </p>
+
+            <!-- 统计数据仪表盘 -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-num">11 <span>章</span></div>
+                    <div class="stat-label">图文交互复习门户</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">1,040+ <span>题</span></div>
+                    <div class="stat-label">单项选择题库 (含解析)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">195+ <span>题</span></div>
+                    <div class="stat-label">高阶情境综合作答题</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">4 <span>套</span></div>
+                    <div class="stat-label">90分钟 阶段跨章测验卷</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">2 <span>套</span></div>
+                    <div class="stat-label">120分钟 统考全真押题卷</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">100% <span>完成</span></div>
+                    <div class="stat-label">全卷在线机读批阅验证</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 板块一：第一册 基础篇 (6章) -->
+        <section id="book1">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon icon-book1">📘</div>
+                    <div>
+                        <h2 class="section-title">第一册：高中资讯科技基础篇</h2>
+                        <p class="section-desc">涵盖数据表示、演算法设计、人工智能、社会资讯伦理、软硬体基础与网络安全</p>
+                    </div>
+                </div>
+                <div class="badge-count">共 6 章节门户 · 480 MCQ · 90 作答题</div>
+            </div>
+
+            <div class="cards-grid">
+                <!-- 第 1 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b1">第 1 册 · 第 1 章</span>
+                        </div>
+                        <h3 class="card-title">认识数据与资讯</h3>
+                        <p class="card-summary">数制转换（二/八/十六进制）、原码反码补码、定点浮点表示、ASCII/Unicode 编码标准及数据度量。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">二八十六进制</span>
+                            <span class="ft-tag">补码运算</span>
+                            <span class="ft-tag">字符编码</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：PDF/图片课件 + 模拟练习</span>
+                        </div>
+                        <a href="./02_各章生成资料_第一册/第1章_认识数据/01_精准复习笔记/高中资讯科技_第1章_认识数据_图文交互复习Web网页版.html" target="_self" class="card-btn">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 2 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b1">第 1 册 · 第 2 章</span>
+                        </div>
+                        <h3 class="card-title">演算法与程式设计</h3>
+                        <p class="card-summary">流程图规范符号、三种基本控制结构（顺序/分支/循环）、典型演算法跟踪推演与时间复杂度概念。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">流程图逻辑</span>
+                            <span class="ft-tag">循环跟踪</span>
+                            <span class="ft-tag">演算法设计</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：交互流程图推演 + 精解</span>
+                        </div>
+                        <a href="./02_各章生成资料_第一册/第2章_演算法与程式设计/01_精准复习笔记/高中资讯科技_第2章_演算法与程式设计_图文交互复习Web网页版.html" target="_self" class="card-btn">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 3 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b1">第 1 册 · 第 3 章</span>
+                        </div>
+                        <h3 class="card-title">人工智能与应用</h3>
+                        <p class="card-summary">AI 发展简史、机器学习四大范式（监督/无监督/强化/深度）、图灵测试、生成式 AI 与社会伦理考量。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">机器学习范式</span>
+                            <span class="ft-tag">深度学习网络</span>
+                            <span class="ft-tag">AI 伦理</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：AI 知识图谱 + 统考前沿题</span>
+                        </div>
+                        <a href="./02_各章生成资料_第一册/第3章_人工智能与应用/01_精准复习笔记/高中资讯科技_第3章_人工智能与应用_图文交互复习Web网页版.html" target="_self" class="card-btn">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 4 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b1">第 1 册 · 第 4 章</span>
+                        </div>
+                        <h3 class="card-title">资讯科技与社会</h3>
+                        <p class="card-summary">数码落差、知识产权与版权法、开源许可协议（GPL/MIT/CC）、资讯伦理规范及电子废弃物环保。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">智慧财产法</span>
+                            <span class="ft-tag">开源授权</span>
+                            <span class="ft-tag">绿色运算</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：法律情境案例 + 考题</span>
+                        </div>
+                        <a href="./02_各章生成资料_第一册/第4章_资讯科技与社会/01_精准复习笔记/高中资讯科技_第4章_资讯科技与社会_图文交互复习Web网页版.html" target="_self" class="card-btn">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 5 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b1">第 1 册 · 第 5 章</span>
+                        </div>
+                        <h3 class="card-title">资讯系统与网络概述</h3>
+                        <p class="card-summary">计算机硬体架构（冯·诺伊曼）、系统汇流排、网络拓扑结构（星型/总线/环形）、传输介质及OSI模型。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">冯诺伊曼架构</span>
+                            <span class="ft-tag">拓扑结构</span>
+                            <span class="ft-tag">双绞线与光纤</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：系统硬件图解 + 网络拓扑</span>
+                        </div>
+                        <a href="./02_各章生成资料_第一册/第5章_资讯系统与网络概述/01_精准复习笔记/高中资讯科技_第5章_资讯系统与网络概述_图文交互复习Web网页版.html" target="_self" class="card-btn">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 6 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b1">第 1 册 · 第 6 章</span>
+                        </div>
+                        <h3 class="card-title">资讯安全与社会责任</h3>
+                        <p class="card-summary">密码学基础（对称/非对称/哈希）、恶意软件类型、防火墙与入侵检测、社会工程学防御与安全备援机制。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">公钥非对称加密</span>
+                            <span class="ft-tag">勒索软件</span>
+                            <span class="ft-tag">钓鱼防范</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：网络攻防实操模拟 + 解题</span>
+                        </div>
+                        <a href="./02_各章生成资料_第一册/第6章_资讯安全与社会责任/01_精准复习笔记/高中资讯科技_第6章_资讯安全与社会责任_图文交互复习Web网页版.html" target="_self" class="card-btn">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 板块二：第二册 进阶篇 (5章) -->
+        <section id="book2">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon icon-book2">🔮</div>
+                    <div>
+                        <h2 class="section-title">第二册：高中资讯科技进阶篇</h2>
+                        <p class="section-desc">深入现代资讯系统、TCP/IP 网络协定、伺服器管理、网络资源安全、物联网与智慧感测</p>
+                    </div>
+                </div>
+                <div class="badge-count">共 5 章节门户 · 400 MCQ · 75 作答题</div>
+            </div>
+
+            <div class="cards-grid">
+                <!-- 第 1 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b2">第 2 册 · 第 1 章</span>
+                        </div>
+                        <h3 class="card-title">资讯系统</h3>
+                        <p class="card-summary">资讯系统五大要素（硬/软/数据/人/程序）、SDLC 系统生命周期六阶段、系统转换策略（直接/并行/试点/阶段）。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">SDLC 生命周期</span>
+                            <span class="ft-tag">并行转换策略</span>
+                            <span class="ft-tag">企业级架构</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：系统转换对比图 + SDLC考点</span>
+                        </div>
+                        <a href="./03_各章生成资料_第二册/第1章_资讯系统/01_精准复习笔记/高中资讯科技_第二册_第1章_资讯系统_图文交互复习Web网页版.html" target="_self" class="card-btn card-btn-purple">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 2 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b2">第 2 册 · 第 2 章</span>
+                        </div>
+                        <h3 class="card-title">网络类型与传输质量</h3>
+                        <p class="card-summary">LAN/MAN/WAN/PAN 划分、传输速率（bps/Bps）、吞吐量、时延与抖动、误码率以及 QoS 服务质量保证。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">时延抖动测算</span>
+                            <span class="ft-tag">QoS 带宽调度</span>
+                            <span class="ft-tag">光纤与无线</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：QoS 流量图谱 + 传输精解</span>
+                        </div>
+                        <a href="./03_各章生成资料_第二册/第2章_网络类型与传输质量/01_精准复习笔记/高中资讯科技_第二册_第2章_网络类型与传输质量_图文交互复习Web网页版.html" target="_self" class="card-btn card-btn-purple">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 3 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b2">第 2 册 · 第 3 章</span>
+                        </div>
+                        <h3 class="card-title">网络通讯与作业系统</h3>
+                        <p class="card-summary">TCP/IP 四层模型、三次握手与四次挥手、IP 子网掩码与 CIDR 计算、DNS/DHCP 运作机制、客户端与伺服器系统。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">TCP 三次握手</span>
+                            <span class="ft-tag">CIDR 子网划分</span>
+                            <span class="ft-tag">Linux/Win Server</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：协定交互动画 + 握手推演</span>
+                        </div>
+                        <a href="./03_各章生成资料_第二册/第3章_网络通讯与作业系统/01_精准复习笔记/高中资讯科技_第二册_第3章_网络通讯与作业系统_图文交互复习Web网页版.html" target="_self" class="card-btn card-btn-purple">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 4 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b2">第 2 册 · 第 4 章</span>
+                        </div>
+                        <h3 class="card-title">网络安全与网络资源分享</h3>
+                        <p class="card-summary">网络访问控制列表 (ACL)、VPN 虚拟私有网隧道、云端运算（IaaS/PaaS/SaaS）、分布式存储与NAS网络附加存储。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">VPN 隧道加密</span>
+                            <span class="ft-tag">云端三大模型</span>
+                            <span class="ft-tag">NAS 共享机制</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：网络拓扑演练 + 共享实战</span>
+                        </div>
+                        <a href="./03_各章生成资料_第二册/第4章_网络安全与网络资源分享/01_精准复习笔记/高中资讯科技_第二册_第4章_网络安全与网络资源分享_图文交互复习Web网页版.html" target="_self" class="card-btn card-btn-purple">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 第 5 章 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-b2">第 2 册 · 第 5 章</span>
+                        </div>
+                        <h3 class="card-title">物联网与其应用</h3>
+                        <p class="card-summary">物联网三层架构（感知层/网络层/应用层）、RFID 与无线传感器网络 (WSN)、低功耗蓝牙、边缘计算与智慧城市应用。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">IoT 三层架构</span>
+                            <span class="ft-tag">RFID 与 WSN</span>
+                            <span class="ft-tag">边缘计算协同</span>
+                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>配套：完整PPT图解 + 智慧农业/物流</span>
+                        </div>
+                        <a href="./03_各章生成资料_第二册/第5章_物联网与其应用/01_精准复习笔记/高中资讯科技_第二册_第5章_物联网与其应用_图文交互复习Web网页版.html" target="_self" class="card-btn card-btn-purple">
+                            进入复习 ➔
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 板块三：阶段综合测验大厅 (4套) -->
+        <section id="stage-exams">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon icon-stage">⏱️</div>
+                    <div>
+                        <h2 class="section-title">阶段跨章在线综合测验大厅</h2>
+                        <p class="section-desc">阶段检测，查漏补缺！客观单选 45 分钟标准机考（30 题，60 分）+ 配套独立主观作答题研析专区（4 大题，40 分）</p>
+                    </div>
+                </div>
+                <div class="badge-count">共 4 套阶段大卷 · 120 MCQ (机考) · 16 综合大题 (精析)</div>
+            </div>
+
+            <div class="cards-grid">
+                <!-- 测验一 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-stage">阶段考卷 01</span>
+                            <span class="card-status"><span class="status-dot"></span> 纯粹单选机考 (45分)</span>
+                        </div>
+                        <h3 class="card-title">第一册 · 阶段测验一</h3>
+                        <p class="card-summary">涵盖第 1~3 章：认识数据、演算法与程序设计、人工智能与应用。考核底层算理、代码循环与机器学习基础。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">⏱️ 45 分钟限时</span>
+                            <span class="ft-tag">📝 30 单选 (60分)</span>
+                            <span class="ft-tag">📖 4 大题独立精析 (40分)</span>
+                            <span class="ft-tag">⚡ 即时机读打分</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>范围：第一册第 1-3 章跨章卷</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <a href="./04_阶段测验与跨章综合模考/01_第一册_阶段测验一_第1-3章/第一册_阶段测验一_第1-3章_在线模考.html" target="_self" class="card-btn card-btn-amber">
+                                开启机考 ➔
+                            </a>
+                            <a href="./04_阶段测验与跨章综合模考/01_第一册_阶段测验一_第1-3章/第一册_阶段测验一_第1-3章_主观作答题精析.html" target="_self" class="card-btn-sub">
+                                📖 作答题精析 ➔
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 测验二 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-stage">阶段考卷 02</span>
+                            <span class="card-status"><span class="status-dot"></span> 纯粹单选机考 (45分)</span>
+                        </div>
+                        <h3 class="card-title">第一册 · 阶段测验二</h3>
+                        <p class="card-summary">涵盖第 4~6 章：资讯社会法律伦理、网络软硬体及资讯安全。考察开源合规、网络拓扑搭建及加密防卫实战。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">⏱️ 45 分钟限时</span>
+                            <span class="ft-tag">📝 30 单选 (60分)</span>
+                            <span class="ft-tag">📖 4 大题独立精析 (40分)</span>
+                            <span class="ft-tag">⚡ 即时机读打分</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>范围：第一册第 4-6 章跨章卷</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <a href="./04_阶段测验与跨章综合模考/02_第一册_阶段测验二_第4-6章/第一册_阶段测验二_第4-6章_在线模考.html" target="_self" class="card-btn card-btn-amber">
+                                开启机考 ➔
+                            </a>
+                            <a href="./04_阶段测验与跨章综合模考/02_第一册_阶段测验二_第4-6章/第一册_阶段测验二_第4-6章_主观作答题精析.html" target="_self" class="card-btn-sub">
+                                📖 作答题精析 ➔
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 测验三 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-stage">阶段考卷 03</span>
+                            <span class="card-status"><span class="status-dot"></span> 纯粹单选机考 (45分)</span>
+                        </div>
+                        <h3 class="card-title">第二册 · 阶段测验一</h3>
+                        <p class="card-summary">涵盖第 1~3 章：资讯系统生命周期、网络传输质量 QoS 与 TCP/IP 协议栈推演。重点检验子网计算与系统工程能力。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">⏱️ 45 分钟限时</span>
+                            <span class="ft-tag">📝 30 单选 (60分)</span>
+                            <span class="ft-tag">📖 4 大题独立精析 (40分)</span>
+                            <span class="ft-tag">⚡ 即时机读打分</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>范围：第二册第 1-3 章跨章卷</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <a href="./04_阶段测验与跨章综合模考/03_第二册_阶段测验_第1-3章/第二册_阶段测验_第1-3章_在线模考.html" target="_self" class="card-btn card-btn-amber">
+                                开启机考 ➔
+                            </a>
+                            <a href="./04_阶段测验与跨章综合模考/03_第二册_阶段测验_第1-3章/第二册_阶段测验_第1-3章_主观作答题精析.html" target="_self" class="card-btn-sub">
+                                📖 作答题精析 ➔
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 测验四 -->
+                <article class="portal-card">
+                    <div class="card-top">
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-stage">阶段考卷 04</span>
+                            <span class="card-status"><span class="status-dot"></span> 纯粹单选机考 (45分)</span>
+                        </div>
+                        <h3 class="card-title">第二册 · 阶段测验二</h3>
+                        <p class="card-summary">涵盖第 4~5 章：网络安全资源管理与物联网应用。聚焦 VPN 架构、云端部署与传感器智慧应用综合情景。</p>
+                        <div class="feature-tags">
+                            <span class="ft-tag">⏱️ 45 分钟限时</span>
+                            <span class="ft-tag">📝 30 单选 (60分)</span>
+                            <span class="ft-tag">📖 4 大题独立精析 (40分)</span>
+                            <span class="ft-tag">⚡ 即时机读打分</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="card-meta-info">
+                            <span>范围：第二册第 4-5 章跨章卷</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <a href="./04_阶段测验与跨章综合模考/04_第二册_阶段测验_第4-5章/第二册_阶段测验_第4-5章_在线模考.html" target="_self" class="card-btn card-btn-amber">
+                                开启机考 ➔
+                            </a>
+                            <a href="./04_阶段测验与跨章综合模考/04_第二册_阶段测验_第4-5章/第二册_阶段测验_第4-5章_主观作答题精析.html" target="_self" class="card-btn-sub">
+                                📖 作答题精析 ➔
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 板块四：2027 统考全真大模考 (2套) -->
+        <section id="uec-exams">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <div class="section-icon icon-uec">🏆</div>
+                    <div>
+                        <h2 class="section-title">2027 高中统考全真押题大考场</h2>
+                        <p class="section-desc">终极冲刺！客观单选 60 分钟标准全真机考（50 题，50 分）+ 配套独立综合情境大题精研专区（5 大题，50 分）</p>
+                    </div>
+                </div>
+                <div class="badge-count">全真模考大卷 · 100 分满分制 (机考 50分 + 大题 50分)</div>
+            </div>
+
+            <div class="exam-hero-grid">
+                <!-- 第一套 -->
+                <div class="exam-card-full">
+                    <div>
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-uec">UEC 2027 押题大卷（第一套）</span>
+                            <span class="card-status"><span class="status-dot"></span> 纯粹单选机考 (60分)</span>
+                        </div>
+                        <h3 class="card-title" style="font-size: 1.45rem;">2027 高中统考全真押题模拟卷 · 第一套</h3>
+                        <p class="card-summary" style="margin: 12px 0 20px;">
+                            跨越第一册与第二册共 11 章的综合押题卷。涵盖：数据表示与补码运算、AI深度学习技术推演、智慧校园SDLC需求分析、TCP三次握手与CIDR划分、物联网智慧大棚系统工程设计。
+                        </p>
+                        <div class="feature-tags" style="margin-bottom: 24px;">
+                            <span class="ft-tag" style="background: rgba(244,63,94,0.15); color: #fca5a5;">⏱️ 60 分钟单选机考</span>
+                            <span class="ft-tag">📝 50 题单选题 (50分)</span>
+                            <span class="ft-tag">📖 5 大题独立精析 (50分)</span>
+                            <span class="ft-tag">📊 官方细目量规</span>
+                            <span class="ft-tag">⚡ 悬浮机读答题卡</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom" style="border-top: 1px solid rgba(255,255,255,0.08);">
+                        <div class="card-meta-info">
+                            <span>卷型：全真大模考 A 卷 (122.4 KB)</span>
+                            <span>状态：已实装自动阅卷雷达与逐题解析</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <a href="./04_阶段测验与跨章综合模考/05_2027高中统考全真押题模拟卷_第一套/2027高中统考全真押题模拟卷_第一套_在线考场.html" target="_self" class="card-btn card-btn-rose" style="padding: 11px 20px; font-size: 0.92rem;">
+                                开启机考 ➔
+                            </a>
+                            <a href="./04_阶段测验与跨章综合模考/05_2027高中统考全真押题模拟卷_第一套/2027高中统考全真押题模拟卷_第一套_主观作答题精析.html" target="_self" class="card-btn-sub" style="padding: 10px 16px;">
+                                📖 综合大题精析 ➔
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二套 -->
+                <div class="exam-card-full">
+                    <div>
+                        <div class="card-header-row">
+                            <span class="card-ch-num ch-num-uec">UEC 2027 押题大卷（第二套）</span>
+                            <span class="card-status"><span class="status-dot"></span> 纯粹单选机考 (60分)</span>
+                        </div>
+                        <h3 class="card-title" style="font-size: 1.45rem;">2027 高中统考全真押题模拟卷 · 第二套</h3>
+                        <p class="card-summary" style="margin: 12px 0 20px;">
+                            高阶情境与统考命题风向标。涵盖：字符集编码溢出推演、循环复杂度演算法优化、跨国企业VPN与云备份容灾、无线传感器网络WSN通信冲突机制、智慧交通全链路系统。
+                        </p>
+                        <div class="feature-tags" style="margin-bottom: 24px;">
+                            <span class="ft-tag" style="background: rgba(244,63,94,0.15); color: #fca5a5;">⏱️ 60 分钟单选机考</span>
+                            <span class="ft-tag">📝 50 题单选题 (50分)</span>
+                            <span class="ft-tag">📖 5 大题独立精析 (50分)</span>
+                            <span class="ft-tag">📊 官方细目量规</span>
+                            <span class="ft-tag">⚡ 悬浮机读答题卡</span>
+                        </div>
+                    </div>
+                    <div class="card-bottom" style="border-top: 1px solid rgba(255,255,255,0.08);">
+                        <div class="card-meta-info">
+                            <span>卷型：全真大模考 B 卷 (121.7 KB)</span>
+                            <span>状态：已实装自动阅卷雷达与逐题解析</span>
+                        </div>
+                        <div class="card-actions-row">
+                            <a href="./04_阶段测验与跨章综合模考/06_2027高中统考全真押题模拟卷_第二套/2027高中统考全真押题模拟卷_第二套_在线考场.html" target="_self" class="card-btn card-btn-rose" style="padding: 11px 20px; font-size: 0.92rem;">
+                                开启机考 ➔
+                            </a>
+                            <a href="./04_阶段测验与跨章综合模考/06_2027高中统考全真押题模拟卷_第二套/2027高中统考全真押题模拟卷_第二套_主观作答题精析.html" target="_self" class="card-btn-sub" style="padding: 10px 16px;">
+                                📖 综合大题精析 ➔
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚版权与技术声明 -->
+    <footer class="footer">
+        <p><strong>© 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程</strong></p>
+        <p style="margin-top: 6px; font-size: 0.82rem; opacity: 0.85;">欢迎分享本网页链接供学习使用；未经许可，不得复制、转载网页内的文字、题目及答案，不得公开发布于其他网站或平台，亦不得用于商业销售。</p>
+    </footer>
+
+    <script>
+        function updateLiveDate() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const date = now.getDate();
+            const days = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const dayStr = days[now.getDay()];
+            const el = document.getElementById('liveCurrentDate');
+            if (el) {
+                el.textContent = ${year}年月日 ;
+            }
+        }
+        updateLiveDate();
+    </script>
+</body>
+</html>

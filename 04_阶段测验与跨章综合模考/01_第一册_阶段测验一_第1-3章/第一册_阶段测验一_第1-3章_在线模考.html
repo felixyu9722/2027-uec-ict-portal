@@ -1,0 +1,2629 @@
+﻿<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高中资讯科技（第一册）阶段测验（一） ｜ 马来西亚华文独中高中资讯科技在线模拟考场</title>
+  <meta name="description" content="高中资讯科技（第一册）阶段测验（一） · 马来西亚华文独中高中资讯科技全真在线模拟考场 · 45分钟倒计时 · 30道单选题即时机读批阅与逐题解析">
+  <style>
+/* ==============================================================================
+   独中高中资讯科技 · 全真在线模拟考场母版样式表 (Exam Master Style)
+   严格对齐 2026/2027 董总统考新规范 · 专业沉浸式考场交互引擎
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+  --primary-blue: #1E3A8A;
+  --primary-indigo: #2563EB;
+  --primary-hover: #1D4ED8;
+  --bg-slate: #F8FAFC;
+  --border-slate: #E2E8F0;
+  --text-dark: #0F172A;
+  --text-muted: #64748B;
+  --success-green: #10B981;
+  --success-bg: #ECFDF5;
+  --error-red: #EF4444;
+  --error-bg: #FEF2F2;
+  --warn-amber: #F59E0B;
+  --warn-bg: #FFFBEB;
+  --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-slate);
+  color: var(--text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 72px; /* For fixed top exam header */
+}
+
+/* 考场固定顶部状态栏 */
+.exam-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-slate);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.exam-info-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.exam-badge {
+  background: #EFF6FF;
+  color: var(--primary-indigo);
+  border: 1px solid #BFDBFE;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.exam-main-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.exam-meta-sub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.exam-timer-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timer-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0F172A;
+  color: #FFF;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s;
+}
+
+.timer-box.timer-urgent {
+  background: var(--error-red);
+  animation: pulseTimer 1s infinite;
+}
+
+@keyframes pulseTimer {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.timer-btn-pause {
+  background: #F1F5F9;
+  border: 1px solid var(--border-slate);
+  color: var(--text-dark);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.timer-btn-pause:hover {
+  background: #E2E8F0;
+}
+
+.btn-review-paper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-slate);
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-review-paper:hover {
+  background: #E2E8F0;
+  color: var(--color-primary);
+}
+
+.btn-export-mistakes {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-export-mistakes:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+.btn-submit-exam {
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: #FFF;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  transition: all 0.2s;
+}
+
+.btn-submit-exam:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+/* 主内容容器 */
+.exam-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* 考生须知卡片 */
+.exam-notice-card {
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--card-shadow);
+  border-left: 5px solid var(--primary-indigo);
+}
+
+.exam-notice-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exam-notice-list {
+  font-size: 13.5px;
+  color: #475569;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+/* 分卷大标题 */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: #FFF;
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin: 32px 0 20px 0;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.section-divider h2 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-badge-right {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 单选题卡片 */
+.question-card {
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.question-card:hover {
+  border-color: #CBD5E1;
+}
+
+.q-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.q-num-badge {
+  background: #F1F5F9;
+  color: var(--primary-blue);
+  font-size: 13.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+  font-family: 'Fira Code', monospace;
+}
+
+.q-points {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.btn-flag-q {
+  background: transparent;
+  border: 1px solid #CBD5E1;
+  color: #64748B;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.btn-flag-q:hover, .btn-flag-q.flagged {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #B45309;
+}
+
+.q-stem-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* 选项列表 */
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F8FAFC;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  color: #334155;
+  user-select: none;
+}
+
+.option-item:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.option-item.selected {
+  background: #EFF6FF;
+  border-color: var(--primary-indigo);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.opt-radio-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748B;
+  background: #FFF;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.option-item.selected .opt-radio-icon {
+  border-color: var(--primary-indigo);
+  background: var(--primary-indigo);
+  color: #FFF;
+}
+
+/* 交卷后选项状态 */
+.option-item.opt-correct {
+  background: var(--success-bg) !important;
+  border-color: var(--success-green) !important;
+  color: #065F46 !important;
+  font-weight: 700;
+}
+
+.option-item.opt-correct .opt-radio-icon {
+  background: var(--success-green) !important;
+  border-color: var(--success-green) !important;
+  color: #FFF !important;
+}
+
+.option-item.opt-wrong {
+  background: var(--error-bg) !important;
+  border-color: var(--error-red) !important;
+  color: #991B1B !important;
+}
+
+.option-item.opt-wrong .opt-radio-icon {
+  background: var(--error-red) !important;
+  border-color: var(--error-red) !important;
+  color: #FFF !important;
+}
+
+/* 官方深度解析折叠块 */
+.explanation-box {
+  display: none;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--primary-indigo);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.exp-header {
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 主观作答题卡片 */
+.open-question-card {
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 14px;
+  padding: 26px 30px;
+  margin-bottom: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+.open-q-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.open-q-main-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.open-q-context-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.sub-q-block {
+  margin-bottom: 22px;
+  padding-left: 10px;
+  border-left: 3px solid #E2E8F0;
+}
+
+.sub-q-prompt {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.student-answer-textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  background: #FAFAFA;
+  transition: all 0.2s;
+}
+
+.student-answer-textarea:focus {
+  outline: none;
+  border-color: var(--primary-indigo);
+  background: #FFF;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* 主观题官方量规展开发布栏 */
+.official-rubric-box {
+  display: none;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 14px;
+}
+
+.rubric-header {
+  font-size: 14px;
+  font-weight: 800;
+  color: #166534;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rubric-content {
+  font-size: 13.5px;
+  color: #14532D;
+  line-height: 1.8;
+}
+
+/* 右侧悬浮答题卡面板 */
+.sticky-bubble-panel {
+  position: sticky;
+  top: 96px;
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: var(--card-shadow);
+}
+
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-slate);
+}
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.panel-legend {
+  display: flex;
+  gap: 10px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-unanswered { background: #FFF; border: 1px solid #CBD5E1; }
+.dot-answered { background: var(--primary-indigo); }
+.dot-flagged { background: var(--warn-amber); }
+
+/* 答题卡气泡网格 */
+.bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.bubble-btn {
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--border-slate);
+  background: #FFF;
+  color: var(--text-dark);
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.bubble-btn:hover {
+  border-color: var(--primary-indigo);
+  background: #F8FAFC;
+}
+
+.bubble-btn.bubble-answered {
+  background: var(--primary-indigo);
+  color: #FFF;
+  border-color: var(--primary-indigo);
+}
+
+.bubble-btn.bubble-flagged::after {
+  content: '🚩';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 9px;
+}
+
+.bubble-btn.bubble-correct {
+  background: var(--success-green) !important;
+  border-color: var(--success-green) !important;
+  color: #FFF !important;
+}
+
+.bubble-btn.bubble-wrong {
+  background: var(--error-red) !important;
+  border-color: var(--error-red) !important;
+  color: #FFF !important;
+}
+
+/* 答题统计与进度 */
+.progress-summary {
+  background: #F8FAFC;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.progress-bar-bg {
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary-indigo);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* 成绩单 Modal 弹窗 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-overlay.show {
+  display: flex !important;
+}
+
+.modal-content {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 580px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  animation: zoomIn 0.3s ease;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-slate);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #94a3b8;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+}
+
+.modal-close-btn:hover {
+  color: #1e293b;
+}
+
+.score-card {
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.score-main {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.score-label {
+  font-size: 14px;
+  opacity: 0.92;
+  margin-top: 4px;
+}
+
+.stats-pills-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-pill {
+  background: #F8FAFC;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.pill-num {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.pill-label {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.score-card-modal {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 540px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-trophy {
+  font-size: 54px;
+  margin-bottom: 12px;
+}
+
+.score-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.score-display-box {
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.score-number {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.score-sub {
+  font-size: 13.5px;
+  opacity: 0.9;
+}
+
+.score-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  background: #F8FAFC;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.stat-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.stat-lbl {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.modal-btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-modal-action {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-view-analysis {
+  background: var(--primary-indigo);
+  color: #FFF;
+}
+
+.btn-view-analysis:hover {
+  background: var(--primary-hover);
+}
+
+.btn-modal-close {
+  background: #F1F5F9;
+  color: #475569;
+}
+
+.btn-modal-close:hover {
+  background: #E2E8F0;
+}
+
+/* 移动端响应式 */
+@media (max-width: 1024px) {
+  .exam-container {
+    grid-template-columns: 1fr;
+  }
+  .sticky-bubble-panel {
+    position: static;
+    margin-top: 24px;
+  }
+}
+
+/* 规范化学生代码块与行内代码排版 */
+.code-block {
+  background: #1E293B;
+  color: #F8FAFC;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 10px 0 14px 0;
+  overflow-x: auto;
+  border: 1px solid #334155;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.code-block code {
+  font-family: inherit;
+  color: inherit;
+}
+
+.inline-code {
+  background: #F1F5F9;
+  color: #1D4ED8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-size: 0.9em;
+  border: 1px solid #E2E8F0;
+  font-weight: 600;
+}
+
+/* 官方考点高亮标签 */
+.exp-tag {
+  display: inline-block;
+  background: #EFF6FF;
+  color: #1E40AF;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+
+/* 考场顶部返回主页按钮 (高对比度深色文本+浅灰底+悬浮深蓝) */
+.btn-exam-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  color: #1e293b !important;
+  border: 1.5px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 14px;
+  flex-shrink: 0;
+  line-height: 1.4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-exam-back-home:hover {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* 手机端与小屏考场自适应优化 (Responsive Mobile Layout) */
+@media (max-width: 768px) {
+  .exam-top-bar {
+    height: auto !important;
+    padding: 10px 14px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .exam-info-block {
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  .exam-meta-sub {
+    display: none !important;
+  }
+  .exam-main-title {
+    font-size: 14.5px !important;
+    max-width: 220px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .exam-timer-wrapper {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  .exam-container {
+    margin-top: 116px !important;
+    padding: 12px 10px 40px !important;
+  }
+  .btn-exam-back-home {
+    padding: 6px 12px !important;
+    font-size: 12.5px !important;
+    margin-right: 6px !important;
+  }
+  .question-card {
+    padding: 16px 14px !important;
+  }
+  .option-label {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
+  }
+}
+
+    /* 主观大题外置专属横幅 */
+    .open-questions-portal-banner {
+      margin-top: 40px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 14px;
+      padding: 28px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .banner-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .banner-left h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 8px 0 6px;
+    }
+
+    .banner-left p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    .banner-badge {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .btn-goto-open-portal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+
+    .btn-goto-open-portal:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.45);
+    }
+
+    .btn-side-open-link {
+      display: block;
+      margin-top: 12px;
+      text-align: center;
+      color: #2563eb;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 10px;
+      background: #eff6ff;
+      border-radius: 8px;
+      border: 1px solid #bfdbfe;
+      transition: all 0.15s;
+    }
+
+    .btn-side-open-link:hover {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    /* 考场顶部返回主页按钮 (高对比度、清晰可见) */
+    .btn-exam-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f8fafc;
+      color: #1e293b !important;
+      border: 1.5px solid #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none !important;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-right: 14px;
+      flex-shrink: 0;
+      line-height: 1.4;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    .btn-exam-back-home:hover {
+      background: #2563eb;
+      border-color: #1d4ed8;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    /* 手机端与小屏考场自适应优化 (Responsive Mobile Layout) */
+    @media (max-width: 768px) {
+      .exam-top-bar {
+        height: auto !important;
+        padding: 10px 14px !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+      .exam-info-block {
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+      }
+      .exam-meta-sub {
+        display: none !important;
+      }
+      .exam-main-title {
+        font-size: 14.5px !important;
+        max-width: 220px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .exam-timer-wrapper {
+        width: 100% !important;
+        justify-content: space-between !important;
+      }
+      .exam-container {
+        margin-top: 116px !important;
+        padding: 12px 10px 40px !important;
+      }
+      .btn-exam-back-home {
+        padding: 6px 12px !important;
+        font-size: 12.5px !important;
+        margin-right: 6px !important;
+      }
+      .question-card {
+        padding: 16px 14px !important;
+      }
+      .option-label {
+        padding: 12px 14px !important;
+        font-size: 14px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部考场固定状态栏 -->
+  <header class="exam-top-bar">
+    <div class="exam-info-block">
+      <a href="../../index.html" class="btn-exam-back-home" onclick="return handleExamBackHome();">⬅ 返回总控大厅</a>
+      <span class="exam-badge">阶段测验 (一) · 基础统整</span>
+      <div>
+        <div class="exam-main-title">高中资讯科技（第一册）阶段测验（一）</div>
+        <div class="exam-meta-sub">考核范围：第 1 章《认识数据》、第 2 章《演算法与程式设计》、第 3 章《人工智能与应用》</div>
+      </div>
+    </div>
+
+    <div class="exam-timer-wrapper">
+      <div class="timer-box" id="timerBox">
+        <span>⏱️</span>
+        <span id="timerDisplay">00:45:00</span>
+      </div>
+      <button type="button" class="timer-btn-pause" id="btnPauseTimer" onclick="togglePauseTimer()">⏸ 暂停</button>
+      <button type="button" class="btn-submit-exam" onclick="confirmSubmitExam()">📝 提前交卷评分</button>
+    </div>
+  </header>
+
+  <!-- 考场主体网格容器 -->
+  <main class="exam-container">
+    <!-- 左侧试题区域 -->
+    <div class="exam-main-content">
+      <!-- 考生须知 -->
+      <section class="exam-notice-card">
+        <h3>📋 独中统考全真考场 · 考生答题须知与模式说明</h3>
+        <ol class="exam-notice-list">
+          <li><strong>试卷构成</strong>：本在线考场专门进行<strong>甲组单项选择题机读测验</strong>（共 30 题，每题 2 分，满分 60 分）。</li>
+          <li><strong>时间分配</strong>：建议考试时间 <strong>45 分钟</strong>。右上角提供全真倒计时，可随时暂停或提前交卷。</li>
+          <li><strong>机读交互</strong>：选择题点击选项即时同步至右侧电子答题卡；不确定的题目可点击“🚩 标记”方便复查。</li>
+          <li><strong>主观大题外置说明</strong>：<strong>乙组综合情境作答题无需在输入框打字作答</strong>，已独立整合至专属精研页面，文末与侧栏均配有快捷通道，点击即可直接阅读题干并展开参考答案与官方评分量规。</li>
+          <li><strong>交卷评测</strong>：点击“提前交卷评分”后，系统将自动核算客观题得分、揭晓正确答案并全面展开深度命题解析。</li>
+        </ol>
+      </section>
+
+      <!-- 甲组：单项选择题 -->
+      <div class="section-divider" id="sec-part-mcq">
+        <h2>甲组：单项选择题（共 30 题，每题 2 分，共 60 分）</h2>
+        <span class="section-badge-right">客观题 · 即时机读打分</span>
+      </div>
+
+      <div class="mcq-list-container">
+  <div class='question-card' id='qcard_1'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q01</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_1' onclick='toggleFlag(1)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>气象站安装的气压与湿度传感器连续采集到的物理电平读数，在数据-资讯-知识（DIK）金字塔架构中属于哪一层级？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(1, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>原始数据（Raw Data）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(1, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>语境资讯（Information）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(1, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>行动知识（Knowledge）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(1, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>宏观智慧（Wisdom）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>传感器采集的连续原始电平属于尚未加工的原始数据（Data）；赋予时间与地理背景后成为资讯；建立气象预报模型为知识。选 A。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_2'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q02</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_2' onclick='toggleFlag(2)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>现代数字计算机底层物理芯片之所以普遍采用二进制（Binary）进行运算与数据表示，其决定性的工程原因是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(2, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>二进制数能够直接对应人类十指的传统计数与运算习惯</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(2, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>晶体管等半导体器件的高低电平状态最容易在物理电路上稳定实现</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(2, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>二进制具有最为丰富的算术符号集与极其简短的字符长度</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(2, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>二进制不需要任何逻辑门电路即可直接完成复杂的四则运算</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>数字芯片依赖晶体管的截止（低电平，0）与导通（高电平，1），物理上极其容易可靠稳定实现且抗电磁噪声能力最强。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_3'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q03</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_3' onclick='toggleFlag(3)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>将十进制数值 53 转换为等效的无符号二进制数，其正确的计算结果为何？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(3, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>(110101)₂</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(3, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>(110111)₂</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(3, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>(101101)₂</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(3, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>(111001)₂</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>53 = 32 + 16 + 4 + 1 = 2⁵ + 2⁴ + 2² + 2⁰，对应二进制 (110101)₂。选 A。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_4'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q04</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_4' onclick='toggleFlag(4)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>网页前端开发中常用十六进制颜色码表示色彩。若某网页元素的颜色代码为 <code class='inline-code'>#00FF00</code>，则该颜色在屏幕上呈现为：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(4, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>纯深黑色</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(4, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>纯艳绿色</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(4, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>纯亮红色</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(4, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>纯天蓝色</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>RGB 颜色代码中，前两位表示红色（R=00），中间两位表示绿色（G=FF，满值 255），最后两位表示蓝色（B=00），因此呈现纯亮绿色。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_5'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q05</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_5' onclick='toggleFlag(5)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在计算机图形学中，关于“向量图（Vector Graphic）”与“点阵图（Raster Graphic）”核心特征的对比，下列叙述何者正确？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(5, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>点阵图由基于数学方程的几何图元构成，无限放大后边缘线条依然光滑无锯齿</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(5, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>向量图由基于数学方程的图元指令记录，放大后色彩边缘绝不会产生失真锯齿</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(5, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>点阵图记录的是线段坐标与颜色公式，因此其文件体积通常显著小于向量图</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(5, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>向量图适合表现色彩极其丰富连续的自然风景照片，而点阵图仅适合几何图标</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>向量图（Vector Graphic）以数学公式和几何图元指令存储，放大缩小时由系统动态重新计算像素点，因此边缘绝不失真模糊；点阵图放大后像素方块被机械拉伸产生锯齿。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_6'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q06</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_6' onclick='toggleFlag(6)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>根据人眼的视觉暂留（Persistence of Vision）生理特性，当一连串静态画面以超过每秒多少帧的频率连续播放时，人眼便会感知为流畅的动态视频？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(6, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>12 帧/秒</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(6, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>24 帧/秒</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(6, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>60 帧/秒</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(6, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>120 帧/秒</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>依据课本第 1 册第 19 页，人眼视觉暂留时间约为 0.1 秒，当帧率达到每秒 24 帧（24 fps）及以上时，人眼便无法分辨单张静态画面的跳变，从而感知为流畅连贯的动态视频。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_7'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q07</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_7' onclick='toggleFlag(7)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在声音数字化转换（ADC）过程中，将时间上连续的模拟声音信号在离散时间点上截取瞬时振幅数值的步骤称为：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(7, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>信号采样（Sampling）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(7, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>幅值量化（Quantization）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(7, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>数据编码（Encoding）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(7, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>频谱滤波（Filtering）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>声音数码化 ADC 包含三大步骤：采样（时间离散化）→ 量化（振幅离散化）→ 编码（二进制数字化）。在离散时间点截取瞬时振幅称为信号采样。选 A。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_8'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q08</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_8' onclick='toggleFlag(8)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>演算法（Algorithm）必须具备五大基本特征。下列哪一项“不属于”演算法应具备的法定特征？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(8, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>明确性（指令无二义性）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(8, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>有限性（有限步骤内终止）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(8, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>无限循环（步骤永无休止）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(8, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>可执行性（步骤可行）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>C</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>算法必须在执行有限个步骤后终止（有限性），陷入“无限循环（死循环）”违背算法定义。选 C。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_9'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q09</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_9' onclick='toggleFlag(9)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在流程图（Flowchart）标准绘制规范中，用于表达“条件判断与分支选择逻辑”的专用几何图形符号是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(9, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>矩形框</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(9, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>菱形框</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(9, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>平行四边形框</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(9, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>椭圆形框</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>国际标准流程图规范中：菱形用于条件判断与分支选择，矩形用于处理计算，平行四边形用于输入输出，椭圆用于起止。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_10'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q10</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_10' onclick='toggleFlag(10)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>执行以下 Python 算术运算表达式后，控制台终端输出的结果为何？<br><pre class='code-block'><code>print(17 % 5 + 17 // 5)</code></pre></div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(10, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>3</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(10, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>5</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(10, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>7</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(10, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>9</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>在 Python 中，<code class='inline-code'>17 % 5 = 2</code>（取余数），<code class='inline-code'>17 // 5 = 3</code>（整除取商的整数部分），两项相加 <code class='inline-code'>2 + 3 = 5</code>。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_11'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q11</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_11' onclick='toggleFlag(11)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>一个算法需要对一个班级 40 名学生的期末成绩逐一累加计算总分，在算法控制结构中最适合选用的结构是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(11, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>顺序结构</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(11, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>循环结构</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(11, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>双分支选择结构</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(11, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>递归跳转结构</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>需要对 40 名学生的成绩进行相同的累加处理，具有明确的重复性，最适合采用循环结构（For/While）。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_12'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q12</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_12' onclick='toggleFlag(12)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>下列关于 Python 编程语言变量命名规则的叙述，哪一项符合语法规范？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(12, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>变量名可以以数字开头，如 <code class='inline-code'>2nd_score</code></span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(12, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>变量名可以包含字母、数字及下划线，且严格区分英文字母大小写</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(12, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>变量名中间允许包含空格，如 <code class='inline-code'>total score = 100</code></span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(12, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Python 保留的关键字（如 <code class='inline-code'>if</code>, <code class='inline-code'>while</code>）可以直接作为用户普通变量名</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>Python 变量名由字母、数字和下划线组成，不能以数字开头，不能包含空格，不能使用关键字，且严格区分英文字母大小写。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_13'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q13</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_13' onclick='toggleFlag(13)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在人工智能发展历程中，被称为“AI 之父”并于 1950 年提出著名的“图灵测试（Turing Test）”的科学家是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(13, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>约翰·冯·诺依曼（John von Neumann）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(13, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>艾伦·图灵（Alan Turing）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(13, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>克劳德·香农（Claude Shannon）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(13, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>杰弗里·辛顿（Geoffrey Hinton）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>艾伦·图灵（Alan Turing）在 1950 年发表《计算机器与智能》并提出著名的图灵测试，被公认为计算机科学与人工智能之父。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_14'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q14</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_14' onclick='toggleFlag(14)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>人工智能技术架构通常自底向上划分为基础设施层、技术核心层与行业应用层。下列属于“基础设施层”的核心支柱是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(14, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>计算机视觉与自然语言处理算法</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(14, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>高性能算力芯片（如 GPU/TPU）、海量训练数据集与云计算平台</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(14, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>自动驾驶导航决策控制软件</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(14, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>智能客服问答机器人手机 App</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>AI 三层体系架构：基础设施层（芯片/算力/数据/云底座）、技术核心层（算法/CV/NLP/大模型框架）、行业应用层（垂直行业软件服务）。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_15'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q15</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_15' onclick='toggleFlag(15)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在机器学习（Machine Learning）算法分类中，给算法提供带有明确“特征（Features）”与“标准答案标签（Labels）”的训练数据，使模型学习从输入到输出映射规律的方法属于：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(15, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>监督学习（Supervised Learning）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(15, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>非监督学习（Unsupervised Learning）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(15, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>强化学习（Reinforcement Learning）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(15, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>零样本自主演化学习</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>训练数据中同时包含输入特征与标准标签（即已知正确答案）的机器学习训练方法属于典型的监督学习（Supervised Learning）。选 A。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_16'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q16</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_16' onclick='toggleFlag(16)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>智能手机面容解锁（Face ID）能够精准识别机主面部并解锁屏幕，该功能主要依赖人工智能领域的哪项核心感知技术？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(16, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>自然语言生成（NLG）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(16, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>计算机视觉（Computer Vision）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(16, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>语音波形合成（TTS）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(16, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>机器翻译系统（NMT）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>人脸识别属于图像检测、特征提取与模式匹配，是典型的计算机视觉（Computer Vision）应用。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_17'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q17</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_17' onclick='toggleFlag(17)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>下列关于大语言模型（LLM，如 ChatGPT）在生成回答时可能产生“AI 幻觉（Hallucination）”现象的解释，最准确的是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(17, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>模型感染了外部破坏性计算机勒索病毒导致死机</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(17, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>模型以极高自信输出看似逻辑严密流畅、实则完全捏造虚假的错误事实</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(17, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>计算机机房供电电压瞬时不足导致算法算力中断</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(17, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>用户输入的提示词超过了 10 个中文字符限制</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>大语言模型的“幻觉（Hallucination）”是指模型在概率生成机制驱动下，以极高自信输出看似逻辑严密流畅、实则完全捏造虚假的错误内容。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_18'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q18</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_18' onclick='toggleFlag(18)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在自动驾驶汽车中，车载 AI 依靠车顶激光雷达、双目摄像头实时识别周围车辆与行人，并控制油门方向盘，这主要体现了 AI 技术的哪种综合应用形态？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(18, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>静态大数据离线归档</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(18, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>具身实体智能与多模态环境自主感知决策</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(18, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>单机打字练习测评</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(18, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>二维码光学识读解析</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>自动驾驶汽车融合激光雷达与摄像头实时感知环境、规划路径并驱动车辆，体现了具身实体智能与多模态环境自主感知决策。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_19'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q19</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_19' onclick='toggleFlag(19)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>【罗马组合题】关于进位制数值转换法则，下列四项陈述中哪些是完全正确的？<br>Ⅰ. 十进制整数转二进制可采用“除以 2 逆序取余数”法<br>Ⅱ. 每个十六进制数字可以直接用等效的 4 位二进制数进行展开替换<br>Ⅲ. 每个八进制数字可以直接用等效的 3 位二进制数进行展开替换<br>Ⅳ. 任意有限位的十进制小数在转换为二进制小数时均能被精确整除无误差</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(19, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(19, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅱ 和 Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(19, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(19, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ 和 Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>Ⅰ（除以 2 逆序取余）、Ⅱ（十六进制每位对应 4 位二进制）、Ⅲ（八进制每位对应 3 位二进制）均正确；Ⅳ 错误，十进制有限小数如 0.1 转换为二进制是无限循环小数，无法精确整除。故选 B（仅 Ⅰ、Ⅱ 和 Ⅲ）。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_20'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q20</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_20' onclick='toggleFlag(20)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>【罗马组合题】关于音频数码化过程中参数对音频质量与文件体积的影响，下列哪些陈述是正确的？<br>Ⅰ. 采样频率越高，单位时间内采集的声波点数越密，数字化还原的音质越真实<br>Ⅱ. 量化位元深度越深，记录声音振幅的动态范围越大，量化杂音（噪音）越小<br>Ⅲ. 采用双声道（立体声）录音产生的文件容量理论上恰好是单声道录音的 2 倍<br>Ⅳ. 无论如何大幅提高采样频率与量化位深，生成的未压缩音频文件体积均恒定不变</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(20, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(20, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅱ 和 Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(20, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(20, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ 和 Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>Ⅰ（采样率越高音质越真实）、Ⅱ（量化位深增大动态范围广杂音小）、Ⅲ（双声道容量是单声道的 2 倍）均正确；Ⅳ 错误，参数提升必定显著增大未压缩文件体积。故选 B（仅 Ⅰ、Ⅱ 和 Ⅲ）。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_21'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q21</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_21' onclick='toggleFlag(21)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>【罗马组合题】根据新课本规范，下列关于算法与程序结构特征的陈述，哪些是正确的？<br>Ⅰ. 一个算法可以有 0 个或多个外部输入，但必须至少有 1 个或多个明确输出<br>Ⅱ. 算法中的每个步骤都必须有清晰确切的定义，不能存在含糊不清的歧义性<br>Ⅲ. 结构化程序设计仅需顺序、选择和循环三种基本控制结构便可解决任何计算逻辑<br>Ⅳ. 程序如果陷入死循环（无限循环），说明该程序实现的逻辑依然满足算法的有限性特征</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(21, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ、Ⅱ 和 Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(21, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(21, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(21, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ 和 Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>Ⅰ（至少一个输出）、Ⅱ（步骤明确无二义性）、Ⅲ（三种基本结构解决所有逻辑）均正确；Ⅳ 错误，死循环违背有限性。选 A（仅 Ⅰ、Ⅱ 和 Ⅲ）。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_22'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q22</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_22' onclick='toggleFlag(22)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>【罗马组合题】在人工智能伦理与社会规范中，开发与使用生成式 AI 应当防范的风险包括哪些方面？<br>Ⅰ. 深度伪造（Deepfake）技术被用于伪造名人语音与视频进行电信诈骗与虚假宣传<br>Ⅱ. 训练数据中潜藏的性别、种族偏见被 AI 模型进一步固化并在算法决策中放大<br>Ⅲ. 未经原创艺术家授权擅自抓取其美术作品训练文生图商业模型，引发版权法律纠纷<br>Ⅳ. 生成式 AI 产出的所有科研论文与医学诊断结果均具有法律豁免权，人类无需承担责任</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(22, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(22, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅱ 和 Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(22, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(22, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ 和 Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>Ⅰ（深度伪造诈骗）、Ⅱ（算法偏见与歧视）、Ⅲ（未经授权抓取版权纠纷）均属于 AI 核心安全伦理风险；Ⅳ 错误，AI 产出不能免除人类开发者与使用者的责任。选 B（仅 Ⅰ、Ⅱ 和 Ⅲ）。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_23'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q23</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_23' onclick='toggleFlag(23)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>【罗马组合题】关于大数据的典型“4V”特征，下列对应关系哪些是完全正确的？<br>Ⅰ. 大体量（Volume）：数据集合的物理存储规模达到 PB 甚至 EB 级别<br>Ⅱ. 多样性（Variety）：包含关系数据库表格、图像、视频、网页文本等多源异构数据<br>Ⅲ. 真实性（Veracity）：严格要求所有收集到的网络数据必须经公证机关 100% 盖章验证<br>Ⅳ. 高速率（Velocity）：数据生成、采集流转以及实时分析响应的处理速度极快</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(23, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ、Ⅱ 和 Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(23, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ 和 Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(23, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ 和 Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(23, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ 和 Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>大数据 4V 包括体量大（Volume）、多样性（Variety）、速率快（Velocity）与价值密度（Value/Veracity）；Ⅲ 中“必须公证机关 100% 盖章”属于荒谬编造。选 A。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_24'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q24</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_24' onclick='toggleFlag(24)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>若该宣传海报采用 24 位元真彩色（True Color）位图格式存储，在未进行任何算法压缩的前提下，该图片所占用的理论存储容量为多少 KB？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(24, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>800 KB</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(24, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>2343.75 KB</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(24, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>18750 KB</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(24, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>2400 KB</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>图像分辨率 1000 × 800 像素，24 位真彩色：总位元数 = 1000 × 800 × 24 = 19,200,000 位元；转换为字节 = 19,200,000 ÷ 8 = 2,400,000 字节；转换为 KB = 2,400,000 ÷ 1024 = 2343.75 KB。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_25'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q25</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_25' onclick='toggleFlag(25)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>美术设计师希望将海报中的学校校徽图标导出为背景透明的图片格式以便叠加在不同底色网页上，最适宜选用的文件格式是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(25, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>不支持透明通道且采用有损压缩的 JPEG 格式</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(25, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>支持 8 位 Alpha 透明通道且采用无损压缩的 PNG 格式</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(25, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>采用高压缩比有损音频编码的 MP3 格式</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(25, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>未经任何压缩的标准波形音频 WAV 格式</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>PNG 格式采用无损压缩，且支持 8 位 Alpha 透明通道，能够完美呈现透明背景且边缘平滑锐利，最适合网页 Logo 与校徽图标。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_26'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q26</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_26' onclick='toggleFlag(26)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>录音师录制了一段单声道解说音频，采样频率设为 44.1 kHz，量化位深设为 16 位元。根据采样定理，该设定能够无损还原的人耳最高声音频率极限约为：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(26, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>11.025 kHz</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(26, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>22.05 kHz</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(26, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>44.1 kHz</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(26, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>88.2 kHz</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>根据采样定理，采样频率必须至少达到原始最高信号频率的 2 倍以上。当采样率为 44.1 kHz 时，能够无损还原的理论声音最高频率为 44.1 ÷ 2 = 22.05 kHz，完全覆盖人耳 20 Hz ~ 20 kHz 的听觉极限。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_27'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q27</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_27' onclick='toggleFlag(27)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>下列 Python 程序代码片段执行后，屏幕上打印输出的 <code class='inline-code'>s</code> 最终数值是多少？<br><pre class='code-block'><code>s = 0<br>for i in range(1, 6):<br>if i % 2 == 1:<br>s = s + i<br>print(s)</code></pre></div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(27, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>4</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(27, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>6</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(27, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>9</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(27, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>15</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>C</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>循环变量 i 遍历 1, 2, 3, 4, 5；当 i 为奇数时（即 i = 1, 3, 5）累加至 s；最终 s = 0 + 1 + 3 + 5 = 9。选 C。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_28'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q28</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_28' onclick='toggleFlag(28)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某电商平台利用机器学习算法对数百万用户的历史浏览记录进行分析，在用户没有明确搜索特定商品时，首页能够精准推荐其潜在感兴趣的商品，这项 AI 应用属于：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(28, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>计算机汉字拼音输入法联想</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(28, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>基于协同过滤的大数据个性化智能推荐系统</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(28, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>硬盘坏道扫描与逻辑格式化</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(28, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>操作系统的分页内存置换算法</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>电商平台根据历史点击与群体偏好自动推荐商品，属于基于协同过滤的大数据个性化智能推荐系统。选 B。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_29'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q29</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_29' onclick='toggleFlag(29)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在自然语言处理（NLP）技术中，计算机将一段人类自然语言文本（如“我爱独中校园”）切分成独立的最小词汇单元的过程称为：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(29, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>中文分词（Word Segmentation / Tokenization）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(29, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>语音信号模数转换（ADC）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(29, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>图像锐化处理（Sharpening）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(29, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>物理磁盘碎片整理（Defragmentation）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>在自然语言处理（NLP）技术中，将连续的中文文本序列按照语法词义切分为独立词汇单元的过程称为中文分词（Tokenization）。选 A。<br></div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_30'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q30</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_30' onclick='toggleFlag(30)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在设计针对中学生考试成绩分析的算法时，若要求系统能对输入的成绩进行防御性校验（非法输入提示错误），最核心使用的编程控制结构是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(30, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>条件判断结构（If-Else）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(30, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>无条件循环结构（While True）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(30, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>单向顺序执行结构</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(30, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>动态数组索引重排结构</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>对学生成绩进行合法性校验（非法输入提示错误）必须进行区间逻辑判断，核心依赖条件判断结构（If-Else）。选 A。<br></div>
+    </div>
+  </div>
+
+      </div>
+
+      <!-- 乙组：综合情境作答题外置卡片（无需在里头打字作答，点击直达参考答案） -->
+      <section class="open-questions-portal-banner">
+        <div class="banner-inner">
+          <div class="banner-left">
+            <span class="banner-badge">📖 董总统考主观综合大题 · 深度研习</span>
+            <h3>乙组：综合情境作答题（共 4 大题）</h3>
+            <p>
+              本卷主观综合情境大题无需在此输入文字（免去作答框与作答线）。请直接点击下方按钮打开专属研析页面，随心研读情境案例，并可随时点击展开官方参考答案与四栏评分标准！
+            </p>
+          </div>
+          <a href="第一册_阶段测验一_第1-3章_主观作答题精析.html" class="btn-goto-open-portal">
+            📖 打开综合情境大题精析与参考答案 ➔
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右侧固定悬浮电子答题卡面板 -->
+    <aside class="sticky-bubble-panel">
+      <div class="panel-title-row">
+        <span class="panel-title">📝 全真机读答题卡</span>
+        <span style="font-size:12px;color:var(--text-muted);font-weight:600;">共 30 题</span>
+      </div>
+
+      <div class="panel-legend">
+        <div class="legend-item"><span class="legend-dot dot-unanswered"></span> 未答</div>
+        <div class="legend-item"><span class="legend-dot dot-answered"></span> 已答</div>
+        <div class="legend-item"><span class="legend-dot dot-flagged"></span> 标记</div>
+      </div>
+
+      <!-- 答题卡网格 -->
+      <div class="bubble-grid">
+  <button type='button' class='bubble-btn' id='bubble_1' onclick='jumpToQuestion(1)'>01</button>
+  <button type='button' class='bubble-btn' id='bubble_2' onclick='jumpToQuestion(2)'>02</button>
+  <button type='button' class='bubble-btn' id='bubble_3' onclick='jumpToQuestion(3)'>03</button>
+  <button type='button' class='bubble-btn' id='bubble_4' onclick='jumpToQuestion(4)'>04</button>
+  <button type='button' class='bubble-btn' id='bubble_5' onclick='jumpToQuestion(5)'>05</button>
+  <button type='button' class='bubble-btn' id='bubble_6' onclick='jumpToQuestion(6)'>06</button>
+  <button type='button' class='bubble-btn' id='bubble_7' onclick='jumpToQuestion(7)'>07</button>
+  <button type='button' class='bubble-btn' id='bubble_8' onclick='jumpToQuestion(8)'>08</button>
+  <button type='button' class='bubble-btn' id='bubble_9' onclick='jumpToQuestion(9)'>09</button>
+  <button type='button' class='bubble-btn' id='bubble_10' onclick='jumpToQuestion(10)'>10</button>
+  <button type='button' class='bubble-btn' id='bubble_11' onclick='jumpToQuestion(11)'>11</button>
+  <button type='button' class='bubble-btn' id='bubble_12' onclick='jumpToQuestion(12)'>12</button>
+  <button type='button' class='bubble-btn' id='bubble_13' onclick='jumpToQuestion(13)'>13</button>
+  <button type='button' class='bubble-btn' id='bubble_14' onclick='jumpToQuestion(14)'>14</button>
+  <button type='button' class='bubble-btn' id='bubble_15' onclick='jumpToQuestion(15)'>15</button>
+  <button type='button' class='bubble-btn' id='bubble_16' onclick='jumpToQuestion(16)'>16</button>
+  <button type='button' class='bubble-btn' id='bubble_17' onclick='jumpToQuestion(17)'>17</button>
+  <button type='button' class='bubble-btn' id='bubble_18' onclick='jumpToQuestion(18)'>18</button>
+  <button type='button' class='bubble-btn' id='bubble_19' onclick='jumpToQuestion(19)'>19</button>
+  <button type='button' class='bubble-btn' id='bubble_20' onclick='jumpToQuestion(20)'>20</button>
+  <button type='button' class='bubble-btn' id='bubble_21' onclick='jumpToQuestion(21)'>21</button>
+  <button type='button' class='bubble-btn' id='bubble_22' onclick='jumpToQuestion(22)'>22</button>
+  <button type='button' class='bubble-btn' id='bubble_23' onclick='jumpToQuestion(23)'>23</button>
+  <button type='button' class='bubble-btn' id='bubble_24' onclick='jumpToQuestion(24)'>24</button>
+  <button type='button' class='bubble-btn' id='bubble_25' onclick='jumpToQuestion(25)'>25</button>
+  <button type='button' class='bubble-btn' id='bubble_26' onclick='jumpToQuestion(26)'>26</button>
+  <button type='button' class='bubble-btn' id='bubble_27' onclick='jumpToQuestion(27)'>27</button>
+  <button type='button' class='bubble-btn' id='bubble_28' onclick='jumpToQuestion(28)'>28</button>
+  <button type='button' class='bubble-btn' id='bubble_29' onclick='jumpToQuestion(29)'>29</button>
+  <button type='button' class='bubble-btn' id='bubble_30' onclick='jumpToQuestion(30)'>30</button>
+
+      </div>
+
+      <!-- 进度指示 -->
+      <div class="progress-summary">
+        <div class="progress-row">
+          <span>客观题完成进度</span>
+          <span id="answeredCountText">0 / 30</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+      </div>
+
+      <button type="button" class="btn-submit-exam" style="width:100%;justify-content:center;" onclick="confirmSubmitExam()">✓ 提交试卷并自动批阅</button>
+      <a href="第一册_阶段测验一_第1-3章_主观作答题精析.html" class="btn-side-open-link">📖 查看主观大题与参考答案 ↗</a>
+    </aside>
+  </main>
+
+  <!-- 交卷成绩与深度解析弹窗 Modal -->
+  <div class="modal-overlay" id="scoreModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">📊 考卷测验评测与答题雷达报告</div>
+        <button type="button" class="modal-close-btn" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="score-card">
+          <div class="score-main" id="modalFinalScore">0</div>
+          <div class="score-label" id="modalScoreDetails">客观题得分 0 / 30（满分 30 分）</div>
+        </div>
+        <div class="stats-pills-row">
+          <div class="stat-pill">
+            <span class="pill-num" id="modalCorrectCount" style="color:var(--color-correct)">0</span>
+            <span class="pill-label">正确题数</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-num" id="modalWrongCount" style="color:var(--color-wrong)">0</span>
+            <span class="pill-label">错题数</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-num" id="modalUnansweredCount">0</span>
+            <span class="pill-label">未作答数</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-num" id="modalAccuracy">0%</span>
+            <span class="pill-label">正确率</span>
+          </div>
+        </div>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;font-size:13px;color:#475569;margin-bottom:16px;">
+          💡 <strong>考情分析</strong>：客观题解析已全部自动展开在原题目卡片下方。错题已高亮标记，请上下滚动试卷针对性复习巩固。
+        </div>
+        <div style="text-align:center;">
+          <a href="第一册_阶段测验一_第1-3章_主观作答题精析.html" class="btn-goto-open-portal" style="display:inline-flex;">
+            📖 继续研读综合情境作答题与官方量规 ➔
+          </a>
+        </div>
+      </div>
+      <div class="modal-footer" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button type="button" class="btn-export-mistakes" onclick="exportMistakesSheet()">🖨️ 导出 / 打印本次错题订正单</button>
+        <button type="button" class="btn-review-paper" onclick="closeModal()">🔍 查看卷面解析与错题</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 返回上一页安全确认函数
+    function handleExamBackHome() {
+      const answeredCount = (typeof userAnswers !== 'undefined') ? Object.keys(userAnswers).length : 0;
+      if (!isSubmitted && answeredCount > 0) {
+        if (!confirm('【考场提醒】您当前已作答了 ' + answeredCount + ' 道题，尚未提交评分。若此时退出返回上一页，已作答的数据将不会保存。\n\n确定要退出并返回上一页吗？')) {
+          return false;
+        }
+      }
+      if (document.referrer && document.referrer.indexOf('index.html') !== -1) {
+        window.location.href = document.referrer;
+      } else if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = '../../index.html';
+      }
+      return false;
+    }
+
+    // 考场系统核心数据
+    const TOTAL_MCQ = 30;
+    const CORRECT_ANSWERS = {"11":"B","3":"A","20":"B","12":"B","10":"B","17":"B","13":"B","27":"C","30":"A","18":"B","29":"A","23":"A","19":"B","1":"A","5":"B","4":"B","8":"C","26":"B","14":"B","22":"B","28":"B","25":"B","9":"B","15":"A","21":"A","24":"B","16":"B","7":"A","2":"B","6":"B"};
+    
+    let userAnswers = {};
+    let flaggedQuestions = new Set();
+    let isSubmitted = false;
+    let timerPaused = false;
+    let remainingSeconds = 2700;
+    let timerInterval = null;
+
+    // 倒计时器运行
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        if (!timerPaused && !isSubmitted) {
+          if (remainingSeconds > 0) {
+            remainingSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            alert("⏰ 考试时间到！系统正在自动为您提交试卷并进行批阅。");
+            submitExam();
+          }
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const h = Math.floor(remainingSeconds / 3600);
+      const m = Math.floor((remainingSeconds % 3600) / 60);
+      const s = remainingSeconds % 60;
+      const str = (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+      const disp = document.getElementById("timerDisplay");
+      if (disp) disp.innerText = str;
+      const box = document.getElementById("timerBox");
+      if (box) {
+        if (remainingSeconds < 600) {
+          box.classList.add("danger");
+        } else {
+          box.classList.remove("danger");
+        }
+      }
+    }
+
+    function togglePauseTimer() {
+      timerPaused = !timerPaused;
+      const btn = document.getElementById("btnPauseTimer");
+      if (btn) btn.innerText = timerPaused ? "▶ 继续" : "⏸ 暂停";
+    }
+
+    // 单选题交互
+    function selectOption(qNum, choice) {
+      if (isSubmitted) return;
+      userAnswers[qNum] = choice;
+      
+      const card = document.getElementById("qcard_" + qNum);
+      if (card) {
+        const items = card.querySelectorAll(".option-item");
+        items.forEach(it => {
+          if (it.getAttribute("data-choice") === choice) {
+            it.classList.add("selected");
+          } else {
+            it.classList.remove("selected");
+          }
+        });
+      }
+
+      // 更新右侧气泡
+      const bubble = document.getElementById("bubble_" + qNum);
+      if (bubble) {
+        bubble.classList.add("answered");
+      }
+
+      updateProgress();
+    }
+
+    // 标记疑难题
+    function toggleFlag(qNum) {
+      const bubble = document.getElementById("bubble_" + qNum);
+      const btn = document.getElementById("flagBtn_" + qNum);
+      if (flaggedQuestions.has(qNum)) {
+        flaggedQuestions.delete(qNum);
+        if (bubble) bubble.classList.remove("flagged");
+        if (btn) btn.classList.remove("active");
+      } else {
+        flaggedQuestions.add(qNum);
+        if (bubble) bubble.classList.add("flagged");
+        if (btn) btn.classList.add("active");
+      }
+    }
+
+    // 滚动定位到题目
+    function jumpToQuestion(qNum) {
+      const card = document.getElementById("qcard_" + qNum);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    // 更新答题进度
+    function updateProgress() {
+      const count = Object.keys(userAnswers).length;
+      const text = document.getElementById("answeredCountText");
+      if (text) text.innerText = count + " / " + TOTAL_MCQ;
+      const fill = document.getElementById("progressBarFill");
+      if (fill) {
+        const pct = Math.round((count / TOTAL_MCQ) * 100);
+        fill.style.width = pct + "%";
+      }
+    }
+
+    // 确认交卷
+    function confirmSubmitExam() {
+      if (isSubmitted) {
+        openModal();
+        return;
+      }
+      const answeredCount = Object.keys(userAnswers).length;
+      const unAns = TOTAL_MCQ - answeredCount;
+      let msg = "您已完成 " + answeredCount + " / " + TOTAL_MCQ + " 道客观题。";
+      if (unAns > 0) {
+        msg += "\n尚有 " + unAns + " 题未答！确认要提前交卷并自动阅卷吗？";
+      } else {
+        msg += "\n您已全部作答完毕！确认要提交试卷评分吗？";
+      }
+      if (confirm(msg)) {
+        submitExam();
+      }
+    }
+
+    // 提交批阅
+    function submitExam() {
+      isSubmitted = true;
+      clearInterval(timerInterval);
+
+      let correctCount = 0;
+      let wrongCount = 0;
+
+      for (let i = 1; i <= TOTAL_MCQ; i++) {
+        const userChoice = userAnswers[i];
+        const correctChoice = CORRECT_ANSWERS[i];
+        const card = document.getElementById("qcard_" + i);
+        const bubble = document.getElementById("bubble_" + i);
+
+        if (card) {
+          const expBox = card.querySelector(".explanation-box");
+          if (expBox) expBox.classList.add("show");
+
+          const items = card.querySelectorAll(".option-item");
+          items.forEach(it => {
+            const c = it.getAttribute("data-choice");
+            if (c === correctChoice) {
+              it.classList.add("correct");
+            }
+            if (userChoice && c === userChoice && userChoice !== correctChoice) {
+              it.classList.add("wrong");
+            }
+          });
+        }
+
+        if (bubble) {
+          bubble.classList.remove("answered", "flagged");
+          if (userChoice === correctChoice) {
+            bubble.classList.add("correct");
+            correctCount++;
+          } else if (userChoice && userChoice !== correctChoice) {
+            bubble.classList.add("wrong");
+            wrongCount++;
+          }
+        }
+      }
+
+      const EACH_POINT = 2;
+      const TOTAL_POINTS = 60;
+      const unansweredCount = TOTAL_MCQ - correctCount - wrongCount;
+      const accuracy = Math.round((correctCount / TOTAL_MCQ) * 100);
+      const finalScore = correctCount * EACH_POINT;
+
+      document.getElementById("modalFinalScore").innerText = finalScore;
+      document.getElementById("modalScoreDetails").innerText = "客观题得分 " + finalScore + " / " + TOTAL_POINTS + " 分（答对 " + correctCount + " / " + TOTAL_MCQ + " 题）";
+      document.getElementById("modalCorrectCount").innerText = correctCount;
+      document.getElementById("modalWrongCount").innerText = wrongCount;
+      document.getElementById("modalUnansweredCount").innerText = unansweredCount;
+      document.getElementById("modalAccuracy").innerText = accuracy + "%";
+
+      openModal();
+    }
+
+    function openModal() {
+      document.getElementById("scoreModal").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("scoreModal").classList.remove("show");
+    }
+
+    // 导出 / 打印个人错题订正单
+    function exportMistakesSheet() {
+      if (!isSubmitted) {
+        alert("请先交卷批阅后再导出错题订正单！");
+        return;
+      }
+      
+      const mistakes = [];
+      for (let i = 1; i <= TOTAL_MCQ; i++) {
+        const userChoice = userAnswers[i] || "";
+        const correctChoice = CORRECT_ANSWERS[i];
+        if (userChoice !== correctChoice) {
+          const card = document.getElementById("qcard_" + i);
+          if (card) {
+            const stemEl = card.querySelector(".question-stem");
+            const qStem = stemEl ? stemEl.innerHTML : ("第 " + i + " 题");
+            const expEl = card.querySelector(".explanation-box");
+            const expText = expEl ? expEl.innerHTML : "暂无解析";
+            
+            const optItems = card.querySelectorAll(".option-item");
+            let optionsData = [];
+            optItems.forEach(it => {
+              const c = it.getAttribute("data-choice");
+              const textEl = it.querySelector(".option-text");
+              optionsData.push({
+                choice: c,
+                text: textEl ? textEl.innerHTML : it.innerText
+              });
+            });
+            
+            mistakes.push({
+              num: i,
+              stem: qStem,
+              options: optionsData,
+              userChoice: userChoice ? userChoice : "（未作答）",
+              correctChoice: correctChoice,
+              explanation: expText
+            });
+          }
+        }
+      }
+
+      if (mistakes.length === 0) {
+        alert("🎉 恭喜！您本次客观题全部答对（满分 100% 正确率），无需生成错题订正单！");
+        return;
+      }
+
+      // 打开新窗口生成打印订正单
+      const printWin = window.open("", "_blank");
+      if (!printWin) {
+        alert("浏览器拦截了弹出窗口，请允许弹出窗口后重试！");
+        return;
+      }
+
+      const examTitle = document.querySelector(".header-title-bar h1") ? document.querySelector(".header-title-bar h1").innerText : "独中高中资讯科技在线考场";
+      const now = new Date();
+      const timeStr = now.getFullYear() + "年" + (now.getMonth()+1) + "月" + now.getDate() + "日 " + 
+                      String(now.getHours()).padStart(2,'0') + ":" + String(now.getMinutes()).padStart(2,'0');
+
+      let questionsHtml = "";
+      mistakes.forEach((m, idx) => {
+        let optHtml = "";
+        m.options.forEach(opt => {
+          let badge = "";
+          let itemClass = "print-opt";
+          if (opt.choice === m.correctChoice) {
+            itemClass += " print-opt-correct";
+            badge = " <span class='badge-cor'>[正确答案]</span>";
+          } else if (opt.choice === m.userChoice) {
+            itemClass += " print-opt-wrong";
+            badge = " <span class='badge-wrg'>[我的错选]</span>";
+          }
+          optHtml += `<div class="${itemClass}"><strong>${opt.choice}.</strong> ${opt.text} ${badge}</div>`;
+        });
+
+        questionsHtml += `
+        <div class="print-q-card">
+          <div class="print-q-header">
+            <span class="print-q-num">错题序号 #${idx + 1}（原卷第 ${m.num} 题）</span>
+            <span class="print-q-compare">您的作答：<b style="color:#dc2626">${m.userChoice}</b> ｜ 正确答案：<b style="color:#16a34a">${m.correctChoice}</b></span>
+          </div>
+          <div class="print-q-stem">${m.stem}</div>
+          <div class="print-q-options">${optHtml}</div>
+          <div class="print-q-exp">
+            <div class="exp-title">💡 董总统考考点深度解析：</div>
+            <div class="exp-content">${m.explanation}</div>
+          </div>
+          <div class="print-q-notes">
+            <div class="notes-title">✍️ 错因分析与知识漏洞巩固笔记（考生手写专区）：</div>
+            <div class="notes-lines">
+              <div class="note-line">【错因归类】[ ] 审题不清  [ ] 概念混淆  [ ] 进制/公式运算失误  [ ] 算法伪代码读不懂  [ ] 其他：_________</div>
+              <div class="note-line">【核心知识漏洞与订正要点】：</div>
+              <div class="note-line" style="border-bottom:1px dashed #cbd5e1;height:24px;"></div>
+              <div class="note-line" style="border-bottom:1px dashed #cbd5e1;height:24px;"></div>
+            </div>
+          </div>
+        </div>`;
+      });
+
+      const fullHtml = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>错题订正单 - ${examTitle}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f8fafc; color: #1e293b; padding: 24px; line-height: 1.6; }
+    .print-container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px 20px; margin-bottom: 24px; }
+    .btn-print { background: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 9px 20px; font-size: 14px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-print:hover { background: #1d4ed8; }
+    .btn-close { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 6px; padding: 9px 16px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .doc-header { text-align: center; border-bottom: 2px solid #3b82f6; padding-bottom: 16px; margin-bottom: 20px; }
+    .doc-header h1 { font-size: 22px; color: #0f172a; margin-bottom: 6px; }
+    .doc-meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; font-size: 13px; color: #475569; margin-top: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px; text-align: left; }
+    .meta-fill { border-bottom: 1px solid #94a3b8; display: inline-block; min-width: 70px; height: 16px; }
+    .print-q-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-bottom: 22px; background: #fff; page-break-inside: avoid; }
+    .print-q-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 12px; font-size: 13px; }
+    .print-q-num { font-weight: 800; color: #2563eb; }
+    .print-q-compare { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 3px 8px; }
+    .print-q-stem { font-size: 14.5px; font-weight: 600; color: #0f172a; margin-bottom: 12px; line-height: 1.7; }
+    .print-q-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+    @media (max-width: 600px) { .print-q-options { grid-template-columns: 1fr; } }
+    .print-opt { padding: 6px 10px; border-radius: 6px; font-size: 13px; border: 1px solid #e2e8f0; background: #f8fafc; }
+    .print-opt-correct { background: #f0fdf4; border-color: #86efac; color: #166534; font-weight: 700; }
+    .print-opt-wrong { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+    .badge-cor { font-size: 11px; background: #22c55e; color: #fff; border-radius: 3px; padding: 1px 4px; margin-left: 4px; }
+    .badge-wrg { font-size: 11px; background: #ef4444; color: #fff; border-radius: 3px; padding: 1px 4px; margin-left: 4px; }
+    .print-q-exp { background: #faf5ff; border-left: 4px solid #a855f7; border-radius: 0 6px 6px 0; padding: 10px 14px; font-size: 13px; color: #581c87; margin-bottom: 14px; line-height: 1.6; }
+    .exp-title { font-weight: 800; margin-bottom: 4px; color: #6b21a8; }
+    .print-q-notes { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 12px; font-size: 12.5px; color: #334155; }
+    .notes-title { font-weight: 700; margin-bottom: 6px; color: #475569; }
+    .note-line { margin-bottom: 6px; line-height: 1.5; }
+    .footer-copy { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 14px; }
+    pre, code { font-family: "JetBrains Mono", Consolas, Monaco, monospace; font-size: 13px; }
+    .code-block { background: #0f172a; color: #f8fafc; padding: 10px; border-radius: 6px; overflow-x: auto; margin: 8px 0; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .print-container { box-shadow: none; border-radius: 0; padding: 12px; max-width: 100%; }
+      .toolbar { display: none !important; }
+      .print-q-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 18px; }
+      .doc-header { border-bottom: 2px solid #000; }
+      .doc-header h1 { font-size: 18px; }
+      @page { margin: 12mm 15mm; size: A4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="toolbar">
+      <div>
+        <strong style="color:#1e3a8a;font-size:15px;">📋 本次客观题错题共 ${mistakes.length} 道</strong>
+        <span style="font-size:13px;color:#64748b;margin-left:8px;">（点击打印按钮即可直接打印或另存为 PDF 错题订正单）</span>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn-print" onclick="window.print()">🖨️ 立即打印 / 保存为 PDF</button>
+        <button class="btn-close" onclick="window.close()">关闭窗口</button>
+      </div>
+    </div>
+    <div class="doc-header">
+      <h1>马来西亚华文独中高中资讯科技 · 个人错题订正单</h1>
+      <div style="font-size:14px;color:#475569;font-weight:600;">${examTitle}</div>
+      <div class="doc-meta-grid">
+        <div><strong>考生姓名：</strong><span class="meta-fill"></span></div>
+        <div><strong>班级座号：</strong><span class="meta-fill"></span></div>
+        <div><strong>生成时间：</strong>${timeStr}</div>
+        <div><strong>错题汇总：</strong>共 <b style="color:#dc2626">${mistakes.length}</b> 题（未答/选错）</div>
+      </div>
+    </div>
+    <div class="questions-area">
+      ${questionsHtml}
+    </div>
+    <div class="footer-copy">
+      © 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程 ｜ 考点对齐董总统考新课纲
+    </div>
+  </div>
+</body>
+</html>`;
+
+      printWin.document.open();
+      printWin.document.write(fullHtml);
+      printWin.document.close();
+      printWin.focus();
+    }
+
+    window.onload = function() {
+      updateTimerDisplay();
+      startTimer();
+      updateProgress();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,819 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二册 · 阶段测验二（第4-5章） ｜ 综合情境大题精析与参考答案</title>
+    <meta name="description" content="第二册 · 阶段测验二（第4-5章） 综合主观作答题精研、深度剖析、参考答案与董总官方四栏评分量规。">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary-blue: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --accent-purple: #7c3aed;
+            --border-color: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 24px rgba(37,99,235,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 80px;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-subj {
+            background: #dbeafe;
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: #fff;
+            border: 1px solid var(--primary-blue);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 980px;
+            margin: 32px auto 0;
+            padding: 0 20px;
+        }
+
+        /* 顶部横幅 */
+        .header-banner {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .banner-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .banner-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .banner-desc {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* 工具栏：全局控制 */
+        .global-ctrl-bar {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ctrl-info {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .ctrl-info strong {
+            color: #0f172a;
+        }
+
+        .ctrl-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-toggle-all {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-toggle-all:hover {
+            background: #e2e8f0;
+        }
+
+        /* 题目卡片 */
+        .q-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .q-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .q-card-header {
+            padding: 20px 24px;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .q-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-pill {
+            background: #dbeafe;
+            color: var(--primary-blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .q-card-body {
+            padding: 24px;
+        }
+
+        /* 情境材料框 */
+        .scenario-box {
+            background: #f1f5f9;
+            border-left: 4px solid var(--primary-blue);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+
+        .scenario-label {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 小问排版 */
+        .question-content {
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: #1e293b;
+            margin-bottom: 22px;
+        }
+
+        .question-content ol, .question-content ul {
+            padding-left: 24px;
+            margin: 10px 0;
+        }
+
+        .question-content li {
+            margin-bottom: 10px;
+        }
+
+        /* 展开参考答案按钮 */
+        .ans-toggle-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #bfdbfe;
+            color: var(--primary-dark);
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .ans-toggle-btn:hover {
+            background: #dbeafe;
+            border-color: #93c5fd;
+        }
+
+        .ans-toggle-btn .arrow-icon {
+            transition: transform 0.2s ease;
+            font-size: 0.85rem;
+        }
+
+        .ans-toggle-btn.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* 折叠答案容器 */
+        .answer-collapse {
+            display: none;
+            margin-top: 14px;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .answer-collapse.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ans-block-title {
+            color: var(--accent-purple);
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f3e8ff;
+        }
+
+        .ans-text-content {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: #1e293b;
+        }
+
+        .ans-text-content p {
+            margin-bottom: 10px;
+        }
+
+        /* 结构化子设问标题（彻底取代原始 #### 标记） */
+        .sub-ans-heading {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #3b0764;
+            background: #f5f3ff;
+            border-left: 4px solid #7c3aed;
+            padding: 9px 14px;
+            border-radius: 4px 8px 8px 4px;
+            margin: 20px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sub-ans-heading:first-child {
+            margin-top: 4px;
+        }
+
+        /* 官方答案与评分量规徽章（彻底取代生硬 - **【...】** 标记） */
+        .ans-badge-row {
+            margin: 12px 0 10px 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .ans-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #7c3aed;
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+        .ans-tag-rubric {
+            background: #0284c7;
+        }
+        .ans-tag-desc {
+            color: #475569;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        /* 列表项与编号条目排版 */
+        .ans-num-item {
+            margin-bottom: 10px;
+            padding-left: 6px;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+        .ans-bullet-item {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            color: #334155;
+            line-height: 1.65;
+        }
+        .ans-bullet-item .bullet-dot {
+            position: absolute;
+            left: 4px;
+            color: #7c3aed;
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1;
+            top: 2px;
+        }
+        .ans-sub-item {
+            margin-left: 20px;
+            margin-top: 4px;
+            color: #475569;
+            font-size: 0.92rem;
+        }
+
+        /* 专业代码块容器（彻底杜绝 <br> 裸露，等宽字体与纯净换行缩进） */
+        .code-container {
+            margin: 14px 0 18px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            background: #0f172a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        .code-header {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 6px 14px;
+            font-size: 0.76rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+        .code-block {
+            margin: 0;
+            padding: 14px 18px;
+            overflow-x: auto;
+            background: #0f172a;
+            color: #f1f5f9;
+            font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            tab-size: 4;
+            white-space: pre;
+        }
+        .code-block code {
+            font-family: inherit;
+            color: inherit;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        .inline-code {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.88em;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* 官方四栏评分量规表格 */
+        .rubric-wrap {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        .rubric-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #cbd5e1;
+            margin: 10px 0 16px 0;
+        }
+
+        .rubric-table th, .rubric-table td {
+            border: 1px solid #e2e8f0;
+            padding: 9px 12px;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .rubric-table th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            font-size: 0.84rem;
+        }
+        .rubric-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 640px) {
+            .header-banner { padding: 24px 18px; }
+            .banner-title { font-size: 1.45rem; }
+            .global-ctrl-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .rubric-table { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部固定导航 -->
+    <header class="top-nav">
+        <div class="nav-title">
+            <span class="badge-subj">主观大题精研</span>
+            <span>第二册 · 阶段测验二（第4-5章）</span>
+        </div>
+        <div class="nav-actions">
+            <a href="第二册_阶段测验_第4-5章_在线模考.html" class="btn-link btn-primary">⚡ 返回机读考场</a>
+            <a href="../../index.html" class="btn-link btn-outline" onclick="if(window.history.length>1){window.history.back();return false;}else{window.location.href='../../index.html';return false;}">⬅ 返回总控大厅</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- 横幅说明 -->
+        <section class="header-banner">
+            <div class="banner-tag">📖 董总独中高中统考资讯科技 · 主观大题采分精讲</div>
+            <h1 class="banner-title">第二册 · 阶段测验二（第4-5章） · 综合情境大题精析</h1>
+            <p class="banner-desc">
+                本页面汇集全卷综合主观大题、深度情境材料、参考答案要点及官方四栏评分量规。免除在浏览器打字作答的繁琐，随时点击展开对照学习，精准掌握考官采分要义。
+            </p>
+        </section>
+
+        <!-- 全局展开/折叠控制 -->
+        <div class="global-ctrl-bar">
+            <div class="ctrl-info">
+                共 <strong>4</strong> 道综合情境大题 ｜ 满分 <strong>40</strong> 分
+            </div>
+            <div class="ctrl-btns">
+                <button class="btn-toggle-all" onclick="toggleAllAnswers(true)">📖 全部展开答案</button>
+                <button class="btn-toggle-all" onclick="toggleAllAnswers(false)">📕 全部收起答案</button>
+            </div>
+        </div>
+
+        <!-- 题目列表容器 -->
+        <section class="questions-list">
+              <article class='q-card' id='qcard-1'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 1 题：物联网智慧农业监控系统端到端架构设计</div>
+      <span class='score-pill'>满分 10分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独中科技创新社团计划为学校的“天台生态温室”设计并搭建一套“基于物联网的智能微气候调控与灌溉系统”。<br>该系统的预期工作场景如下：<br>- 系统需要实时监测温室内的：空气温度、空气湿度、光照强度以及土壤湿度；<br>- 当土壤湿度低于 25% 时，系统能自动驱动电磁水阀开启滴灌，当湿度达到 60% 时自动关闭水阀；<br>- 当空气温度超过 35℃ 时，系统能自动启动抽风换气风扇与遮阳卷帘；<br>- 采集的所有传感器数据需要通过校园 Wi-Fi 网络上传至校内私有云平台数据库，并在手机 APP 上以折线图形式实时展示；如果检测到异常高温，系统应向指导教师的手机推送警报通知。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> 请根据物联网经典三层体系架构（<strong>感知层、网络层、应用层</strong>），将上述生态温室系统中的软硬件组件进行精准分类归纳（每层至少列出两项具体组件或功能）。（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> 在该系统的感知层硬件选型中，请分别指出下列具体部件所扮演的物理角色类型（<strong>是属于传感器还是执行器</strong>）：（2分）<br>- 部件 A：用于测量天台阳光强度的光敏电阻模块；<br>- 部件 B：用于驱动温室卷帘升降的小型直流减速电机。</li>
+          <li style='margin-bottom: 12px;'><strong>3.</strong> 请为社团学生绘制或写出该系统的<strong>自动化闭环控制逻辑伪代码（Pseudocode）</strong>：<br>要求清晰展现系统对“土壤湿度监测与电磁水阀滴灌控制”的判断分支逻辑。（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>4.</strong> 物联网设备大量部署后，网络安全风险随之剧增。请结合本温室控制系统的实际情况，提出<strong>两项确保该物联网系统运行安全的具体技术防护措施</strong>。（2分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-1' onclick='toggleAnswer(1)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-1'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. 物联网三层架构组件归纳（3分，各1分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>感知层（Perception Layer）</strong>：空气温湿度传感器、光照强度传感器、土壤湿度传感器、电磁水阀、直流卷帘电机、抽风风扇；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>网络层（Network Layer）</strong>：ESP32/单片机 Wi-Fi 无线模块、校园无线路由器/AP、校园以太网光纤交换网络；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>应用层（Application Layer）</strong>：校内私有云数据库、手机监控 APP 界面（折线图渲染）、手机短信/推送警报服务。</div>
+<div class='ans-num-item'><strong>2. 硬件角色分类判定（2分，各1分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>部件 A（光敏电阻模块）</strong>：<strong>传感器（Sensor）</strong>（负责感知光照物理量并转换为电信号输入）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>部件 B（直流减速电机）</strong>：<strong>执行器（Actuator）</strong>（负责接收控制信号将电能转换为机械运动驱动卷帘）。</div>
+<div class='ans-num-item'><strong>3. 自动化闭环滴灌控制逻辑伪代码（3分）：</strong> </div>
+<div class='code-container'><div class='code-header'><span>🐍 Python 3 核心算法实现</span><span>PYTHON</span></div><pre class='code-block'><code>   WHILE True:
+       soil_humidity = Read_Soil_Moisture_Sensor()  # 读取土壤湿度数据
+       IF soil_humidity &lt; 25:
+           Open_Solenoid_Valve()                    # 低于25%开启滴灌水阀
+           Display_Status(&quot;正在滴灌补水...&quot;)
+       ELSE IF soil_humidity &gt;= 60:
+           Close_Solenoid_Valve()                   # 达到60%关闭水阀
+           Display_Status(&quot;湿度正常，停止滴灌&quot;)
+       Delay(5000)                                  # 延时5秒后进入下一次轮询检测
+   </code></pre></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> （评分标准：包含持续循环结构给1分，包含低于25%开启分支给1分，包含达到60%关闭分支给1分）。</div>
+<div class='ans-num-item'><strong>4. 两项物联网运行安全防护措施（2分，各1分）：</strong> </div>
+<div class='ans-sub-item'><strong>①</strong> <strong>更改微控制器出厂默认账密与调试凭据</strong>：为 ESP32 固件烧录独一无二的设备访问认证密钥（Token），严禁使用明文默认密码；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>划分专属 IoT 物联网独立 VLAN</strong>：在校园交换机上将生态温室设备划入隔离 VLAN，禁止学生机房终端直接向传感器控制器发起未经授权的网络扫描与探测。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>三层架构归类（3分）</strong></td><td>感知层、网络层、应用层三层划分极度精准，列举软硬件实例紧扣情境。</td><td>层次划分正确，但个别组件归属稍显重叠。</td><td>混淆了网络层与应用层的界限。</td><td>完全脱离物联网三层模型。</td></tr><tr><td><strong>传感器 vs 执行器（2分）</strong></td><td>光敏判为传感器、电机判为执行器，概念清晰准确。</td><td>判定正确但缺少基本功能原理解释。</td><td>仅判定出一项。</td><td>判定完全颠倒。</td></tr><tr><td><strong>控制伪代码编写（3分）</strong></td><td>逻辑闭环完备，阈值判断分支工整，变量命名与延时逻辑专业。</td><td>逻辑大体正确，缺少循环控制或阈值区间有轻微漏洞（扣1分）。</td><td>仅写出日常口语叙述，缺乏结构化控制语句。</td><td>逻辑混乱无条理。</td></tr><tr><td><strong>物联网安全加固（2分）</strong></td><td>提出改默认账密、划分独立 VLAN 或加密通信等贴合物联网痛点的实操建议。</td><td>建议偏通用 PC 安全（如装杀毒软件），针对嵌入式设备不够贴切。</td><td>仅提出拔网线等极端不合理措施。</td><td>未作答。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-2'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 2 题：企业级网络存储 RAID 阵列与数据安全容错设计</div>
+      <span class='score-pill'>满分 10分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某跨国物流企业的数据中心正在升级其核心交易日志与影像归档存储服务器。<br>存储管理员计划采购一批标称单盘容量为 4 TB 的企业级 SATA 机械硬盘，并在专业硬件 RAID 控制卡上配置磁盘阵列。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> 存储管理员在考虑构建一套由 <strong>4 块</strong> 标称容量为 4 TB 硬盘组成的 <strong>RAID 5</strong> 磁盘阵列：<br>- 请阐述 RAID 5 的核心工作原理（包含数据组织方式与容错校验机制）；（2分）<br>- 请写出计算推导过程，计算该 RAID 5 阵列在格式化前的<strong>总可用逻辑存储容量（TB）</strong>；（2分）<br>- 该 RAID 5 磁盘阵列最多允许同时损坏几块物理硬盘而不丢失数据？（1分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> 作为备选方案，系统分析师建议采用由 <strong>4 块</strong> 4 TB 硬盘组成的 <strong>RAID 10（RAID 1+0）</strong> 磁盘阵列：<br>- 简述 RAID 10 的架构组合方式；（1分）<br>- 计算该 RAID 10 阵列的<strong>总可用逻辑存储容量（TB）</strong>；（1分）<br>- 在极端最幸运的情况下，该 RAID 10 阵列最多可容忍同时损坏几块物理硬盘？并说明其必须满足的前提条件。（2分）</li>
+          <li style='margin-bottom: 12px;'><strong>3.</strong> 综合读写性能、数据安全性与存储成本三个维度，请简要对比 RAID 5 与 RAID 10 各自最适合的应用业务场景。（1分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-2' onclick='toggleAnswer(2)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-2'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. RAID 5 原理、容量与容错推导（5分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>核心原理</strong>：RAID 5 采用<strong>数据块分布式条带化（Striping）</strong>存储，同时计算出<strong>奇偶校验信息（Parity）</strong>，并将校验数据轮流均匀分散保存在所有物理硬盘上，不设专用校验盘（2分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>可用逻辑存储容量计算</strong></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 公式：可用容量 = (N - 1)  ×  单盘容量（1分）</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 推导：(4 - 1)  ×  4 TB = 3  ×  4 TB = 12 TB（1分）</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 答：总可用逻辑容量为 <strong>12 TB</strong>；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>最大容错坏盘数</strong>：最多只允许同时损坏 <strong>1 块</strong> 物理硬盘而不丢失数据（1分）。</div>
+<div class='ans-num-item'><strong>2. RAID 10 原理、容量与极限坏盘分析（4分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>架构组合</strong>：RAID 10 即“RAID 1 + RAID 0”，<strong>先两两镜像（RAID 1），再跨组条带化（RAID 0）</strong>组合，兼顾高安全性与极佳读写性能（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>可用容量计算</strong></div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 推导：可用容量 = (N ÷ 2)  ×  单盘容量 = (4 ÷ 2)  ×  4 TB = 8 TB（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>极限坏盘数与前提条件</strong>：在最幸运的情况下，最多可容忍同时损坏 <strong>2 块</strong> 物理硬盘（1分）；<strong>前提条件</strong>：损坏的这两块硬盘<strong>必须分别位于两个不同的 RAID 1 镜像子组中</strong>（即绝不能是互为镜像的同一对磁盘同时损坏）（1分）。</div>
+<div class='ans-num-item'><strong>3. 业务场景选型对比（1分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>RAID 5</strong>：空间利用率高（75%），适合<strong>大容量连续顺序读写、对成本较为敏感的影像与文档冷归档</strong>业务；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>RAID 10</strong>：写惩罚低、随机小 I/O 读写极快且重建风险小，适合<strong>高并发随机写入频繁、对数据可用性要求极苛刻的核心数据库（如交易处理系统 TPS）</strong>。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>RAID 5 原理与推导（5分）</strong></td><td>分布式奇偶校验原理阐述透彻，12 TB 容量推导无误，坏盘数 1 块准确。</td><td>原理清晰，容量计算正确，但校验数据分布解释不够专业。</td><td>误用加法直接算成 16 TB。</td><td>混淆 RAID 0、1、5 概念。</td></tr><tr><td><strong>RAID 10 架构与极限坏盘（4分）</strong></td><td>8 TB 计算准确，敏锐指出最多坏 2 块且必须跨子组的前提条件。</td><td>容量计算正确，坏盘数回答 2 块但未说明必须跨子组的前提（扣1分）。</td><td>误认为 RAID 10 只能坏 1 块。</td><td>计算与架构完全错误。</td></tr><tr><td><strong>业务场景权衡（1分）</strong></td><td>从成本效率（归档）与高并发随机 I/O（核心数据库）准确划分适用面。</td><td>能说出快慢和安全性，但未落到具体业务场景。</td><td>仅泛泛说“都可以用”。</td><td>未作答。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-3'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 3 题：局域网资源安全共享与 NTFS/共享权限交叉生效机制</div>
+      <span class='score-pill'>满分 10分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独中行政大楼配置了一台运行 Windows Server 操作系统的文件服务器。<br>服务器上创建了一个名为 <code class='inline-code'>C:\School_Documents</code> 的本地文件夹，并将其设置为网络共享文件夹，共享名称为 <code class='inline-code'>DocShare</code>。<br>学校教务处设立了一个“教务教研组”，组内有两名典型员工：<br>- 员工甲（正式主任）：属于用户组 <code class='inline-code'>Academic_Directors</code>；<br>- 员工乙（新进实习教师）：属于用户组 <code class='inline-code'>Intern_Teachers</code>。<br>管理员针对该文件夹分别配置了如下权限策略：<br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> <strong>网络共享权限（Share Permissions）</strong>：<br>- <code class='inline-code'>Academic_Directors</code> 组：<strong>完全控制（Full Control）</strong>；<br>- <code class='inline-code'>Intern_Teachers</code> 组：<strong>读取（Read）</strong>；</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> <strong>NTFS 文件系统本地安全权限（NTFS Permissions）</strong>：<br>- <code class='inline-code'>Academic_Directors</code> 组：<strong>修改（Modify）</strong>；<br>- <code class='inline-code'>Intern_Teachers</code> 组：<strong>写入（Write）</strong> 与 <strong>读取（Read）</strong>。<br><strong>问题：</strong></li>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> 当员工甲通过网络路径 <code class='inline-code'>\\Server\DocShare</code> 访问该文件夹时：<br>- 针对文件或子目录，员工甲是否拥有“修改文件内容”的权限？（1分）<br>- 针对文件或子目录，员工甲是否拥有“更改该文件夹安全所有权及重新分配权限”的权限？请结合网络共享权限与 NTFS 权限的<strong>交叉生效规则（最严格最小化原则）</strong>给出明确判断与原理分析。（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> 当员工乙通过网络路径 <code class='inline-code'>\\Server\DocShare</code> 试图向该共享文件夹内上传保存一份新的教学计划文档时：<br>- 员工乙的保存操作能否成功？请详细说明其判定原因。（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>3.</strong> 假设管理员在 <code class='inline-code'>C:\School_Documents</code> 内部新建了一个子文件夹 <code class='inline-code'>Top_Secret</code>，并在其 NTFS 权限中针对 <code class='inline-code'>Intern_Teachers</code> 组明确勾选了“<strong>拒绝读取（Deny Read）</strong>”，但保留了其上级目录的“允许读取”权限。<br>- 请问员工乙能否查看 <code class='inline-code'>Top_Secret</code> 文件夹内的文件？（1分）<br>- 这体现了 Windows NTFS 权限管理中的什么基本冲突判定原则？（2分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-3' onclick='toggleAnswer(3)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-3'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. 员工甲（主任）权限判定与交叉规则分析（4分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>修改文件内容权限</strong>：<strong>拥有（允许）修改权限</strong>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>更改安全所有权及重新分配权限</strong>：<strong>没有（禁止）该权限</strong>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>原理分析</strong>：当用户通过网络访问时，Windows 系统的有效权限取<strong>网络共享权限与 NTFS 权限的交集（即两者中最严格、最小的权限）</strong>。员工甲在共享权限上虽然是“完全控制”，但在底层 NTFS 文件系统上仅被赋予了“修改（Modify）”权限。而在 Windows NTFS 体系中，“修改”权限允许读写和删除文件，但<strong>严禁更改安全权限（Change Permissions）与夺取所有权（Take Ownership）</strong>。按照最严格限制原则，员工甲无权重新分配权限（2分）。</div>
+<div class='ans-num-item'><strong>2. 员工乙上传教学计划保存判定（3分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>操作能否成功</strong>：<strong>无法成功（保存失败，系统提示“访问被拒绝”）</strong>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>判定原因</strong>：虽然员工乙在底层 NTFS 权限中拥有“写入（Write）”权限，但其网络共享权限（Share Permissions）仅被严格限制为“<strong>读取（Read）</strong>”。在网络访问环境下，共享层面的“只读”限制构成了第一道闸门，网络用户的所有写请求在进入文件系统前即被 SMB 共享服务强制拦截（2分）。</div>
+<div class='ans-num-item'><strong>3. <code class='inline-code'>Top_Secret</code> 继承与显式权限冲突判定（3分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>能否查看</strong>：<strong>绝对无法查看（禁止读取）</strong>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>基本冲突判定原则</strong></div>
+<div class='ans-sub-item'><strong>①</strong> <strong>“拒绝优先”原则（Deny Overrides Allow）</strong>：在 Windows 权限评估体系中，无论允许权限来自何处，一旦存在明确的“拒绝”设置，拒绝规则无条件绝对优先执行（1分）；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>“显式权限优先于继承权限”原则</strong>：子对象上显式（直接）配置的权限优于从上级父目录继承而来的权限（1分）。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>员工甲权限交叉判定（4分）</strong></td><td>准确判定允许修改、禁止赋权，深刻阐明最严格交集原则与“修改”权限边界。</td><td>判定正确，但在阐明为什么不能赋权时表述稍欠系统学精准。</td><td>误以为共享是完全控制就能在网络上随心所欲赋权。</td><td>判定完全错误。</td></tr><tr><td><strong>员工乙写操作拦截（3分）</strong></td><td>斩钉截铁判定失败，并准确指出共享层只读拦截了写请求。</td><td>判定失败，但把原因错怪在 NTFS 权限上。</td><td>误以为只要本地有写权限就能存文件。</td><td>判定为成功。</td></tr><tr><td><strong>Deny 优先与继承规则（3分）</strong></td><td>准确判定禁止查看，并同时总结出“拒绝优先”与“显式优于继承”两大铁律。</td><td>判定禁止查看，仅答出“因为设置了拒绝”，未上升到规则命名。</td><td>误以为上级的允许会冲抵下级的拒绝。</td><td>未作答。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-4'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 4 题：物联网多层安全防御与假冒伪造节点渗透应对</div>
+      <span class='score-pill'>满分 10分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某现代化独中智慧校园系统部署了超过 500 个物联网感知节点，包括教室智能门锁、智能水电表、操场环境监测站与人脸识别闸机。<br>在近期进行的一次网络安全渗透测试演练中，白帽安全专家团队揭示了该物联网系统存在的三个典型安全隐患：<br>- <strong>漏洞 A</strong>：部署在室外路灯杆底部的环境监测传感器直接暴露了调试用的物理串口（UART/JTAG），攻击者只需用螺丝刀拧开外壳即可物理接线并 dump 出单片机内部固件（Firmware）；<br>- <strong>漏洞 B</strong>：智能水表向内网采集网关上传读数时，采用了明文的 HTTP GET 请求，没有实施任何通信加密与消息防篡改校验，攻击者通过伪造数据包成功将水表读数恶意篡改为负数；<br>- <strong>漏洞 C</strong>：黑客制造了一个带有伪造 MAC 地址和虚假硬件 ID 的恶意传感器，成功接入校园 Wi-Fi 并伪装成温度传感器，持续向云端数据分析平台注入大量垃圾污染数据，误导了全校空调系统的智能节能算法。<br><strong>问题：</strong><br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>1.</strong> 针对<strong>漏洞 A</strong>（物理接口与固件逆向泄露隐患），请提出<strong>两项实用的物理安全或单片机固件加固措施</strong>。（2分）</li>
+          <li style='margin-bottom: 12px;'><strong>2.</strong> 针对<strong>漏洞 B</strong>（通信明文传输与数据篡改），若要在不大幅增加传感器硬件算力负担的前提下保障数据传输的安全，应采取哪种网络安全协议或密码学技术手段？（2分）</li>
+          <li style='margin-bottom: 12px;'><strong>3.</strong> 针对<strong>漏洞 C</strong>（非法伪造物联网节点接入内网并伪装身份），在物联网安全接入控制体系中，网络管理员应当推行哪项关键机制以杜绝未经认证的假冒设备联网？请简述该机制的基本工作流程。（3分）</li>
+          <li style='margin-bottom: 12px;'><strong>4.</strong> 从信息安全管理制度（ISMS）角度出发，结合全校师生在智慧校园环境中的日常行为，学校应如何制定针对物联网设备的“全生命周期安全管理策略”（从设备采购、部署上线到报废回收各提一条核心要点）？（3分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-4' onclick='toggleAnswer(4)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-4'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>🎯 官方标准参考答案</div>
+<div class='ans-num-item'><strong>1. 漏洞 A（物理与固件加固措施）（2分，各1分）：</strong> </div>
+<div class='ans-sub-item'><strong>①</strong> <strong>物理接口防护与熔断调试总线</strong>：设备量产出厂前通过物理熔丝（eFuse）永久禁用芯片内部的 JTAG/UART 调试接口，并采用防拆防撬的工业密封外壳；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>固件高强度加密与安全启动（Secure Boot）</strong>：启用单片机内置硬件加解密引擎，对 Flash 存储中的固件代码进行全盘 AES 加密，并配置硬件级数字签名验签，确保被非正常 dump 出来的固件无法被反编译与非法逆向分析。</div>
+<div class='ans-num-item'><strong>2. 漏洞 B（轻量级数据加密与完整性防篡改）（2分，各1分）：</strong> </div>
+<div class='ans-sub-item'><strong>①</strong> <strong>协议升级与安全通信通道</strong>：弃用明文 HTTP，全面推行基于 TLS/DTLS 加密的物联网通信协议（如 <strong>HTTPS</strong> 或 <strong>MQTTS</strong> / 带 TLS 的 MQTT）；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>引入轻量级消息认证码（HMAC）或数字摘要校验</strong>：在上传的数据报文中附加基于预共享密钥（PSK）生成的 HMAC 校验哈希值，网关接收端比对签名，一旦数据在网络中被篡改立即废弃。</div>
+<div class='ans-num-item'><strong>3. 漏洞 C（设备身份认证与准入控制体系）（3分）：</strong> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>推行关键机制</strong>：<strong>基于 802.1X 的设备证书准入认证</strong> 或 <strong>物联网设备双向身份认证机制（Mutual Authentication / mTLS）</strong>（1分）；</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>工作流程简述</strong></div>
+<div class='ans-sub-item'><strong>①</strong> <strong>出厂预置</strong>：为每一个合法的传感器烧录全球独一无二的设备数字证书与私钥；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>接入握手</strong>：当传感器接入 Wi-Fi 时，RADIUS 准入服务器与云平台要求设备出示其证书，并利用设备私钥进行密码学挑战签名验证；</div>
+<div class='ans-sub-item'><strong>③</strong> <strong>授权放行</strong>：服务器验证证书合法且属于白名单设备后才分配内网通信权限；黑客自行伪造 MAC 或虚假 ID 的设备由于无法提供由校方私有 CA 签发的有效凭据，在数据链路层即被彻底拒绝接入（2分）。</div>
+<div class='ans-num-item'><strong>4. 物联网设备全生命周期安全管理策略（3分，各1分）：</strong> </div>
+<div class='ans-sub-item'><strong>①</strong> <strong>采购与准入阶段</strong>：严格供应商安全准入标准，要求设备必须支持固件无线安全升级（OTA）并杜绝硬编码后门与出厂弱口令；</div>
+<div class='ans-sub-item'><strong>②</strong> <strong>部署与运行阶段</strong>：建立统一物联网资产台账，网络划分专属隔离网段，定期进行安全扫描与固件漏洞热补丁修补；</div>
+<div class='ans-sub-item'><strong>③</strong> <strong>退役与报废阶段</strong>：退役设备彻底从接入认证白名单中注销并撤销其数字证书，对内部存储介质进行物理销毁或密码学数据安全擦除（Crypto-shredding），严防密钥信息泄露。</div>
+<div class='sub-ans-heading'>📊 官方细目评分量规与阶梯采分标准</div>
+<table class='rubric-table'><thead><tr><th>评分维度</th><th>优秀（Full / 9-10分）</th><th>良好（Good / 7-8分）</th><th>基础（Basic / 4-6分）</th><th>待改进（Poor / 0-3分）</th></tr></thead><tbody><tr><td><strong>物理与固件加固（2分）</strong></td><td>提出熔断 JTAG 调试口、安全启动 Secure Boot 及固件加密等顶级硬件安全措施。</td><td>提到密封外壳和给固件设密码，表述较为生活化。</td><td>仅答出“放在别人够不到的地方”。</td><td>未能针对硬件逆向提出有效技术方案。</td></tr><tr><td><strong>传输层加密与验签（2分）</strong></td><td>准确给出 MQTTS/TLS 与 HMAC 防篡改方案，既兼顾算力又保障安全。</td><td>仅提到“加密传输”，未点出具体协议或机制。</td><td>建议直接断开网络。</td><td>答案不切题。</td></tr><tr><td><strong>准入认证与流程（3分）</strong></td><td>提出 802.1X / mTLS 双向认证，分出厂证书、挑战握手、阻断伪造三步叙述流程。</td><td>提出了白名单与证书认证，但工作流程解释不够清晰。</td><td>仅建议“在路由器里绑定 MAC 地址”（易被伪造）。</td><td>完全不懂设备准入机制。</td></tr><tr><td><strong>全生命周期管理（3分）</strong></td><td>采购、运行、报废三阶段要点齐全，涉及安全准入、OTA 更新与证书销毁。</td><td>三阶段基本覆盖，但在报废环节缺少对介质擦除的表述。</td><td>仅谈及其中一个阶段。</td><td>空洞无物。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+
+        </section>
+
+        <footer class="footer-note">
+            <p><strong>© 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程</strong></p>
+            <p style="margin-top: 6px; font-size: 0.8rem; opacity: 0.85;">欢迎分享本网页链接供学习使用；未经许可，不得复制、转载网页内的文字、题目及答案，不得公开发布于其他网站或平台，亦不得用于商业销售。</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function toggleAnswer(idx) {
+            const btn = document.getElementById('btn-ans-' + idx);
+            const ans = document.getElementById('ans-' + idx);
+            if (ans.classList.contains('show')) {
+                ans.classList.remove('show');
+                btn.classList.remove('active');
+            } else {
+                ans.classList.add('show');
+                btn.classList.add('active');
+            }
+        }
+
+        function toggleAllAnswers(expand) {
+            const btns = document.querySelectorAll('.ans-toggle-btn');
+            const collapses = document.querySelectorAll('.answer-collapse');
+            collapses.forEach(c => {
+                if (expand) c.classList.add('show');
+                else c.classList.remove('show');
+            });
+            btns.forEach(b => {
+                if (expand) b.classList.add('active');
+                else b.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>

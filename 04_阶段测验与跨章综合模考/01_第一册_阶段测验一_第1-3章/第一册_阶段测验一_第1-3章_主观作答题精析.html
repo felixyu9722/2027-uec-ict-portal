@@ -1,0 +1,817 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一册 · 阶段测验一（第1-3章） ｜ 综合情境大题精析与参考答案</title>
+    <meta name="description" content="第一册 · 阶段测验一（第1-3章） 综合主观作答题精研、深度剖析、参考答案与董总官方四栏评分量规。">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary-blue: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --accent-purple: #7c3aed;
+            --border-color: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 24px rgba(37,99,235,0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding-bottom: 80px;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-subj {
+            background: #dbeafe;
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            padding: 7px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline {
+            background: #fff;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: #fff;
+            border: 1px solid var(--primary-blue);
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 980px;
+            margin: 32px auto 0;
+            padding: 0 20px;
+        }
+
+        /* 顶部横幅 */
+        .header-banner {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #fff;
+            border-radius: var(--radius-lg);
+            padding: 36px 32px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-banner::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .banner-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .banner-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 10px;
+        }
+
+        .banner-desc {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* 工具栏：全局控制 */
+        .global-ctrl-bar {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ctrl-info {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .ctrl-info strong {
+            color: #0f172a;
+        }
+
+        .ctrl-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-toggle-all {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-toggle-all:hover {
+            background: #e2e8f0;
+        }
+
+        /* 题目卡片 */
+        .q-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .q-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .q-card-header {
+            padding: 20px 24px;
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .q-card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-pill {
+            background: #dbeafe;
+            color: var(--primary-blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .q-card-body {
+            padding: 24px;
+        }
+
+        /* 情境材料框 */
+        .scenario-box {
+            background: #f1f5f9;
+            border-left: 4px solid var(--primary-blue);
+            padding: 16px 20px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-bottom: 22px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+
+        .scenario-label {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 小问排版 */
+        .question-content {
+            font-size: 0.98rem;
+            line-height: 1.75;
+            color: #1e293b;
+            margin-bottom: 22px;
+        }
+
+        .question-content ol, .question-content ul {
+            padding-left: 24px;
+            margin: 10px 0;
+        }
+
+        .question-content li {
+            margin-bottom: 10px;
+        }
+
+        /* 展开参考答案按钮 */
+        .ans-toggle-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #bfdbfe;
+            color: var(--primary-dark);
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .ans-toggle-btn:hover {
+            background: #dbeafe;
+            border-color: #93c5fd;
+        }
+
+        .ans-toggle-btn .arrow-icon {
+            transition: transform 0.2s ease;
+            font-size: 0.85rem;
+        }
+
+        .ans-toggle-btn.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* 折叠答案容器 */
+        .answer-collapse {
+            display: none;
+            margin-top: 14px;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .answer-collapse.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ans-block-title {
+            color: var(--accent-purple);
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f3e8ff;
+        }
+
+        .ans-text-content {
+            font-size: 0.94rem;
+            line-height: 1.75;
+            color: #1e293b;
+        }
+
+        .ans-text-content p {
+            margin-bottom: 10px;
+        }
+
+        /* 结构化子设问标题（彻底取代原始 #### 标记） */
+        .sub-ans-heading {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #3b0764;
+            background: #f5f3ff;
+            border-left: 4px solid #7c3aed;
+            padding: 9px 14px;
+            border-radius: 4px 8px 8px 4px;
+            margin: 20px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sub-ans-heading:first-child {
+            margin-top: 4px;
+        }
+
+        /* 官方答案与评分量规徽章（彻底取代生硬 - **【...】** 标记） */
+        .ans-badge-row {
+            margin: 12px 0 10px 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .ans-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #7c3aed;
+            color: #ffffff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+        .ans-tag-rubric {
+            background: #0284c7;
+        }
+        .ans-tag-desc {
+            color: #475569;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        /* 列表项与编号条目排版 */
+        .ans-num-item {
+            margin-bottom: 10px;
+            padding-left: 6px;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+        .ans-bullet-item {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            color: #334155;
+            line-height: 1.65;
+        }
+        .ans-bullet-item .bullet-dot {
+            position: absolute;
+            left: 4px;
+            color: #7c3aed;
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1;
+            top: 2px;
+        }
+        .ans-sub-item {
+            margin-left: 20px;
+            margin-top: 4px;
+            color: #475569;
+            font-size: 0.92rem;
+        }
+
+        /* 专业代码块容器（彻底杜绝 <br> 裸露，等宽字体与纯净换行缩进） */
+        .code-container {
+            margin: 14px 0 18px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            background: #0f172a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        .code-header {
+            background: #1e293b;
+            color: #94a3b8;
+            padding: 6px 14px;
+            font-size: 0.76rem;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+        .code-block {
+            margin: 0;
+            padding: 14px 18px;
+            overflow-x: auto;
+            background: #0f172a;
+            color: #f1f5f9;
+            font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            tab-size: 4;
+            white-space: pre;
+        }
+        .code-block code {
+            font-family: inherit;
+            color: inherit;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+        .inline-code {
+            font-family: Consolas, Monaco, "Courier New", monospace;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.88em;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* 官方四栏评分量规表格 */
+        .rubric-wrap {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        .rubric-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            border: 1px solid #cbd5e1;
+            margin: 10px 0 16px 0;
+        }
+
+        .rubric-table th, .rubric-table td {
+            border: 1px solid #e2e8f0;
+            padding: 9px 12px;
+            text-align: left;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .rubric-table th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+            font-size: 0.84rem;
+        }
+        .rubric-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 640px) {
+            .header-banner { padding: 24px 18px; }
+            .banner-title { font-size: 1.45rem; }
+            .global-ctrl-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .rubric-table { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部固定导航 -->
+    <header class="top-nav">
+        <div class="nav-title">
+            <span class="badge-subj">主观大题精研</span>
+            <span>第一册 · 阶段测验一（第1-3章）</span>
+        </div>
+        <div class="nav-actions">
+            <a href="第一册_阶段测验一_第1-3章_在线模考.html" class="btn-link btn-primary">⚡ 返回机读考场</a>
+            <a href="../../index.html" class="btn-link btn-outline" onclick="if(window.history.length>1){window.history.back();return false;}else{window.location.href='../../index.html';return false;}">⬅ 返回总控大厅</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- 横幅说明 -->
+        <section class="header-banner">
+            <div class="banner-tag">📖 董总独中高中统考资讯科技 · 主观大题采分精讲</div>
+            <h1 class="banner-title">第一册 · 阶段测验一（第1-3章） · 综合情境大题精析</h1>
+            <p class="banner-desc">
+                本页面汇集全卷综合主观大题、深度情境材料、参考答案要点及官方四栏评分量规。免除在浏览器打字作答的繁琐，随时点击展开对照学习，精准掌握考官采分要义。
+            </p>
+        </section>
+
+        <!-- 全局展开/折叠控制 -->
+        <div class="global-ctrl-bar">
+            <div class="ctrl-info">
+                共 <strong>4</strong> 道综合情境大题 ｜ 满分 <strong>40</strong> 分
+            </div>
+            <div class="ctrl-btns">
+                <button class="btn-toggle-all" onclick="toggleAllAnswers(true)">📖 全部展开答案</button>
+                <button class="btn-toggle-all" onclick="toggleAllAnswers(false)">📕 全部收起答案</button>
+            </div>
+        </div>
+
+        <!-- 题目列表容器 -->
+        <section class="questions-list">
+              <article class='q-card' id='qcard-1'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 1 题：数据编码机制与多媒体存储容量严谨推导</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>在数字化信息处理中，文字、音频与图像均需经过统一的二进制数码化编码才能被计算机存储与传输。<br>请根据多媒体数据编码原理，回答下列问题：<br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>（1）</strong> <strong>【理论阐述】</strong> 在声音数码化过程中，若将音频量化深度由 8 位元（8-bit）提升至 16 位元（16-bit），在<strong>声音还原音质</strong>与<strong>文件存储体积</strong>两方面会产生怎样的实质变化？并说明原因。（4 分）</li>
+          <li style='margin-bottom: 12px;'><strong>（2）</strong> <strong>【三步严谨推导计算】</strong> 某多媒体教室录制了一张分辨率为 160 × 120 像素的设备状态图标，色彩深度设定为 32 位元真彩色。请问存储这张未经压缩的图标文件理论上需要占用多少 <strong>KB</strong> 的存储空间？<br><strong>要求</strong>：必须严格列出以下三步详细演算推导过程，无步骤说明直接给答案不予给分。（6 分）<br>- <strong>步骤一：计算该图像所包含的总位元数（bit）</strong>：<br>（自主思考分析区）<br>- <strong>步骤二：将总位元数转换为字节数（Byte）</strong>：<br>（自主思考分析区）<br>- <strong>步骤三：将字节数转换为千字节（KB，以 1 KB = 1024 字节 换算）</strong>：<br>（自主思考分析区）<br><strong>最终答案</strong>：（自主思考分析区） KB</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-1' onclick='toggleAnswer(1)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-1'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>📌 （1）音频量化深度提升的影响与原因（4 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-num-item'><strong>1. 音质还原度显著提升，量化杂音（失真）大幅降低</strong>：（2 分）：因为量化深度从 8-bit（2⁸ = 256 个等级）提升至 16-bit（2¹⁶ = 65,536 个等级），对声音微弱振幅变化的采样精度提升了 256 倍，能够记录更加丰富细腻的动态层次，有效消除了量化离散阶梯带来的底噪杂音。</div>
+<div class='ans-num-item'><strong>2. 文件存储容量恰好翻倍（增加 100%）</strong>：（2 分）：因为每个音频采样点所需记录的物理二进制位元数从 8 位增加到了 16 位，在采样频率与录音时长保持恒定的前提下，未压缩音频的总数据量直接成正比翻倍。</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>6 分</strong></td><td>严格完成三步推导，步骤清晰规范，公式代入准确，最终答案精确为 75 KB。</td></tr><tr><td><strong>4-5 分</strong></td><td>完成三步推导但运算出现轻微算术失误；或直接除以 8192 但步骤推导缺少字节中间量。</td></tr><tr><td><strong>2-3 分</strong></td><td>仅完成第一步总位元数计算（614,400 bit）与第二步字节计算（76,800 Byte）。</td></tr><tr><td><strong>1 分</strong></td><td>仅列出基本计算算式，未能正确计算出任何有效中间数值。</td></tr><tr><td><strong>0 分</strong></td><td>无演算步骤直接写出错误答案，或未作答。</td></tr></tbody></table>
+<div class='sub-ans-heading'>📌 （2）多媒体图像存储容量三步严谨推导计算（6 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>步骤一：计算图像总位元数（bit）</strong>：（2 分）</div>
+<p class='ans-p'>总位元数 = 宽  ×  高  ×  色彩深度 = 160  ×  120  ×  32 = 614,400  bits</p>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>步骤二：转换为字节数（Byte）</strong>：（2 分）</div>
+<p class='ans-p'>字节数 = 614,400  ÷  8 = 76,800  Bytes</p>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>步骤三：转换为千字节（KB）</strong>：（2 分）</div>
+<p class='ans-p'>容量（KB） = 76,800  ÷  1024 = 75  KB</p>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <em>最终结果：该图像理论存储容量为 75 KB。</em></div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>6 分</strong></td><td>严格完成三步推导，步骤清晰规范，公式代入准确，最终答案精确为 75 KB。</td></tr><tr><td><strong>4-5 分</strong></td><td>完成三步推导但运算出现轻微算术失误；或直接除以 8192 但步骤推导缺少字节中间量。</td></tr><tr><td><strong>2-3 分</strong></td><td>仅完成第一步总位元数计算（614,400 bit）与第二步字节计算（76,800 Byte）。</td></tr><tr><td><strong>1 分</strong></td><td>仅列出基本计算算式，未能正确计算出任何有效中间数值。</td></tr><tr><td><strong>0 分</strong></td><td>无演算步骤直接写出错误答案，或未作答。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-2'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 2 题：防御性算法设计、异常边界拦截与规范伪代码编写</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独立中学图书管理中心正在委托电脑科开发一套“图书借阅天数滞纳金计算辅助程序”。<br>系统原定需求逻辑如下：<br>- 系统提示管理员输入图书“逾期天数 D”（天数为非负整数）；<br>- 若逾期天数 0  ≤  D  ≤  7 天，每逾期 1 天罚款 0.50 令吉；<br>- 若逾期天数 D > 7 天，前 7 天按每天 0.50 令吉计费，超过 7 天的部分每天按 1.00 令吉累加惩罚计费；<br>- 若逾期天数恰好为 0 天，则不收取任何罚款（罚金为 0 令吉）。<br>然而，软件在进行首轮 Alpha 测试时，测试员输入了负数“-5 天”以及异常文本字符，程序计算出了负数罚款或发生严重异常报错。<br>请结合防御性编程与算法设计规范，回答下列问题：<br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>（1）</strong> 分析说明原程序未对输入数据进行验证可能引发的两项系统业务隐患。（4 分）</li>
+          <li style='margin-bottom: 12px;'><strong>（2）</strong> 请针对上述业务逻辑，编写一个结构严谨、包含<strong>循环输入、输入合理性有效性验证（拦截负数与异常）、多分支罚金分段阶梯计算及结果输出</strong>的规范<strong>演算法（伪代码）</strong>。（6 分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-2' onclick='toggleAnswer(2)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-2'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>📌 （1）未进行输入验证引发的两项系统业务隐患（4 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> <span class='ans-tag-desc'>（答出以下任意两点即得 4 分，每点 2 分）：</span></div>
+<div class='ans-num-item'><strong>1. 产生荒谬负数罚款，破坏财务数据一致性</strong>：输入负数逾期天数（如 -5）会导致算式输出“倒贴读者罚金”，引发图书资产财务混乱与对账失败。（2 分）</div>
+<div class='ans-num-item'><strong>2. 程序突发崩溃当机（程序健壮性崩溃）</strong>：输入非法英文字符或标点符号时，系统强行将其执行数值运算会导致运行时类型转换异常（如 Python <code class='inline-code'>ValueError</code>），导致借还书前台程序直接闪退当机。（2 分）</div>
+<div class='ans-num-item'><strong>3. 诱发恶意漏洞与系统被攻击风险</strong>：未做防御性验证的输入端口容易成为恶意越界渗透或注入脚本的攻击窗口。（备选，2 分）</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>6 分</strong></td><td>伪代码语法结构严密完整：涵盖循环框架（重复-直到）、输入、负数异常输入验证拦截、分段阶梯逻辑（0天、 ≤  7天、>7天分段）及正确输出。</td></tr><tr><td><strong>4-5 分</strong></td><td>结构基本完整，有输入校验与分段计算，但在分段边界（如 7 天边界）或循环退出条件上有微小瑕疵。</td></tr><tr><td><strong>2-3 分</strong></td><td>仅写出简单的 If-Else 判断，缺少输入负数防御性拦截或缺少分段阶梯计算逻辑。</td></tr><tr><td><strong>1 分</strong></td><td>仅列出零碎指令片段，无法构成合法算法执行流程。</td></tr><tr><td><strong>0 分</strong></td><td>答案完全错误或未作答。</td></tr></tbody></table>
+<div class='sub-ans-heading'>📌 （2）规范伪代码编写（6 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='code-container'><div class='code-header'><span>💻 规范算法伪代码 / 逻辑流程</span><span>TEXT</span></div><pre class='code-block'><code>开始
+重复
+    输入 逾期天数
+    如果 逾期天数 &lt; 0
+        输出 “输入错误：逾期天数不能为负数，请重新输入”
+    否则如果 逾期天数 = 0
+        罚款金额 = 0.00
+        输出 “图书未逾期，罚款金额为：RM 0.00”
+    否则如果 逾期天数 &lt;= 7
+        罚款金额 = 逾期天数 * 0.50
+        输出 “逾期罚款金额为：RM ”, 罚款金额
+    否则
+        罚款金额 = 7 * 0.50 + (逾期天数 - 7) * 1.00
+        输出 “逾期严重，阶梯累加罚款金额为：RM ”, 罚款金额
+    输入 是否继续计算
+直到 是否继续计算 = “否”
+结束</code></pre></div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>6 分</strong></td><td>伪代码语法结构严密完整：涵盖循环框架（重复-直到）、输入、负数异常输入验证拦截、分段阶梯逻辑（0天、 ≤  7天、>7天分段）及正确输出。</td></tr><tr><td><strong>4-5 分</strong></td><td>结构基本完整，有输入校验与分段计算，但在分段边界（如 7 天边界）或循环退出条件上有微小瑕疵。</td></tr><tr><td><strong>2-3 分</strong></td><td>仅写出简单的 If-Else 判断，缺少输入负数防御性拦截或缺少分段阶梯计算逻辑。</td></tr><tr><td><strong>1 分</strong></td><td>仅列出零碎指令片段，无法构成合法算法执行流程。</td></tr><tr><td><strong>0 分</strong></td><td>答案完全错误或未作答。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-3'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 3 题：人工智能技术架构、训练机制与典型伦理反思</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某科技独中引进了人工智能人脸识别校园安全门禁系统。进校学生只需面向立柱摄像头，系统可在 0.2 秒内自动比对全校 3000 名学生人脸库并自动开闸。<br>请结合《高中资讯科技》第 3 章人工智能核心理论，回答下列问题：<br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>（1）</strong> 说明人脸识别门禁系统在将摄像头捕捉的原始面部图像转化为“人脸特征向量”并成功进行身份识别时，经历了哪两个核心算法处理阶段？（4 分）</li>
+          <li style='margin-bottom: 12px;'><strong>（2）</strong> 该系统在初期试运行阶段，发现傍晚逆光或阴雨天光照极暗时误识率与拒真率明显攀升。作为 AI 工程师，请从“训练数据集优化”与“现场硬件传感器部署”两个维度各提出一项切实的改进对策。（4 分）</li>
+          <li style='margin-bottom: 12px;'><strong>（3）</strong> 从人工智能安全与个人隐私保护角度，分析学校在采集和长期存储全校学生面部生物识别数据时，必须恪守的底线伦理原则是什么？（2 分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-3' onclick='toggleAnswer(3)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-3'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>📌 （1）人脸识别两大核心算法处理阶段（4 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-num-item'><strong>1. 人脸检测与面部关键点特征提取阶段（Feature Extraction）</strong>：（2 分）：首先利用目标检测算法从视频流画面中精准定位并裁剪出人脸区域，利用卷积神经网络（CNN）定位眼睛、鼻尖、嘴角等数百个关键特征点，将其转化为高维度的数学特征向量（Embedding）。</div>
+<div class='ans-num-item'><strong>2. 特征向量比对与分类匹配阶段（Feature Matching / Classification）</strong>：（2 分）：将提取出的实时特征向量与校园人脸数据库中预存的 3000 名学生特征模板进行余弦相似度或欧氏距离计算，当匹配相似度超过预设安全阈值时，确认该学生真实身份并输出控制指令。</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>2 分</strong></td><td>明确指出知情同意、加密保护、严禁外泄滥用等法律伦理底线原则。</td></tr><tr><td><strong>1 分</strong></td><td>仅给出模糊一句话（如“要保护学生隐私”）。</td></tr><tr><td><strong>0 分</strong></td><td>未作答或回答荒谬。</td></tr></tbody></table>
+<div class='sub-ans-heading'>📌 （2）数据集与硬件部署改进对策（4 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>训练数据集优化维度</strong>：（2 分）：在人脸模型微调与训练集扩充中，针对性增加逆光、阴暗微光、侧脸、遮挡等恶劣光照环境下的真实人脸样本数据，并应用“数据增强（Data Augmentation）”技术（动态调整亮度、对比度与高斯噪声），提高模型抗环境光线干扰的泛化鲁棒性。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>现场硬件传感器部署维度</strong>：（2 分）：在门禁立柱上方加装宽动态范围（WDR）专用逆光摄像头，并安装红外夜视补光灯或 3D 结构光红外双目传感器，利用主动发射的主动红外光源直接物理克服外界自然光照不足与逆光眩光问题。</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>2 分</strong></td><td>明确指出知情同意、加密保护、严禁外泄滥用等法律伦理底线原则。</td></tr><tr><td><strong>1 分</strong></td><td>仅给出模糊一句话（如“要保护学生隐私”）。</td></tr><tr><td><strong>0 分</strong></td><td>未作答或回答荒谬。</td></tr></tbody></table>
+<div class='sub-ans-heading'>📌 （3）学生生物识别数据的底线伦理原则（2 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 必须严格恪守<strong>“知情同意、最小必要、强加密存储与严禁非法商业买卖”</strong>的底线伦理安全原则（答出任意关键点即可）。学生人脸等生物特征数据属于绝对不可再生的敏感个人隐私，学校必须采取不可逆特征编码加密存储，严禁将数据泄露或向第三方商业机构分享转售。</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>2 分</strong></td><td>明确指出知情同意、加密保护、严禁外泄滥用等法律伦理底线原则。</td></tr><tr><td><strong>1 分</strong></td><td>仅给出模糊一句话（如“要保护学生隐私”）。</td></tr><tr><td><strong>0 分</strong></td><td>未作答或回答荒谬。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+  <article class='q-card' id='qcard-4'>
+    <div class='q-card-header'>
+      <div class='q-card-title'>📋 第 4 题：跨章综合情境案例分析：智慧校园大数据分析与预警</div>
+      <span class='score-pill'>满分 10 分</span>
+    </div>
+    <div class='q-card-body'>
+      <div class='scenario-box'>
+        <div class='scenario-label'>📌 【情境材料】</div>
+        <div>某独中建立了“智慧校园大数据中心”，将食堂消费 POS 刷卡流（第 1 章数据）、图书馆门禁借阅流水、教务系统平时测验成绩，统一汇聚至校级大数据分析平台。<br>教务处联合电脑组利用机器学习分类算法，建立了一个“学生学业困难与异常状态早期预警模型”。模型一旦发现某住校生在过去两周内出现“食堂早餐刷卡次数归零”、“夜晚熄灯后机房网络流量异常偏高”且“近期随堂小测成绩发生负偏离”，便会自动向该班班主任推送预警提示。<br>请根据全册前三章核心知识，回答下列问题：<br></div>
+      </div>
+      <div class='question-content'>
+        <ol style='padding-left: 20px;'>
+          <li style='margin-bottom: 12px;'><strong>（1）</strong> 在 DIK 认知金字塔模型中，该大数据预警系统如何体现了从“数据（Data） →  资讯（Information） →  知识（Knowledge） →  智慧（Wisdom）”的逐级提炼升华过程？请结合案例具体说明。（4 分）</li>
+          <li style='margin-bottom: 12px;'><strong>（2）</strong> 该校在训练学业困难预测模型时，若直接使用监督学习（Supervised Learning）算法，其训练数据集中必须包含什么类型的历史标签（Labels）？如果训练样本中只包含高三理科班学生的历史记录，直接用于全校文商科班与初中生时可能会产生什么算法弊端？（4 分）</li>
+          <li style='margin-bottom: 12px;'><strong>（3）</strong> 为了防止该算法模型对被预警的学生产生“标签化刻板偏见”或歧视，校方在根据模型提示采取干预措施时，应当贯彻怎样的“以人为本”合理决策原则？（2 分）</li>
+        </ol>
+      </div>
+      <button type='button' class='ans-toggle-btn' id='btn-ans-4' onclick='toggleAnswer(4)'>
+        <span>💡 点击展开 / 收起 官方参考答案与四栏评分标准</span>
+        <span class='arrow-icon'>▼</span>
+      </button>
+      <div class='answer-collapse' id='ans-4'>
+        <div class='ans-block-title'>🎯 官方参考答案要点与阶梯采分点</div>
+        <div class='ans-text-content'><div class='sub-ans-heading'>📌 （1）DIK 认知金字塔逐级升华过程说明（4 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-num-item'><strong>1. 数据（Data）</strong>：食堂打卡扣费流水时间戳、机房网关进出流量包字节数、各科试卷阿拉伯数字成绩等底层零散原始记录。（1 分）</div>
+<div class='ans-num-item'><strong>2. 资讯（Information）</strong>：将底层数据关联具体学生与时间轴进行上下文统计，提炼出“该生连续两周早餐刷卡为 0 次”、“夜晚机房流量超标”等有明确语境的信息。（1 分）</div>
+<div class='ans-num-item'><strong>3. 知识（Knowledge）</strong>：大数据算法通过多源信息关联比对，归纳总结出内在规律与模式：“饮食失律 + 深夜过度上网 + 测验成绩下滑 = 陷入严重学业困难与身心亚健康状态”。（1 分）</div>
+<div class='ans-num-item'><strong>4. 智慧（Wisdom）</strong>：系统自动触发预警并协同班主任与心理教师，针对性制定个性化关爱、心理疏导与学业帮扶方案，实现防患于未然的科学决策。（1 分）</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>2 分</strong></td><td>明确提出以人为主导、算法仅作参考、私下关爱保护自尊、杜绝标签化。</td></tr><tr><td><strong>1 分</strong></td><td>仅说明“老师要多关心学生”。</td></tr><tr><td><strong>0 分</strong></td><td>未作答或观点错误。</td></tr></tbody></table>
+<div class='sub-ans-heading'>📌 （2）标签类型与样本单一性弊端分析（4 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>训练数据集必须包含的标签</strong>：（2 分）：必须包含明确标注过去历届学生最终结果的“监督标签（Labels）”，例如“是否发生严重挂科/学业受挫（是/否）”或具体的学业困难危机等级。</div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> <strong>样本单一引发的算法弊端（模型过拟合与算法偏差）</strong>：（2 分）：若仅用高三理科班样本训练，算法会学习到理科生的特定行为偏好（如理科课业负荷、特定的理科考试周期规律），导致模型产生严重的<strong>数据偏差（Sampling Bias）与过拟合（Overfitting）</strong>。当直接套用于文商科（文科学习节奏不同）或初中生（心智规律差异大）时，会导致预测准确率暴跌，产生海量的“虚假预警（误报）”或“严重漏报”。</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>2 分</strong></td><td>明确提出以人为主导、算法仅作参考、私下关爱保护自尊、杜绝标签化。</td></tr><tr><td><strong>1 分</strong></td><td>仅说明“老师要多关心学生”。</td></tr><tr><td><strong>0 分</strong></td><td>未作答或观点错误。</td></tr></tbody></table>
+<div class='sub-ans-heading'>📌 （3）以人为本的干预决策原则（2 分）</div>
+<div class='ans-badge-row'><span class='ans-tag'>🎯 官方标准答案</span> </div>
+<div class='ans-bullet-item'><span class='bullet-dot'>•</span> 必须贯彻<strong>“AI 仅作为辅助决策支撑，最终判断与关怀必须由人类教师主导（Human-in-the-loop）”</strong>的原则。严禁直接根据算法标签对学生定性或公开通报；应当以保护自尊心为前提，由班主任通过私下温和沟通、核实真实原因并提供针对性关爱，杜绝唯算法论。</div>
+<div class='ans-badge-row'><span class='ans-tag ans-tag-rubric'>📊 官方阶梯评分细则量规</span> </div>
+<table class='rubric-table'><thead><tr><th>分值</th><th>得分描述</th></tr></thead><tbody><tr><td><strong>2 分</strong></td><td>明确提出以人为主导、算法仅作参考、私下关爱保护自尊、杜绝标签化。</td></tr><tr><td><strong>1 分</strong></td><td>仅说明“老师要多关心学生”。</td></tr><tr><td><strong>0 分</strong></td><td>未作答或观点错误。</td></tr></tbody></table>
+</div>
+      </div>
+    </div>
+  </article>
+
+        </section>
+
+        <footer class="footer-note">
+            <p><strong>© 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程</strong></p>
+            <p style="margin-top: 6px; font-size: 0.8rem; opacity: 0.85;">欢迎分享本网页链接供学习使用；未经许可，不得复制、转载网页内的文字、题目及答案，不得公开发布于其他网站或平台，亦不得用于商业销售。</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function toggleAnswer(idx) {
+            const btn = document.getElementById('btn-ans-' + idx);
+            const ans = document.getElementById('ans-' + idx);
+            if (ans.classList.contains('show')) {
+                ans.classList.remove('show');
+                btn.classList.remove('active');
+            } else {
+                ans.classList.add('show');
+                btn.classList.add('active');
+            }
+        }
+
+        function toggleAllAnswers(expand) {
+            const btns = document.querySelectorAll('.ans-toggle-btn');
+            const collapses = document.querySelectorAll('.answer-collapse');
+            collapses.forEach(c => {
+                if (expand) c.classList.add('show');
+                else c.classList.remove('show');
+            });
+            btns.forEach(b => {
+                if (expand) b.classList.add('active');
+                else b.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+</html>

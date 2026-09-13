@@ -1,0 +1,2363 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>高中资讯科技（第一册）第 2 章 演算法与程式设计 | 图文交互复习 2026 统考专版</title>
+  <meta name="description" content="董总独中高中资讯科技第一册第2章演算法与程式设计互动复习平台">
+  <style>
+    :root {
+      --primary: #1E40AF;
+      --primary-hover: #1D4ED8;
+      --primary-light: #EFF6FF;
+      --accent-teal: #0D9488;
+      --accent-purple: #7C3AED;
+      --bg-body: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --text-main: #1E293B;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --sidebar-width: 300px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3.5px; background: linear-gradient(90deg, #3B82F6, #10B981, #7C3AED); z-index: 1000; width: 0%; transition: width .1s; }
+
+    /* Mobile Header */
+    .mobile-header {
+      display: none;
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      background: #FFFFFF;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 500;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .mobile-title { font-size: 14px; font-weight: 700; color: #1E3A8A; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 75%; }
+    .menu-btn { background: #EFF6FF; border: 1px solid #BFDBFE; color: #1E40AF; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; }
+
+    /* Layout */
+    .layout-wrapper { display: flex; min-height: 100vh; }
+    #backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 550; }
+
+    /* Modern Academic Light Sidebar */
+    #sidebar {
+      width: var(--sidebar-width);
+      height: 100vh;
+      position: fixed;
+      left: 0; top: 0;
+      background: #FFFFFF;
+      color: var(--text-main);
+      overflow-y: auto;
+      padding: 0;
+      border-right: 1px solid var(--border-color);
+      z-index: 600;
+      transition: transform .3s ease;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-header {
+      padding: 22px 20px 16px;
+      border-bottom: 1px solid var(--border-color);
+      background: #F8FAFC;
+    }
+    .brand-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      background: #DBEAFE;
+      color: #1E40AF;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #1E3A8A;
+      line-height: 1.3;
+    }
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .current-chapter-card {
+      margin: 14px 16px;
+      padding: 12px 14px;
+      background: #EFF6FF;
+      border: 1px solid #BFDBFE;
+      border-radius: 10px;
+    }
+    .chap-tag { font-size: 11px; font-weight: 700; color: #2563EB; text-transform: uppercase; letter-spacing: 0.5px; }
+    .chap-name { font-size: 14px; font-weight: 800; color: #1E40AF; margin-top: 2px; }
+    .chap-desc { font-size: 11.5px; color: #64748B; margin-top: 2px; line-height: 1.4; }
+    .sidebar-nav { padding: 8px 12px; flex: 1; }
+    .nav-group-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 10px 12px 6px;
+    }
+    #nav-list { list-style: none; }
+    #nav-list li { margin-bottom: 3px; }
+    #nav-list a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      transition: all .15s ease;
+      font-weight: 500;
+      border-left: 3px solid transparent;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    #nav-list a:hover {
+      background: #F1F5F9;
+      color: #1E40AF;
+    }
+    #nav-list a.active {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      font-weight: 700;
+      border-left-color: #2563EB;
+    }
+    .nav-icon { font-size: 16px; flex-shrink: 0; width: 20px; text-align: center; }
+    .nav-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .sidebar-footer {
+      padding: 16px;
+      border-top: 1px solid var(--border-color);
+      background: #F8FAFC;
+    }
+    .quick-launch-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #7C3AED, #4F46E5);
+      color: #FFF;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.25);
+      transition: all .2s;
+    }
+    .quick-launch-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(124, 58, 237, 0.35);
+    }
+
+    /* Main Content */
+    #main-content {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      max-width: 980px;
+      margin-right: auto;
+      padding: 32px 36px 90px;
+      box-sizing: border-box;
+      width: calc(100% - var(--sidebar-width));
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 50%, #2563EB 100%);
+      color: #FFF !important;
+      padding: 36px 32px;
+      border-radius: 16px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 25px -5px rgba(30, 58, 138, .3);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255,255,255,.05);
+      border-radius: 50%;
+    }
+    .hero-tagline {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: #FFF;
+    }
+    .hero-banner h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFF !important;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .hero-subtitle {
+      font-size: 14.5px;
+      color: #DBEAFE;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 760px;
+    }
+    .hero-slides-showcase {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+    }
+    .pdf-card-interactive {
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #FFF !important;
+      transition: all .2s;
+    }
+    .pdf-card-interactive:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    }
+    .pdf-card-icon { font-size: 28px; flex-shrink: 0; }
+    .pdf-card-info { flex: 1; min-width: 0; }
+    .pdf-card-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pdf-card-meta {
+      font-size: 11.5px;
+      color: #BFDBFE;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pdf-card-action {
+      font-size: 11.5px;
+      font-weight: 700;
+      background: #FFF;
+      color: #1E40AF;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Info Panel */
+    .info-panel { background:#FFF; border-radius:14px; padding:20px 24px; margin-bottom:24px; border:2px solid #0D9488; box-shadow:0 4px 16px rgba(13,148,136,.1); }
+    .info-panel-title { font-size:15px; font-weight:700; color:#0D9488; margin-bottom:14px; }
+    .info-gallery { display:flex; flex-wrap:wrap; gap:12px; }
+    .info-thumb { flex:1; min-width:200px; border-radius:10px; overflow:hidden; border:1px solid #E2E8F0; cursor:zoom-in; }
+    .info-thumb img { width:100%; height:auto; display:block; transition:transform .2s; }
+    .info-thumb img:hover { transform:scale(1.02); }
+    .info-thumb-caption { font-size:12px; color:#6B7280; text-align:center; padding:6px; background:#F8FAFC; }
+
+    /* Section Cards */
+    .section-card { background:var(--bg-card); border-radius:14px; padding:32px 36px; margin-bottom:24px; border:1px solid var(--border-color); box-shadow:0 4px 12px -2px rgba(0,0,0,.05); }
+    h2 { font-size:21px; color:#1E3A8A; font-weight:800; margin:32px 0 16px; padding-bottom:8px; border-bottom:2px solid #93C5FD; }
+    h3 { font-size:17px; color:#1E40AF; font-weight:700; margin:22px 0 12px; }
+    h4 { font-size:15px; color:var(--accent-teal); font-weight:700; margin:16px 0 8px; }
+    p { margin-bottom:8px; font-size:16px; color:#1F2937; line-height:1.65; }
+    ul,ol { margin-left:22px; margin-bottom:10px; }
+    li { margin-bottom:4px; font-size:15.5px; color:#374151; line-height:1.65; }
+    strong { color:#111827; font-weight:700; }
+    code { background:#F1F5F9; padding:2px 6px; border-radius:4px; font-size:13.5px; color:#7C3AED; font-family:Consolas,monospace; }
+    pre { background:#0F172A; color:#E2E8F0; padding:16px; border-radius:10px; overflow-x:auto; font-family:Consolas,monospace; font-size:13.5px; line-height:1.65; margin:12px 0; }
+    table { width:100%; border-collapse:collapse; font-size:14.5px; margin:12px 0; }
+    th { background:#1E3A8A; color:#FFF; font-weight:700; text-align:left; padding:10px 14px; border:1px solid #1E3A8A; }
+    td { padding:9px 14px; border:1px solid #E2E8F0; vertical-align:top; color:#1F2937; line-height:1.6; }
+    tr:nth-child(even) td { background:#F8FAFC; }
+
+    /* Slide Figure */
+    .slide-figure { margin:24px 0; background:#FFF; border:1px solid #CBD5E1; border-radius:12px; padding:12px; box-shadow:0 4px 12px rgba(0,0,0,.06); text-align:center; }
+    .slide-img { width:100%; height:auto; border-radius:8px; cursor:zoom-in; display:block; }
+    .slide-caption { margin-top:8px; font-size:13px; color:#4B5563; font-weight:600; display:flex; align-items:center; justify-content:center; gap:6px; }
+    .zoom-badge { font-size:11px; background:#E2E8F0; color:#475569; padding:2px 8px; border-radius:12px; }
+
+    /* Quote / Concept Boxes */
+    .quote-container { background:#F8FAFC; border-left:4px solid #3B82F6; padding:14px 18px; margin:14px 0; border-radius:0 8px 8px 0; }
+    .quote-text { font-size:15.5px; color:#334155; margin-bottom:6px; line-height:1.65; }
+    .concept-box { background:#F0FDF4; border:1px solid #86EFAC; border-radius:10px; padding:14px 16px; margin:12px 0; }
+    .concept-box-title { font-size:13px; font-weight:700; color:#15803D; margin-bottom:6px; }
+    .warning-box { background:#FFF7ED; border:1px solid #FED7AA; border-radius:10px; padding:14px 16px; margin:12px 0; }
+    .warning-title { font-size:13px; font-weight:700; color:#C2410C; margin-bottom:6px; }
+
+    /* Quiz Portal Card */
+    .quiz-portal-card { background:linear-gradient(135deg,#F5F3FF,#EDE9FE); border:1.5px solid #C4B5FD; border-radius:16px; padding:28px 32px; margin:20px 0; }
+    .quiz-portal-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px; }
+    .quiz-portal-title { font-size:20px; font-weight:800; color:#4C1D95; }
+    .quiz-portal-badge { background:#7C3AED; color:#FFF; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; }
+    .quiz-portal-desc { font-size:14.5px; color:#5B21B6; margin-bottom:20px; line-height:1.6; }
+    .quiz-stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:20px; }
+    .quiz-stat-box { background:#FFF; border:1px solid #DDD6FE; border-radius:10px; padding:12px; text-align:center; }
+    .quiz-stat-num { font-size:22px; font-weight:800; color:#7C3AED; }
+    .quiz-stat-lbl { font-size:11.5px; color:#6D28D9; margin-top:3px; }
+    .quiz-launch-main-btn { display:block; width:100%; padding:14px; background:linear-gradient(135deg,#7C3AED,#5B21B6); color:#FFF; border:none; border-radius:10px; font-size:16px; font-weight:800; cursor:pointer; transition:all .2s; }
+    .quiz-launch-main-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(124,58,237,.4); }
+
+    /* Speed Card */
+    .speed-card { background:#FFFDF5; border:1px solid #FDE68A; border-radius:12px; padding:24px; margin:20px 0; }
+    .speed-card h2 { color:#92400E; border-bottom-color:#FDE68A; }
+    .speed-rows { display:flex; flex-direction:column; gap:8px; margin-top:12px; }
+    .speed-row { display:flex; align-items:flex-start; gap:10px; }
+    .speed-tag { font-size:11px; font-weight:700; padding:3px 9px; border-radius:12px; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+    .st-blue { background:#1E3A8A; color:#FFF; }
+    .st-teal { background:#0D9488; color:#FFF; }
+    .st-purple { background:#7C3AED; color:#FFF; }
+    .st-orange { background:#EA580C; color:#FFF; }
+    .st-green { background:#15803D; color:#FFF; }
+    .speed-content { font-size:13.5px; color:#78350F; line-height:1.65; }
+
+    /* Checklist */
+    .checklist-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; font-size:15.5px; color:#1F2937; cursor:pointer; padding:6px 8px; border-radius:6px; transition:background .15s; }
+    .checklist-item:hover { background:#EFF6FF; }
+    .checklist-item input[type='checkbox'] { margin-top:4px; accent-color:#2563EB; transform:scale(1.2); cursor:pointer; }
+    .checklist-item.done span { text-decoration:line-through; color:#9CA3AF; }
+
+    /* === QUIZ MODAL SYSTEM === */
+    #quiz-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:20000; justify-content:center; align-items:flex-start; padding:16px; overflow-y:auto; }
+    .quiz-modal { background:#FFF; border-radius:20px; max-width:840px; width:100%; margin:auto; padding:32px; position:relative; box-shadow:0 20px 60px rgba(0,0,0,.4); }
+    .quiz-modal-title { font-size:21px; font-weight:800; color:#1E3A8A; margin-bottom:4px; }
+    .quiz-modal-sub { font-size:13.5px; color:#6B7280; margin-bottom:20px; padding-bottom:16px; border-bottom:2px solid #E2E8F0; }
+    .quiz-close-btn { position:absolute; top:20px; right:24px; background:#F1F5F9; border:none; width:36px; height:36px; border-radius:50%; font-size:18px; cursor:pointer; color:#374151; font-weight:700; transition:background .2s; }
+    .quiz-close-btn:hover { background:#E2E8F0; }
+
+    /* Quiz Tabs */
+    .quiz-tabs-bar { display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+    .qtab-btn { padding:9px 16px; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; transition:all .2s; }
+    .qtab-btn.active { background:#7C3AED; color:#FFF; border:2px solid #7C3AED; }
+    .qtab-btn:not(.active) { background:#FFF; color:#6D28D9; border:2px solid #DDD6FE; }
+    .qtab-btn:not(.active):hover { background:#F5F3FF; }
+    .quiz-tab-content { display:none; }
+
+    /* MCQ Cards */
+    .mcq-page-block { }
+    .mcq-page-header { display:flex; justify-content:space-between; align-items:center; background:#EDE9FE; border-radius:8px; padding:8px 14px; margin-bottom:14px; font-size:13px; font-weight:600; color:#5B21B6; }
+    .mcq-card { background:#F8FAFC; border-radius:12px; padding:18px; margin:10px 0; border:1px solid #E2E8F0; }
+    .mcq-stem-row { display:flex; gap:10px; margin-bottom:12px; align-items:flex-start; }
+    .mcq-qnum { background:#7C3AED; color:#FFF; font-size:11px; font-weight:700; padding:3px 9px; border-radius:6px; white-space:nowrap; flex-shrink:0; margin-top:3px; }
+    .mcq-stem { font-size:14.5px; font-weight:700; color:#1F2937; line-height:1.65; white-space:pre-wrap; }
+    .mcq-options { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px; }
+    .mcq-opt { padding:10px 14px; border-radius:8px; border:2px solid #E2E8F0; cursor:pointer; background:#FFF; font-size:14px; text-align:left; transition:all .15s; color:#374151; display:flex; align-items:flex-start; gap:8px; }
+    .mcq-opt:hover:not([disabled]) { border-color:#A78BFA; background:#F5F3FF; }
+    .opt-letter { font-weight:800; color:#7C3AED; flex-shrink:0; }
+    .mcq-opt.opt-correct { border-color:#22C55E!important; background:#F0FDF4!important; color:#166534!important; }
+    .mcq-opt.opt-wrong { border-color:#EF4444!important; background:#FEF2F2!important; color:#991B1B!important; }
+    .mcq-opt.opt-show-correct { border-color:#F59E0B!important; background:#FFFBEB!important; }
+    .mcq-feedback { display:none; margin-top:10px; padding:12px 16px; border-radius:8px; font-size:13.5px; line-height:1.65; }
+    .mcq-feedback.fb-correct { background:#F0FDF4; border:1px solid #86EFAC; color:#166534; }
+    .mcq-feedback.fb-wrong { background:#FEF2F2; border:1px solid #FCA5A5; color:#991B1B; }
+    .mcq-card-footer { display:flex; justify-content:space-between; align-items:center; margin-top:8px; }
+    .mcq-reset { background:none; border:1px solid #CBD5E1; padding:4px 10px; border-radius:6px; font-size:12px; cursor:pointer; color:#6B7280; }
+    .mcq-reset:hover { background:#F1F5F9; }
+    .mcq-nav-footer { display:flex; justify-content:space-between; align-items:center; margin-top:14px; gap:8px; flex-wrap:wrap; }
+    .mcq-nav-btn { padding:9px 18px; background:linear-gradient(135deg,#7C3AED,#5B21B6); color:#FFF; border:none; border-radius:8px; font-size:13px; font-weight:700; cursor:pointer; transition:all .2s; }
+    .mcq-nav-btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(124,58,237,.35); }
+
+    /* Open Questions Accordion */
+    .open-questions-section { margin-top:32px; padding-top:24px; border-top:2px dashed #E2E8F0; }
+    .open-section-header { font-size:16px; font-weight:800; color:#1E3A8A; margin-bottom:16px; padding:10px 14px; background:#EFF6FF; border-radius:8px; border-left:4px solid #3B82F6; }
+    .open-accordion-list { display:flex; flex-direction:column; gap:14px; }
+    .open-accordion-item { border:1px solid #CBD5E1; border-radius:14px; overflow:hidden; background:#FFF; }
+    .open-accordion-header { padding:16px 20px; background:#F8FAFC; cursor:pointer; display:flex; align-items:center; justify-content:space-between; transition:background .15s; }
+    .open-accordion-header:hover { background:#EFF6FF; }
+    .open-item-title { font-size:15px; font-weight:700; color:#1E293B; }
+    .open-item-arrow { font-size:12px; color:#64748B; transition:transform .25s; }
+    .open-accordion-header.open .open-item-arrow { transform:rotate(180deg); }
+    .open-accordion-body { display:none; padding:22px 24px; background:#FFF; border-top:1px solid #E2E8F0; font-size:14.5px; line-height:1.7; }
+
+    /* Open Q - Structured Layout (fix: a/b/c clearly separated) */
+    .open-context-block { background:#F8FAFC; border-left:4px solid #3B82F6; padding:14px 16px; border-radius:0 10px 10px 0; margin-bottom:16px; color:#1E293B; font-size:14.5px; line-height:1.7; }
+    .open-subq-card { background:#FFF; border:1px solid #E2E8F0; border-radius:10px; padding:12px 16px; margin-bottom:10px; display:flex; align-items:flex-start; gap:12px; }
+    .subq-badge { background:#EFF6FF; color:#1D4ED8; font-weight:800; font-size:13px; padding:3px 8px; border-radius:6px; flex-shrink:0; border:1px solid #BFDBFE; min-width:28px; text-align:center; }
+    .subq-body { flex:1; color:#334155; line-height:1.65; }
+    .view-ans-btn { background:#0D9488; color:#FFF; border:none; padding:10px 20px; border-radius:8px; font-size:13.5px; font-weight:700; cursor:pointer; transition:background .2s; margin-top:8px; display:block; }
+    .view-ans-btn:hover { background:#0F766E; }
+    .open-ans-box { display:none; margin-top:16px; padding:20px; background:#F0FDFA; border:1px solid #99F6E4; border-left:5px solid #0D9488; border-radius:0 12px 12px 0; }
+    .ans-box-title { font-weight:800; color:#0F766E; font-size:15px; margin-bottom:14px; }
+    .subans-card { background:#FFF; border:1px solid #CCFBF1; border-radius:10px; padding:14px 16px; margin-bottom:12px; }
+    .subans-header { font-weight:800; color:#0F766E; font-size:14px; margin-bottom:8px; border-bottom:1px dashed #99F6E4; padding-bottom:6px; }
+    .subans-point-row { margin-bottom:6px; color:#1F2937; line-height:1.65; }
+    .rubrics-card { margin-top:14px; padding:12px 16px; background:#FEF3C7; border:1px solid #FDE68A; border-radius:8px; font-size:13px; color:#92400E; }
+    .rubrics-title { font-weight:800; margin-bottom:6px; }
+
+    /* Lightbox & Scroll Top */
+    #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.88); z-index:99999; justify-content:center; align-items:center; cursor:zoom-out; padding:20px; }
+    #lightbox img { max-width:95vw; max-height:95vh; border-radius:8px; }
+    .lightbox-close { position:absolute; top:16px; right:20px; color:#FFF; font-size:28px; font-weight:700; cursor:pointer; }
+    #btn-top { display:none; position:fixed; bottom:24px; right:24px; width:44px; height:44px; border-radius:50%; background:#2563EB; color:#FFF; border:none; box-shadow:0 4px 12px rgba(37,99,235,.4); cursor:pointer; font-size:18px; z-index:500; }
+
+    @media (max-width:1024px) {
+      .mobile-header { display:flex; }
+      #sidebar { transform:translateX(-100%); }
+      #sidebar.open { transform:translateX(0); }
+      #main-content { margin-left:0; padding:20px 16px 60px; width:100%; }
+      .section-card { padding:20px 18px; }
+      .quiz-stats-grid { grid-template-columns:repeat(2,1fr); }
+      .mcq-options { grid-template-columns:1fr; }
+      .hero-slides-showcase { flex-direction:column; }
+    }
+      /* 章节页面底部版权声明 */
+    .chapter-footer {
+      margin-top: 50px;
+      padding: 30px 20px 24px;
+      border-top: 1px solid #E2E8F0;
+      text-align: center;
+      color: #64748B;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .chapter-footer p { margin: 0 0 6px 0; }
+    .chapter-footer strong { color: #1E293B; }
+    .chapter-footer-sub { font-size: 12px; color: #94A3B8; }
+      /* 平台主页返回按钮 */
+    .nav-back-home-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 9px 12px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .nav-back-home-btn:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+      color: #ffffff !important;
+    }
+    .mobile-back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 10px;
+      background: #2563eb;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+    }
+    .mobile-back-home-btn:hover {
+      background: #1d4ed8;
+      color: #ffffff !important;
+    }
+</style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <header class="mobile-header">
+    <a href="../../../index.html" class="mobile-back-home-btn" onclick="return handleChapterBackHome();">⬅ 返回总控大厅</a>
+    <div class="mobile-title">第 2 章 演算法与程式设计</div>
+    <button class="menu-btn" onclick="toggleSidebar()">☰ 目录导航</button>
+  </header>
+  <div id="backdrop" onclick="toggleSidebar()"></div>
+  <div class="layout-wrapper">
+    <nav id="sidebar" aria-label="章节精准复习导航">
+      <div class="sidebar-header">
+        <a href="../../../index.html" class="nav-back-home-btn" onclick="return handleChapterBackHome();">
+          ⬅ 返回总控大厅
+        </a>
+        <div class="brand-badge">2026 统考对齐版</div>
+        <div class="brand-title">📘 独中高中资讯科技</div>
+        <div class="brand-subtitle">第一册 复习专栏 ｜ 全景互动学习</div>
+      </div>
+      <div class="current-chapter-card">
+        <div class="chap-tag">当前章节</div>
+        <div class="chap-name">第 2 章 演算法与程式设计</div>
+        <div class="chap-desc">演算法 · Python 编程 · 搜寻与排序 · 解题策略</div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-group-title">本章精准复习目录</div>
+        <ul id="nav-list">
+          <li><a href="#sec-anc-1" onclick="closeSidebar()" class="active"><span class="nav-icon">🎯</span><span class="nav-text">一、 教学与复习目标导航</span></a></li>
+          <li><a href="#sec-anc-2" onclick="closeSidebar()"><span class="nav-icon">📖</span><span class="nav-text">二、 核心术语速查表</span></a></li>
+          <li><a href="#sec-anc-3" onclick="closeSidebar()"><span class="nav-icon">📘</span><span class="nav-text">三、 课本重点分节精讲</span></a></li>
+          <li><a href="#sec-anc-4" onclick="closeSidebar()"><span class="nav-icon">🗺️</span><span class="nav-text">四、 配套全景考点图谱</span></a></li>
+          <li><a href="#quiz-anchor" onclick="closeSidebar()"><span class="nav-icon">📝</span><span class="nav-text">五、 全景互动题库 (三卷)</span></a></li>
+          <li><a href="#sec-anc-5" onclick="closeSidebar()"><span class="nav-icon">⚡</span><span class="nav-text">六、 考前 3 分钟速记卡</span></a></li>
+          <li><a href="../03_NotebookLM产出_简报与信息图/Algorithm_and_Programming_Sprint.pdf" target="_blank" style="color:#2563EB;font-weight:700;"><span class="nav-icon">📑</span><span class="nav-text">打开备考冲刺简报 PDF ↗</span></a></li>
+        </ul>
+      </div>
+      <div class="sidebar-footer">
+        <button class="quick-launch-btn" onclick="openQuiz()">🚀 打开全景互动题库</button>
+      </div>
+    </nav>
+    <main id="main-content" role="main">
+      <!-- HERO BANNER -->
+      <div class="hero-banner">
+        <span class="hero-tagline">董总统一教材 · 第一册复习章节</span>
+        <h1>高中资讯科技（第一册）第 2 章 演算法与程式设计<br><small style="font-size:16px;font-weight:600;opacity:.88;">Algorithms and Programming</small></h1>
+        <p class="hero-subtitle">全景图文融合与 Python 编程精编版 ｜ 严格对齐统考课程标准 ｜ 配套互动题库与教师采分量规。系统涵盖电脑解决问题四阶段、流程图与虚拟码规范、Python 基础语法与三大基本控制结构、线性搜寻与二分搜寻算法效能辨析、冒泡排序算法以及暴力法与贪进法经典解题策略。</p>
+        <div class="hero-slides-showcase">
+          <a class="pdf-card-interactive" href="../03_NotebookLM产出_简报与信息图/Algorithms_and_Programming.pdf" target="_blank" title="在新标签页中打开演算法与程式设计精要简报">
+            <div class="pdf-card-icon">📊</div>
+            <div class="pdf-card-info">
+              <div class="pdf-card-title">演算法与程式设计精要简报</div>
+              <div class="pdf-card-meta">NotebookLM 精编 · 全景教学课件</div>
+            </div>
+            <span class="pdf-card-action">打开 PDF ↗</span>
+          </a>
+          <a class="pdf-card-interactive" href="../03_NotebookLM产出_简报与信息图/Algorithm_and_Programming_Sprint.pdf" target="_blank" title="在新标签页中打开演算法冲刺指南简报">
+            <div class="pdf-card-icon">🎯</div>
+            <div class="pdf-card-info">
+              <div class="pdf-card-title">演算法冲刺指南简报</div>
+              <div class="pdf-card-meta">核心考点 · 底层逻辑图解</div>
+            </div>
+            <span class="pdf-card-action">打开 PDF ↗</span>
+          </a>
+          <a class="pdf-card-interactive" href="../03_NotebookLM产出_简报与信息图/Blueprint_to_Python_Code.pdf" target="_blank" title="在新标签页中打开 Python 编程蓝图简报">
+            <div class="pdf-card-icon">🐍</div>
+            <div class="pdf-card-info">
+              <div class="pdf-card-title">Python 编程蓝图简报</div>
+              <div class="pdf-card-meta">Python 语法精讲 · 实战代码</div>
+            </div>
+            <span class="pdf-card-action">打开 PDF ↗</span>
+          </a>
+          <a class="pdf-card-interactive" href="../03_NotebookLM产出_简报与信息图/UEC_Algorithms_and_Programming.pdf" target="_blank" title="在新标签页中打开统考演算法重点简报">
+            <div class="pdf-card-icon">🏆</div>
+            <div class="pdf-card-info">
+              <div class="pdf-card-title">统考演算法重点简报</div>
+              <div class="pdf-card-meta">UEC 导向 · 精准备考</div>
+            </div>
+            <span class="pdf-card-action">打开 PDF ↗</span>
+          </a>
+        </div>
+      </div>
+      <!-- SEC 1: 学习目标 -->
+      <div id="sec-anc-1" class="section-card">
+        <h2>一、 单元教学与复习目标导航</h2>
+        <h3>1.1 课程标准核心素养</h3>
+        <p>依据董教总华文独中统一课程标准，本章旨在培养学生计算思维与 Python 编程实战能力：</p>
+        <ol>
+          <li><strong>计算思维与问题分解</strong>：掌握电脑解决问题的四大标准阶段（分析问题 → 设计演算法 → 编写程式 → 测试除错）；</li>
+          <li><strong>算法设计与流程建模</strong>：掌握演算法四大特性，熟练使用流程图 (Flowchart) 与虚拟码 (Pseudocode)；</li>
+          <li><strong>Python 语言基础与控制结构</strong>：精通变量类型、运算符（含 //、%、**），掌握循序、选择 (if-elif-else)、循环 (while, for) 三大基本控制结构；</li>
+          <li><strong>经典算法策略</strong>：理解线性搜寻与二分搜寻的原理与效率，辨析暴力法 (Brute Force) 与贪进法 (Greedy Method)。</li>
+        </ol>
+        <h3>1.2 师生教学达成清单</h3>
+        <label class="checklist-item"><input type="checkbox" onchange="toggleCheck(this)"><span>能准确阐述电脑解决问题的四个阶段，并能结合案例进行逻辑拆解</span></label>
+        <label class="checklist-item"><input type="checkbox" onchange="toggleCheck(this)"><span>掌握演算法四大特性（有穷性、确定性、可行性、有输入与输出）</span></label>
+        <label class="checklist-item"><input type="checkbox" onchange="toggleCheck(this)"><span>熟练绘制标准流程图（起止框/处理框/判断框/输入输出框）</span></label>
+        <label class="checklist-item"><input type="checkbox" onchange="toggleCheck(this)"><span>深入理解线性搜寻与二分搜寻（22包裹：线性最坏22次，二分最坏5次）</span></label>
+        <label class="checklist-item"><input type="checkbox" onchange="toggleCheck(this)"><span>能无误写出闰年判断：<code>(y % 4 == 0 and y % 100 != 0) or y % 400 == 0</code></span></label>
+        <label class="checklist-item"><input type="checkbox" onchange="toggleCheck(this)"><span>精通 while 循环（必须有步进条件防止死循环）与 for i in range() 循环</span></label>
+        <label class="checklist-item"><input type="checkbox" onchange="toggleCheck(this)"><span>能准确辨析暴力法（穷举）与贪进法（局部最优）的核心差异</span></label>
+      </div>
+
+      <!-- SEC 2: 术语表 -->
+      <div id="sec-anc-2" class="section-card">
+        <h2>二、 课本官方中英对照核心术语速查表</h2>
+        <table>
+          <thead><tr><th>中文术语</th><th>英文术语</th><th>核心概念说明</th></tr></thead>
+          <tbody>
+            <tr><td><strong>演算法 / 算法</strong></td><td>Algorithm</td><td>解决特定问题所采取的有限、确切、可行的步骤集合</td></tr>
+            <tr><td><strong>流程图</strong></td><td>Flow Chart</td><td>运用标准几何图形和流向箭头表达算法执行逻辑的图示</td></tr>
+            <tr><td><strong>虚拟码 / 伪代码</strong></td><td>Pseudocode</td><td>介于自然语言与程式语言之间，用结构化文句描述算法</td></tr>
+            <tr><td><strong>变数 / 变量</strong></td><td>Variable</td><td>电脑内存中用于暂存数据的具名存储空间，数值可改变</td></tr>
+            <tr><td><strong>算术运算符</strong></td><td>Arithmetic Operator</td><td>+, -, *, /, //(整除), %(取余), **(幂运算)</td></tr>
+            <tr><td><strong>逻辑运算符</strong></td><td>Logical Operator</td><td>and, or, not（优先级：not > and > or）</td></tr>
+            <tr><td><strong>循序结构</strong></td><td>Sequence Structure</td><td>程序自顶向下、逐行依序执行的最基本控制结构</td></tr>
+            <tr><td><strong>选择结构</strong></td><td>Selection Structure</td><td>根据条件判断，决定执行不同分支（if-elif-else）</td></tr>
+            <tr><td><strong>循环结构</strong></td><td>Iteration Structure</td><td>在满足条件时，重复执行某段语句块（while, for）</td></tr>
+            <tr><td><strong>缩进 / 缩排</strong></td><td>Indentation</td><td>Python 中用于界定语句块层级的空格缩排（语法要求，非风格）</td></tr>
+            <tr><td><strong>线性搜寻</strong></td><td>Linear Search</td><td>从头至尾逐一检查每个元素，O(N) 时间复杂度</td></tr>
+            <tr><td><strong>二分搜寻</strong></td><td>Binary Search</td><td>对已排序序列每次折半排除，O(log₂N) 时间复杂度</td></tr>
+            <tr><td><strong>冒泡排序</strong></td><td>Bubble Sort</td><td>相邻比较并交换，每轮将最大值冒泡到末尾，O(N²)</td></tr>
+            <tr><td><strong>暴力法</strong></td><td>Brute Force</td><td>穷举所有可能情况逐一比对验证，可得全局最优但效率低</td></tr>
+            <tr><td><strong>贪进法 / 贪心法</strong></td><td>Greedy Method</td><td>每步选择当前局部最优，效率高但不一定全局最优</td></tr>
+            <tr><td><strong>语法错误</strong></td><td>Syntax Error</td><td>违反语法规则，程序无法运行</td></tr>
+            <tr><td><strong>逻辑错误</strong></td><td>Logic Error</td><td>程序能运行，但因算法缺陷导致输出错误结果</td></tr>
+            <tr><td><strong>追踪表 / 干运行</strong></td><td>Trace Table / Dry Run</td><td>手动逐步追踪程序执行，记录变量变化，发现逻辑错误</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SEC 3: 重点精讲 -->
+      <div id="sec-anc-3" class="section-card">
+        <h2>三、 课本重点分节精讲（全景幻灯配套）</h2>
+
+        <h3>3.1 电脑解决问题的四大标准阶段</h3>
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0002.jpg" alt="幻灯02-电脑解决问题四阶段" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 02/12]</strong> 电脑解决问题四大标准阶段 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+        <ol>
+          <li><strong>分析问题</strong>：明确已知条件（输入）、期望目标（输出）与限制条件</li>
+          <li><strong>设计演算法</strong>：规划解决步骤，用流程图或虚拟码表达</li>
+          <li><strong>编写程式</strong>：将演算法用 Python 翻译成源代码</li>
+          <li><strong>测试与除错</strong>：设计测试用例，排查修正各类错误</li>
+        </ol>
+        <div class="warning-box">
+          <div class="warning-title">⚠️ 高频考点辨析</div>
+          <p>颠倒"分析问题"与"设计演算法"顺序，会因不清楚需求而"南辕北辙"，导致整个程式无法解决实际问题。</p>
+        </div>
+
+        <h3>3.2 演算法的四大特性</h3>
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0003.jpg" alt="幻灯03-演算法四大特性" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 03/12]</strong> 演算法四大特性 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+        <table>
+          <thead><tr><th>特性</th><th>英文</th><th>核心含义</th><th>违反后果</th></tr></thead>
+          <tbody>
+            <tr><td><strong>有穷性</strong></td><td>Finiteness</td><td>算法必须在有限步骤内终止</td><td>死循环，程序无法结束</td></tr>
+            <tr><td><strong>确定性</strong></td><td>Definiteness</td><td>每个步骤清晰无歧义</td><td>计算机无法精确执行</td></tr>
+            <tr><td><strong>可行性</strong></td><td>Feasibility</td><td>每个步骤都可实际执行</td><td>无法在现实中实现</td></tr>
+            <tr><td><strong>输入与输出</strong></td><td>Input &amp; Output</td><td>可有0个输入，至少1个输出</td><td>无法获取结果</td></tr>
+          </tbody>
+        </table>
+
+        <h3>3.3 标准流程图图符</h3>
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0004.jpg" alt="幻灯04-流程图图符" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 04/12]</strong> 标准流程图图符详解 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+        <table>
+          <thead><tr><th>形状</th><th>名称</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td>椭圆 / 圆角矩形</td><td>起止框</td><td>标注"开始"或"结束"</td></tr>
+            <tr><td>平行四边形</td><td>输入/输出框</td><td>输入数据或显示输出</td></tr>
+            <tr><td>矩形</td><td>处理框</td><td>计算、赋值等处理操作</td></tr>
+            <tr><td>菱形</td><td>判断框</td><td>条件判断，输出 True/False 两条分支</td></tr>
+          </tbody>
+        </table>
+
+        <h3>3.4 Python 基础语法精讲</h3>
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0005.jpg" alt="幻灯05-Python语法" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 05/12]</strong> Python 基础语法与数据类型 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+        <h4>运算符精讲（统考高频）</h4>
+        <table>
+          <thead><tr><th>符号</th><th>名称</th><th>示例 A=17, B=5</th><th>结果</th></tr></thead>
+          <tbody>
+            <tr><td><code>/</code></td><td>真除法（恒为浮点数）</td><td>17 / 5</td><td>3.4</td></tr>
+            <tr><td><code>//</code></td><td>整除（取整数商）</td><td>17 // 5</td><td>3</td></tr>
+            <tr><td><code>%</code></td><td>取模（取余数）</td><td>17 % 5</td><td>2</td></tr>
+            <tr><td><code>**</code></td><td>幂运算</td><td>2 ** 8</td><td>256</td></tr>
+          </tbody>
+        </table>
+        <pre><span style="color:#64748B"># 闰年判断（必考金牌公式）</span>
+y = 2024
+if (y % 4 == 0 and y % 100 != 0) or y % 400 == 0:
+    print(y, "是闰年")
+else:
+    print(y, "不是闰年")</pre>
+        <div class="quote-container"><p class="quote-text">💡 <strong>记忆口诀</strong>：四年一润（%4==0 且 %100≠0），百年不润，四百年必润（%400==0）。括号必须有，确保 and 先于 or 计算！</p></div>
+
+        <h3>3.5 选择结构精讲</h3>
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0006.jpg" alt="幻灯06-选择结构" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 06/12]</strong> 选择结构 if-elif-else <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+
+        <h3>3.6 循环结构精讲</h3>
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0007.jpg" alt="幻灯07-循环结构" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 07/12]</strong> While 循环与 For 计数循环 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+        <pre><span style="color:#64748B"># while 循环 - 先判断后执行（必须有步进，否则死循环）</span>
+i = 1
+while i &lt;= 5:
+    print(i)
+    i = i + 1   <span style="color:#64748B"># 步进条件</span>
+
+<span style="color:#64748B"># for 计数循环 - range(start, stop, step)</span>
+for i in range(1, 11, 2):   <span style="color:#64748B"># 生成 1,3,5,7,9</span>
+    print(i)</pre>
+
+        <h3>3.7 搜寻算法与排序</h3>
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0008.jpg" alt="幻灯08-搜寻算法" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 08/12]</strong> 线性搜寻 vs 二分搜寻效率对比 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+        <table>
+          <thead><tr><th>特性</th><th>线性搜寻</th><th>二分搜寻</th></tr></thead>
+          <tbody>
+            <tr><td>前提条件</td><td>无需排序</td><td>必须已排序 ⚠️</td></tr>
+            <tr><td>策略</td><td>逐一检查每个元素</td><td>每次折半排除一半候选</td></tr>
+            <tr><td>效率</td><td>O(N)</td><td>O(log₂N)</td></tr>
+            <tr><td>22包裹示例</td><td>最坏 22 次</td><td>最坏 5 次（⌈log₂22⌉=5）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0009.jpg" alt="幻灯09-冒泡排序" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 09/12]</strong> 冒泡排序原理与追踪 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+        <div class="concept-box">
+          <div class="concept-box-title">✅ 冒泡排序要点</div>
+          <p>N 个元素最多 N-1 轮；最坏总比较 N(N-1)/2 次 O(N²)；若某轮无交换则提前结束（Flag 优化），最优 O(N)。</p>
+        </div>
+
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0010.jpg" alt="幻灯10-暴力法与贪进法" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 10/12]</strong> 暴力法 vs 贪进法策略对比 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0011.jpg" alt="幻灯11-Python高级" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 11/12]</strong> Python 列表与字符串操作 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+
+        <div class="slide-figure">
+          <img class="slide-img" src="pdf 简报 to PNG/第一册第二章 Algorithmic_Logic_and_Programming_page-0012.jpg" alt="幻灯12-综合复习" onclick="openLightbox(this.src)">
+          <div class="slide-caption">🖼️ <strong>[幻灯 12/12]</strong> 本章综合复习与统考要点 <span class="zoom-badge">🔍 点击放大</span></div>
+        </div>
+      </div>
+
+      <!-- SEC 4: 配套全景考点图谱与思维导图 -->
+      <div id="sec-anc-4" class="section-card">
+        <h2>四、 配套全景考点图谱与思维导图</h2>
+        <p style="color:#64748B;font-size:14.5px;margin-bottom:16px;">基于 NotebookLM 与官方考纲精炼的演算法与程式设计知识脉络全景图，点击图片可进入全屏高清视窗缩放研读。</p>
+        <div class="info-gallery">
+          <div class="info-thumb">
+            <img src="配套信息图/演算法与程式设计冲刺指南.png" alt="演算法与程式设计冲刺指南" onclick="openLightbox(this.src)" title="点击全屏放大">
+            <div class="info-thumb-caption">📌 演算法与程式设计冲刺指南全景思维导图 · 点击放大</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEC 5: 互动题库 PORTAL -->
+      <div id="quiz-anchor" class="quiz-portal-card">
+        <div class="quiz-portal-header">
+          <div class="quiz-portal-title">📝 五、 互动题库与全景智能评测系统</div>
+          <span class="quiz-portal-badge">卷A · 卷B · 模拟卷</span>
+        </div>
+        <p class="quiz-portal-desc">第 2 章演算法与程式设计完整题库：卷A（基础巩固30题）、卷B（综合进阶30题）、历届模拟卷（20题），每套按10题一组分页演练，配套5道综合情境作答题，含教师评分量规。</p>
+        <div class="quiz-stats-grid">
+          <div class="quiz-stat-box"><div class="quiz-stat-num">3</div><div class="quiz-stat-lbl">套完整题卷</div></div>
+          <div class="quiz-stat-box"><div class="quiz-stat-num">80</div><div class="quiz-stat-lbl">选择题（即判即析）</div></div>
+          <div class="quiz-stat-box"><div class="quiz-stat-num">15</div><div class="quiz-stat-lbl">综合作答题</div></div>
+          <div class="quiz-stat-box"><div class="quiz-stat-num">10题/组</div><div class="quiz-stat-lbl">分页演练</div></div>
+        </div>
+        <button class="quiz-launch-main-btn" onclick="openQuiz()">🚀 启动全景互动题库</button>
+      </div>
+
+      <!-- SEC 6: 速记卡 -->
+      <div id="sec-anc-5" class="speed-card">
+        <h2>⚡ 六、 师生考前 3 分钟极速速记卡</h2>
+        <div class="speed-rows">
+          <div class="speed-row"><span class="speed-tag st-blue">四阶段</span><span class="speed-content"><strong>分析问题</strong> → 设计演算法 → 编写程式 → 测试除错</span></div>
+          <div class="speed-row"><span class="speed-tag st-teal">算法特性</span><span class="speed-content">有穷性 · 确定性 · 可行性 · 有输入与输出（可无输入但必有输出）</span></div>
+          <div class="speed-row"><span class="speed-tag st-purple">流程图符</span><span class="speed-content"><strong>起止</strong>(椭圆) · <strong>输入输出</strong>(平行四边形) · <strong>处理</strong>(矩形) · <strong>判断</strong>(菱形)</span></div>
+          <div class="speed-row"><span class="speed-tag st-orange">除法三兄弟</span><span class="speed-content">/ 真除法(恒浮点,17/5=3.4) · // 整除(17//5=3) · % 取余(17%5=2)</span></div>
+          <div class="speed-row"><span class="speed-tag st-blue">闰年金牌式</span><span class="speed-content"><strong>(y % 4 == 0 and y % 100 != 0) or y % 400 == 0</strong>（括号必须有！）</span></div>
+          <div class="speed-row"><span class="speed-tag st-teal">搜寻对比</span><span class="speed-content">线性: 逐一排查，最坏N次(22包裹=22次) · 二分: 折半排除，最坏log₂N次(22包裹=5次)</span></div>
+          <div class="speed-row"><span class="speed-tag st-green">循环防暴走</span><span class="speed-content">while 必须有步进条件(i=i+1)，否则死循环；缩进控制代码块归属</span></div>
+          <div class="speed-row"><span class="speed-tag st-purple">策略双流派</span><span class="speed-content"><strong>暴力法</strong>(穷举比对，全局最优) vs <strong>贪进法</strong>(局部最优决策，不一定全局最优)</span></div>
+          <div class="speed-row"><span class="speed-tag st-orange">冒泡排序</span><span class="speed-content">N个元素最多N-1轮；最坏N(N-1)/2次；无交换提前结束(O(N))优化</span></div>
+          <div class="speed-row"><span class="speed-tag st-blue">错误三类型</span><span class="speed-content"><strong>语法错误</strong>(不能运行) · <strong>运行时错误</strong>(崩溃) · <strong>逻辑错误</strong>(能运行但结果错)</span></div>
+        </div>
+      </div>
+            <!-- 章节版权声明与底部信息 -->
+        <footer class="chapter-footer">
+          <p><strong>© 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程</strong></p>
+          <p class="chapter-footer-sub">欢迎分享本网页链接供学习使用；未经许可，不得复制、转载网页内的文字、题目及答案，不得公开发布于其他网站或平台，亦不得用于商业销售。</p>
+        </footer>
+    </main>
+  </div>
+  <button id="btn-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <!-- QUIZ MODAL OVERLAY -->
+  <div id="quiz-overlay" onclick="handleOverlayClick(event)">
+    <div class="quiz-modal">
+      <button class="quiz-close-btn" onclick="closeQuiz()">✕</button>
+      <div class="quiz-modal-title">🧩 第 2 章 演算法与程式设计 · 全景互动题库</div>
+      <div class="quiz-modal-sub">选择题：点击选项即判断 ｜ 作答题：按 a / b / c 分段展开参考答案</div>
+      <div class="quiz-tabs-bar">
+        <button class="qtab-btn active" id="tab-A-btn" onclick="switchTab('tabA',this)">📋 卷A 基础 (30题)</button>
+        <button class="qtab-btn" id="tab-B-btn" onclick="switchTab('tabB',this)">📋 卷B 进阶 (30题)</button>
+        <button class="qtab-btn" id="tab-Sim-btn" onclick="switchTab('tabSim',this)">📋 模拟卷 (20题)</button>
+      </div>
+
+      <!-- ====== 卷A ====== -->
+      <div id="tabA" class="quiz-tab-content" style="display:block">
+        <div style="font-size:12.5px;color:#6B7280;margin-bottom:14px;">卷A 基础巩固 · 30题 · 共3组 · 每组10题。覆盖：演算法概念、流程图、Python语法、控制结构、搜寻排序。</div>
+        <!-- Page A1 -->
+        <div id="pageA1" class="mcq-page-block">
+          <div class="mcq-page-header"><span>卷A · 第 1–10 题</span><span id="scoreA1">得分: 0 / 0</span></div>          <div class="mcq-card" id="a1q1">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q1</span><span class="mcq-stem">电脑解决问题的标准步骤中，正确的顺序是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a1q1')"><span class="opt-letter">A</span> 分析问题 → 编写程式 → 设计演算法 → 测试除错</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a1q1')"><span class="opt-letter">B</span> 设计演算法 → 分析问题 → 编写程式 → 测试除错</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a1q1')"><span class="opt-letter">C</span> 分析问题 → 设计演算法 → 编写程式 → 测试除错</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a1q1')"><span class="opt-letter">D</span> 编写程式 → 分析问题 → 设计演算法 → 测试除错</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q1')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q2">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q2</span><span class="mcq-stem">演算法的哪个特性要求每个步骤必须清晰无歧义，不可有多种解释？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a1q2')"><span class="opt-letter">A</span> 有穷性 (Finiteness)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a1q2')"><span class="opt-letter">B</span> 有效性 (Effectiveness)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a1q2')"><span class="opt-letter">C</span> 确定性 (Definiteness)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a1q2')"><span class="opt-letter">D</span> 可行性 (Feasibility)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q2')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q3">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q3</span><span class="mcq-stem">演算法的可行性 (Feasibility) 是指：</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a1q3')"><span class="opt-letter">A</span> 算法的输入数量必须超过0个</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a1q3')"><span class="opt-letter">B</span> 算法必须在有限步骤内终止，不可无限执行</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a1q3')"><span class="opt-letter">C</span> 算法中每个步骤都能被实际执行，而非纯理论</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a1q3')"><span class="opt-letter">D</span> 算法执行时间不可超过1秒</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q3')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q4">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q4</span><span class="mcq-stem">在流程图 (Flowchart) 中，哪个图符代表数据的输入或输出？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','a1q4')"><span class="opt-letter">A</span> 矩形（处理框）</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','a1q4')"><span class="opt-letter">B</span> 菱形（判断框）</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','a1q4')"><span class="opt-letter">C</span> 椭圆（起止框）</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','a1q4')"><span class="opt-letter">D</span> 平行四边形（输入/输出框）</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q4')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q5">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q5</span><span class="mcq-stem">关于标准流程图图符，以下哪些陈述正确？（选最完整项）I. 判断框内的条件输出 True/False 两条分支 II. 输入/输出框为平行四边形 III. 所有流程图都有</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','仅 II、III、IV 正确','a1q5')"><span class="opt-letter">A</span> 开始与结束 IV. 判断框为矩形</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','仅 II、III、IV 正确','a1q5')"><span class="opt-letter">B</span> I、II、III、IV 全部正确</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','仅 II、III、IV 正确','a1q5')"><span class="opt-letter">C</span> 仅 I、II、III 正确</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','仅 II、III、IV 正确','a1q5')"><span class="opt-letter">D</span> 仅 I、III、IV 正确</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q5')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q6">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q6</span><span class="mcq-stem">Python 语句 Result = 25 // 4，Result 的值为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','a1q6')"><span class="opt-letter">A</span> 6.25</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','a1q6')"><span class="opt-letter">B</span> 6</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','a1q6')"><span class="opt-letter">C</span> 1</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','a1q6')"><span class="opt-letter">D</span> 100</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q6')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q7">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q7</span><span class="mcq-stem">若 X = 19，Y = 5，下列哪个运算式的结果为 4（即余数）？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a1q7')"><span class="opt-letter">A</span> X // Y</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a1q7')"><span class="opt-letter">B</span> X / Y</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a1q7')"><span class="opt-letter">C</span> X % Y</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a1q7')"><span class="opt-letter">D</span> X ** Y</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q7')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q8">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q8</span><span class="mcq-stem">关于 Python 变量命名规则，以下哪个说法是正确的？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a1q8')"><span class="opt-letter">A</span> 可以使用系统保留关键字（如 if, while）作为变量名</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a1q8')"><span class="opt-letter">B</span> 变量名可以数字开头（如 123score）</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a1q8')"><span class="opt-letter">C</span> 建议使用有意义的名称（如 studentScore, total_marks）</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a1q8')"><span class="opt-letter">D</span> 大小写字母被视为同一变量（Python 不区分大小写）</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q8')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q9">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q9</span><span class="mcq-stem">关于 If-Elif-Else 选择结构，以下哪些陈述正确？I. 可包含多个 Elif 分支处理多种情况 II. 满足第一个 True 条件后会跳过其余分支 III. 若无 Elif 分支只需 If-Else IV. 如果 If 条件为 True，Else 分支也会执行</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','A','a1q9')"><span class="opt-letter">A</span> 仅 I、II、III 正确</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','A','a1q9')"><span class="opt-letter">B</span> 仅 I、II、IV 正确</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','A','a1q9')"><span class="opt-letter">C</span> 仅 I、III、IV 正确</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','A','a1q9')"><span class="opt-letter">D</span> 仅 II、III、IV 正确</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q9')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a1q10">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q10</span><span class="mcq-stem">以下哪种控制结构最适合根据分数等级（90-100=A，80-89=B，...）输出评级？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','a1q10')"><span class="opt-letter">A</span> While 循环</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','a1q10')"><span class="opt-letter">B</span> If-Elif-Else 选择</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','a1q10')"><span class="opt-letter">C</span> For 计数循环</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','a1q10')"><span class="opt-letter">D</span> 单独 If 语句（无 Else）</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a1q10')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <span style="font-size:13px;color:#6B7280;">第 1–10 题</span>
+            <button class="mcq-nav-btn" onclick="showPage('pageA1',false);showPage('pageA2',true)">下一组 →</button>
+          </div>
+        </div>        <!-- Page A2 -->
+        <div id="pageA2" class="mcq-page-block" style="display:none">
+          <div class="mcq-page-header"><span>卷A · 第 11–20 题</span><span></span></div>          <div class="mcq-card" id="a2q11">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q11</span><span class="mcq-stem">While 循环的危险在于——若没有任何步进条件（如 i=i+1），将会产生？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a2q11')"><span class="opt-letter">A</span> 程序立即结束</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a2q11')"><span class="opt-letter">B</span> 运行速度变慢</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a2q11')"><span class="opt-letter">C</span> 死循环 (Infinite Loop)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a2q11')"><span class="opt-letter">D</span> 语法错误</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q11')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q12">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q12</span><span class="mcq-stem">For 循环执行 For I = 5 DownTo 1 Step 1，共执行几次循环体？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','a2q12')"><span class="opt-letter">A</span> 0次</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','a2q12')"><span class="opt-letter">B</span> 4次</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','a2q12')"><span class="opt-letter">C</span> 6次</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','a2q12')"><span class="opt-letter">D</span> 5次</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q12')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q13">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q13</span><span class="mcq-stem">追踪表 (Trace Table) / 干运行 (Dry Run) 的用途包括以下哪些？I. 手动模拟程序执行，记录变量值变化 II. 发现逻辑错误 III. 排除语法错误 IV. 不需要真正执行程序即可验证算法逻辑</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a2q13')"><span class="opt-letter">A</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a2q13')"><span class="opt-letter">B</span> 仅 I、III、IV</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a2q13')"><span class="opt-letter">C</span> 仅 I、II、IV</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a2q13')"><span class="opt-letter">D</span> 仅 II、III、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q13')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q14">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q14</span><span class="mcq-stem">对 100 个已排序元素做二分搜寻，最坏情况需要搜寻几次？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','a2q14')"><span class="opt-letter">A</span> 1次</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','a2q14')"><span class="opt-letter">B</span> 100次</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','a2q14')"><span class="opt-letter">C</span> 50次</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','a2q14')"><span class="opt-letter">D</span> 7次</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q14')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q15">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q15</span><span class="mcq-stem">含 15 个元素的已排序数组：[2,5,8,12,16,23,38,45,56,67,78,89,91,95,99]，用二分搜寻找 45，第一次比较的元素是哪个？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a2q15')"><span class="opt-letter">A</span> 23</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a2q15')"><span class="opt-letter">B</span> 38</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a2q15')"><span class="opt-letter">C</span> 45</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a2q15')"><span class="opt-letter">D</span> 38</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q15')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q16">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q16</span><span class="mcq-stem">关于二分搜寻时间复杂度，以下哪项正确？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','a2q16')"><span class="opt-letter">A</span> O(N²)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','a2q16')"><span class="opt-letter">B</span> O(N)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','a2q16')"><span class="opt-letter">C</span> O(2^N)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','a2q16')"><span class="opt-letter">D</span> O(log₂N)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q16')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q17">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q17</span><span class="mcq-stem">关于冒泡排序 (Bubble Sort)，以下哪些陈述正确？I. N 个元素最多需要 N-1 轮 II. 每轮会将当前最大值移到末尾 III. 最坏情况下总比较次数为 N(N-1)/2 IV. 可用 Flag 变量优化，若某轮无交换提前结束</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a2q17')"><span class="opt-letter">A</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a2q17')"><span class="opt-letter">B</span> 仅 I、II、IV</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a2q17')"><span class="opt-letter">C</span> I、II、III、IV 全部正确</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a2q17')"><span class="opt-letter">D</span> 仅 II、III、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q17')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q18">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q18</span><span class="mcq-stem">对 [9, 3, 7, 1] 升序冒泡排序，第 1 轮 (Pass 1) 结束后数组变为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','a2q18')"><span class="opt-letter">A</span> [1, 3, 7, 9]</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','a2q18')"><span class="opt-letter">B</span> [3, 7, 1, 9]</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','a2q18')"><span class="opt-letter">C</span> [3, 1, 7, 9]</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','a2q18')"><span class="opt-letter">D</span> [9, 7, 3, 1]</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q18')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q19">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q19</span><span class="mcq-stem">N 个元素的已排序数组进行二分搜寻，其空间复杂度为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a2q19')"><span class="opt-letter">A</span> O(N²)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a2q19')"><span class="opt-letter">B</span> O(N)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a2q19')"><span class="opt-letter">C</span> O(1)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a2q19')"><span class="opt-letter">D</span> O(log₂N)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q19')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a2q20">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q20</span><span class="mcq-stem">以下哪些情况适合使用贪进法 (Greedy Method)？I. 找零钱（优先用大面额）II. 最短路径（每步选最近节点）III. 找全局最优解（需要穷举）IV. 背包问题（按单位重量价值排序）</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','a2q20')"><span class="opt-letter">A</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','a2q20')"><span class="opt-letter">B</span> 仅 I、III、IV</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','a2q20')"><span class="opt-letter">C</span> 仅 II、III、IV</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','a2q20')"><span class="opt-letter">D</span> I、II、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a2q20')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <button class="mcq-nav-btn" onclick="showPage('pageA2',false);showPage('pageA1',true)">← 上一组</button>
+            <button class="mcq-nav-btn" onclick="showPage('pageA2',false);showPage('pageA3',true)">下一组 →</button>
+          </div>
+        </div>        <!-- Page A3 -->
+        <div id="pageA3" class="mcq-page-block" style="display:none">
+          <div class="mcq-page-header"><span>卷A · 第 21–30 题</span><span></span></div>          <div class="mcq-card" id="a3q21">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q21</span><span class="mcq-stem">对 [5,1,4,2,8] 升序冒泡，第 1 轮结束后结果为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','A','a3q21')"><span class="opt-letter">A</span> [1,4,2,5,8]</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','A','a3q21')"><span class="opt-letter">B</span> [1,2,4,5,8]</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','A','a3q21')"><span class="opt-letter">C</span> [5,4,2,1,8]</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','A','a3q21')"><span class="opt-letter">D</span> [1,5,4,2,8]</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q21')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q22">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q22</span><span class="mcq-stem">N 个元素冒泡排序，最多需要多少轮才能完全排好？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','a3q22')"><span class="opt-letter">A</span> N 轮</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','a3q22')"><span class="opt-letter">B</span> N-1 轮</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','a3q22')"><span class="opt-letter">C</span> N/2 轮</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','a3q22')"><span class="opt-letter">D</span> N² 轮</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q22')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q23">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q23</span><span class="mcq-stem">冒泡排序可以通过设置一个 Flag 变量来优化——若某轮无任何交换，算法提前终止，最优情况效率为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','a3q23')"><span class="opt-letter">A</span> O(N²)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','a3q23')"><span class="opt-letter">B</span> O(N log N)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','a3q23')"><span class="opt-letter">C</span> O(1)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','a3q23')"><span class="opt-letter">D</span> O(N)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q23')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q24">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q24</span><span class="mcq-stem">暴力法 (Brute Force) 与贪进法 (Greedy) 的根本区别是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a3q24')"><span class="opt-letter">A</span> 暴力法只能解决数学问题，贪进法可解决所有问题</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a3q24')"><span class="opt-letter">B</span> 贪进法穷举所有情况获得全局最优；暴力法按局部最优决策</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a3q24')"><span class="opt-letter">C</span> 暴力法穷举所有情况获得全局最优；贪进法每步选局部最优，效率更高但不一定全局最优</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a3q24')"><span class="opt-letter">D</span> 两者解题策略完全相同</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q24')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q25">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q25</span><span class="mcq-stem">关于程序调试 (Debugging)，以下哪些正确？I. 语法错误：违反语法规则，程序无法运行 II. 运行时错误：程序运行中崩溃（如除以0） III. 逻辑错误：程序运行但结果不正确 IV. 三类错误都能被 Python 自动修复</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','a3q25')"><span class="opt-letter">A</span> I、II、III、IV 全部正确</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','a3q25')"><span class="opt-letter">B</span> 仅 I、II、III 正确</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','a3q25')"><span class="opt-letter">C</span> 仅 I、II、IV 正确</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','a3q25')"><span class="opt-letter">D</span> 仅 II、III、IV 正确</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q25')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q26">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q26</span><span class="mcq-stem">嵌套循环打印 n 行 n 列星号方块，外循环控制行数，内循环控制列数，若 n=3，共打印几颗星号？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a3q26')"><span class="opt-letter">A</span> 3颗</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a3q26')"><span class="opt-letter">B</span> 6颗</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a3q26')"><span class="opt-letter">C</span> 9颗</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a3q26')"><span class="opt-letter">D</span> 12颗</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q26')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q27">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q27</span><span class="mcq-stem">Python 字符串 s = 'Python'，s[0] 的值为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','A','a3q27')"><span class="opt-letter">A</span> 'P'</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','A','a3q27')"><span class="opt-letter">B</span> 'p'</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','A','a3q27')"><span class="opt-letter">C</span> 'n'</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','A','a3q27')"><span class="opt-letter">D</span> 'Python'</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q27')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q28">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q28</span><span class="mcq-stem">Python 中 type() 函数的作用是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','a3q28')"><span class="opt-letter">A</span> 转换数据类型</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','a3q28')"><span class="opt-letter">B</span> 返回变量的数据类型</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','a3q28')"><span class="opt-letter">C</span> 输出变量的值</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','a3q28')"><span class="opt-letter">D</span> 检查变量是否为空</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q28')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q29">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q29</span><span class="mcq-stem">以下哪行 Python 代码会产生语法错误？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','a3q29')"><span class="opt-letter">A</span> x = 10</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','a3q29')"><span class="opt-letter">B</span> print(x)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','a3q29')"><span class="opt-letter">C</span> if x &gt; 5 print(x)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','a3q29')"><span class="opt-letter">D</span> for i in range(5): print(i)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q29')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="a3q30">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q30</span><span class="mcq-stem">用 Python for 循环计算 1+2+3+...+100，以下代码框架正确的是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','a3q30')"><span class="opt-letter">A</span> total=0 for i in range(1,100): total=total+i</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','a3q30')"><span class="opt-letter">B</span> total=0 for i in range(1,101): total=total+i</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','a3q30')"><span class="opt-letter">C</span> total=0 while i&lt;=100: total=total+i</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','a3q30')"><span class="opt-letter">D</span> total=0 for i in range(0,100): total=total+i</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('a3q30')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <button class="mcq-nav-btn" onclick="showPage('pageA3',false);showPage('pageA2',true)">← 上一组</button>
+            <span style="font-size:13px;color:#6B7280;">卷A 选择题完成！</span>
+          </div>
+        </div>
+
+        <!-- Vol A: Open Questions -->
+        <div class="open-questions-section">
+          <div class="open-section-header">✏️ 卷A · 综合作答题（5题，含评分量规）</div>
+          <div class="open-accordion-list">
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 1 · 电脑解决问题的阶段（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">研究人员需要设计一套程式，用于根据用电时数（T小时）计算电费。已知：0到30小时免费；31至40小时按每小时RM0.50计算；超过40小时部分按每小时RM1.00计算（另加前10小时超额费RM5.00）。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">设计用虚拟码（Pseudocode）表达该程序的演算法，处理所有分段电费的计算逻辑。</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">为该程序绘制标准流程图 (Flowchart)，需包含判断框与正确的分支逻辑。</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 虚拟码 (6分)</div>
+                    <div class="subans-point-row">开始</div>
+                    <div class="subans-point-row">输入 用电时数 T</div>
+                    <div class="subans-point-row">若 T ≤ 0 则 输出 "错误：用电时数不能为0或负数！" 结束</div>
+                    <div class="subans-point-row">若 T ≤ 30 则：超额时数 = 0，电费 = 0.00</div>
+                    <div class="subans-point-row">否则若 T ≤ 40 则：超额时数 = T - 30，电费 = 超额时数 × 0.50</div>
+                    <div class="subans-point-row">否则：超额时数 = T - 30，电费 = 10 × 0.50 + (超额时数 - 10) × 1.00</div>
+                    <div class="subans-point-row">输出 "超额时数:"，超额时数</div>
+                    <div class="subans-point-row">输出 "电费:"，电费</div>
+                    <div class="subans-point-row">结束</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 流程图要点 (6分)</div>
+                    <div class="subans-point-row">① 起止框："开始"</div>
+                    <div class="subans-point-row">② 输入框：输入用电时数 T</div>
+                    <div class="subans-point-row">③ 判断框："T ≤ 0？" → True：输出错误信息，结束；False：继续</div>
+                    <div class="subans-point-row">④ 判断框："T ≤ 30？" → True：电费=0；False：继续</div>
+                    <div class="subans-point-row">⑤ 判断框："T ≤ 40？" → True：超额费=0.5×(T-30)；False：超额费=5.0+(T-40)×1.0</div>
+                    <div class="subans-point-row">⑥ 输出框：输出电费结果</div>
+                    <div class="subans-point-row">⑦ 起止框："结束"</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 每个正确分段逻辑条件各2分，共6分。b) 起止框1分+输入框1分+每个判断框1分（共3分）+输出框1分=6分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 2 · Python 搜寻代码追踪（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">以下 Python 代码使用 For 循环与 If-Else 统计偶数的总和与个数：<br><code>Total = 0; Count = 0<br>for i in range(1, 11):<br>&nbsp;&nbsp;if i % 2 == 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;Total = Total + i<br>&nbsp;&nbsp;&nbsp;&nbsp;Count = Count + 1<br>print(Total, Count)</code></div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">用追踪表（Trace Table）追踪程式的执行过程，记录每次循环后 i、Total、Count 的值变化。（每正确填写一行得2分，共8分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">程式最终输出 Total 和 Count 的值各为多少？（各2分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 追踪表 (8分)</div>
+                    <div class="subans-point-row">i=2：Total=2, Count=1 ✓（偶数）</div>
+                    <div class="subans-point-row">i=4：Total=6, Count=2 ✓（偶数）</div>
+                    <div class="subans-point-row">i=6：Total=12, Count=3 ✓（偶数）</div>
+                    <div class="subans-point-row">i=8：Total=20, Count=4 ✓（偶数）</div>
+                    <div class="subans-point-row">i=10：Total=30, Count=5 ✓（偶数）</div>
+                    <div class="subans-point-row">奇数 i（1,3,5,7,9）不执行累加，Total/Count 不变。</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 输出结果 (4分)</div>
+                    <div class="subans-point-row"><strong>Total = 30</strong>（2+4+6+8+10 = 30）（2分）</div>
+                    <div class="subans-point-row"><strong>Count = 5</strong>（1~10 之间共5个偶数）（2分）</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 每行追踪正确得2分，共4行×2=8分。b) Total正确2分，Count正确2分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 3 · 冒泡排序追踪（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">原始数组（降序冒泡）：[18, 56, 34, 92, 27]</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">写出降序冒泡排序 Pass 1（第1轮）每次相邻比较与交换后的数组状态。（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">在 Pass 1 结束后，写出 Pass 2（第2轮）结束时数组的状态。（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">c</span><span class="subq-body">说明使用 Flag（已交换标志）变量如何优化冒泡排序，以及为何降序已排好的数组使用此优化后最优效率为 O(N)。（4分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) Pass 1 过程 (4分)</div>
+                    <div class="subans-point-row">比较 18 与 56：18 &lt; 56 → 交换 → [56, 18, 34, 92, 27]</div>
+                    <div class="subans-point-row">比较 18 与 34：18 &lt; 34 → 交换 → [56, 34, 18, 92, 27]</div>
+                    <div class="subans-point-row">比较 18 与 92：18 &lt; 92 → 交换 → [56, 34, 92, 18, 27]</div>
+                    <div class="subans-point-row">比较 18 与 27：18 &lt; 27 → 交换 → [56, 34, 92, 27, 18]</div>
+                    <div class="subans-point-row"><strong>Pass 1 结果：[56, 34, 92, 27, 18]</strong>（最小值18沉底）</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) Pass 2 结果 (4分)</div>
+                    <div class="subans-point-row">Pass 2 比较前 4 个元素 [56, 34, 92, 27]：</div>
+                    <div class="subans-point-row">56&gt;34 不交换；34&lt;92 交换→[56,92,34,27]；34&gt;27 不交换</div>
+                    <div class="subans-point-row"><strong>Pass 2 结果：[56, 92, 34, 27, 18]</strong></div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">c) Flag 优化说明 (4分)</div>
+                    <div class="subans-point-row">每轮开始前将 Flag 设为 False。若本轮发生任何交换，将 Flag 设为 True。</div>
+                    <div class="subans-point-row">每轮结束后检查 Flag：若仍为 False（本轮无任何交换），说明数组已完全排好，提前结束。</div>
+                    <div class="subans-point-row">对已排序数组（如降序已完整排好），第 1 轮就无交换，Flag=False，立即终止，只需 O(N) 比较次数。</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 每个正确状态各1分，共4分。b) 过程正确2分+结果2分=4分。c) Flag设置1分+判断逻辑1分+效率解释2分=4分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 4 · 二分搜寻追踪（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">已排序数组（索引0~15，共16个元素）：IDs = [102, 115, 128, 143, 156, 167, 178, 192, 205, 218, 221, 228, 235, 247, 259, 270]。搜寻目标：ID = 228。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">写出完整二分搜寻过程（每步写出 Low、High、Mid 的值，以及比较结果），直到找到目标为止。（8分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">若改用线性搜寻在同一数组中找 ID=228，最坏情况下需要比较多少次？并说明二分搜寻在大型数据集（N=1,000,000）中的优势。（4分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 二分搜寻过程 (8分)</div>
+                    <div class="subans-point-row">初始：Low=0, High=15</div>
+                    <div class="subans-point-row">第1步：Mid=(0+15)//2=7，IDs[7]=192，228&gt;192 → Low=8</div>
+                    <div class="subans-point-row">第2步：Low=8, High=15，Mid=(8+15)//2=11，IDs[11]=228 ✅</div>
+                    <div class="subans-point-row"><strong>找到！目标在索引 11，共比较 2 次。</strong></div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 线性搜寻 vs 二分搜寻 (4分)</div>
+                    <div class="subans-point-row">线性搜寻最坏：逐一检查，228在索引11，需要比较 <strong>12 次</strong>。（2分）</div>
+                    <div class="subans-point-row">N=1,000,000 时：线性搜寻最坏需 1,000,000 次（O(N)）；二分搜寻最坏只需 ⌈log₂1,000,000⌉=20 次（O(log₂N)）。效率差距极大！（2分）</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 每步正确（Low+High+Mid+比较）各2分，共2步×4分=8分。b) 线性次数2分+二分优势分析2分=4分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 5 · 暴力法与贪进法策略辨析（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">张三有一堆不同面额的零钱：RM1、RM0.50、RM0.20、RM0.10。需要找给顾客 RM1.80。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">解释什么是贪进法 (Greedy Method)，并说明如何用贪进法解决上述找零问题（写出每步选择）。（6分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">解释什么是暴力法 (Brute Force)，并说明暴力法与贪进法的主要区别（2点）。（6分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 贪进法定义与应用 (6分)</div>
+                    <div class="subans-point-row"><strong>定义</strong>（2分）：贪进法是在面临多重选择时，每步选择局部最优（成本最小或收益最大）的策略，以期解决问题，效率高但不一定全局最优。</div>
+                    <div class="subans-point-row"><strong>找零过程</strong>（4分）：</div>
+                    <div class="subans-point-row">剩余 RM1.80 → 选 RM1.00（最大面额）→ 剩余 RM0.80</div>
+                    <div class="subans-point-row">剩余 RM0.80 → 选 RM0.50 → 剩余 RM0.30</div>
+                    <div class="subans-point-row">剩余 RM0.30 → 选 RM0.20 → 剩余 RM0.10</div>
+                    <div class="subans-point-row">剩余 RM0.10 → 选 RM0.10 → 找完✅</div>
+                    <div class="subans-point-row">共用 4 枚硬币（RM1+RM0.50+RM0.20+RM0.10）。</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 暴力法与比较 (6分)</div>
+                    <div class="subans-point-row"><strong>暴力法</strong>（2分）：逐一尝试所有可能的硬币组合，比较每种方案的硬币枚数，取枚数最少的方案，得全局最优解。</div>
+                    <div class="subans-point-row"><strong>主要区别</strong>（4分）：</div>
+                    <div class="subans-point-row">①效率：贪进法每步只做一个决策，效率高；暴力法穷举所有情况，数据量大时效率极低。</div>
+                    <div class="subans-point-row">②最优性：暴力法保证全局最优解；贪进法只保证局部最优，特殊情况可能不是全局最优（但对标准找零问题是最优的）。</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 定义2分+每步选择正确各1分（共4步×1=4分）=6分。b) 暴力法定义2分+区别两点各2分=6分。</div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /open-accordion-list -->
+        </div><!-- /open-questions-section -->
+      </div><!-- /tabA -->      <!-- ====== 卷B ====== -->
+      <div id="tabB" class="quiz-tab-content">
+        <div style="font-size:12.5px;color:#6B7280;margin-bottom:14px;">卷B 综合进阶 · 30题 · 共3组 · 每组10题。覆盖更深层次的 Python 编程、搜寻排序算法分析、追踪与除错、策略对比。</div>
+        <div id="pageB1" class="mcq-page-block">
+          <div class="mcq-page-header"><span>卷B · 第 1–10 题</span><span></span></div>          <div class="mcq-card" id="b1q1">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q1</span><span class="mcq-stem">以下关于演算法，哪个描述最准确？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b1q1')"><span class="opt-letter">A</span> 演算法是一种编程语言</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b1q1')"><span class="opt-letter">B</span> 演算法是解决问题的有限、确切、可行步骤的有序集合</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b1q1')"><span class="opt-letter">C</span> 演算法只能用流程图表示</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b1q1')"><span class="opt-letter">D</span> 演算法必须用电脑才能执行</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q1')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q2">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q2</span><span class="mcq-stem">虚拟码 (Pseudocode) 与流程图的主要区别是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b1q2')"><span class="opt-letter">A</span> 虚拟码只能表示循环结构，流程图可表示所有结构</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b1q2')"><span class="opt-letter">B</span> 流程图使用标准几何图形，虚拟码使用结构化自然语言，两者均可表达算法</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b1q2')"><span class="opt-letter">C</span> 虚拟码是真实的程序代码，可直接执行</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b1q2')"><span class="opt-letter">D</span> 流程图只能由计算机专家使用</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q2')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q3">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q3</span><span class="mcq-stem">Python 中 x = 10; y = 3，执行 z = x ** y 后，z 的值是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b1q3')"><span class="opt-letter">A</span> 30</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b1q3')"><span class="opt-letter">B</span> 13</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b1q3')"><span class="opt-letter">C</span> 1000</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b1q3')"><span class="opt-letter">D</span> 3.33</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q3')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q4">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q4</span><span class="mcq-stem">Python 中，以下哪个变量名称是合法的？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b1q4')"><span class="opt-letter">A</span> 2nd_score</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b1q4')"><span class="opt-letter">B</span> if</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b1q4')"><span class="opt-letter">C</span> student_name</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b1q4')"><span class="opt-letter">D</span> hello world</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q4')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q5">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q5</span><span class="mcq-stem">Python 代码 print(type(3.14)) 输出什么？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b1q5')"><span class="opt-letter">A</span> &lt;class 'int'&gt;</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b1q5')"><span class="opt-letter">B</span> &lt;class 'float'&gt;</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b1q5')"><span class="opt-letter">C</span> &lt;class 'str'&gt;</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b1q5')"><span class="opt-letter">D</span> &lt;class 'double'&gt;</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q5')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q6">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q6</span><span class="mcq-stem">关于 Python 数据类型转换，int('abc') 会发生什么？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b1q6')"><span class="opt-letter">A</span> 返回 0</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b1q6')"><span class="opt-letter">B</span> 返回 abc</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b1q6')"><span class="opt-letter">C</span> 产生 ValueError 错误</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b1q6')"><span class="opt-letter">D</span> 返回 None</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q6')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q7">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q7</span><span class="mcq-stem">Python 代码 for i in range(2, 10, 2): print(i) 输出的数字序列是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b1q7')"><span class="opt-letter">A</span> 2, 4, 6, 8, 10</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b1q7')"><span class="opt-letter">B</span> 2, 4, 6, 8</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b1q7')"><span class="opt-letter">C</span> 0, 2, 4, 6, 8</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b1q7')"><span class="opt-letter">D</span> 2, 6, 10</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q7')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q8">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q8</span><span class="mcq-stem">While 循环 i=1; while i&lt;=5: print(i) 没有 i=i+1，会导致？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b1q8')"><span class="opt-letter">A</span> 只打印一次 1</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b1q8')"><span class="opt-letter">B</span> 打印 1 到 5</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b1q8')"><span class="opt-letter">C</span> 死循环 (Infinite Loop)，一直打印 1</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b1q8')"><span class="opt-letter">D</span> 语法错误</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q8')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q9">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q9</span><span class="mcq-stem">以下 Python 代码段执行后，x 的值是？：x=5; if x&gt;3: x=x+1; if x&gt;5: x=x*2</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b1q9')"><span class="opt-letter">A</span> 5</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b1q9')"><span class="opt-letter">B</span> 6</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b1q9')"><span class="opt-letter">C</span> 12</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b1q9')"><span class="opt-letter">D</span> 11</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q9')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b1q10">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q10</span><span class="mcq-stem">嵌套循环 for i in range(3): for j in range(4): print('*') 共打印几颗星？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','b1q10')"><span class="opt-letter">A</span> 3颗</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','b1q10')"><span class="opt-letter">B</span> 4颗</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','b1q10')"><span class="opt-letter">C</span> 7颗</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','b1q10')"><span class="opt-letter">D</span> 12颗</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b1q10')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <span></span>
+            <button class="mcq-nav-btn" onclick="showPage('pageB1',false);showPage('pageB2',true)">下一组 →</button>
+          </div>
+        </div>        <div id="pageB2" class="mcq-page-block" style="display:none">
+          <div class="mcq-page-header"><span>卷B · 第 11–20 题</span><span></span></div>          <div class="mcq-card" id="b2q11">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q11</span><span class="mcq-stem">Python 列表 lst=[10,20,30,40,50]，lst[2] 的值是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b2q11')"><span class="opt-letter">A</span> 10</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b2q11')"><span class="opt-letter">B</span> 20</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b2q11')"><span class="opt-letter">C</span> 30</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b2q11')"><span class="opt-letter">D</span> 40</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q11')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q12">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q12</span><span class="mcq-stem">for i in range(len(lst)): print(lst[i]) 与直接 for x in lst: print(x) 效果是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b2q12')"><span class="opt-letter">A</span> 完全不同，range 方式会出错</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b2q12')"><span class="opt-letter">B</span> 相同，两者都逐个打印列表元素</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b2q12')"><span class="opt-letter">C</span> range 方式从索引1开始</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b2q12')"><span class="opt-letter">D</span> 仅 range 方式可以修改列表</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q12')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q13">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q13</span><span class="mcq-stem">Python 中 and、or、not 逻辑运算符的优先级顺序（从高到低）？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b2q13')"><span class="opt-letter">A</span> or &gt; and &gt; not</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b2q13')"><span class="opt-letter">B</span> and &gt; or &gt; not</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b2q13')"><span class="opt-letter">C</span> not &gt; and &gt; or</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b2q13')"><span class="opt-letter">D</span> not &gt; or &gt; and</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q13')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q14">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q14</span><span class="mcq-stem">Python 表达式 True and False or True 的结果是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','A','b2q14')"><span class="opt-letter">A</span> True</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','A','b2q14')"><span class="opt-letter">B</span> False</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','A','b2q14')"><span class="opt-letter">C</span> Error</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','A','b2q14')"><span class="opt-letter">D</span> None</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q14')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q15">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q15</span><span class="mcq-stem">追踪以下代码，最终 result 的值：result=0; for i in range(1,6): if i%2!=0: result+=i</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b2q15')"><span class="opt-letter">A</span> 15</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b2q15')"><span class="opt-letter">B</span> 9</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b2q15')"><span class="opt-letter">C</span> 6</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b2q15')"><span class="opt-letter">D</span> 10</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q15')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q16">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q16</span><span class="mcq-stem">对已排序数组 [3,7,15,22,38,54,61,77,82,95] 用二分搜寻找 61，需要几次比较？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b2q16')"><span class="opt-letter">A</span> 1次</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b2q16')"><span class="opt-letter">B</span> 2次</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b2q16')"><span class="opt-letter">C</span> 3次</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b2q16')"><span class="opt-letter">D</span> 4次</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q16')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q17">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q17</span><span class="mcq-stem">以下关于线性搜寻 vs 二分搜寻正确的是？I. 线性不需预先排序，二分需要 II. N=1000时二分最坏约10次，线性最坏1000次 III. 二分搜寻总是比线性快 IV. 二分搜寻时间复杂度 O(log₂N)</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','A','b2q17')"><span class="opt-letter">A</span> 仅 I、II、IV</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','A','b2q17')"><span class="opt-letter">B</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','A','b2q17')"><span class="opt-letter">C</span> I、II、III、IV</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','A','b2q17')"><span class="opt-letter">D</span> 仅 II、III、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q17')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q18">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q18</span><span class="mcq-stem">对 [9,3,7,1,5] 升序冒泡，Pass 2 结束后数组是？（Pass 1后=[3,7,1,5,9]）</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','A','b2q18')"><span class="opt-letter">A</span> [3,1,5,7,9]</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','A','b2q18')"><span class="opt-letter">B</span> [1,3,5,7,9]</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','A','b2q18')"><span class="opt-letter">C</span> [3,7,1,5,9]</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','A','b2q18')"><span class="opt-letter">D</span> [1,7,3,5,9]</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q18')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q19">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q19</span><span class="mcq-stem">N 个元素升序冒泡，若已是升序（最优情况）且用 Flag 优化，总比较次数为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b2q19')"><span class="opt-letter">A</span> 0次</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b2q19')"><span class="opt-letter">B</span> N次（仅1轮）</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b2q19')"><span class="opt-letter">C</span> N-1次（仅第1轮N-1次比较）</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b2q19')"><span class="opt-letter">D</span> N²/2次</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q19')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b2q20">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q20</span><span class="mcq-stem">关于解题策略的选择，以下哪种情况最适合暴力法 (Brute Force)？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b2q20')"><span class="opt-letter">A</span> N=100万的排序任务</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b2q20')"><span class="opt-letter">B</span> 找出小数据集（N&lt;10）中所有整数组合的最优解</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b2q20')"><span class="opt-letter">C</span> 实时系统中的路径规划</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b2q20')"><span class="opt-letter">D</span> 大型数据库的搜索</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b2q20')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <button class="mcq-nav-btn" onclick="showPage('pageB2',false);showPage('pageB1',true)">← 上一组</button>
+            <button class="mcq-nav-btn" onclick="showPage('pageB2',false);showPage('pageB3',true)">下一组 →</button>
+          </div>
+        </div>        <div id="pageB3" class="mcq-page-block" style="display:none">
+          <div class="mcq-page-header"><span>卷B · 第 21–30 题</span><span></span></div>          <div class="mcq-card" id="b3q21">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q21</span><span class="mcq-stem">Python 代码 s='Hello World'; print(s.upper()) 输出？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b3q21')"><span class="opt-letter">A</span> hello world</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b3q21')"><span class="opt-letter">B</span> HELLO WORLD</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b3q21')"><span class="opt-letter">C</span> Hello World</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b3q21')"><span class="opt-letter">D</span> hELLO wORLD</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q21')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q22">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q22</span><span class="mcq-stem">以下哪段 Python 代码能正确计算 1×2×3×...×10（阶乘）？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b3q22')"><span class="opt-letter">A</span> product=0
+for i in range(1,11): product+=i</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b3q22')"><span class="opt-letter">B</span> product=1
+for i in range(1,11): product*=i</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b3q22')"><span class="opt-letter">C</span> product=1
+for i in range(0,10): product*=i</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b3q22')"><span class="opt-letter">D</span> product=1
+while i&lt;=10: product*=i</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q22')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q23">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q23</span><span class="mcq-stem">Python 程序运行时出现 ZeroDivisionError，这属于哪类错误？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b3q23')"><span class="opt-letter">A</span> 语法错误 (Syntax Error)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b3q23')"><span class="opt-letter">B</span> 运行时错误 (Runtime Error)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b3q23')"><span class="opt-letter">C</span> 逻辑错误 (Logic Error)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b3q23')"><span class="opt-letter">D</span> 类型错误 (Type Error)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q23')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q24">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q24</span><span class="mcq-stem">函数 def greet(name): return 'Hello, ' + name；调用 greet(123) 会发生？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b3q24')"><span class="opt-letter">A</span> 返回 'Hello, 123'</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b3q24')"><span class="opt-letter">B</span> 返回 'Hello, '</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b3q24')"><span class="opt-letter">C</span> TypeError（不能连接字符串与整数）</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b3q24')"><span class="opt-letter">D</span> SyntaxError</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q24')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q25">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q25</span><span class="mcq-stem">用追踪表检测以下逻辑错误：count=0; for i in range(1,6): if i%2==0: count+=1; 程序意图是计算 1-5 中的奇数个数，错误在哪里？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b3q25')"><span class="opt-letter">A</span> range 应改为 range(1,7)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b3q25')"><span class="opt-letter">B</span> 条件应改为 if i%2!=0（当前统计的是偶数）</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b3q25')"><span class="opt-letter">C</span> count 初始值应为 1</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b3q25')"><span class="opt-letter">D</span> for 循环应改为 while 循环</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q25')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q26">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q26</span><span class="mcq-stem">嵌套循环打印正三角形（第i行打印i颗星）：for i in range(1,6): for j in range(i): print('*',end=''); print()。第3行输出几颗星？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b3q26')"><span class="opt-letter">A</span> 1颗</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b3q26')"><span class="opt-letter">B</span> 2颗</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b3q26')"><span class="opt-letter">C</span> 3颗</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b3q26')"><span class="opt-letter">D</span> 4颗</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q26')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q27">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q27</span><span class="mcq-stem">Python 中 input() 函数返回的数据类型默认是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b3q27')"><span class="opt-letter">A</span> int</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b3q27')"><span class="opt-letter">B</span> float</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b3q27')"><span class="opt-letter">C</span> str（字符串）</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b3q27')"><span class="opt-letter">D</span> bool</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q27')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q28">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q28</span><span class="mcq-stem">演算法设计中，将复杂问题拆分为更小子问题分别处理的方法称为？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b3q28')"><span class="opt-letter">A</span> 暴力法</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b3q28')"><span class="opt-letter">B</span> 贪进法</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b3q28')"><span class="opt-letter">C</span> 分而治之 (Divide & Conquer)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b3q28')"><span class="opt-letter">D</span> 动态规划</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q28')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q29">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q29</span><span class="mcq-stem">Python 中，以下哪行代码会输出 True？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','b3q29')"><span class="opt-letter">A</span> print(3 == '3')</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','b3q29')"><span class="opt-letter">B</span> print(10 // 3 == 3)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','b3q29')"><span class="opt-letter">C</span> print(0.1 + 0.2 == 0.3)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','b3q29')"><span class="opt-letter">D</span> print(5 and 0)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q29')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="b3q30">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q30</span><span class="mcq-stem">以下关于 Python 缩进 (Indentation) 的说法正确的是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','b3q30')"><span class="opt-letter">A</span> 缩进只是代码风格，不影响程序逻辑</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','b3q30')"><span class="opt-letter">B</span> Python 允许混合使用空格和 Tab 进行缩进</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','b3q30')"><span class="opt-letter">C</span> 缩进是 Python 语法规则，用于界定代码块层次，错误缩进导致 IndentationError</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','b3q30')"><span class="opt-letter">D</span> Python 强制使用 Tab 键缩进</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('b3q30')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <button class="mcq-nav-btn" onclick="showPage('pageB3',false);showPage('pageB2',true)">← 上一组</button>
+            <span style="font-size:13px;color:#6B7280;">卷B 选择题完成！</span>
+          </div>
+        </div>
+
+        <!-- Vol B Open Questions -->
+        <div class="open-questions-section">
+          <div class="open-section-header">✏️ 卷B · 综合作答题（5题，含评分量规）</div>
+          <div class="open-accordion-list">
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 1 · Python 闰年程序（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">设计一个 Python 程序，让用户输入年份，判断是否为闰年并输出结果。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">用 if-else（不考虑400年规则）写出只考虑"4年一润，100年不润"的判断程序（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">写出完整的闰年判断程序，包含"400年必润"规则（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">c</span><span class="subq-body">若用户输入 y = 2000，上述 a 与 b 两段程序的输出结果是否相同？解释原因。（4分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 简化版闰年判断 (4分)</div>
+                    <div class="subans-point-row">y = int(input("请输入年份："))</div>
+                    <div class="subans-point-row">if y % 4 == 0 and y % 100 != 0:</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;print(y, "是闰年")</div>
+                    <div class="subans-point-row">else:</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;print(y, "不是闰年")</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 完整闰年判断 (4分)</div>
+                    <div class="subans-point-row">y = int(input("请输入年份："))</div>
+                    <div class="subans-point-row">if (y % 4 == 0 and y % 100 != 0) or y % 400 == 0:</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;print(y, "是闰年")</div>
+                    <div class="subans-point-row">else:</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;print(y, "不是闰年")</div>
+                    <div class="subans-point-row">⚠️ 括号不可省略：确保 and 先于 or 计算</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">c) y=2000 的情况 (4分)</div>
+                    <div class="subans-point-row">程序 a 输出：<strong>"2000 不是闰年"</strong>（因为 2000 % 100 == 0，条件 y%100!=0 为 False）❌</div>
+                    <div class="subans-point-row">程序 b 输出：<strong>"2000 是闰年"</strong>（因为 2000 % 400 == 0，整个 or 条件为 True）✅</div>
+                    <div class="subans-point-row">两者结果<strong>不相同</strong>。程序 a 缺少400年必润规则，会对公历整百年产生错误判断。</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) input+int转换1分+条件正确2分+输出1分=4分。b) 括号正确1分+完整条件2分+输出1分=4分。c) a输出正确1分+b输出正确1分+解释不同原因2分=4分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 2 · 嵌套循环打印图形（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">使用 Python 嵌套循环（Nested Loop）打印以下图形，n=5。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">写出打印 5×5 星号正方形的 Python 代码，并说明外循环控制什么、内循环控制什么。（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">写出打印右直角三角形（第i行打印i颗星）的 Python 代码。（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">c</span><span class="subq-body">若将 b 的三角形改为倒置（第i行打印 n-i+1 颗星），写出修改后的代码。（4分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 正方形 (4分)</div>
+                    <div class="subans-point-row">n = 5</div>
+                    <div class="subans-point-row">for i in range(n):&nbsp;&nbsp;&nbsp;&nbsp;# 外循环：控制行数（共n行）</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;for j in range(n):  # 内循环：控制每行列数（共n列）</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('*', end='')</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;print()&nbsp;&nbsp;&nbsp;&nbsp;# 每行结束换行</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 右直角三角形 (4分)</div>
+                    <div class="subans-point-row">n = 5</div>
+                    <div class="subans-point-row">for i in range(1, n+1):&nbsp;&nbsp;&nbsp;&nbsp;# i 从1到5</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;for j in range(i):&nbsp;&nbsp;&nbsp;&nbsp;# 第i行打印i颗星</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('*', end='')</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;print()</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">c) 倒直角三角形 (4分)</div>
+                    <div class="subans-point-row">n = 5</div>
+                    <div class="subans-point-row">for i in range(1, n+1):&nbsp;&nbsp;&nbsp;&nbsp;# i 从1到5</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;for j in range(n - i + 1):  # 第i行打印 n-i+1 颗星</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print('*', end='')</div>
+                    <div class="subans-point-row">&nbsp;&nbsp;&nbsp;&nbsp;print()</div>
+                    <div class="subans-point-row">输出：★★★★★ / ★★★★ / ★★★ / ★★ / ★</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>每题：代码结构正确2分+循环范围正确1分+输出正确1分=4分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 3 · 线性搜寻流程图（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">有 22 个包裹，其中一个重量少于 10 公斤。用线性搜寻法找出最轻包裹。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">描述线性搜寻法找最轻包裹的逐步算法（文字描述），并说明最坏情况下需要比较多少次。（6分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">若改用二分搜寻（假设包裹已按重量排好），最坏情况需比较几次？写出计算过程。（6分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 线性搜寻算法 (6分)</div>
+                    <div class="subans-point-row">步骤1：将22个包裹排成一列（编号1~22）</div>
+                    <div class="subans-point-row">步骤2：从第1个包裹开始称重</div>
+                    <div class="subans-point-row">步骤3：若该包裹重量 &lt; 10 公斤 → 输出"找到轻包裹"，结束</div>
+                    <div class="subans-point-row">步骤4：否则排除此包裹，移到下一个</div>
+                    <div class="subans-point-row">步骤5：重复步骤3~4直到找到或全部检查完</div>
+                    <div class="subans-point-row"><strong>最坏情况</strong>：轻包裹在第22位，需比较 <strong>22次</strong>（O(N)）</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 二分搜寻次数计算 (6分)</div>
+                    <div class="subans-point-row">二分搜寻最坏次数 = ⌈log₂N⌉</div>
+                    <div class="subans-point-row">N = 22：log₂22 ≈ 4.46，取上限 = <strong>5次</strong></div>
+                    <div class="subans-point-row">验证：2⁴=16 &lt; 22 ≤ 2⁵=32，所以最坏5次即可定位</div>
+                    <div class="subans-point-row">效率比较：线性搜寻最坏22次；二分搜寻最坏5次，效率提升 4 倍以上！</div>
+                    <div class="subans-point-row">⚠️ 前提：二分搜寻需要包裹已按重量排好（已排序数组）</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 步骤逻辑正确4分+最坏次数正确2分=6分。b) 公式正确2分+计算正确2分+前提说明2分=6分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 4 · 停电排查演算法（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">假设你家突然停电，请用演算法设计思维分析并解决这个问题。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">列出"分析问题"阶段需要明确的：输入信息、输出目标与限制条件各1~2项。（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">设计停电排查的演算法步骤（至少列出5个逻辑判断步骤），用虚拟码或文字表达。（8分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 问题分析 (4分)</div>
+                    <div class="subans-point-row"><strong>输入</strong>（1分）：家中是否还有其他电器/灯亮着；邻居家是否有电</div>
+                    <div class="subans-point-row"><strong>输出</strong>（1分）：找出停电原因并提出解决方案</div>
+                    <div class="subans-point-row"><strong>限制条件</strong>（2分）：必须从已知信息开始逐步排查；危险操作（如触碰电路）须由专业人员处理</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 排查演算法 (8分)</div>
+                    <div class="subans-point-row">步骤1：检查其他灯或电器是否有电 → 若有，说明问题仅在该灯，换灯泡</div>
+                    <div class="subans-point-row">步骤2：若全屋停电 → 检查配电箱中的断路器 (Circuit Breaker) 是否跳闸</div>
+                    <div class="subans-point-row">步骤3：若断路器跳闸 → 重置 → 若恢复则完成；若再次跳闸 → 可能有漏电，联系电工</div>
+                    <div class="subans-point-row">步骤4：若断路器正常 → 观察邻居家是否也停电</div>
+                    <div class="subans-point-row">步骤5：若邻居也停电 → 区域停电，联系国家电力公司 (TNB) 报修</div>
+                    <div class="subans-point-row">步骤6：若仅自家停电且断路器无跳闸 → 检查总电表；联系专业电工检查线路</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 输入1分+输出1分+限制条件2分=4分。b) 每个逻辑正确的判断步骤各1.5分，共6步骤×1.5=8分（最高8分）。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 作答题 5 · 综合情境：水果费用计算程序（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">榴梿每公斤 RM15.50，山竹每公斤 RM12.90。编写 Python 程序，接收用户输入的两种水果重量，计算并输出各自费用与总费用。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">写出完整的 Python 程序代码。（6分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">若用户输入榴梿 3 公斤、山竹 2 公斤，写出程序的预期输出结果。（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">c</span><span class="subq-body">若程序将 d_price 错误写成 d_price = '15.50'（字符串），会产生什么错误？属于哪类错误？（2分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) Python 程序 (6分)</div>
+                    <div class="subans-point-row">d_price = 15.50</div>
+                    <div class="subans-point-row">m_price = 12.90</div>
+                    <div class="subans-point-row">durian = int(input("榴梿的重量 (Kg)："))</div>
+                    <div class="subans-point-row">mangosteen = int(input("山竹的重量 (Kg)："))</div>
+                    <div class="subans-point-row">d_cost = durian * d_price</div>
+                    <div class="subans-point-row">m_cost = mangosteen * m_price</div>
+                    <div class="subans-point-row">print("榴梿", durian, "公斤计 RM", d_cost)</div>
+                    <div class="subans-point-row">print("山竹", mangosteen, "公斤计 RM", m_cost)</div>
+                    <div class="subans-point-row">print("共计 RM", d_cost + m_cost)</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 预期输出 (4分)</div>
+                    <div class="subans-point-row">榴梿 3 公斤计 RM 46.5</div>
+                    <div class="subans-point-row">山竹 2 公斤计 RM 25.8</div>
+                    <div class="subans-point-row">共计 RM 72.3</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">c) 错误类型 (2分)</div>
+                    <div class="subans-point-row">错误：d_cost = durian * '15.50' 会产生 <strong>TypeError</strong>（不能将整数与字符串相乘运算）</div>
+                    <div class="subans-point-row">属于<strong>运行时错误 (Runtime Error)</strong>——程序能启动但执行到该行时崩溃</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 变量定义1分+输入+int()2分+计算逻辑2分+输出1分=6分。b) 每行输出正确各1分=4分（共3行取前3）。c) TypeError名称1分+错误类别1分=2分。</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /tabB -->      <!-- ====== 模拟卷 ====== -->
+      <div id="tabSim" class="quiz-tab-content">
+        <div style="font-size:12.5px;color:#6B7280;margin-bottom:14px;">历届精选与原创模拟卷 · 20题 · 2组 · 对齐2027统考题型。含5道综合情境作答题。</div>
+        <div id="pageSim1" class="mcq-page-block">
+          <div class="mcq-page-header"><span>模拟卷 · 第 1–10 题</span><span></span></div>          <div class="mcq-card" id="s1q1">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q1</span><span class="mcq-stem">以下哪项最准确描述了'演算法'？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s1q1')"><span class="opt-letter">A</span> 一种特定的程序编程语言</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s1q1')"><span class="opt-letter">B</span> 解决特定问题的有限、确切、可行的指令序列</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s1q1')"><span class="opt-letter">C</span> 电脑硬件的操作说明书</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s1q1')"><span class="opt-letter">D</span> 数据在电脑中的存储方式</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q1')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q2">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q2</span><span class="mcq-stem">演算法的'确定性'(Definiteness) 是指？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s1q2')"><span class="opt-letter">A</span> 演算法必须在有限步骤内结束</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s1q2')"><span class="opt-letter">B</span> 演算法可以有任意数量的输入</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s1q2')"><span class="opt-letter">C</span> 每个步骤的指令必须清晰无歧义，计算机知道确切该如何执行</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s1q2')"><span class="opt-letter">D</span> 演算法必须产生至少1个输出</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q2')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q3">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q3</span><span class="mcq-stem">流程图中，判断框 (Decision Box) 的形状是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','s1q3')"><span class="opt-letter">A</span> 矩形</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','s1q3')"><span class="opt-letter">B</span> 椭圆形</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','s1q3')"><span class="opt-letter">C</span> 平行四边形</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','s1q3')"><span class="opt-letter">D</span> 菱形</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q3')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q4">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q4</span><span class="mcq-stem">Python 语句 x = 10 / 4，x 的数据类型和值是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s1q4')"><span class="opt-letter">A</span> int，2</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s1q4')"><span class="opt-letter">B</span> float，2.5</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s1q4')"><span class="opt-letter">C</span> int，2.5</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s1q4')"><span class="opt-letter">D</span> str，'2.5'</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q4')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q5">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q5</span><span class="mcq-stem">以下关于流程图标准图符哪些正确？I. 输入输出框：平行四边形 II. 判断框含 True/False 两条流向 III. 流程图只能有一个起始框 IV. 判断框为矩形</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s1q5')"><span class="opt-letter">A</span> I、II、III、IV</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s1q5')"><span class="opt-letter">B</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s1q5')"><span class="opt-letter">C</span> 仅 I、III、IV</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s1q5')"><span class="opt-letter">D</span> 仅 II、III、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q5')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q6">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q6</span><span class="mcq-stem">Python 计算 Result = 25 // 4 后，Result = ？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s1q6')"><span class="opt-letter">A</span> 6.25</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s1q6')"><span class="opt-letter">B</span> 6</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s1q6')"><span class="opt-letter">C</span> 1</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s1q6')"><span class="opt-letter">D</span> 25</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q6')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q7">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q7</span><span class="mcq-stem">A=7，B=2，下列哪个表达式结果为 3（即取整数商）？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s1q7')"><span class="opt-letter">A</span> A % B</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s1q7')"><span class="opt-letter">B</span> A / B</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s1q7')"><span class="opt-letter">C</span> A // B</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s1q7')"><span class="opt-letter">D</span> A ** B</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q7')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q8">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q8</span><span class="mcq-stem">关于变量命名，以下哪个名称合法且符合规范？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s1q8')"><span class="opt-letter">A</span> 123score</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s1q8')"><span class="opt-letter">B</span> if</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s1q8')"><span class="opt-letter">C</span> student_score（有意义命名）</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s1q8')"><span class="opt-letter">D</span> hello world（含空格）</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q8')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q9">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q9</span><span class="mcq-stem">关于 If-Elif-Else 结构，以下正确的是？I. 可包含多个 Elif II. 满足首个真条件后跳过其余 III. Else 必须存在 IV. Elif 数量无限制</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s1q9')"><span class="opt-letter">A</span> I、II、III、IV</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s1q9')"><span class="opt-letter">B</span> 仅 I、II、IV</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s1q9')"><span class="opt-letter">C</span> 仅 I、III、IV</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s1q9')"><span class="opt-letter">D</span> 仅 II、III、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q9')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s1q10">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q10</span><span class="mcq-stem">以下哪种结构最适合根据成绩段（A/B/C/D/E）输出等级？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s1q10')"><span class="opt-letter">A</span> While 循环</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s1q10')"><span class="opt-letter">B</span> If-Elif-Else 选择</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s1q10')"><span class="opt-letter">C</span> For 计数循环</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s1q10')"><span class="opt-letter">D</span> Nested Loops</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s1q10')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <span></span>
+            <button class="mcq-nav-btn" onclick="showPage('pageSim1',false);showPage('pageSim2',true)">下一组 →</button>
+          </div>
+        </div>        <div id="pageSim2" class="mcq-page-block" style="display:none">
+          <div class="mcq-page-header"><span>模拟卷 · 第 11–20 题</span><span></span></div>          <div class="mcq-card" id="s2q11">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q11</span><span class="mcq-stem">While 循环中缺少步进条件（如 i=i+1），会导致？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s2q11')"><span class="opt-letter">A</span> 程序立即结束</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s2q11')"><span class="opt-letter">B</span> 打印一次</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s2q11')"><span class="opt-letter">C</span> 死循环（程序永不结束）</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s2q11')"><span class="opt-letter">D</span> 语法错误</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q11')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q12">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q12</span><span class="mcq-stem">For I = 5 DownTo 1 Step 1 执行多少次？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s2q12')"><span class="opt-letter">A</span> 0次</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s2q12')"><span class="opt-letter">B</span> 4次</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s2q12')"><span class="opt-letter">C</span> 5次</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s2q12')"><span class="opt-letter">D</span> 6次</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q12')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q13">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q13</span><span class="mcq-stem">追踪表 (Trace Table) 的主要用途是？I. 手动记录变量变化 II. 发现逻辑错误 III. 不需运行程序即可验证 IV. 自动修复语法错误</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s2q13')"><span class="opt-letter">A</span> I、II、III、IV 全部</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s2q13')"><span class="opt-letter">B</span> 仅 I、II、IV</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s2q13')"><span class="opt-letter">C</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s2q13')"><span class="opt-letter">D</span> 仅 II、III、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q13')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q14">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q14</span><span class="mcq-stem">对100个已排序元素做二分搜寻，最坏几次找到？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s2q14')"><span class="opt-letter">A</span> 1次</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s2q14')"><span class="opt-letter">B</span> 50次</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s2q14')"><span class="opt-letter">C</span> 7次</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s2q14')"><span class="opt-letter">D</span> 100次</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q14')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q15">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q15</span><span class="mcq-stem">含15个元素的已排序数组，用二分搜寻找 45（数组第8位，索引7）第一次比较访问哪个元素？(Low=0,High=14)</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s2q15')"><span class="opt-letter">A</span> Array[6]=38</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s2q15')"><span class="opt-letter">B</span> Array[7]=45（直接命中！）</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s2q15')"><span class="opt-letter">C</span> Array[8]=56</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s2q15')"><span class="opt-letter">D</span> Array[5]=23</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q15')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q16">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q16</span><span class="mcq-stem">二分搜寻的时间复杂度是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','s2q16')"><span class="opt-letter">A</span> O(N²)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','s2q16')"><span class="opt-letter">B</span> O(N)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','s2q16')"><span class="opt-letter">C</span> O(2^N)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','s2q16')"><span class="opt-letter">D</span> O(log₂N)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q16')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q17">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q17</span><span class="mcq-stem">冒泡排序哪些正确？I. N元素最多N-1轮 II. 每轮将最大值移至末尾 III. 最坏比较N(N-1)/2次 IV. Flag优化后无交换提前结束</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','C','s2q17')"><span class="opt-letter">A</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','C','s2q17')"><span class="opt-letter">B</span> 仅 I、II、IV</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','C','s2q17')"><span class="opt-letter">C</span> I、II、III、IV 全部</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','C','s2q17')"><span class="opt-letter">D</span> 仅 II、III、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q17')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q18">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q18</span><span class="mcq-stem">[9,3,7,1] 升序冒泡 Pass 1 结束后？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','B','s2q18')"><span class="opt-letter">A</span> [1,3,7,9]</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','B','s2q18')"><span class="opt-letter">B</span> [3,7,1,9]</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','B','s2q18')"><span class="opt-letter">C</span> [3,1,7,9]</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','B','s2q18')"><span class="opt-letter">D</span> [9,7,3,1]</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q18')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q19">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q19</span><span class="mcq-stem">N个已排序元素二分搜寻，空间复杂度是？</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','s2q19')"><span class="opt-letter">A</span> O(N²)</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','s2q19')"><span class="opt-letter">B</span> O(N)</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','s2q19')"><span class="opt-letter">C</span> O(log₂N)</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','s2q19')"><span class="opt-letter">D</span> O(1)</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q19')">↺ 重试</button>
+          </div>          <div class="mcq-card" id="s2q20">
+            <div class="mcq-stem-row"><span class="mcq-qnum">Q20</span><span class="mcq-stem">哪些情况体现贪进法？I. 找零优先用大面额 II. 每步选最短距离 III. 穷举所有路径取最短 IV. 背包按单位价值排序</span></div>
+            <div class="mcq-options">
+              <button class="mcq-opt" data-choice="A" onclick="answerMcq(this,'A','D','s2q20')"><span class="opt-letter">A</span> 仅 I、II、III</button>
+              <button class="mcq-opt" data-choice="B" onclick="answerMcq(this,'B','D','s2q20')"><span class="opt-letter">B</span> 仅 I、III、IV</button>
+              <button class="mcq-opt" data-choice="C" onclick="answerMcq(this,'C','D','s2q20')"><span class="opt-letter">C</span> 仅 II、III、IV</button>
+              <button class="mcq-opt" data-choice="D" onclick="answerMcq(this,'D','D','s2q20')"><span class="opt-letter">D</span> I、II、IV</button>
+            </div>
+            <div class="mcq-feedback"></div>
+            <button class="mcq-reset" onclick="resetMcq('s2q20')">↺ 重试</button>
+          </div>          <div class="mcq-nav-footer">
+            <button class="mcq-nav-btn" onclick="showPage('pageSim2',false);showPage('pageSim1',true)">← 上一组</button>
+            <span style="font-size:13px;color:#6B7280;">模拟卷选择题完成！</span>
+          </div>
+        </div>
+
+        <!-- Sim Open Questions -->
+        <div class="open-questions-section">
+          <div class="open-section-header">✏️ 模拟卷 · 综合情境作答题（5题，含评分量规）</div>
+          <div class="open-accordion-list">
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 模拟题 1 · 电费计算虚拟码（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">电费计算规则：0~30小时免费；31~40小时每小时RM0.50；超过40小时部分每小时RM1.00（前10小时超额费RM5.00）。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">写出完整虚拟码（含输入验证：T≤0报错）（6分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">画出流程图框架（列出所有判断框和对应处理）（6分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 虚拟码 (6分)</div>
+                    <div class="subans-point-row">开始</div>
+                    <div class="subans-point-row">输入 用电时数 T</div>
+                    <div class="subans-point-row">若 T ≤ 0 则 输出 "错误：时数不合法" → 结束</div>
+                    <div class="subans-point-row">若 T ≤ 30 则 超额=0，电费=0.00</div>
+                    <div class="subans-point-row">否则若 T ≤ 40 则 超额=T-30，电费=超额×0.50</div>
+                    <div class="subans-point-row">否则（T>40）：超额=T-30，电费=10×0.50+(超额-10)×1.00</div>
+                    <div class="subans-point-row">输出 超额时数，输出 电费</div>
+                    <div class="subans-point-row">结束</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 流程图判断框（6分）</div>
+                    <div class="subans-point-row">① 起止框：开始（1分）</div>
+                    <div class="subans-point-row">② 输入框：输入T（1分）</div>
+                    <div class="subans-point-row">③ 判断：T≤0？→ True:错误输出+结束（1分）</div>
+                    <div class="subans-point-row">④ 判断：T≤30？→ True:电费=0（1分）</div>
+                    <div class="subans-point-row">⑤ 判断：T≤40？→ True:超额费0.5×(T-30)；False:复合计费（1分）</div>
+                    <div class="subans-point-row">⑥ 输出+结束（1分）</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 验证条件1分+每个正确分段各2分+输出1分=6分。b) 每个正确图符各1分，共6分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 模拟题 2 · 追踪表与程序分析（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">Python 代码：Total = 0; Count = 0<br>for i in range(1, 11):<br>&nbsp;&nbsp;if i % 2 == 0: Total += i; Count += 1</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">填写追踪表，当 i=2,4,6,8,10 时，记录 Total 和 Count 的变化。（8分，每行2分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">程序最终输出 Total 和 Count 各为多少？（4分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 追踪表 (8分)</div>
+                    <div class="subans-point-row">i=2：Total=2，Count=1</div>
+                    <div class="subans-point-row">i=4：Total=6，Count=2</div>
+                    <div class="subans-point-row">i=6：Total=12，Count=3</div>
+                    <div class="subans-point-row">i=8：Total=20，Count=4</div>
+                    <div class="subans-point-row">i=10：Total=30，Count=5</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 最终输出 (4分)</div>
+                    <div class="subans-point-row"><strong>Total = 30</strong>（2+4+6+8+10）</div>
+                    <div class="subans-point-row"><strong>Count = 5</strong>（1~10间共5个偶数）</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 每行正确各2分×4行=8分。b) Total+Count各2分=4分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 模拟题 3 · 冒泡排序降序追踪（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">原数组（降序排序）：[18, 56, 34, 92, 27]</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">写出 Pass 1 每次比较与交换的结果（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">写出 Pass 2 结束后数组状态（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">c</span><span class="subq-body">解释 Flag 优化如何使已排好的数组达到 O(N) 最优效率（4分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) Pass 1 过程 (4分)</div>
+                    <div class="subans-point-row">18 &lt; 56 → 交换 → [56, 18, 34, 92, 27]</div>
+                    <div class="subans-point-row">18 &lt; 34 → 交换 → [56, 34, 18, 92, 27]</div>
+                    <div class="subans-point-row">18 &lt; 92 → 交换 → [56, 34, 92, 18, 27]</div>
+                    <div class="subans-point-row">18 &lt; 27 → 交换 → [56, 34, 92, 27, 18]</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) Pass 2 结果 (4分)</div>
+                    <div class="subans-point-row">Pass 2 对 [56,34,92,27] 比较：56>34不换；34&lt;92换→[56,92,34,27]；34>27不换</div>
+                    <div class="subans-point-row"><strong>[56, 92, 34, 27, 18]</strong></div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">c) Flag 优化 (4分)</div>
+                    <div class="subans-point-row">每轮开始前 Flag=False。若发生交换则 Flag=True。</div>
+                    <div class="subans-point-row">轮结束检查 Flag：若为 False（无交换），数组已排好，提前终止。</div>
+                    <div class="subans-point-row">对已排好数组：第1轮无任何交换→Flag仍False→立即结束，仅1轮N-1次比较，O(N)。</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 每次比较状态各1分×4=4分。b) 过程2分+结果2分=4分。c) Flag设置1分+逻辑判断1分+O(N)解释2分=4分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 模拟题 4 · 二分搜寻与效率对比（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">已排序数组（16元素，索引0~15）：[102,115,128,143,156,167,178,192,205,218,221,228,235,247,259,270]。搜寻目标：ID=228（在索引11）。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">写出完整二分搜寻步骤（每步写 Low、High、Mid 与比较结果），直到找到 228。（8分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">说明在N=1,000,000的数据集中，二分搜寻相比线性搜寻的优势。（4分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 二分搜寻过程 (8分)</div>
+                    <div class="subans-point-row">初始：Low=0, High=15</div>
+                    <div class="subans-point-row"><strong>第1步</strong>：Mid=(0+15)//2=7，IDs[7]=192，228&gt;192 → Low=8（更新下界）</div>
+                    <div class="subans-point-row"><strong>第2步</strong>：Low=8, High=15，Mid=(8+15)//2=11，IDs[11]=228 == 228 ✅ 找到！</div>
+                    <div class="subans-point-row">共比较 <strong>2次</strong>，目标在索引 <strong>11</strong>。</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 效率优势 (4分)</div>
+                    <div class="subans-point-row">线性搜寻：N=1,000,000 时，最坏需 1,000,000 次比较 O(N)。（2分）</div>
+                    <div class="subans-point-row">二分搜寻：最坏仅需 ⌈log₂1,000,000⌉=20 次比较 O(log₂N)。（2分）</div>
+                    <div class="subans-point-row">效率优势极显著：20次 vs 100万次，适合大型有序数据集。</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 每步(Low+High+Mid+结果)各4分，共2步×4=8分。b) 线性次数2分+二分次数+解释2分=4分。</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="open-accordion-item">
+              <div class="open-accordion-header" onclick="toggleAccordion(this)">
+                <span class="open-item-title">📌 模拟题 5 · 贪进法 vs 暴力法情境辨析（12分）</span>
+                <span class="open-item-arrow">▼</span>
+              </div>
+              <div class="open-accordion-body">
+                <div class="open-context-block">旅行商问题：商人要拜访5个城市（A、B、C、D、E），每两城市间距离已知，要求找出总距离最短的路线。</div>
+                <div class="open-subq-card"><span class="subq-badge">a</span><span class="subq-body">若用暴力法解决5城市问题，最多需要考虑多少种路线？（提示：排列数 = (N-1)! / 2）（4分）</span></div>
+                <div class="open-subq-card"><span class="subq-badge">b</span><span class="subq-body">若用贪进法解决（每次前往最近未访问城市），描述从A出发的选择过程（假设：AB=10,AC=25,AD=15,AE=20；BD=8,BE=12...）并说明贪进法的局限性。（8分）</span></div>
+                <button class="view-ans-btn" onclick="toggleOpenAns(this)">📖 查看参考答案</button>
+                <div class="open-ans-box">
+                  <div class="ans-box-title">📋 参考答案</div>
+                  <div class="subans-card">
+                    <div class="subans-header">a) 暴力法路线数 (4分)</div>
+                    <div class="subans-point-row">N=5城市，从固定起点出发，其余4城市全排列数 = 4! = 24种路线</div>
+                    <div class="subans-point-row">若路线无向，则路线数 = 4!/2 = 12种（往返视为同路）</div>
+                    <div class="subans-point-row">暴力法需检验所有 <strong>12种</strong> 路线，取最短者。（4分）</div>
+                  </div>
+                  <div class="subans-card">
+                    <div class="subans-header">b) 贪进法过程与局限 (8分)</div>
+                    <div class="subans-point-row"><strong>贪进法过程</strong>（4分）：</div>
+                    <div class="subans-point-row">从A出发 → 最近未访城市是B(AB=10) → 从B出发 → 最近未访是D(BD=8) → 从D出发 → 选E或C...</div>
+                    <div class="subans-point-row">每步选局部最短距离，快速得到一条路线。</div>
+                    <div class="subans-point-row"><strong>局限性</strong>（4分）：</div>
+                    <div class="subans-point-row">①贪进法只保证局部最优，不一定是全局最短路线。可能因为早期的"近"选择导致后续路程反而更长。</div>
+                    <div class="subans-point-row">②对旅行商问题，暴力法才能保证找到真正最短路线（虽然当N很大时极慢）。</div>
+                  </div>
+                  <div class="rubrics-card"><div class="rubrics-title">📊 评分量规</div>a) 排列数计算2分+正确结论2分=4分。b) 贪进法步骤描述4分+局限性分析（局部vs全局1分+说明1分+暴力法对比2分）=8分。</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /tabSim -->
+
+    </div><!-- /quiz-modal -->
+  </div><!-- /quiz-overlay -->  <script>
+    // === Layout ===
+    function toggleSidebar(){
+      var sb=document.getElementById('sidebar'),bd=document.getElementById('backdrop');
+      var open=sb.classList.toggle('open');
+      bd.style.display=open?'block':'none';
+    }
+    function closeSidebar(){
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('backdrop').style.display='none';
+    }
+
+    // === Progress Bar + Scroll Top ===
+    window.addEventListener('scroll',function(){
+      var ws=document.documentElement.scrollTop||document.body.scrollTop;
+      var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+      if(h>0) document.getElementById('progress-bar').style.width=(ws/h*100)+'%';
+      document.getElementById('btn-top').style.display=ws>400?'block':'none';
+      // Update active nav
+      var anchors=['sec-anc-1','sec-anc-2','sec-anc-3','sec-anc-4','quiz-anchor','sec-anc-5'];
+      var links=document.querySelectorAll('#nav-list a');
+      for(var i=anchors.length-1;i>=0;i--){
+        var el=document.getElementById(anchors[i]);
+        if(el && el.getBoundingClientRect().top<=120){
+          links.forEach(function(l){l.classList.remove('active');});
+          if(links[i]) links[i].classList.add('active');
+          break;
+        }
+      }
+    });
+
+    // === Checklist ===
+    function toggleCheck(cb){
+      cb.parentElement.classList.toggle('done', cb.checked);
+    }
+
+    // === Lightbox ===
+    function openLightbox(src){
+      document.getElementById('lightbox-img').src=src;
+      document.getElementById('lightbox').style.display='flex';
+    }
+    function closeLightbox(){document.getElementById('lightbox').style.display='none';}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLightbox();closeQuiz();}});
+
+    // === Quiz Modal ===
+    function openQuiz(){document.getElementById('quiz-overlay').style.display='flex';}
+    function closeQuiz(){document.getElementById('quiz-overlay').style.display='none';}
+    function handleOverlayClick(e){if(e.target===document.getElementById('quiz-overlay'))closeQuiz();}
+
+    // === Quiz Tabs ===
+    function switchTab(tabId, btn){
+      document.querySelectorAll('.quiz-tab-content').forEach(function(t){t.style.display='none';});
+      document.querySelectorAll('.qtab-btn').forEach(function(b){b.classList.remove('active');});
+      document.getElementById(tabId).style.display='block';
+      btn.classList.add('active');
+    }
+
+    // === MCQ Pagination ===
+    function showPage(pageId, show){
+      var el=document.getElementById(pageId);
+      if(el) el.style.display=show?'block':'none';
+    }
+
+    // === MCQ Answer Logic ===
+    function answerMcq(btn, chosen, correct, cardId){
+      var card=document.getElementById(cardId);
+      var opts=card.querySelectorAll('.mcq-opt');
+      opts.forEach(function(b){b.disabled=true;});
+      var fb=card.querySelector('.mcq-feedback');
+      if(chosen===correct){
+        btn.classList.add('opt-correct');
+        fb.innerHTML='✅ <strong>回答正确！</strong>答案就是选项 '+correct+'。';
+        fb.className='mcq-feedback fb-correct';
+      } else {
+        btn.classList.add('opt-wrong');
+        opts.forEach(function(b){
+          if(b.dataset.choice===correct) b.classList.add('opt-correct');
+        });
+        fb.innerHTML='❌ <strong>答错了。</strong>正确答案是选项 <strong>'+correct+'</strong>，请重新记忆！';
+        fb.className='mcq-feedback fb-wrong';
+      }
+      fb.style.display='block';
+    }
+    function resetMcq(cardId){
+      var card=document.getElementById(cardId);
+      card.querySelectorAll('.mcq-opt').forEach(function(b){
+        b.disabled=false;
+        b.className='mcq-opt';
+      });
+      var fb=card.querySelector('.mcq-feedback');
+      fb.style.display='none';
+      fb.className='mcq-feedback';
+    }
+
+    // === Open Q Accordion Toggle ===
+    function toggleAccordion(header){
+      var body=header.nextElementSibling;
+      var isOpen=body.style.display==='block';
+      body.style.display=isOpen?'none':'block';
+      header.classList.toggle('open', !isOpen);
+    }
+    function toggleOpenAns(btn){
+      var box=btn.nextElementSibling;
+      var isOpen=box.style.display==='block';
+      box.style.display=isOpen?'none':'block';
+      btn.textContent=isOpen?'📖 查看参考答案':'🔼 收起答案';
+    }
+      // 返回平台主页处理函数
+    function handleChapterBackHome() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = '../../../index.html';
+      }
+      return false;
+    }
+</script>
+</body>
+</html>

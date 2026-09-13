@@ -1,0 +1,2629 @@
+﻿<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高中资讯科技（第二册）阶段测验（二） ｜ 马来西亚华文独中高中资讯科技在线模拟考场</title>
+  <meta name="description" content="高中资讯科技（第二册）阶段测验（二） · 马来西亚华文独中高中资讯科技全真在线模拟考场 · 45分钟倒计时 · 30道单选题即时机读批阅与逐题解析">
+  <style>
+/* ==============================================================================
+   独中高中资讯科技 · 全真在线模拟考场母版样式表 (Exam Master Style)
+   严格对齐 2026/2027 董总统考新规范 · 专业沉浸式考场交互引擎
+   ============================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+:root {
+  --primary-blue: #1E3A8A;
+  --primary-indigo: #2563EB;
+  --primary-hover: #1D4ED8;
+  --bg-slate: #F8FAFC;
+  --border-slate: #E2E8F0;
+  --text-dark: #0F172A;
+  --text-muted: #64748B;
+  --success-green: #10B981;
+  --success-bg: #ECFDF5;
+  --error-red: #EF4444;
+  --error-bg: #FEF2F2;
+  --warn-amber: #F59E0B;
+  --warn-bg: #FFFBEB;
+  --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-slate);
+  color: var(--text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 72px; /* For fixed top exam header */
+}
+
+/* 考场固定顶部状态栏 */
+.exam-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-slate);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.exam-info-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.exam-badge {
+  background: #EFF6FF;
+  color: var(--primary-indigo);
+  border: 1px solid #BFDBFE;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.exam-main-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.exam-meta-sub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.exam-timer-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timer-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0F172A;
+  color: #FFF;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s;
+}
+
+.timer-box.timer-urgent {
+  background: var(--error-red);
+  animation: pulseTimer 1s infinite;
+}
+
+@keyframes pulseTimer {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+.timer-btn-pause {
+  background: #F1F5F9;
+  border: 1px solid var(--border-slate);
+  color: var(--text-dark);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.timer-btn-pause:hover {
+  background: #E2E8F0;
+}
+
+.btn-review-paper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-slate);
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-review-paper:hover {
+  background: #E2E8F0;
+  color: var(--color-primary);
+}
+
+.btn-export-mistakes {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-export-mistakes:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+.btn-submit-exam {
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: #FFF;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  transition: all 0.2s;
+}
+
+.btn-submit-exam:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+}
+
+/* 主内容容器 */
+.exam-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* 考生须知卡片 */
+.exam-notice-card {
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--card-shadow);
+  border-left: 5px solid var(--primary-indigo);
+}
+
+.exam-notice-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exam-notice-list {
+  font-size: 13.5px;
+  color: #475569;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+/* 分卷大标题 */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: #FFF;
+  padding: 16px 24px;
+  border-radius: 12px;
+  margin: 32px 0 20px 0;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.section-divider h2 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-badge-right {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 单选题卡片 */
+.question-card {
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.question-card:hover {
+  border-color: #CBD5E1;
+}
+
+.q-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.q-num-badge {
+  background: #F1F5F9;
+  color: var(--primary-blue);
+  font-size: 13.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #E2E8F0;
+  font-family: 'Fira Code', monospace;
+}
+
+.q-points {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.btn-flag-q {
+  background: transparent;
+  border: 1px solid #CBD5E1;
+  color: #64748B;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.btn-flag-q:hover, .btn-flag-q.flagged {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #B45309;
+}
+
+.q-stem-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* 选项列表 */
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #F8FAFC;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  color: #334155;
+  user-select: none;
+}
+
+.option-item:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.option-item.selected {
+  background: #EFF6FF;
+  border-color: var(--primary-indigo);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.opt-radio-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748B;
+  background: #FFF;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.option-item.selected .opt-radio-icon {
+  border-color: var(--primary-indigo);
+  background: var(--primary-indigo);
+  color: #FFF;
+}
+
+/* 交卷后选项状态 */
+.option-item.opt-correct {
+  background: var(--success-bg) !important;
+  border-color: var(--success-green) !important;
+  color: #065F46 !important;
+  font-weight: 700;
+}
+
+.option-item.opt-correct .opt-radio-icon {
+  background: var(--success-green) !important;
+  border-color: var(--success-green) !important;
+  color: #FFF !important;
+}
+
+.option-item.opt-wrong {
+  background: var(--error-bg) !important;
+  border-color: var(--error-red) !important;
+  color: #991B1B !important;
+}
+
+.option-item.opt-wrong .opt-radio-icon {
+  background: var(--error-red) !important;
+  border-color: var(--error-red) !important;
+  color: #FFF !important;
+}
+
+/* 官方深度解析折叠块 */
+.explanation-box {
+  display: none;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--primary-indigo);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.exp-header {
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 主观作答题卡片 */
+.open-question-card {
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 14px;
+  padding: 26px 30px;
+  margin-bottom: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+.open-q-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.open-q-main-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.open-q-context-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.sub-q-block {
+  margin-bottom: 22px;
+  padding-left: 10px;
+  border-left: 3px solid #E2E8F0;
+}
+
+.sub-q-prompt {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+.student-answer-textarea {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  line-height: 1.6;
+  resize: vertical;
+  background: #FAFAFA;
+  transition: all 0.2s;
+}
+
+.student-answer-textarea:focus {
+  outline: none;
+  border-color: var(--primary-indigo);
+  background: #FFF;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* 主观题官方量规展开发布栏 */
+.official-rubric-box {
+  display: none;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 14px;
+}
+
+.rubric-header {
+  font-size: 14px;
+  font-weight: 800;
+  color: #166534;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rubric-content {
+  font-size: 13.5px;
+  color: #14532D;
+  line-height: 1.8;
+}
+
+/* 右侧悬浮答题卡面板 */
+.sticky-bubble-panel {
+  position: sticky;
+  top: 96px;
+  background: #FFF;
+  border: 1px solid var(--border-slate);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: var(--card-shadow);
+}
+
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-slate);
+}
+
+.panel-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.panel-legend {
+  display: flex;
+  gap: 10px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-unanswered { background: #FFF; border: 1px solid #CBD5E1; }
+.dot-answered { background: var(--primary-indigo); }
+.dot-flagged { background: var(--warn-amber); }
+
+/* 答题卡气泡网格 */
+.bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.bubble-btn {
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--border-slate);
+  background: #FFF;
+  color: var(--text-dark);
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.bubble-btn:hover {
+  border-color: var(--primary-indigo);
+  background: #F8FAFC;
+}
+
+.bubble-btn.bubble-answered {
+  background: var(--primary-indigo);
+  color: #FFF;
+  border-color: var(--primary-indigo);
+}
+
+.bubble-btn.bubble-flagged::after {
+  content: '🚩';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  font-size: 9px;
+}
+
+.bubble-btn.bubble-correct {
+  background: var(--success-green) !important;
+  border-color: var(--success-green) !important;
+  color: #FFF !important;
+}
+
+.bubble-btn.bubble-wrong {
+  background: var(--error-red) !important;
+  border-color: var(--error-red) !important;
+  color: #FFF !important;
+}
+
+/* 答题统计与进度 */
+.progress-summary {
+  background: #F8FAFC;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.progress-bar-bg {
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary-indigo);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* 成绩单 Modal 弹窗 */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-overlay.show {
+  display: flex !important;
+}
+
+.modal-content {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 580px;
+  padding: 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  animation: zoomIn 0.3s ease;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-slate);
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #94a3b8;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+}
+
+.modal-close-btn:hover {
+  color: #1e293b;
+}
+
+.score-card {
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.score-main {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.score-label {
+  font-size: 14px;
+  opacity: 0.92;
+  margin-top: 4px;
+}
+
+.stats-pills-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-pill {
+  background: #F8FAFC;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.pill-num {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.pill-label {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.score-card-modal {
+  background: #FFF;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 540px;
+  padding: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-trophy {
+  font-size: 54px;
+  margin-bottom: 12px;
+}
+
+.score-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.score-display-box {
+  background: linear-gradient(135deg, #1E3A8A, #2563EB);
+  color: #FFF;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.score-number {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.score-sub {
+  font-size: 13.5px;
+  opacity: 0.9;
+}
+
+.score-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-item {
+  background: #F8FAFC;
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.stat-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.stat-lbl {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.modal-btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-modal-action {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-view-analysis {
+  background: var(--primary-indigo);
+  color: #FFF;
+}
+
+.btn-view-analysis:hover {
+  background: var(--primary-hover);
+}
+
+.btn-modal-close {
+  background: #F1F5F9;
+  color: #475569;
+}
+
+.btn-modal-close:hover {
+  background: #E2E8F0;
+}
+
+/* 移动端响应式 */
+@media (max-width: 1024px) {
+  .exam-container {
+    grid-template-columns: 1fr;
+  }
+  .sticky-bubble-panel {
+    position: static;
+    margin-top: 24px;
+  }
+}
+
+/* 规范化学生代码块与行内代码排版 */
+.code-block {
+  background: #1E293B;
+  color: #F8FAFC;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 10px 0 14px 0;
+  overflow-x: auto;
+  border: 1px solid #334155;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.code-block code {
+  font-family: inherit;
+  color: inherit;
+}
+
+.inline-code {
+  background: #F1F5F9;
+  color: #1D4ED8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-size: 0.9em;
+  border: 1px solid #E2E8F0;
+  font-weight: 600;
+}
+
+/* 官方考点高亮标签 */
+.exp-tag {
+  display: inline-block;
+  background: #EFF6FF;
+  color: #1E40AF;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  font-size: 13px;
+}
+
+
+/* 考场顶部返回主页按钮 (高对比度深色文本+浅灰底+悬浮深蓝) */
+.btn-exam-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  color: #1e293b !important;
+  border: 1.5px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 14px;
+  flex-shrink: 0;
+  line-height: 1.4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.btn-exam-back-home:hover {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* 手机端与小屏考场自适应优化 (Responsive Mobile Layout) */
+@media (max-width: 768px) {
+  .exam-top-bar {
+    height: auto !important;
+    padding: 10px 14px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .exam-info-block {
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  .exam-meta-sub {
+    display: none !important;
+  }
+  .exam-main-title {
+    font-size: 14.5px !important;
+    max-width: 220px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .exam-timer-wrapper {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  .exam-container {
+    margin-top: 116px !important;
+    padding: 12px 10px 40px !important;
+  }
+  .btn-exam-back-home {
+    padding: 6px 12px !important;
+    font-size: 12.5px !important;
+    margin-right: 6px !important;
+  }
+  .question-card {
+    padding: 16px 14px !important;
+  }
+  .option-label {
+    padding: 12px 14px !important;
+    font-size: 14px !important;
+  }
+}
+
+    /* 主观大题外置专属横幅 */
+    .open-questions-portal-banner {
+      margin-top: 40px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 14px;
+      padding: 28px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .banner-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .banner-left h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 8px 0 6px;
+    }
+
+    .banner-left p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      max-width: 620px;
+    }
+
+    .banner-badge {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .btn-goto-open-portal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+    }
+
+    .btn-goto-open-portal:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.45);
+    }
+
+    .btn-side-open-link {
+      display: block;
+      margin-top: 12px;
+      text-align: center;
+      color: #2563eb;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 10px;
+      background: #eff6ff;
+      border-radius: 8px;
+      border: 1px solid #bfdbfe;
+      transition: all 0.15s;
+    }
+
+    .btn-side-open-link:hover {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    /* 考场顶部返回主页按钮 (高对比度、清晰可见) */
+    .btn-exam-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f8fafc;
+      color: #1e293b !important;
+      border: 1.5px solid #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none !important;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-right: 14px;
+      flex-shrink: 0;
+      line-height: 1.4;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    .btn-exam-back-home:hover {
+      background: #2563eb;
+      border-color: #1d4ed8;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    /* 手机端与小屏考场自适应优化 (Responsive Mobile Layout) */
+    @media (max-width: 768px) {
+      .exam-top-bar {
+        height: auto !important;
+        padding: 10px 14px !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+      }
+      .exam-info-block {
+        width: 100% !important;
+        justify-content: space-between !important;
+        gap: 8px !important;
+      }
+      .exam-meta-sub {
+        display: none !important;
+      }
+      .exam-main-title {
+        font-size: 14.5px !important;
+        max-width: 220px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .exam-timer-wrapper {
+        width: 100% !important;
+        justify-content: space-between !important;
+      }
+      .exam-container {
+        margin-top: 116px !important;
+        padding: 12px 10px 40px !important;
+      }
+      .btn-exam-back-home {
+        padding: 6px 12px !important;
+        font-size: 12.5px !important;
+        margin-right: 6px !important;
+      }
+      .question-card {
+        padding: 16px 14px !important;
+      }
+      .option-label {
+        padding: 12px 14px !important;
+        font-size: 14px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部考场固定状态栏 -->
+  <header class="exam-top-bar">
+    <div class="exam-info-block">
+      <a href="../../index.html" class="btn-exam-back-home" onclick="return handleExamBackHome();">⬅ 返回总控大厅</a>
+      <span class="exam-badge">第二册阶段测验 · 安全物联网</span>
+      <div>
+        <div class="exam-main-title">高中资讯科技（第二册）阶段测验（二）</div>
+        <div class="exam-meta-sub">考核范围：第 4 章《网络安全与网络资源分享》、第 5 章《物联网与其应用》</div>
+      </div>
+    </div>
+
+    <div class="exam-timer-wrapper">
+      <div class="timer-box" id="timerBox">
+        <span>⏱️</span>
+        <span id="timerDisplay">00:45:00</span>
+      </div>
+      <button type="button" class="timer-btn-pause" id="btnPauseTimer" onclick="togglePauseTimer()">⏸ 暂停</button>
+      <button type="button" class="btn-submit-exam" onclick="confirmSubmitExam()">📝 提前交卷评分</button>
+    </div>
+  </header>
+
+  <!-- 考场主体网格容器 -->
+  <main class="exam-container">
+    <!-- 左侧试题区域 -->
+    <div class="exam-main-content">
+      <!-- 考生须知 -->
+      <section class="exam-notice-card">
+        <h3>📋 独中统考全真考场 · 考生答题须知与模式说明</h3>
+        <ol class="exam-notice-list">
+          <li><strong>试卷构成</strong>：本在线考场专门进行<strong>甲组单项选择题机读测验</strong>（共 30 题，每题 2 分，满分 60 分）。</li>
+          <li><strong>时间分配</strong>：建议考试时间 <strong>45 分钟</strong>。右上角提供全真倒计时，可随时暂停或提前交卷。</li>
+          <li><strong>机读交互</strong>：选择题点击选项即时同步至右侧电子答题卡；不确定的题目可点击“🚩 标记”方便复查。</li>
+          <li><strong>主观大题外置说明</strong>：<strong>乙组综合情境作答题无需在输入框打字作答</strong>，已独立整合至专属精研页面，文末与侧栏均配有快捷通道，点击即可直接阅读题干并展开参考答案与官方评分量规。</li>
+          <li><strong>交卷评测</strong>：点击“提前交卷评分”后，系统将自动核算客观题得分、揭晓正确答案并全面展开深度命题解析。</li>
+        </ol>
+      </section>
+
+      <!-- 甲组：单项选择题 -->
+      <div class="section-divider" id="sec-part-mcq">
+        <h2>甲组：单项选择题（共 30 题，每题 2 分，共 60 分）</h2>
+        <span class="section-badge-right">客观题 · 即时机读打分</span>
+      </div>
+
+      <div class="mcq-list-container">
+  <div class='question-card' id='qcard_1'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q01</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_1' onclick='toggleFlag(1)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>随着物联网（IoT）技术普及，智慧家庭、工业 4.0 与智慧农业快速发展。在物联网典型的“三层体系架构”中，位于最底层、负责利用各种传感器全面采集物理世界环境信息（如温度、光敏、土壤湿度等）的层级是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(1, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>感知层（Perception Layer）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(1, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>网络层（Network Layer）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(1, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>应用层（Application Layer）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(1, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>业务决策层（Business Layer）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_2'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q02</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_2' onclick='toggleFlag(2)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某农场技术员使用 ESP32 传感器采集大棚内的环境光照强度。光敏传感器输出的是随光照连续变化的电压模拟信号（0V~3.3V），而单片机 CPU 只能处理离散的二进制数字信号。负责将该模拟电压转换为数字数值的关键硬件模块是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(2, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>脉冲宽度调制器（PWM）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(2, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>模数转换器（ADC / Analog-to-Digital Converter）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(2, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>运算法则寄存器（ALU）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(2, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>移位寄存器（Shift Register）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_3'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q03</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_3' onclick='toggleFlag(3)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在无线传感器网络（WSN）与智能家居组网中，下列哪种无线短距离通信技术具备“低功耗、低成本、支持自组网网状拓扑（Mesh Network）并可容纳数万个网络节点”的典型特征？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(3, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>4G LTE</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(3, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>卫星宽带（Starlink）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(3, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>ZigBee</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(3, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>红外线传输（IrDA）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>C</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_4'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q04</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_4' onclick='toggleFlag(4)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>RFID（射频识别技术）广泛应用于门禁刷卡与智慧物流。根据标签是否内置供电电池，可分为主动式（有源）与被动式（无源）标签。下列关于被动式（Passive）RFID 标签特性的陈述，何者完全正确？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(4, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>内部必须安装高能量纽扣锂电池，发射距离通常可达数百米以上</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(4, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>标签本身无内置电源，完全依靠读卡器发射的电磁波感应电流瞬间激活并反射自身电子编码</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(4, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>标签体积庞大且制造成本昂贵，绝不能制成普通的公交卡或纸质不干胶条形码贴纸</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(4, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>仅支持一对一高精度红外线对准扫描，不能在任何雨雪或遮挡环境下工作</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_5'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q05</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_5' onclick='toggleFlag(5)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在物联网边缘计算（Edge Computing）与传统集中式云计算（Cloud Computing）的架构对比中，引入边缘计算节点（如网关级微型服务器）最主要的核心优势在于：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(5, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>彻底取代所有公有云服务，使得全球范围内不再需要建设任何大型数据中心</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(5, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>在靠近数据产生的现场就近处理与过滤数据，大幅降低网络往返延迟与骨干网带宽消耗</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(5, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>使所有传感器节点都具备超算级的每秒万亿次深度学习大模型训练能力</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(5, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>能够 100% 消除所有传感器硬件的物理磨损与电池老化问题</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_6'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q06</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_6' onclick='toggleFlag(6)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某智能温控花卉温室中，当温湿度传感器检测到土壤含水量低于 20% 时，控制器根据预设阈值驱动继电器吸合，水泵电机立即开始自动浇水。在这个物联网控制闭环中，“继电器与水泵电机”属于下列哪类物联网系统部件？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(6, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>感知器件（Sensors）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(6, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>执行器件（Actuators）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(6, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>路由器网关（Gateway）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(6, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>物理传输介质（Transmission Media）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_7'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q07</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_7' onclick='toggleFlag(7)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在局域网资源共享中，Windows 操作系统与 Linux/Unix 操作系统之间实现跨平台文件与打印机共享时，广泛使用的网络协议是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(7, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>SNMP（简单网络管理协议）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(7, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>SMB / CIFS（服务器消息块协议）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(7, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>SMTP（简单邮件传输协议）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(7, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Telnet（远程终端协议）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_8'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q08</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_8' onclick='toggleFlag(8)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某公司内网部署了网络附加存储（NAS）设备供全员共享文档。网络管理员在共享文件夹权限设置中，为财务部员工小李分配了 NTFS 权限“读取与执行”，但在网络共享权限（Share Permissions）中却将其设置为“拒绝读取”。当小李通过网络访问该共享文件夹时，其最终的实际有效访问权限是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(8, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>允许完全控制（Full Control）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(8, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>允许读取与执行（Read & Execute）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(8, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>完全被拒绝访问（Access Denied）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(8, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>允许修改但禁止删除（Modify Only）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>C</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_9'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q09</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_9' onclick='toggleFlag(9)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在网络安全威胁中，“中间人攻击”（Man-in-the-Middle, MITM）是一种极具隐蔽性的网络监听与篡改手段。下列哪种防御技术最能有效挫败中间人针对 Web 流量的窃听与劫持？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(9, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>全站强制推行带有受信任权威机构 CA 证书的 HTTPS（SSL/TLS）加密协议</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(9, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>将内部所有的台式电脑显示器更换为防窥滤光膜</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(9, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>在电脑机房的主电源插座上加装防雷击电涌保护器</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(9, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>仅仅依靠在路由器上启用单播广播转换</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_10'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q10</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_10' onclick='toggleFlag(10)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某中学生在未获得学校授权的情况下，擅自使用自动化抓包工具或扫描器向学校教务系统提交恶意脚本，该学生的行为在网络安全伦理与法律定义上属于：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(10, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>完全合法的学术探索，无需承担任何校纪与法律责任</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(10, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>未经授权非法侵入计算机资讯系统的黑客行为，涉嫌违法与违反公约</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(10, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>只要未导致服务器彻底宕机，就属于教育软件的公开免费众测</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(10, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>只有在该学生公开勒索赎金后，其行为才构成道德违规</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_11'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q11</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_11' onclick='toggleFlag(11)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在公钥基础设施（PKI）体系中，数字证书（Digital Certificate）的核心作用是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(11, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>存放服务器的全部源代码，以便客户端随时核查代码安全性</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(11, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>由权威证书颁发机构（CA）进行数字签名，证明通信实体的公钥与其真实身份的绑定关系</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(11, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>存储客户端电脑的管理员明文登录密码，实现全自动跨站免密登录</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(11, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>拦截所有来自外网的 DDoS 洪泛攻击，彻底取代企业硬件防火墙</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_12'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q12</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_12' onclick='toggleFlag(12)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>虚拟专用网（VPN）利用公网建立起安全的加密隧道。在保障远程办公人员安全访问企业内网资源时，VPN 主要依靠哪两项核心技术？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(12, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>页面重定向与负载均衡</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(12, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>隧道封装（Tunneling）与数据加密（Encryption）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(12, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>动态域名解析与端口映射</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(12, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>硬盘碎片整理与磁道镜像</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_13'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q13</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_13' onclick='toggleFlag(13)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某企业内网遭受了一种破坏力极强的恶意程序感染。该程序无须用户点击任何诱骗链接，纯粹利用 Windows 系统的 SMB 文件共享协议未修补漏洞（如“永恒之蓝”漏洞），在局域网内数十秒内自主向所有联网电脑扫描、复制并执行。该恶意程序属于：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(13, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>蠕虫病毒（Worm）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(13, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>宏病毒（Macro Virus）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(13, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>逻辑炸弹（Logic Bomb）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(13, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>广告间谍软件（Adware）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_14'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q14</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_14' onclick='toggleFlag(14)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>现代企业常常将办公网络中的普通访客 Wi-Fi 与内部核心服务器网络划入不同的 VLAN。划分 VLAN 最主要的安全防护收益是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(14, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>消除访客设备对公网光纤带宽的占用，让访客无法浏览任何互联网网页</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(14, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>在数据链路层（二层）实现网络流量的逻辑隔离，阻止访客通过局域网嗅探或直接向内网服务器发起未授权扫描</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(14, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>使所有访客手机自动获得内网域控制器的系统最高管理员权限</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(14, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>免除企业为内网所有核心数据库安装任何身份验证密码的必要</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_15'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q15</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_15' onclick='toggleFlag(15)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在物联网低功耗广域网（LPWAN）通信技术中，广泛应用于智慧水表、智慧路灯与远程环境监控，且采用非授权频段、传输距离可达数公里以上的是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(15, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>NFC（近场通信）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(15, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>红外通信</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(15, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>LoRa / LoRaWAN</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(15, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>千兆以太网（1000BASE-T）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>C</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_16'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q16</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_16' onclick='toggleFlag(16)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在多媒体资源网络共享与传输中，P2P（Peer-to-Peer / 对等网络）架构相较于传统 C/S（客户端-服务器）架构的核心优势在于：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(16, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>必须依赖一台超高带宽的中央超级服务器进行所有文件的集中分发</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(16, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>每个下载者同时也是上传者，网络中参与的活跃节点越多，整体系统的总分发带宽越大</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(16, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>能够在传输过程中彻底杜绝任何受侵权盗版内容的非法传播</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(16, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>保证所有下载节点的下载速度绝对恒定，不会受任何网络拥塞影响</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_17'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q17</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_17' onclick='toggleFlag(17)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某黑客伪造网关的 ARP 响应报文，向局域网内的所有主机广播“我是默认网关，我的 MAC 地址是 XX:XX...”，导致局域网所有主机的上网流量全部被重定向至黑客电脑。这种网络攻击在技术上被称为：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(17, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>SQL 盲注攻击</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(17, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>ARP 欺骗 / ARP 投毒（ARP Spoofing / Poisoning）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(17, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>缓冲区溢出漏洞利用</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(17, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>跨站脚本攻击（XSS）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_18'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q18</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_18' onclick='toggleFlag(18)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在设计物联网安全防护方案时，物联网设备面临着许多有别于传统 PC 的严峻安全挑战。下列哪项是绝大多数低端物联网传感器设备固有的安全脆弱性？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(18, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>算力与存储资源极度受限，难以运行高强度的现代非对称加密算法与复杂防病毒引擎</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(18, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>每个传感器都配备有顶级的独立显示屏，容易被现场人员窥视屏幕内容</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(18, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>传感器绝不通过无线网络传输，只能依靠人工手动用 U 盘拷贝数据</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(18, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>物联网设备的电池寿命普遍长达数百年，使得黑客无法通过耗尽电量进行攻击</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_19'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q19</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_19' onclick='toggleFlag(19)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在现代数据中心与企业存储架构中，将多块物理硬盘通过控制器组合成一个逻辑磁盘阵列，以提供数据冗余容错与加速读写性能的技术是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(19, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>RAID（独立磁盘冗余阵列）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(19, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>DMA（直接内存访问）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(19, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>CMOS（互补金属氧化物半导体）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(19, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>BIOS（基本输入输出系统）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_20'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q20</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_20' onclick='toggleFlag(20)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>智能物流系统中，无人配送车与中央调度云平台之间需要保持毫秒级的极低延迟通信以实现实时避障。5G 网络的三大应用场景中，专门针对此类严苛时延与超高可靠性需求的是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(20, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>eMBB（增强移动宽带）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(20, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>uRLLC（超高可靠低时延通信）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(20, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>mMTC（海量机器类通信）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(20, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>DVB-T（数字地面电视广播）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_21'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q21</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_21' onclick='toggleFlag(21)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>根据罗马数字多项组合题的规范，请审视下列关于计算机网络安全防护机制的陈述：<br>下列组合何者完全正确？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(21, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ、Ⅱ、Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(21, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅱ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(21, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅰ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(21, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_22'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q22</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_22' onclick='toggleFlag(22)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>请审视下列关于物联网近距离通信技术特性的陈述：<br>下列组合何者完全正确？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(22, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(22, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅱ、Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(22, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(22, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_23'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q23</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_23' onclick='toggleFlag(23)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>请审视下列关于网络资源共享安全与权限管理的陈述：<br>下列组合何者完全正确？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(23, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ、Ⅱ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(23, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅱ、Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(23, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(23, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_24'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q24</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_24' onclick='toggleFlag(24)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>请审视下列关于网络协议安全弱点与防范的陈述：<br>下列组合何者完全正确？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(24, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ、Ⅱ、Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(24, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(24, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(24, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>D</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_25'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q25</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_25' onclick='toggleFlag(25)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>请审视下列关于智慧城市与物联网典型应用落地的陈述：<br>下列组合何者完全正确？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(25, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>仅 Ⅰ、Ⅱ、Ⅲ</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(25, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>仅 Ⅰ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(25, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>仅 Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(25, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>D</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_26'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q26</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_26' onclick='toggleFlag(26)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某智能手表能够测量佩戴者的心率与血氧饱和度，并将数据通过蓝牙同步至手机 APP，在云端大模型分析后给出运动健康建议。在该系统中，“测量心率的光电传感器”属于物联网体系架构中的：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(26, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>感知层</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(26, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>网络层</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(26, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>应用层</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(26, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>展示层</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_27'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q27</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_27' onclick='toggleFlag(27)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>在数据存储冗余技术中，RAID 1 阵列模式最显著的架构特征是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(27, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>采用数据条带化（Striping）无校验存储，读写速度最快但没有任何数据容错能力</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(27, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>采用镜像（Mirroring）机制，将相同的数据同时写入两块独立的物理硬盘，提供 100% 数据冗余备份</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(27, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>必须至少使用 5 块硬盘，并将奇偶校验信息集中保存在专用的一块热备盘上</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(27, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>将多块不同容量的硬盘简单串联为一个连续的大容量逻辑分区，不提供任何读写加速</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_28'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q28</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_28' onclick='toggleFlag(28)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>某单位发生了一起网络安全事件：离职员工利用其在职时私自创建的未受管权限账户，通过互联网成功登入内网窃取了核心科研代码。造成该事件的最主要管理漏洞是：</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(28, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>未能在服务器机房内安装大功率空调设备</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(28, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>缺乏严格的员工离职账户生命周期审计与凭证即时注销机制</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(28, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>办公室内使用的光纤线缆未加装防鼠咬金属保护套</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(28, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>未要求所有开发人员必须使用五笔输入法编写代码</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>B</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_29'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q29</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_29' onclick='toggleFlag(29)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>物联网设备之间通常采用轻量级的消息传输协议。下列哪个网络通信协议是专门为资源受限的物联网环境设计的轻量级、低功耗通信标准？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(29, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>CoAP（受限应用协议）</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(29, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>BGP（边界网关协议）</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(29, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>OSPF（开放最短路径优先）</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(29, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>RIP（路由信息协议）</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+  <div class='question-card' id='qcard_30'>
+    <div class='q-header-row'>
+      <div><span class='q-num-badge'>Q30</span><span class='q-points'>[2分]</span></div>
+      <button type='button' class='btn-flag-q' id='flagBtn_30' onclick='toggleFlag(30)'>🚩 标记疑难</button>
+    </div>
+    <div class='q-stem-text'>当智能家居系统中的智能门锁连接到家庭 Wi-Fi 时，若用户仍保留出厂默认的管理密码（如 <code class='inline-code'>123456</code> 或 <code class='inline-code'>admin</code>），该智能门锁最容易遭遇下列哪种网络攻击威胁？</div>
+    <div class='options-grid'>
+      <div class='option-item' data-choice='A' onclick='selectOption(30, "A")'>
+        <span class='opt-radio-icon'>A</span>
+        <span>弱口令自动化撞库与字典爆破攻击，导致门锁被远程非法开启</span>
+      </div>
+      <div class='option-item' data-choice='B' onclick='selectOption(30, "B")'>
+        <span class='opt-radio-icon'>B</span>
+        <span>引起家庭供电线路发生严重的相间短路与电线自燃</span>
+      </div>
+      <div class='option-item' data-choice='C' onclick='selectOption(30, "C")'>
+        <span class='opt-radio-icon'>C</span>
+        <span>使得周围邻居家的电视机屏幕瞬间花屏并自动关机</span>
+      </div>
+      <div class='option-item' data-choice='D' onclick='selectOption(30, "D")'>
+        <span class='opt-radio-icon'>D</span>
+        <span>导致入户自来水水管发生物理破裂与水压暴降</span>
+      </div>
+    </div>
+    <div class='explanation-box'>
+      <div class='exp-header'>💡 董总官方标准答案：<strong style='color:#10B981;'>A</strong> ｜ 深度命题解析</div>
+      <div class='exp-content'><span class='exp-tag'>【考点解析】</span>详见统考标准知识点解析与官方考点说明。</div>
+    </div>
+  </div>
+
+      </div>
+
+      <!-- 乙组：综合情境作答题外置卡片（无需在里头打字作答，点击直达参考答案） -->
+      <section class="open-questions-portal-banner">
+        <div class="banner-inner">
+          <div class="banner-left">
+            <span class="banner-badge">📖 董总统考主观综合大题 · 深度研习</span>
+            <h3>乙组：综合情境作答题（共 4 大题）</h3>
+            <p>
+              本卷主观综合情境大题无需在此输入文字（免去作答框与作答线）。请直接点击下方按钮打开专属研析页面，随心研读情境案例，并可随时点击展开官方参考答案与四栏评分标准！
+            </p>
+          </div>
+          <a href="第二册_阶段测验_第4-5章_主观作答题精析.html" class="btn-goto-open-portal">
+            📖 打开综合情境大题精析与参考答案 ➔
+          </a>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 右侧固定悬浮电子答题卡面板 -->
+    <aside class="sticky-bubble-panel">
+      <div class="panel-title-row">
+        <span class="panel-title">📝 全真机读答题卡</span>
+        <span style="font-size:12px;color:var(--text-muted);font-weight:600;">共 30 题</span>
+      </div>
+
+      <div class="panel-legend">
+        <div class="legend-item"><span class="legend-dot dot-unanswered"></span> 未答</div>
+        <div class="legend-item"><span class="legend-dot dot-answered"></span> 已答</div>
+        <div class="legend-item"><span class="legend-dot dot-flagged"></span> 标记</div>
+      </div>
+
+      <!-- 答题卡网格 -->
+      <div class="bubble-grid">
+  <button type='button' class='bubble-btn' id='bubble_1' onclick='jumpToQuestion(1)'>01</button>
+  <button type='button' class='bubble-btn' id='bubble_2' onclick='jumpToQuestion(2)'>02</button>
+  <button type='button' class='bubble-btn' id='bubble_3' onclick='jumpToQuestion(3)'>03</button>
+  <button type='button' class='bubble-btn' id='bubble_4' onclick='jumpToQuestion(4)'>04</button>
+  <button type='button' class='bubble-btn' id='bubble_5' onclick='jumpToQuestion(5)'>05</button>
+  <button type='button' class='bubble-btn' id='bubble_6' onclick='jumpToQuestion(6)'>06</button>
+  <button type='button' class='bubble-btn' id='bubble_7' onclick='jumpToQuestion(7)'>07</button>
+  <button type='button' class='bubble-btn' id='bubble_8' onclick='jumpToQuestion(8)'>08</button>
+  <button type='button' class='bubble-btn' id='bubble_9' onclick='jumpToQuestion(9)'>09</button>
+  <button type='button' class='bubble-btn' id='bubble_10' onclick='jumpToQuestion(10)'>10</button>
+  <button type='button' class='bubble-btn' id='bubble_11' onclick='jumpToQuestion(11)'>11</button>
+  <button type='button' class='bubble-btn' id='bubble_12' onclick='jumpToQuestion(12)'>12</button>
+  <button type='button' class='bubble-btn' id='bubble_13' onclick='jumpToQuestion(13)'>13</button>
+  <button type='button' class='bubble-btn' id='bubble_14' onclick='jumpToQuestion(14)'>14</button>
+  <button type='button' class='bubble-btn' id='bubble_15' onclick='jumpToQuestion(15)'>15</button>
+  <button type='button' class='bubble-btn' id='bubble_16' onclick='jumpToQuestion(16)'>16</button>
+  <button type='button' class='bubble-btn' id='bubble_17' onclick='jumpToQuestion(17)'>17</button>
+  <button type='button' class='bubble-btn' id='bubble_18' onclick='jumpToQuestion(18)'>18</button>
+  <button type='button' class='bubble-btn' id='bubble_19' onclick='jumpToQuestion(19)'>19</button>
+  <button type='button' class='bubble-btn' id='bubble_20' onclick='jumpToQuestion(20)'>20</button>
+  <button type='button' class='bubble-btn' id='bubble_21' onclick='jumpToQuestion(21)'>21</button>
+  <button type='button' class='bubble-btn' id='bubble_22' onclick='jumpToQuestion(22)'>22</button>
+  <button type='button' class='bubble-btn' id='bubble_23' onclick='jumpToQuestion(23)'>23</button>
+  <button type='button' class='bubble-btn' id='bubble_24' onclick='jumpToQuestion(24)'>24</button>
+  <button type='button' class='bubble-btn' id='bubble_25' onclick='jumpToQuestion(25)'>25</button>
+  <button type='button' class='bubble-btn' id='bubble_26' onclick='jumpToQuestion(26)'>26</button>
+  <button type='button' class='bubble-btn' id='bubble_27' onclick='jumpToQuestion(27)'>27</button>
+  <button type='button' class='bubble-btn' id='bubble_28' onclick='jumpToQuestion(28)'>28</button>
+  <button type='button' class='bubble-btn' id='bubble_29' onclick='jumpToQuestion(29)'>29</button>
+  <button type='button' class='bubble-btn' id='bubble_30' onclick='jumpToQuestion(30)'>30</button>
+
+      </div>
+
+      <!-- 进度指示 -->
+      <div class="progress-summary">
+        <div class="progress-row">
+          <span>客观题完成进度</span>
+          <span id="answeredCountText">0 / 30</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progressBarFill"></div>
+        </div>
+      </div>
+
+      <button type="button" class="btn-submit-exam" style="width:100%;justify-content:center;" onclick="confirmSubmitExam()">✓ 提交试卷并自动批阅</button>
+      <a href="第二册_阶段测验_第4-5章_主观作答题精析.html" class="btn-side-open-link">📖 查看主观大题与参考答案 ↗</a>
+    </aside>
+  </main>
+
+  <!-- 交卷成绩与深度解析弹窗 Modal -->
+  <div class="modal-overlay" id="scoreModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">📊 考卷测验评测与答题雷达报告</div>
+        <button type="button" class="modal-close-btn" onclick="closeModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="score-card">
+          <div class="score-main" id="modalFinalScore">0</div>
+          <div class="score-label" id="modalScoreDetails">客观题得分 0 / 30（满分 30 分）</div>
+        </div>
+        <div class="stats-pills-row">
+          <div class="stat-pill">
+            <span class="pill-num" id="modalCorrectCount" style="color:var(--color-correct)">0</span>
+            <span class="pill-label">正确题数</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-num" id="modalWrongCount" style="color:var(--color-wrong)">0</span>
+            <span class="pill-label">错题数</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-num" id="modalUnansweredCount">0</span>
+            <span class="pill-label">未作答数</span>
+          </div>
+          <div class="stat-pill">
+            <span class="pill-num" id="modalAccuracy">0%</span>
+            <span class="pill-label">正确率</span>
+          </div>
+        </div>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:14px;font-size:13px;color:#475569;margin-bottom:16px;">
+          💡 <strong>考情分析</strong>：客观题解析已全部自动展开在原题目卡片下方。错题已高亮标记，请上下滚动试卷针对性复习巩固。
+        </div>
+        <div style="text-align:center;">
+          <a href="第二册_阶段测验_第4-5章_主观作答题精析.html" class="btn-goto-open-portal" style="display:inline-flex;">
+            📖 继续研读综合情境作答题与官方量规 ➔
+          </a>
+        </div>
+      </div>
+      <div class="modal-footer" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button type="button" class="btn-export-mistakes" onclick="exportMistakesSheet()">🖨️ 导出 / 打印本次错题订正单</button>
+        <button type="button" class="btn-review-paper" onclick="closeModal()">🔍 查看卷面解析与错题</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 返回上一页安全确认函数
+    function handleExamBackHome() {
+      const answeredCount = (typeof userAnswers !== 'undefined') ? Object.keys(userAnswers).length : 0;
+      if (!isSubmitted && answeredCount > 0) {
+        if (!confirm('【考场提醒】您当前已作答了 ' + answeredCount + ' 道题，尚未提交评分。若此时退出返回上一页，已作答的数据将不会保存。\n\n确定要退出并返回上一页吗？')) {
+          return false;
+        }
+      }
+      if (document.referrer && document.referrer.indexOf('index.html') !== -1) {
+        window.location.href = document.referrer;
+      } else if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = '../../index.html';
+      }
+      return false;
+    }
+
+    // 考场系统核心数据
+    const TOTAL_MCQ = 30;
+    const CORRECT_ANSWERS = {"11":"B","3":"C","20":"B","12":"B","10":"B","17":"B","13":"A","27":"B","30":"A","18":"A","29":"A","23":"A","19":"A","1":"A","5":"B","4":"B","8":"C","26":"A","14":"B","22":"B","28":"B","25":"D","9":"A","15":"C","21":"A","24":"D","16":"B","7":"B","2":"B","6":"B"};
+    
+    let userAnswers = {};
+    let flaggedQuestions = new Set();
+    let isSubmitted = false;
+    let timerPaused = false;
+    let remainingSeconds = 2700;
+    let timerInterval = null;
+
+    // 倒计时器运行
+    function startTimer() {
+      timerInterval = setInterval(() => {
+        if (!timerPaused && !isSubmitted) {
+          if (remainingSeconds > 0) {
+            remainingSeconds--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            alert("⏰ 考试时间到！系统正在自动为您提交试卷并进行批阅。");
+            submitExam();
+          }
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const h = Math.floor(remainingSeconds / 3600);
+      const m = Math.floor((remainingSeconds % 3600) / 60);
+      const s = remainingSeconds % 60;
+      const str = (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+      const disp = document.getElementById("timerDisplay");
+      if (disp) disp.innerText = str;
+      const box = document.getElementById("timerBox");
+      if (box) {
+        if (remainingSeconds < 600) {
+          box.classList.add("danger");
+        } else {
+          box.classList.remove("danger");
+        }
+      }
+    }
+
+    function togglePauseTimer() {
+      timerPaused = !timerPaused;
+      const btn = document.getElementById("btnPauseTimer");
+      if (btn) btn.innerText = timerPaused ? "▶ 继续" : "⏸ 暂停";
+    }
+
+    // 单选题交互
+    function selectOption(qNum, choice) {
+      if (isSubmitted) return;
+      userAnswers[qNum] = choice;
+      
+      const card = document.getElementById("qcard_" + qNum);
+      if (card) {
+        const items = card.querySelectorAll(".option-item");
+        items.forEach(it => {
+          if (it.getAttribute("data-choice") === choice) {
+            it.classList.add("selected");
+          } else {
+            it.classList.remove("selected");
+          }
+        });
+      }
+
+      // 更新右侧气泡
+      const bubble = document.getElementById("bubble_" + qNum);
+      if (bubble) {
+        bubble.classList.add("answered");
+      }
+
+      updateProgress();
+    }
+
+    // 标记疑难题
+    function toggleFlag(qNum) {
+      const bubble = document.getElementById("bubble_" + qNum);
+      const btn = document.getElementById("flagBtn_" + qNum);
+      if (flaggedQuestions.has(qNum)) {
+        flaggedQuestions.delete(qNum);
+        if (bubble) bubble.classList.remove("flagged");
+        if (btn) btn.classList.remove("active");
+      } else {
+        flaggedQuestions.add(qNum);
+        if (bubble) bubble.classList.add("flagged");
+        if (btn) btn.classList.add("active");
+      }
+    }
+
+    // 滚动定位到题目
+    function jumpToQuestion(qNum) {
+      const card = document.getElementById("qcard_" + qNum);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    // 更新答题进度
+    function updateProgress() {
+      const count = Object.keys(userAnswers).length;
+      const text = document.getElementById("answeredCountText");
+      if (text) text.innerText = count + " / " + TOTAL_MCQ;
+      const fill = document.getElementById("progressBarFill");
+      if (fill) {
+        const pct = Math.round((count / TOTAL_MCQ) * 100);
+        fill.style.width = pct + "%";
+      }
+    }
+
+    // 确认交卷
+    function confirmSubmitExam() {
+      if (isSubmitted) {
+        openModal();
+        return;
+      }
+      const answeredCount = Object.keys(userAnswers).length;
+      const unAns = TOTAL_MCQ - answeredCount;
+      let msg = "您已完成 " + answeredCount + " / " + TOTAL_MCQ + " 道客观题。";
+      if (unAns > 0) {
+        msg += "\n尚有 " + unAns + " 题未答！确认要提前交卷并自动阅卷吗？";
+      } else {
+        msg += "\n您已全部作答完毕！确认要提交试卷评分吗？";
+      }
+      if (confirm(msg)) {
+        submitExam();
+      }
+    }
+
+    // 提交批阅
+    function submitExam() {
+      isSubmitted = true;
+      clearInterval(timerInterval);
+
+      let correctCount = 0;
+      let wrongCount = 0;
+
+      for (let i = 1; i <= TOTAL_MCQ; i++) {
+        const userChoice = userAnswers[i];
+        const correctChoice = CORRECT_ANSWERS[i];
+        const card = document.getElementById("qcard_" + i);
+        const bubble = document.getElementById("bubble_" + i);
+
+        if (card) {
+          const expBox = card.querySelector(".explanation-box");
+          if (expBox) expBox.classList.add("show");
+
+          const items = card.querySelectorAll(".option-item");
+          items.forEach(it => {
+            const c = it.getAttribute("data-choice");
+            if (c === correctChoice) {
+              it.classList.add("correct");
+            }
+            if (userChoice && c === userChoice && userChoice !== correctChoice) {
+              it.classList.add("wrong");
+            }
+          });
+        }
+
+        if (bubble) {
+          bubble.classList.remove("answered", "flagged");
+          if (userChoice === correctChoice) {
+            bubble.classList.add("correct");
+            correctCount++;
+          } else if (userChoice && userChoice !== correctChoice) {
+            bubble.classList.add("wrong");
+            wrongCount++;
+          }
+        }
+      }
+
+      const EACH_POINT = 2;
+      const TOTAL_POINTS = 60;
+      const unansweredCount = TOTAL_MCQ - correctCount - wrongCount;
+      const accuracy = Math.round((correctCount / TOTAL_MCQ) * 100);
+      const finalScore = correctCount * EACH_POINT;
+
+      document.getElementById("modalFinalScore").innerText = finalScore;
+      document.getElementById("modalScoreDetails").innerText = "客观题得分 " + finalScore + " / " + TOTAL_POINTS + " 分（答对 " + correctCount + " / " + TOTAL_MCQ + " 题）";
+      document.getElementById("modalCorrectCount").innerText = correctCount;
+      document.getElementById("modalWrongCount").innerText = wrongCount;
+      document.getElementById("modalUnansweredCount").innerText = unansweredCount;
+      document.getElementById("modalAccuracy").innerText = accuracy + "%";
+
+      openModal();
+    }
+
+    function openModal() {
+      document.getElementById("scoreModal").classList.add("show");
+    }
+
+    function closeModal() {
+      document.getElementById("scoreModal").classList.remove("show");
+    }
+
+    // 导出 / 打印个人错题订正单
+    function exportMistakesSheet() {
+      if (!isSubmitted) {
+        alert("请先交卷批阅后再导出错题订正单！");
+        return;
+      }
+      
+      const mistakes = [];
+      for (let i = 1; i <= TOTAL_MCQ; i++) {
+        const userChoice = userAnswers[i] || "";
+        const correctChoice = CORRECT_ANSWERS[i];
+        if (userChoice !== correctChoice) {
+          const card = document.getElementById("qcard_" + i);
+          if (card) {
+            const stemEl = card.querySelector(".question-stem");
+            const qStem = stemEl ? stemEl.innerHTML : ("第 " + i + " 题");
+            const expEl = card.querySelector(".explanation-box");
+            const expText = expEl ? expEl.innerHTML : "暂无解析";
+            
+            const optItems = card.querySelectorAll(".option-item");
+            let optionsData = [];
+            optItems.forEach(it => {
+              const c = it.getAttribute("data-choice");
+              const textEl = it.querySelector(".option-text");
+              optionsData.push({
+                choice: c,
+                text: textEl ? textEl.innerHTML : it.innerText
+              });
+            });
+            
+            mistakes.push({
+              num: i,
+              stem: qStem,
+              options: optionsData,
+              userChoice: userChoice ? userChoice : "（未作答）",
+              correctChoice: correctChoice,
+              explanation: expText
+            });
+          }
+        }
+      }
+
+      if (mistakes.length === 0) {
+        alert("🎉 恭喜！您本次客观题全部答对（满分 100% 正确率），无需生成错题订正单！");
+        return;
+      }
+
+      // 打开新窗口生成打印订正单
+      const printWin = window.open("", "_blank");
+      if (!printWin) {
+        alert("浏览器拦截了弹出窗口，请允许弹出窗口后重试！");
+        return;
+      }
+
+      const examTitle = document.querySelector(".header-title-bar h1") ? document.querySelector(".header-title-bar h1").innerText : "独中高中资讯科技在线考场";
+      const now = new Date();
+      const timeStr = now.getFullYear() + "年" + (now.getMonth()+1) + "月" + now.getDate() + "日 " + 
+                      String(now.getHours()).padStart(2,'0') + ":" + String(now.getMinutes()).padStart(2,'0');
+
+      let questionsHtml = "";
+      mistakes.forEach((m, idx) => {
+        let optHtml = "";
+        m.options.forEach(opt => {
+          let badge = "";
+          let itemClass = "print-opt";
+          if (opt.choice === m.correctChoice) {
+            itemClass += " print-opt-correct";
+            badge = " <span class='badge-cor'>[正确答案]</span>";
+          } else if (opt.choice === m.userChoice) {
+            itemClass += " print-opt-wrong";
+            badge = " <span class='badge-wrg'>[我的错选]</span>";
+          }
+          optHtml += `<div class="${itemClass}"><strong>${opt.choice}.</strong> ${opt.text} ${badge}</div>`;
+        });
+
+        questionsHtml += `
+        <div class="print-q-card">
+          <div class="print-q-header">
+            <span class="print-q-num">错题序号 #${idx + 1}（原卷第 ${m.num} 题）</span>
+            <span class="print-q-compare">您的作答：<b style="color:#dc2626">${m.userChoice}</b> ｜ 正确答案：<b style="color:#16a34a">${m.correctChoice}</b></span>
+          </div>
+          <div class="print-q-stem">${m.stem}</div>
+          <div class="print-q-options">${optHtml}</div>
+          <div class="print-q-exp">
+            <div class="exp-title">💡 董总统考考点深度解析：</div>
+            <div class="exp-content">${m.explanation}</div>
+          </div>
+          <div class="print-q-notes">
+            <div class="notes-title">✍️ 错因分析与知识漏洞巩固笔记（考生手写专区）：</div>
+            <div class="notes-lines">
+              <div class="note-line">【错因归类】[ ] 审题不清  [ ] 概念混淆  [ ] 进制/公式运算失误  [ ] 算法伪代码读不懂  [ ] 其他：_________</div>
+              <div class="note-line">【核心知识漏洞与订正要点】：</div>
+              <div class="note-line" style="border-bottom:1px dashed #cbd5e1;height:24px;"></div>
+              <div class="note-line" style="border-bottom:1px dashed #cbd5e1;height:24px;"></div>
+            </div>
+          </div>
+        </div>`;
+      });
+
+      const fullHtml = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>错题订正单 - ${examTitle}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif; background: #f8fafc; color: #1e293b; padding: 24px; line-height: 1.6; }
+    .print-container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 14px 20px; margin-bottom: 24px; }
+    .btn-print { background: #2563eb; color: #fff; border: none; border-radius: 6px; padding: 9px 20px; font-size: 14px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-print:hover { background: #1d4ed8; }
+    .btn-close { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 6px; padding: 9px 16px; font-size: 14px; font-weight: 600; cursor: pointer; }
+    .doc-header { text-align: center; border-bottom: 2px solid #3b82f6; padding-bottom: 16px; margin-bottom: 20px; }
+    .doc-header h1 { font-size: 22px; color: #0f172a; margin-bottom: 6px; }
+    .doc-meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; font-size: 13px; color: #475569; margin-top: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px; text-align: left; }
+    .meta-fill { border-bottom: 1px solid #94a3b8; display: inline-block; min-width: 70px; height: 16px; }
+    .print-q-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-bottom: 22px; background: #fff; page-break-inside: avoid; }
+    .print-q-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 12px; font-size: 13px; }
+    .print-q-num { font-weight: 800; color: #2563eb; }
+    .print-q-compare { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 3px 8px; }
+    .print-q-stem { font-size: 14.5px; font-weight: 600; color: #0f172a; margin-bottom: 12px; line-height: 1.7; }
+    .print-q-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+    @media (max-width: 600px) { .print-q-options { grid-template-columns: 1fr; } }
+    .print-opt { padding: 6px 10px; border-radius: 6px; font-size: 13px; border: 1px solid #e2e8f0; background: #f8fafc; }
+    .print-opt-correct { background: #f0fdf4; border-color: #86efac; color: #166534; font-weight: 700; }
+    .print-opt-wrong { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+    .badge-cor { font-size: 11px; background: #22c55e; color: #fff; border-radius: 3px; padding: 1px 4px; margin-left: 4px; }
+    .badge-wrg { font-size: 11px; background: #ef4444; color: #fff; border-radius: 3px; padding: 1px 4px; margin-left: 4px; }
+    .print-q-exp { background: #faf5ff; border-left: 4px solid #a855f7; border-radius: 0 6px 6px 0; padding: 10px 14px; font-size: 13px; color: #581c87; margin-bottom: 14px; line-height: 1.6; }
+    .exp-title { font-weight: 800; margin-bottom: 4px; color: #6b21a8; }
+    .print-q-notes { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 6px; padding: 12px; font-size: 12.5px; color: #334155; }
+    .notes-title { font-weight: 700; margin-bottom: 6px; color: #475569; }
+    .note-line { margin-bottom: 6px; line-height: 1.5; }
+    .footer-copy { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 14px; }
+    pre, code { font-family: "JetBrains Mono", Consolas, Monaco, monospace; font-size: 13px; }
+    .code-block { background: #0f172a; color: #f8fafc; padding: 10px; border-radius: 6px; overflow-x: auto; margin: 8px 0; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .print-container { box-shadow: none; border-radius: 0; padding: 12px; max-width: 100%; }
+      .toolbar { display: none !important; }
+      .print-q-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 18px; }
+      .doc-header { border-bottom: 2px solid #000; }
+      .doc-header h1 { font-size: 18px; }
+      @page { margin: 12mm 15mm; size: A4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="print-container">
+    <div class="toolbar">
+      <div>
+        <strong style="color:#1e3a8a;font-size:15px;">📋 本次客观题错题共 ${mistakes.length} 道</strong>
+        <span style="font-size:13px;color:#64748b;margin-left:8px;">（点击打印按钮即可直接打印或另存为 PDF 错题订正单）</span>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn-print" onclick="window.print()">🖨️ 立即打印 / 保存为 PDF</button>
+        <button class="btn-close" onclick="window.close()">关闭窗口</button>
+      </div>
+    </div>
+    <div class="doc-header">
+      <h1>马来西亚华文独中高中资讯科技 · 个人错题订正单</h1>
+      <div style="font-size:14px;color:#475569;font-weight:600;">${examTitle}</div>
+      <div class="doc-meta-grid">
+        <div><strong>考生姓名：</strong><span class="meta-fill"></span></div>
+        <div><strong>班级座号：</strong><span class="meta-fill"></span></div>
+        <div><strong>生成时间：</strong>${timeStr}</div>
+        <div><strong>错题汇总：</strong>共 <b style="color:#dc2626">${mistakes.length}</b> 题（未答/选错）</div>
+      </div>
+    </div>
+    <div class="questions-area">
+      ${questionsHtml}
+    </div>
+    <div class="footer-copy">
+      © 2026 尤老师｜亚罗士打新民独中｜高中资讯科技数字化备考工程 ｜ 考点对齐董总统考新课纲
+    </div>
+  </div>
+</body>
+</html>`;
+
+      printWin.document.open();
+      printWin.document.write(fullHtml);
+      printWin.document.close();
+      printWin.focus();
+    }
+
+    window.onload = function() {
+      updateTimerDisplay();
+      startTimer();
+      updateProgress();
+    };
+  </script>
+</body>
+</html>
