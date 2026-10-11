@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高一资讯科技（第一册）全册统整测验【第二套】 - 学生在线作答卷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --primary-bg: #eff6ff;
+            --accent: #d97706;
+            --success: #10b981;
+            --danger: #ef4444;
+            --text-main: #1f2937;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* 顶部导航 */
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-exam {
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .exam-title-short {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .progress-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .progress-bar-bg {
+            width: 110px;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-light), var(--success));
+            border-radius: 999px;
+            transition: width 0.3s ease;
+        }
+
+        .timer-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: 1px solid #fde68a;
+        }
+
+        .btn-nav {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+        }
+        .btn-nav:hover {
+            background: #f1f5f9;
+        }
+
+        /* 醒目全局返回门户按钮体系 */
+        .btn-back-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #38bdf8 !important;
+            border: 1px solid #334155;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+        }
+        .btn-back-header:hover {
+            background: #1e293b;
+            color: #ffffff !important;
+            border-color: #38bdf8;
+            transform: translateX(-2px);
+        }
+
+        .exam-banner-bar {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-hero-return {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #38bdf8;
+            color: #0b1329 !important;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(56, 189, 248, 0.35);
+        }
+        .btn-hero-return:hover {
+            background: #7dd3fc;
+            transform: translateX(-3px);
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.5);
+        }
+
+        .banner-info-text {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+        .banner-title {
+            color: #f8fafc;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .banner-sub {
+            color: #94a3b8;
+            font-size: 0.82rem;
+        }
+        @media (max-width: 640px) {
+            .banner-info-text {
+                text-align: left;
+            }
+        }
+
+        .btn-sheet-return {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8fafc;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-sheet-return:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+            border-color: #94a3b8;
+        }
+
+        .exam-bottom-actions {
+            margin-top: 30px;
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-bottom-return {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 13px 24px;
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-bottom-return:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+
+        .btn-modal-return {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 18px;
+            background: #0f172a;
+            color: #38bdf8 !important;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-modal-return:hover {
+            background: #1e293b;
+            color: #ffffff !important;
+        }
+
+        /* 主体布局 */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 28px;
+        }
+
+        /* 考生信息条 */
+        .student-bar {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stu-input-grp {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .stu-input {
+            padding: 7px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+            width: 130px;
+        }
+        .stu-input:focus {
+            border-color: var(--primary-light);
+        }
+
+        /* 试题列表 */
+        .questions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+            position: relative;
+        }
+        .question-card.answered {
+            border-left: 5px solid var(--primary-light);
+        }
+        .question-card.review-correct {
+            border-left: 5px solid var(--success) !important;
+            background: #fcfdfd;
+        }
+        .question-card.review-wrong {
+            border-left: 5px solid var(--danger) !important;
+            background: #fffcfc;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .q-num-badge {
+            background: #1e40af;
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.95rem;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(30, 64, 175, 0.3);
+        }
+
+        .q-chapter-tag {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            background: var(--primary-bg);
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+
+        .q-text {
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #0f172a;
+        }
+
+        /* 选项设计 */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 18px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #fff;
+        }
+        .option-item:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        .option-item.selected {
+            border-color: var(--primary-light);
+            background: #eff6ff;
+        }
+
+        .opt-letter {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.88rem;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .option-item.selected .opt-letter {
+            background: var(--primary-light);
+            color: #fff;
+        }
+
+        .opt-text {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.5;
+        }
+
+        /* 答题后解析卡 */
+        .ans-correct-revealed {
+            border-color: #10b981 !important;
+            background: #f0fdf4 !important;
+        }
+        .ans-correct-revealed .opt-letter {
+            background: #10b981 !important;
+            color: #fff !important;
+        }
+
+        .ans-wrong-revealed {
+            border-color: #ef4444 !important;
+            background: #fef2f2 !important;
+        }
+        .ans-wrong-revealed .opt-letter {
+            background: #ef4444 !important;
+            color: #fff !important;
+        }
+
+        .review-note-box {
+            display: none;
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* 侧边答题卡悬浮 */
+        .sheet-sidebar {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .sheet-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .sheet-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sheet-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-bottom: 20px;
+            max-height: 380px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .sheet-btn {
+            aspect-ratio: 1;
+            border: 1px solid var(--border-color);
+            background: #fff;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .sheet-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary-light);
+        }
+        .sheet-btn.done {
+            background: var(--primary-light);
+            border-color: var(--primary-light);
+            color: #fff;
+        }
+        .sheet-btn.stat-correct {
+            background: #10b981 !important;
+            border-color: #059669 !important;
+            color: #fff !important;
+        }
+        .sheet-btn.stat-wrong {
+            background: #ef4444 !important;
+            border-color: #dc2626 !important;
+            color: #fff !important;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            transition: all 0.2s;
+        }
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #0369a1, #1d4ed8);
+            transform: translateY(-2px);
+        }
+
+        /* 成绩结算弹窗 */
+        .modal-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: popIn 0.25s ease;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 4px solid var(--primary-light);
+            color: var(--primary);
+            font-size: 2.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+        }
+
+        @media (max-width: 900px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .sheet-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-navbar">
+        <div class="nav-container">
+            <div class="brand-info">
+                <a href="index.html" class="btn-back-header">⬅️ 返回测验门户</a>
+                <span class="badge-exam">第二套 · 50题</span>
+                <span class="exam-title-short">第一册全册统整测验（全真强化进阶实战卷）</span>
+            </div>
+            <div class="nav-controls">
+                <a href="index.html" class="btn-nav" style="font-weight:700;">🏠 返回门户</a>
+                <div class="progress-box">
+                    <span>进度</span>
+                    <div class="progress-bar-bg">
+                        <div id="progBar" class="progress-bar-fill"></div>
+                    </div>
+                    <span id="progText">0/50</span>
+                </div>
+                <div class="timer-badge">
+                    <span>⏱️</span>
+                    <span id="timerText">00:00</span>
+                </div>
+                <button onclick="resetAllAnswers()" class="btn-nav">🔄 清空重练</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <main>
+            <!-- 顶部醒目返回与导引栏 -->
+            <div class="exam-banner-bar">
+                <a href="index.html" class="btn-hero-return">
+                    ⬅️ 返回测验大厅门户
+                </a>
+                <div class="banner-info-text">
+                    <span class="banner-title">高一资讯科技（第一册）全册统整测验 · 第二套</span>
+                    <span class="banner-sub">全真强化进阶实战卷 · 全卷 50 题（每题 2 分）· 建议时间 60 分钟</span>
+                </div>
+            </div>
+
+            <!-- 考生个人信息登记卡 -->
+            <div class="student-bar">
+                <div class="stu-input-grp">
+                    <span>👤 姓名：</span>
+                    <input type="text" id="stuName" class="stu-input" placeholder="输入真实姓名">
+                </div>
+                <div class="stu-input-grp">
+                    <span>🏫 班级：</span>
+                    <input type="text" id="stuClass" class="stu-input" placeholder="如 高一理1">
+                </div>
+                <div class="stu-input-grp">
+                    <span>🆔 学号：</span>
+                    <input type="text" id="stuId" class="stu-input" placeholder="如 23108">
+                </div>
+                <span style="font-size:0.8rem; color:#94a3b8; margin-left:auto;">💡 系统将自动暂存作答进度</span>
+            </div>
+
+            <!-- 试题卡容器 -->
+            <div id="questionsContainer" class="questions-list"></div>
+
+            <!-- 底部提交与返回栏 -->
+            <div class="exam-bottom-actions">
+                <button onclick="confirmSubmitExam()" class="btn-submit" style="max-width:280px;">🚀 提交答卷评分</button>
+                <a href="index.html" class="btn-bottom-return">⬅️ 返回测验大厅门户</a>
+            </div>
+        </main>
+
+        <!-- 右侧答题卡悬浮栏 -->
+        <aside class="sheet-sidebar">
+            <div class="sheet-card">
+                <div class="sheet-title">
+                    <span>答题卡（50 题）</span>
+                    <span id="sheetCount" style="font-size:0.85rem; color:var(--primary-light);">已作答 0 题</span>
+                </div>
+                <div id="sheetGrid" class="sheet-grid"></div>
+                <button onclick="confirmSubmitExam()" class="btn-submit">🚀 提交答卷评分</button>
+                <a href="index.html" class="btn-sheet-return">⬅️ 返回测验门户</a>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 成绩弹窗 -->
+    <div id="resultModal" class="modal-mask">
+        <div class="modal-box">
+            <div class="score-circle" id="modalScore">0</div>
+            <h2 id="modalEval" style="font-size:1.3rem; margin-bottom:8px;">测验已提交</h2>
+            <p id="modalDetail" style="font-size:0.9rem; color:#64748b; margin-bottom:10px;">答对 0 题 / 满分 100 分</p>
+            <div id="cloudSyncStatus" style="font-size:0.85rem; color:#059669; background:#ecfdf5; padding:6px 12px; border-radius:8px; margin-bottom:18px; font-weight:600; display:inline-flex; align-items:center; gap:6px;">☁️ 正在同步答卷至 Supabase 云端数据库...</div>
+            <div style="display:flex; gap:10px;">
+                <button onclick="closeModalAndReview()" class="btn-submit" style="flex:1;">📖 查看错题与详细解析</button>
+                <a href="index.html" class="btn-modal-return" style="flex:1; justify-content:center;">⬅️ 返回测验门户</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [{"id": 1, "chapter": "第1章 认识数据", "question": "传感器测得温度 34，系统发布“亚罗士打当前气温 34°C”并建议“防暑调整课表”。三者分别对应 DIKW 模型的：", "options": {"A": "资讯 ➔ 数据 ➔ 代码", "B": "数据 ➔ 资讯 ➔ 知识/智慧", "C": "信号 ➔ 知识 ➔ 协议", "D": "常量 ➔ 变量 ➔ 算法"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · DIKW认知模型", "analysis": "34 是原始数值（数据）；结合语境后为资讯；指导行动为知识/智慧。选 B。"}, {"id": 2, "chapter": "第1章 认识数据", "question": "无符号二进制整数末尾添一个“0”（如 (101)₂ 变为 (1010)₂），其十进制数值变为原数的：", "options": {"A": "原数值变为原来的 2 倍", "B": "原数值变为原来的 10 倍", "C": "原数值增加 2", "D": "原数值保持不变"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 二进制移位特性", "analysis": "二进制基数为 2，末尾添 0 相当于左移一位，即数值乘以 2。(101)₂=5，(1010)₂=10。选 A。"}, {"id": 3, "chapter": "第1章 认识数据", "question": "关于计算机存储容量单位的换算标准，下列叙述何者正确？", "options": {"A": "1 Byte 等于 16 bit，英文字母固定消耗 32 字节", "B": "1 TB 等于 1000 KB，换算进率在任何系统均固定为 100", "C": "无论闪存还是机械硬盘，制造商均严格按 1024 进率标称出厂", "D": "系统按二进制换算（1 GiB = 1024 MiB），商业硬盘按十进制标称（1 GB = 1000 MB）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 存储容量单位换算", "analysis": "操作系统按二进制 1024 进率计算，硬盘厂商按十进制 1000 标称。选 D。"}, {"id": 4, "chapter": "第1章 认识数据", "question": "在网页 RGB 色彩定义中，十六进制颜色代码 #00FF00 渲染出的视觉颜色是：", "options": {"A": "纯红色（Red）", "B": "纯蓝色（Blue）", "C": "纯绿色（Green）", "D": "纯黄色（Yellow）"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · RGB色彩十六进制模型", "analysis": "#00FF00 中 R=00, G=FF（满值绿色）, B=00，因此呈现纯绿色。选 C。"}, {"id": 5, "chapter": "第1章 认识数据", "question": "设计要在巨幅户外喷绘布印制的高清校徽，为了放大时不失真，应优先采用：", "options": {"A": "向量图（Vector Graphic，如 SVG 或 AI 格式）", "B": "低分辨率的 JPEG 点阵图", "C": "未经压缩的 8 位 BMP 位图", "D": "带透明背景的低尺寸 GIF 动图"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 向量图应用场景", "analysis": "向量图由数学公式描述，无限放大保持平滑边缘不失真。选 A。"}, {"id": 6, "chapter": "第1章 认识数据", "question": "奈奎斯特采样定理指出采样频率至少为最高频率的 2 倍。人耳听力极限为 20 kHz，CD 采用 44.1 kHz 采样率的依据是：", "options": {"A": "44.1 kHz 只能还原人耳极限频率的四分之一", "B": "采样频率必须达到模拟频率的十倍以上才可捕获", "C": "44.1 kHz > 2 × 20 kHz，能够完整无失真覆盖人耳听觉极限", "D": "所有声卡在硬件逻辑上只能以 4 的倍数进行分频"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 奈奎斯特采样定理", "analysis": "44.1 kHz 满足大于 2 倍最高人耳听力频率 20 kHz（40 kHz），留有滤波裕量。选 C。"}, {"id": 7, "chapter": "第1章 认识数据", "question": "录制分辨率为 1280 × 720、色彩深度 24 位真彩色、帧率 30 fps 的视频。未压缩录制 1 秒产生的数据量约为：", "options": {"A": "2.64 MB", "B": "79.1 MB", "C": "528 MB", "D": "8.25 MB"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 未压缩视频数据量计算", "analysis": "1 秒数据量 = 1280 × 720 × 3 Bytes × 30 ≈ 79.10 MB。选 B。"}, {"id": 8, "chapter": "第1章 认识数据", "question": "关于“有损压缩（Lossy）”与“无损压缩（Lossless）”的比较，何者正确？", "options": {"A": "有损压缩常用于可执行程序，允许丢失部分代码字节", "B": "无损压缩比远高于有损压缩，能压缩到千分之一", "C": "MP3 音频反复解压缩，波形与无损母带完全无损一致", "D": "无损压缩可 100% 还原原始数据（如 PNG），有损压缩舍弃冗余换取高压缩比（如 JPEG）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 有损与无损压缩特性对比", "analysis": "无损压缩（PNG/FLAC）完全无损还原；有损压缩（JPEG/MP3）舍弃不敏感细节换取极高压缩比。选 D。"}, {"id": 9, "chapter": "第2章 演算法与程式设计", "question": "伪代码（Pseudocode）在算法设计中的主要优势是：", "options": {"A": "摆脱具体语言语法束缚，聚焦核心逻辑结构且易于交流", "B": "无需解释器或编译器，能直接被 CPU 硬件执行", "C": "能自动检测算法逻辑漏洞并自动生成标准代码", "D": "是国际标准组织统一规定的唯一官方二进制指令集"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 伪代码特点", "analysis": "伪代码摆脱特定语言语法羁绊，便于开发者专注算法逻辑思考与沟通。选 A。"}, {"id": 10, "chapter": "第2章 演算法与程式设计", "question": "输入 x，若 x > 0 则 y = 1，否则 y = -1，最后输出 y。该算法体现的核心控制结构是：", "options": {"A": "单向顺序执行结构", "B": "双分支选择结构", "C": "计数型循环结构", "D": "死循环嵌套结构"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 选择结构识别", "analysis": "根据条件判断走两条不同路径，属于典型的双分支选择结构（if-else）。选 B。"}, {"id": 11, "chapter": "第2章 演算法与程式设计", "question": "执行代码 a = 3.14; b = \"3.14\"，变量 a 与 b 的数据类型分别为：", "options": {"A": "a 为整型（int），b 为布尔型（bool）", "B": "a 为字符串（str），b 为浮点型（float）", "C": "两者在 Python 中均被自动识别为整型（int）", "D": "a 为浮点型（float），b 为字符串型（str）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · Python数据类型", "analysis": "带小数的纯数值为 float，带引号的文本为 str。选 D。"}, {"id": 12, "chapter": "第2章 演算法与程式设计", "question": "若已知 p = True, q = False，则表达式 not q and (p or q) 的求值结果为：", "options": {"A": "False", "B": "None", "C": "True", "D": "0"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 布尔逻辑运算", "analysis": "not q 为 True；p or q 为 True；True and True 结果为 True。选 C。"}, {"id": 13, "chapter": "第2章 演算法与程式设计", "question": "阅读代码：x = 15; res = 'A' if x % 3 == 0 and x % 5 == 0 else 'B'; print(res)，输出结果是：", "options": {"A": "B", "B": "A", "C": "C", "D": "语法错误"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 复合条件分支", "analysis": "15 能被 3 和 5 整除，条件成立，执行 res = 'A'。输出 A，选 B。"}, {"id": 14, "chapter": "第2章 演算法与程式设计", "question": "阅读代码：\ncount = 0\nfor i in range(1, 6):\n    if i == 3: continue\n    count += 1\nprint(count)\n输出结果是：", "options": {"A": "4", "B": "2", "C": "5", "D": "3"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · continue跳转控制", "analysis": "range(1, 6) 产生 1, 2, 3, 4, 5。i=3 时跳过累加，共累加 4 次。选 A。"}, {"id": 15, "chapter": "第2章 演算法与程式设计", "question": "假设首个元素为最大值，通过循环遍历列表中每个元素并更新最大值，该算法属于：", "options": {"A": "二分查找法求中位数", "B": "递归回溯求解全排列", "C": "遍历比较法求解最大值", "D": "哈希映射求解词频"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 极值算法原理", "analysis": "遍历列表各元素两两比较更新极值，属于遍历比较法。选 C。"}, {"id": 16, "chapter": "第2章 演算法与程式设计", "question": "若有字符串 text = \"Python2026\"，执行切片操作 text[0:6] 得到的子字符串是：", "options": {"A": "\"Python2\"", "B": "\"Pytho\"", "C": "\"2026\"", "D": "\"Python\""}, "answer": "D", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 字符串切片索引", "analysis": "[0:6] 包含索引 0 到 5，共 6 个字符，即 \"Python\"。选 D。"}, {"id": 17, "chapter": "第2章 演算法与程式设计", "question": "对待排序序列 [5, 2, 8, 1, 4] 进行升序冒泡排序，第一轮完整比较交换结束后，序列变为：", "options": {"A": "[1, 2, 4, 5, 8]", "B": "[5, 2, 1, 4, 8]", "C": "[2, 5, 1, 4, 8]", "D": "[2, 1, 4, 5, 8]"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 冒泡排序过程", "analysis": "第一趟冒泡将最大数 8 沉底至末尾，前段顺次调整为 [2, 5, 1, 4, 8]。选 C。"}, {"id": 18, "chapter": "第2章 演算法与程式设计", "question": "算法的“时间复杂度（Time Complexity）”通常用来衡量：", "options": {"A": "某品牌电脑秒表计时运行该程序消耗的绝对毫秒数", "B": "程序员书写伪代码总共消耗的时钟分钟数", "C": "该程序在 GitHub 上上传与下载所消耗的带宽时间", "D": "随着数据规模 n 增大，算法基本运算执行次数的增长趋势"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 算法时间复杂度概念", "analysis": "时间复杂度用大 O 记号衡量计算步数随输入规模 n 的渐进增长趋势。选 D。"}, {"id": 19, "chapter": "第3章 人工智能与应用", "question": "关于弱人工智能（ANI）与强人工智能（AGI），下列阐述正确的是：", "options": {"A": "智能手机语音助手已具备全面自主意识的强人工智能（AGI）", "B": "目前人类研发的 AI（如 AlphaGo、人脸识别）均属于弱人工智能（ANI）", "C": "强人工智能指的是算力极大、机柜体积超过普通机房的物理服务器", "D": "弱人工智能在任何专业棋类比赛中绝不可能战胜人类顶尖选手"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 强弱人工智能界定", "analysis": "现存全部 AI 均专注于特定任务，属于弱人工智能（ANI）。选 B。"}, {"id": 20, "chapter": "第3章 人工智能与应用", "question": "在强化学习（Reinforcement Learning）中，智能体（Agent）根据何种信号调整策略以实现长期收益最大化？", "options": {"A": "奖励（Reward）与惩罚（Penalty）反馈机制", "B": "程序员随时随刻的手动按键实时纠正", "C": "预设好的静态数据库唯一索引键", "D": "操作系统虚拟内存交换页命中率"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 强化学习机制", "analysis": "强化学习依赖环境反馈的奖励与惩罚信号，通过试错调整策略。选 A。"}, {"id": 21, "chapter": "第3章 人工智能与应用", "question": "卷积神经网络（CNN）在图像识别中表现优异，关键在于其拥有能自动提取图像局部特征的：", "options": {"A": "关系型数据库主外键约束表", "B": "串行通信握手协议驱动程序", "C": "二进制算术逻辑运算器（ALU）", "D": "卷积层（Convolutional）与池化层（Pooling）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 卷积神经网络特征", "analysis": "CNN 通过卷积层抽取图像局部特征、池化层降维，实现高效特征学习。选 D。"}, {"id": 22, "chapter": "第3章 人工智能与应用", "question": "为了让大语言模型输出高质量且准确的回答，提示词工程的有效原则是：", "options": {"A": "提示词应尽量模糊简短，仅输入一两个单词让 AI 自由发挥", "B": "提示词中不能出现标点符号，否则词嵌入编码器会崩溃", "C": "赋予明确角色设定，提供清晰背景、具体任务与期望格式", "D": "只能使用纯英文，输入中文会破坏神经网络权重参数"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 提示词工程", "analysis": "Prompt 需具备清晰的角色、背景、任务指令与输出格式约束。选 C。"}, {"id": 23, "chapter": "第3章 人工智能与应用", "question": "自动驾驶车辆在道路上自主穿行时，依靠激光雷达（LiDAR）、毫米波雷达与摄像头来完成：", "options": {"A": "实时环境感知、障碍物三维检测与自身定位", "B": "直接向乘客银行卡发起自动扣款协议结算", "C": "无线超频车内发动机火花塞的点火时间", "D": "在无驾驶员操控下自动破解交警指挥中心加密后台"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 自动驾驶多传感器感知", "analysis": "车载传感器多模态融合负责 360 度环境建模、障碍物检测与定位。选 A。"}, {"id": 24, "chapter": "第3章 人工智能与应用", "question": "在医疗影像等高风险领域应用 AI 辅助诊断时，必须坚持的原则是：", "options": {"A": "彻底解雇人类医生，由 AI 闭环自主接管手术与开药", "B": "AI 仅作为辅助筛查工具，最终医疗决策与责任由持证医生承担", "C": "只要 AI 给出阳性诊断，无需复核直接进行大型切除手术", "D": "禁止在软件中设立人机界面，避免医生主观思考干扰 AI"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 医疗AI人机协同伦理", "analysis": "高风险领域必须落实人机协同（Human-in-the-loop），由专业医师负责最终决策。选 B。"}, {"id": 25, "chapter": "第3章 人工智能与应用", "question": "关于人工智能对未来就业结构的影响，下列客观科学的预期是：", "options": {"A": "所有人类职业将在未来一年内 100% 彻底消亡", "B": "AI 只能做简单计算，在绘画、编程与翻译领域对人类毫无影响", "C": "各国应立法炸毁数据中心以完全禁止任何 AI 研究", "D": "AI 将替代标准化重复性劳动，同时催生数据标注与提示词等新兴职业"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · AI与未来就业趋势", "analysis": "AI 替代常规重复性工作，但同时催生新兴数字职业，重构劳动形态。选 D。"}, {"id": 26, "chapter": "第3章 人工智能与应用", "question": "为了防止大语言模型生成教唆犯罪或有害内容，研发团队在训练流程中引入的关键安全对齐技术是：", "options": {"A": "提高 CPU 供电电压进行极限超频", "B": "基于人类反馈的强化学习（RLHF）", "C": "将模型源码编译为机器汇编指令后永久封存", "D": "将文字响应速度强制限制为每秒 1 个字符"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · RLHF安全对齐技术", "analysis": "RLHF 使大语言模型的生成内容与人类道德、法律及安全价值观对齐。选 B。"}, {"id": 27, "chapter": "第4章 资讯科技与社会", "question": "弥合城乡学校之间的数字鸿沟，最务实有效的举措是：", "options": {"A": "推进乡村学校网络覆盖与设备配备，并开展教师数字技能培训", "B": "取缔城市重点学校电脑，使城乡学生在无设备环境下绝对平均", "C": "仅向乡村邮寄纸质计算机手册，但禁止其接入互联网", "D": "要求乡村学生必须自费购买高配游戏笔记本电脑"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 弥合数字鸿沟综合施策", "analysis": "结合硬件普及与教师技能培训是缩小数字鸿沟的系统方法。选 A。"}, {"id": 28, "chapter": "第4章 资讯科技与社会", "question": "科技巨头将云计算数据中心建在北极圈寒冷地区或深海中，主要考量是：", "options": {"A": "北极圈没有网络信号，能彻底防范所有黑客攻击", "B": "利用自然低温大幅降低服务器制冷能耗，提升电力使用效率（PUE）", "C": "低温使 CPU 电子完全停止流动从而不需要消耗电能", "D": "避开各国法律监管，方便暗中跨国贩卖用户数据"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 绿色数据中心自然冷却", "analysis": "利用极地或海水自然对流降温，大幅降低空调用电，提升能效 PUE。选 B。"}, {"id": 29, "chapter": "第4章 资讯科技与社会", "question": "工程师离职后私自将前雇主斥资研发的核心商业软件源码上传网盘并低价售卖，这构成了：", "options": {"A": "正当的开源代码普及奉献，受 CC 协议保护", "B": "侵犯商业秘密与软件著作权，触犯法律并违背职业道德", "C": "符合合理使用原则的自由学术交流", "D": "个人正常的知识变现，前雇主无权追究责任"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 商业秘密与软件著作权侵权", "analysis": "职务代码属于雇主商业秘密，私自泄密变卖属于民事与刑事违法。选 B。"}, {"id": 30, "chapter": "第4章 资讯科技与社会", "question": "某 App 引用了一首“CC BY-ND（署名-禁止演绎）”授权的配乐，下列做法合规的是：", "options": {"A": "重新降调混音拼接搞笑说唱，并声称自己是原创者", "B": "隐去原作者名字，并在音乐后半段插入商业广告", "C": "将该音乐的数字版权直接卖给第三方游戏公司", "D": "注明原作者姓名与曲名，且未对音乐做任何改编或二次剪辑"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · CC禁止演绎条款解读", "analysis": "ND 条款要求完整保留作品原貌，禁止改编演绎，并须署名（BY）。选 D。"}, {"id": 31, "chapter": "第4章 资讯科技与社会", "question": "GPL 开源许可证具有著名的“传染性（Copyleft）”，这意味着：", "options": {"A": "衍生项目若修改并使用了 GPL 代码，发布时该项目也必须完全开源", "B": "一旦安装该软件，操作系统会自动感染恶性病毒", "C": "衍生软件完全禁止在任何商业系统上运行", "D": "使用者必须每年向基金会缴纳软件特许使用专利税"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · GPL传染性特性", "analysis": "Copyleft 要求修改或基于 GPL 代码构建的发布衍生作品必须同样遵循 GPL 开源。选 A。"}, {"id": 32, "chapter": "第4章 资讯科技与社会", "question": "算法推荐持续为用户推送同质化观点，使用户处于认知偏狭封闭的环境中，该现象被称为：", "options": {"A": "信息茧房（Information Cocoon）与回音室效应", "B": "摩尔定律衰减（Moore's Law Decay）", "C": "千年虫危机（Y2K Problem）", "D": "拜占庭将军困境（Byzantine Generals Problem）"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 推荐算法与信息茧房", "analysis": "信息茧房指个体只接受契合自身偏好的信息，认知逐渐封闭。选 A。"}, {"id": 33, "chapter": "第4章 资讯科技与社会", "question": "在数字化时代，下列行为属于良好个人隐私保护习惯的是：", "options": {"A": "在网吧电脑上登录网银时勾选“在此设备上记住密码”", "B": "晒登机牌前将姓名、身份证号、票号及条形码/二维码仔细打码遮挡", "C": "将所有账号密码统统统一设为自己的生日", "D": "街头遇到免费送礼品的摊位时任意扫码并授权详细住址"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 个人隐私保护习惯", "analysis": "登机牌条码含有乘机人敏感身份数据，遮挡打码能防范信息泄露。选 B。"}, {"id": 34, "chapter": "第4章 资讯科技与社会", "question": "某平台未获授权私自将用户的通讯录与位置轨迹转卖给第三方用于精准广告，严重侵害了：", "options": {"A": "用户个人数据隐私权与知情同意权", "B": "网络硬件独占所有权", "C": "电脑域名解析优先权", "D": "宽带网络上行速率分配权"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 个人数据保护与知情同意权", "analysis": "收集使用个人数据必须获得用户的明确知情同意，私自倒卖侵犯隐私权。选 A。"}, {"id": 35, "chapter": "第5章 资讯系统与网络概述", "question": "下列各项中，不属于资讯系统能够为组织带来的核心优势的是：", "options": {"A": "提高业务流程自动化效率，减少人为录入错误", "B": "提供经营数据统计报表，辅助管理层理性决策", "C": "彻底取代人类所有最高层战略决策与伦理判断，实现零人工运营", "D": "优化供应链库存周转率，降低仓储损耗"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 资讯系统的能力边界", "analysis": "资讯系统辅助决策与流程自动化，但不能完全取代人类最高层的战略与伦理判断。选 C。"}, {"id": 36, "chapter": "第5章 资讯系统与网络概述", "question": "航空公司运用数学模型综合分析客座率、竞争对手价格和燃油成本以动态制定机票价格，该系统属于：", "options": {"A": "交易处理系统（TPS）", "B": "普通超市单据打印系统", "C": "决策支持系统（DSS）", "D": "机械硬盘扇区低级格式化工具"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 决策支持系统DSS应用", "analysis": "利用数据模型辅助解决复杂半结构化业务预测与决策，属于 DSS。选 C。"}, {"id": 37, "chapter": "第5章 资讯系统与网络概述", "question": "敏捷软件开发（Agile Development）的最核心特征是：", "options": {"A": "采用短周期迭代，频繁交付可用小版本并积极响应需求变化", "B": "项目启动时必须先写完数万页固定技术文档才允许写代码", "C": "开发过程中禁止程序员与真实客户进行任何面对面交流", "D": "开发周期完全取消测试，代码写完直接在生产服务器上线"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 敏捷开发核心理念", "analysis": "敏捷开发倡导短周期小步快跑、频繁交付与拥抱变化。选 A。"}, {"id": 38, "chapter": "第5章 资讯系统与网络概述", "question": "将双绞线内部的细铜线两两双双扭绞在一起的主要工程目的是：", "options": {"A": "增加线缆拉扯时的机械韧性，看起来更美观", "B": "抵消电磁感应干扰，降低相邻线对间的串扰（Crosstalk）", "C": "使电流以螺旋状旋转加速以突破光速限制", "D": "在网线断裂时利用铜丝弹性自动焊接恢复物理连通"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 双绞线抗干扰原理", "analysis": "成对反向扭绞能够相互抵消向外辐射并抵御外来电磁串扰。选 B。"}, {"id": 39, "chapter": "第5章 资讯系统与网络概述", "question": "电脑插上网线后无需手动配置即可自动获得 IP、子网掩码与默认网关，背后依靠的协议是：", "options": {"A": "超文本传输协议（HTTP）", "B": "简单邮件传输协议（SMTP）", "C": "文件传输协议（FTP）", "D": "动态主机配置协议（DHCP）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · DHCP网络配置", "analysis": "DHCP（Dynamic Host Configuration Protocol）负责动态集中分配 IP 与网络参数。选 D。"}, {"id": 40, "chapter": "第5章 资讯系统与网络概述", "question": "以太网网卡出厂时固化的全球唯一 48 位硬件物理地址被称为：", "options": {"A": "IP 地址（Internet Protocol Address）", "B": "URL 统一资源定位符", "C": "MAC 地址（Media Access Control Address）", "D": "端口号（Port Number）"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · MAC物理地址", "analysis": "网卡硬件烧录的全球唯一 48 位物理地址为 MAC 地址。选 C。"}, {"id": 41, "chapter": "第5章 资讯系统与网络概述", "question": "关于传输层 TCP 与 UDP 协议特性的对比，何者完全正确？", "options": {"A": "TCP 专门用于零延迟竞技游戏，UDP 专门用于银行转账", "B": "UDP 传输每个数据包前必须进行长时间握手确认", "C": "TCP 面向连接可靠交付（三次握手丢包重传）；UDP 无连接速度极快（适合视频通话与实时游戏）", "D": "TCP 发生网络拥塞时会立即将所有丢失数据包永久丢弃"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · TCP与UDP对比", "analysis": "TCP 面向连接、保证可靠不丢包；UDP 无连接低延迟开销小。选 C。"}, {"id": 42, "chapter": "第5章 资讯系统与网络概述", "question": "团队开发在线软件，直接租用云厂商提供的带有 Python 运行环境和托管数据库的云平台部署代码，该服务属于：", "options": {"A": "平台即服务（PaaS）", "B": "基础设施即服务（IaaS）", "C": "软件即服务（SaaS）", "D": "硬件即服务（HaaS）"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 云计算PaaS平台即服务", "analysis": "云服务商提供开发与运行环境，用户只负责部署代码和数据，属于 PaaS。选 A。"}, {"id": 43, "chapter": "第6章 资讯安全与社会责任", "question": "黑客操纵僵尸网络发送海量虚假请求使服务器带宽耗尽瘫痪，导致正常用户无法访问，主要破坏了：", "options": {"A": "机密性（Confidentiality）", "B": "可用性（Availability）", "C": "完整性（Integrity）", "D": "抗抵赖性（Non-repudiation）"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · DDoS与可用性", "analysis": "DDoS 攻击耗尽服务资源使合法用户无法获得正常服务，直接破坏可用性。选 B。"}, {"id": 44, "chapter": "第6章 资讯安全与社会责任", "question": "不依赖宿主文件、能自动扫描网络漏洞并以指数级自我复制主动传播的恶意程序属于：", "options": {"A": "特洛伊木马（Trojan Horse）", "B": "传统文件型病毒（Virus）", "C": "普通间谍广告插件（Adware）", "D": "网络蠕虫（Worm）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 网络蠕虫特性", "analysis": "蠕虫具备独立性并能利用网络漏洞主动自我复制传染。选 D。"}, {"id": 45, "chapter": "第6章 资讯安全与社会责任", "question": "现代 HTTPS 协议采用“混合加密体制”传输网页数据，其实际工程组合方式是：", "options": {"A": "非对称加密协商临时对称会话密钥，随后用对称加密传输海量数据", "B": "对数百兆的网页数据全部使用耗费算力的 RSA 逐字节加密", "C": "公网传输只传递明文，由网卡硬件在底层依靠电磁感应保密", "D": "由客户端将自身私钥直接通过明文 HTTP 协议发送给服务器"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · HTTPS混合密码体制", "analysis": "用非对称加密安全交换对称密钥，后续数据通信用高速对称加密。选 A。"}, {"id": 46, "chapter": "第6章 资讯安全与社会责任", "question": "关于单向散列函数（哈希函数，Hash）特性的描述，何者正确？", "options": {"A": "已知哈希值任何人均可通过数学反函数逆向推出原始明文", "B": "哈希值长度取决于原始文件大小，文件越大哈希值越长", "C": "输入任意长度数据均输出固定长度哈希值，微小变动即引发雪崩效应", "D": "哈希函数的核心功能是将压缩包解压还原为原始文本"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 哈希函数特性", "analysis": "哈希函数固定长度输出，单向不可逆，具有敏感的雪崩效应。选 C。"}, {"id": 47, "chapter": "第6章 资讯安全与社会责任", "question": "在数字证书认证体系中，对数字证书进行权威签名担保的受信任第三方机构被称为：", "options": {"A": "互联网域名与地址分配机构（ICANN）", "B": "国家电力能源总局", "C": "万维网联盟（W3C）", "D": "证书颁发机构（CA, Certificate Authority）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · CA数字证书认证机构", "analysis": "CA 是受信任的第三方数字证书认证签发机构。选 D。"}, {"id": 48, "chapter": "第6章 资讯安全与社会责任", "question": "防范勒索软件（Ransomware）最根本、最有效的防御底线是：", "options": {"A": "只要被加密立即按要求支付比特币，黑客一定会履行承诺", "B": "坚持执行 3-2-1 异地或物理隔离冷备份，并定期演练恢复", "C": "将电脑所有盘符格式化后改用 FAT16 文件系统", "D": "在机箱上贴防盗贴纸并拔掉显示器电源线"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 勒索软件防范措施", "analysis": "执行 3-2-1 离线备份是防范勒索软件最根本的底线保障。选 B。"}, {"id": 49, "chapter": "第6章 资讯安全与社会责任", "question": "在机场或商场连接无密码的公共 Wi-Fi 时，下列哪项操作面临被中间人攻击（MITM）嗅探的高危风险？", "options": {"A": "使用带有端到端加密的企业级 VPN 访问工作站", "B": "在手机设置中将蓝牙功能保持为关闭状态", "C": "在未经加密的明文 HTTP 网页中输入银行卡账号与密码", "D": "在经过 HTTPS 认证的官方 App 中查看当天天气预报"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 公共Wi-Fi明文传输风险", "analysis": "未加密的明文 HTTP 传输极易被同网络黑客嗅探窃取敏感凭证。选 C。"}, {"id": 50, "chapter": "第6章 资讯安全与社会责任", "question": "资讯安全管理策略中的“最小权限原则（PoLP）”要求：", "options": {"A": "仅赋予用户完成其本职工作所必需的最少权限和访问范围", "B": "全体员工与访客默认拥有数据库超级管理员权限", "C": "禁止任何员工使用电脑，全部退回毛笔手写账目", "D": "每位员工的账号密码长度必须限制在 3 位数以内"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 最小特权原则PoLP", "analysis": "最小特权原则要求只授予完成指定任务不可或缺的最低限度权限。选 A。"}];
+        const STORAGE_KEY = "ict_exam_book1_set2_answers";
+        const SUB_KEY = "ict_exam_book1_set2_submissions";
+        const SUPABASE_URL = "https://wjabyyystvtyanqncmcf.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqYWJ5eXlzdHZ0eWFucW5jbWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2ODA3NzYsImV4cCI6MjEwNzI1Njc3Nn0.39gXbYKXk4t6iNf747BmRjuIR_aZB9Qb8la9LUTHaV8";
+        let userAnswers = {};
+        let isSubmitted = false;
+        let secondsElapsed = 0;
+        let timerInterval = null;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                secondsElapsed++;
+                const mins = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
+                const secs = String(secondsElapsed % 60).padStart(2, '0');
+                document.getElementById('timerText').innerText = `${mins}:${secs}`;
+            }, 1000);
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            const sheet = document.getElementById('sheetGrid');
+            container.innerHTML = '';
+            sheet.innerHTML = '';
+
+            questions.forEach(q => {
+                const card = document.createElement('article');
+                card.className = 'question-card';
+                card.id = `q-card-${q.id}`;
+
+                let optsHtml = '';
+                for (const [k, v] of Object.entries(q.options)) {
+                    optsHtml += `
+                        <div class="option-item" id="opt-${q.id}-${k}" onclick="chooseOption(${q.id}, '${k}')">
+                            <div class="opt-letter">${k}</div>
+                            <div class="opt-text">${v}</div>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="q-header">
+                        <div class="q-num-badge">${q.id}</div>
+                        <div style="flex:1;">
+                            <span class="q-chapter-tag">${q.chapter}</span>
+                            <div class="q-text">${q.question.replace(/\n/g, '<br>')}</div>
+                        </div>
+                    </div>
+                    <div class="options-list">${optsHtml}</div>
+                    <div class="review-note-box" id="note-${q.id}"></div>
+                `;
+                container.appendChild(card);
+
+                const btn = document.createElement('a');
+                btn.className = 'sheet-btn';
+                btn.id = `sheet-btn-${q.id}`;
+                btn.href = `#q-card-${q.id}`;
+                btn.innerText = q.id;
+                sheet.appendChild(btn);
+            });
+        }
+
+        function chooseOption(qid, choice) {
+            if (isSubmitted) return;
+            userAnswers[qid] = choice;
+
+            ['A', 'B', 'C', 'D'].forEach(k => {
+                const el = document.getElementById(`opt-${qid}-${k}`);
+                if (el) {
+                    if (k === choice) el.classList.add('selected');
+                    else el.classList.remove('selected');
+                }
+            });
+
+            const card = document.getElementById(`q-card-${qid}`);
+            if (card) card.classList.add('answered');
+
+            const sBtn = document.getElementById(`sheet-btn-${qid}`);
+            if (sBtn) sBtn.classList.add('done');
+
+            updateProgress();
+            saveToStorage();
+        }
+
+        function updateProgress() {
+            const cnt = Object.keys(userAnswers).length;
+            const pct = Math.round((cnt / 50) * 100);
+            document.getElementById('progBar').style.width = pct + '%';
+            document.getElementById('progText').innerText = `${cnt}/50`;
+            document.getElementById('sheetCount').innerText = `已作答 ${cnt} 题`;
+        }
+
+        function saveToStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(userAnswers));
+            } catch (e) {}
+        }
+
+        function restoreStorage() {
+            try {
+                const s = localStorage.getItem(STORAGE_KEY);
+                if (s) {
+                    const parsed = JSON.parse(s);
+                    for (let qid in parsed) {
+                        chooseOption(parseInt(qid), parsed[qid]);
+                    }
+                }
+            } catch (e) {}
+        }
+
+        function resetAllAnswers() {
+            if (isSubmitted) return;
+            if (confirm("确定清空当前的全部已选答案重测吗？")) {
+                userAnswers = {};
+                localStorage.removeItem(STORAGE_KEY);
+                document.querySelectorAll('.option-item').forEach(el => el.classList.remove('selected'));
+                document.querySelectorAll('.question-card').forEach(el => el.classList.remove('answered'));
+                document.querySelectorAll('.sheet-btn').forEach(el => el.classList.remove('done'));
+                updateProgress();
+            }
+        }
+
+        function confirmSubmitExam() {
+            if (isSubmitted) return;
+            const cnt = Object.keys(userAnswers).length;
+            if (cnt < 50) {
+                if (!confirm(`您还有 ${50 - cnt} 道题目尚未作答，确定现在提交答卷吗？`)) return;
+            } else {
+                if (!confirm("确定提交测验并计算最终得分吗？")) return;
+            }
+            submitExam();
+        }
+
+        function submitExam() {
+            isSubmitted = true;
+            clearInterval(timerInterval);
+
+            let correctCount = 0;
+            questions.forEach(q => {
+                const userChoice = userAnswers[q.id];
+                const isRight = (userChoice === q.answer);
+                if (isRight) correctCount++;
+
+                const card = document.getElementById(`q-card-${q.id}`);
+                const sheetBtn = document.getElementById(`sheet-btn-${q.id}`);
+
+                if (card) {
+                    card.classList.remove('answered');
+                    card.classList.add(isRight ? 'review-correct' : 'review-wrong');
+                }
+
+                if (sheetBtn) {
+                    sheetBtn.classList.remove('done');
+                    sheetBtn.classList.add(isRight ? 'stat-correct' : 'stat-wrong');
+                }
+
+                ['A', 'B', 'C', 'D'].forEach(k => {
+                    const el = document.getElementById(`opt-${q.id}-${k}`);
+                    if (el) {
+                        if (k === q.answer) el.classList.add('ans-correct-revealed');
+                        if (k === userChoice && !isRight) el.classList.add('ans-wrong-revealed');
+                    }
+                });
+
+                const noteBox = document.getElementById(`note-${q.id}`);
+                if (noteBox) {
+                    noteBox.style.display = 'block';
+                    noteBox.style.background = isRight ? '#f0fdf4' : '#fff7ed';
+                    noteBox.style.border = isRight ? '1px solid #bbf7d0' : '1px solid #fed7aa';
+                    noteBox.style.color = isRight ? '#166534' : '#9a3412';
+                    noteBox.innerHTML = `
+                        <strong>${isRight ? '✓ 回答正确！' : '✗ 回答错误！'}（标准答案：${q.answer} ｜ 您的选择：${userChoice || '未作答'}）</strong><br>
+                        <span style="font-size:0.85rem; color:#475569;"><strong>【考纲出处】</strong>${q.source}</span><br>
+                        <span style="font-size:0.88rem;"><strong>💡 名师解析：</strong>${q.analysis}</span>
+                    `;
+                }
+            });
+
+            const totalScore = correctCount * 2;
+            document.getElementById('modalScore').innerText = totalScore;
+            document.getElementById('modalEval').innerText = totalScore >= 80 ? '🌟 卓越优异！高阶考点掌握扎实！' : (totalScore >= 60 ? '👍 顺利及格！仍有精进复习空间！' : '📚 需加强复习，请细读名师精析！');
+            document.getElementById('modalDetail').innerText = `答对 ${correctCount} 题 / 答错 ${50 - correctCount} 题 · 用时 ${document.getElementById('timerText').innerText}`;
+            document.getElementById('resultModal').style.display = 'flex';
+
+            // 存储成绩用于个人查分与教研看板
+            try {
+                const stuId = document.getElementById('stuId').value.trim() || 'demo_student';
+                const stuName = document.getElementById('stuName').value.trim() || '高一同学';
+                const stuClass = document.getElementById('stuClass').value.trim() || '高一';
+                const record = {
+                    student_id: stuId,
+                    student_name: stuName,
+                    student_class: stuClass,
+                    score: totalScore,
+                    correct_count: correctCount,
+                    total_questions: 50,
+                    user_answers: userAnswers,
+                    time_cost: document.getElementById('timerText').innerText,
+                    submit_time: new Date().toLocaleString()
+                };
+                localStorage.setItem(`ict_book1_sub_${stuId}`, JSON.stringify(record));
+                // 追加全班记录
+                let allSubs = JSON.parse(localStorage.getItem(SUB_KEY) || '[]');
+                allSubs.push(record);
+                localStorage.setItem(SUB_KEY, JSON.stringify(allSubs));
+
+                // 同步至 Supabase 云端数据库
+                syncToSupabase(record);
+            } catch (e) {}
+        }
+
+        async function syncToSupabase(record) {
+            const statusEl = document.getElementById('cloudSyncStatus');
+            try {
+                const payload = {
+                    student_name: record.student_name,
+                    student_class: `[第一册·第二套] ${record.student_class}`,
+                    student_id: record.student_id,
+                    score: record.score,
+                    total_questions: 50,
+                    time_spent: secondsElapsed,
+                    answers: record.user_answers
+                };
+                const res = await fetch(`${SUPABASE_URL}/rest/v1/exam_submissions`, {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`,
+                        'Content-Type': 'application/json',
+                        'Prefer': 'return=representation'
+                    },
+                    body: JSON.stringify(payload)
+                });
+                if (res.ok) {
+                    if (statusEl) statusEl.innerHTML = '☁️ 已成功同步至 Supabase 云端数据库';
+                } else {
+                    if (statusEl) statusEl.innerHTML = '⚠️ 云端同步稍有延迟，答卷已完好保存在本地';
+                }
+            } catch (e) {
+                if (statusEl) statusEl.innerHTML = '⚠️ 离线模式：答卷已保存在本机浏览器';
+            }
+        }
+
+        function closeModalAndReview() {
+            document.getElementById('resultModal').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.onload = () => {
+            renderQuestions();
+            startTimer();
+            restoreStorage();
+        };
+    </script>
+</body>
+</html>

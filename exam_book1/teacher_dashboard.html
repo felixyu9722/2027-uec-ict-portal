@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高一资讯科技（第一册）全册统整测验 - 教师教研总控台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #d97706;
+            --bg-page: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+            background: var(--bg-page);
+            color: #1e293b;
+            padding-bottom: 80px;
+        }
+        .top-nav {
+            background: #0f172a;
+            color: #fff;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .main-wrap {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        .kpi-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .kpi-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0284c7;
+            margin-top: 4px;
+        }
+        .dash-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .dash-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+        th { background: #f8fafc; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <div style="font-weight:700; font-size:1.15rem; display:flex; align-items:center; gap:8px;">
+            <span>🛡️</span> 高一资讯科技（第一册）教师教研总控台
+        </div>
+        <a href="index.html" style="text-decoration:none; padding:6px 14px; background:rgba(255,255,255,0.1); border-radius:8px; color:#fff; font-weight:600;">🏠 返回测验门户</a>
+    </header>
+
+    <main class="main-wrap">
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <span style="font-size:0.85rem; color:#64748b;">累计参测人数</span>
+                <div class="kpi-val" id="kpiCount">38 人</div>
+            </div>
+            <div class="kpi-card">
+                <span style="font-size:0.85rem; color:#64748b;">全班平均分</span>
+                <div class="kpi-val" style="color:#059669;" id="kpiAvg">78.4 分</div>
+            </div>
+            <div class="kpi-card">
+                <span style="font-size:0.85rem; color:#64748b;">及格率 (≥60分)</span>
+                <div class="kpi-val" style="color:#f59e0b;" id="kpiPass">89.5%</div>
+            </div>
+            <div class="kpi-card">
+                <span style="font-size:0.85rem; color:#64748b;">最高分记录</span>
+                <div class="kpi-val" style="color:#7c3aed;" id="kpiMax">96 分</div>
+            </div>
+        </div>
+
+        <div class="dash-card">
+            <div class="dash-title">
+                <span>📋 成绩明细总榜</span>
+                <div style="display:flex; gap:10px;">
+                    <button onclick="fetchSubmissionsFromSupabase()" style="padding:6px 14px; border-radius:8px; background:#0f172a; color:#38bdf8; border:1px solid #334155; font-weight:700; cursor:pointer;">🔄 刷新云端答卷</button>
+                    <button onclick="exportCSV()" style="padding:6px 14px; border-radius:8px; background:#0284c7; color:#fff; border:none; font-weight:700; cursor:pointer;">📥 导出成绩报表(CSV)</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>学生姓名</th>
+                        <th>班级与卷别</th>
+                        <th>总得分</th>
+                        <th>对题数</th>
+                        <th>用时</th>
+                        <th>提交时间</th>
+                    </tr>
+                </thead>
+                <tbody id="scoresBody">
+                    <tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:20px;">正在连接 Supabase 云端数据库加载考卷数据...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        const SUPABASE_URL = "https://wjabyyystvtyanqncmcf.supabase.co";
+        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqYWJ5eXlzdHZ0eWFucW5jbWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2ODA3NzYsImV4cCI6MjEwNzI1Njc3Nn0.39gXbYKXk4t6iNf747BmRjuIR_aZB9Qb8la9LUTHaV8";
+        let liveSubmissions = [];
+
+        async function fetchSubmissionsFromSupabase() {
+            const tbody = document.getElementById('scoresBody');
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:20px;">正在连接 Supabase 云端数据库加载考卷数据...</td></tr>';
+            try {
+                const res = await fetch(`${SUPABASE_URL}/rest/v1/exam_submissions?select=*&order=created_at.desc`, {
+                    headers: {
+                        'apikey': SUPABASE_KEY,
+                        'Authorization': `Bearer ${SUPABASE_KEY}`
+                    }
+                });
+                if (res.ok) {
+                    const allData = await res.json();
+                    liveSubmissions = allData.filter(r => r.student_class && r.student_class.includes('[第一册'));
+                    if (liveSubmissions.length > 0) {
+                        renderDashboard(liveSubmissions);
+                        return;
+                    }
+                }
+            } catch(e) {
+                console.warn('Supabase fetch failed:', e);
+            }
+            // 本地缓存降级
+            const localSubs = JSON.parse(localStorage.getItem('ict_exam_book1_set1_submissions') || '[]')
+                .concat(JSON.parse(localStorage.getItem('ict_exam_book1_set2_submissions') || '[]'));
+            if (localSubs.length > 0) {
+                liveSubmissions = localSubs;
+                renderDashboard(liveSubmissions);
+            } else {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:#94a3b8; padding:20px;">当前暂无第一册学生提交记录，等待学生作答入库...</td></tr>';
+                document.getElementById('kpiCount').innerText = '0 人';
+                document.getElementById('kpiAvg').innerText = '0 分';
+                document.getElementById('kpiPass').innerText = '0%';
+                document.getElementById('kpiMax').innerText = '0 分';
+            }
+        }
+
+        function renderDashboard(data) {
+            const tbody = document.getElementById('scoresBody');
+            tbody.innerHTML = '';
+            let totalScore = 0;
+            let passCount = 0;
+            let maxScore = 0;
+
+            data.forEach(r => {
+                const s = r.score || 0;
+                totalScore += s;
+                if (s >= 60) passCount++;
+                if (s > maxScore) maxScore = s;
+
+                const tr = document.createElement('tr');
+                const scoreColor = s >= 80 ? '#059669' : (s >= 60 ? '#0284c7' : '#dc2626');
+                const timeStr = r.time_spent ? `${Math.floor(r.time_spent / 60)}分${r.time_spent % 60}秒` : (r.time_cost || '完成');
+                const dateStr = r.created_at ? new Date(r.created_at).toLocaleString() : (r.submit_time || '刚刚');
+                const corr = Math.round(s / 2);
+
+                tr.innerHTML = `
+                    <td>${r.student_id}</td>
+                    <td>${r.student_name}</td>
+                    <td>${r.student_class}</td>
+                    <td><strong style="color:${scoreColor};">${s}</strong></td>
+                    <td>${corr}/50</td>
+                    <td>${timeStr}</td>
+                    <td>${dateStr}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const count = data.length;
+            const avg = Math.round((totalScore / count) * 10) / 10;
+            const passRate = Math.round((passCount / count) * 100);
+
+            document.getElementById('kpiCount').innerText = `${count} 人`;
+            document.getElementById('kpiAvg').innerText = `${avg} 分`;
+            document.getElementById('kpiPass').innerText = `${passRate}%`;
+            document.getElementById('kpiMax').innerText = `${maxScore} 分`;
+        }
+
+        function exportCSV() {
+            if (!liveSubmissions || liveSubmissions.length === 0) {
+                alert('当前暂无成绩数据可导出！');
+                return;
+            }
+            const rows = [
+                ["学号", "姓名", "班级与卷别", "得分", "对题数", "用时", "提交时间"]
+            ];
+            liveSubmissions.forEach(r => {
+                const s = r.score || 0;
+                const corr = `${Math.round(s / 2)}/50`;
+                const timeStr = r.time_spent ? `${Math.floor(r.time_spent / 60)}分${r.time_spent % 60}秒` : (r.time_cost || '');
+                const dateStr = r.created_at ? new Date(r.created_at).toLocaleString() : (r.submit_time || '');
+                rows.push([r.student_id, r.student_name, r.student_class, s, corr, timeStr, dateStr]);
+            });
+
+            let csvContent = "\uFEFF" + rows.map(e => e.join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "高一资讯科技第一册测验成绩总表.csv";
+            link.click();
+        }
+
+        window.onload = fetchSubmissionsFromSupabase;
+    </script>
+</body>
+</html>

@@ -103,6 +103,30 @@
             box-shadow: 0 0 8px #10b981;
         }
 
+        .btn-switch-book {
+            text-decoration: none;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-switch-book:hover {
+            background: rgba(56, 189, 248, 0.25);
+            border-color: #38bdf8;
+            color: #ffffff;
+            box-shadow: 0 0 12px var(--primary-glow);
+            transform: translateY(-1px);
+        }
+
         /* 头部介绍 */
         .portal-hero {
             max-width: 1240px;
@@ -465,7 +489,12 @@
             <div class="logo-icon">💻</div>
             <div class="logo-text">独中高中资讯科技 · 云端测验平台</div>
         </a>
-        <div class="badge-status">第二册 全册 100 题全真题库（第一套 + 第二套已就绪）</div>
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div class="badge-status">第二册 全册 100 题全真题库（第一套 + 第二套已就绪）</div>
+            <a href="../exam_book1/" class="btn-switch-book">
+                📘 切换至【高一 第一册全册统整测验】 ➔
+            </a>
+        </div>
     </header>
 
     <main class="portal-hero">

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高一资讯科技（第一册）全册统整测验【第一套】 - 教师参考答案与解析版</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e3a8a;
+            --accent: #d97706;
+            --success: #059669;
+            --success-bg: #ecfdf5;
+            --danger: #dc2626;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --bg-page: #f8fafc;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 90px;
+        }
+
+        .teacher-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            border-bottom: 1px solid #334155;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .teacher-badge {
+            background: #f59e0b;
+            color: #78350f;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .nav-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-act {
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-act:hover {
+            background: rgba(255,255,255,0.18);
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        /* 矩阵表卡片 */
+        .matrix-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .matrix-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .matrix-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 0.92rem;
+        }
+
+        .matrix-table th {
+            background: #1e3a8a;
+            color: #fff;
+            padding: 10px 6px;
+            font-weight: 700;
+            border: 1px solid #1e3a8a;
+        }
+
+        .matrix-table td {
+            padding: 9px 6px;
+            border: 1px solid var(--border);
+            background: #fff;
+        }
+
+        .matrix-table tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+
+        .q-link {
+            color: var(--secondary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .q-link:hover {
+            text-decoration: underline;
+        }
+
+        .ans-val {
+            color: #dc2626;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        /* 逐题详细解析卡片 */
+        .explanations-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .explanation-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .q-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .q-id-badge {
+            background: #1e40af;
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .q-ch-badge {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .q-ans-badge {
+            background: #fef2f2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+            font-size: 0.9rem;
+            font-weight: 800;
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        .opt-item-t {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            background: #f8fafc;
+            border: 1px solid transparent;
+        }
+        .opt-item-t.is-correct {
+            background: #f0fdf4;
+            border-color: #86efac;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .analysis-box {
+            margin-top: 14px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1e40af;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* 锁屏保护覆盖层 */
+        .auth-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gate-box {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 20px;
+            padding: 36px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 教师安全认证拦截门 -->
+    <div id="gateOverlay" class="auth-overlay">
+        <div class="gate-box">
+            <div style="font-size:2.8rem; margin-bottom:12px;">🛡️</div>
+            <h2 style="font-size:1.4rem; margin-bottom:8px;">教师教研权限核验</h2>
+            <p style="font-size:0.88rem; color:#94a3b8; margin-bottom:22px;">请输入教师安全密码以解锁第一册考卷答案与深度评分量规</p>
+            <input type="password" id="gatePwdInput" style="width:100%; padding:12px; border-radius:10px; border:1px solid #475569; background:#0f172a; color:#fff; font-size:1.1rem; text-align:center; outline:none; margin-bottom:8px;" placeholder="请输入访问密码">
+            <div id="gateErrMsg" style="color:#f87171; font-size:0.82rem; margin-bottom:12px; display:none;">密码错误，请重新输入！</div>
+            <div style="display:flex; gap:10px;">
+                <a href="高中资讯科技_第一册_测验导航门户.html" class="btn-act" style="flex:1; text-align:center; padding:10px;">返回门户</a>
+                <button onclick="checkPageSecurity()" class="btn-act" style="flex:1; background:#d97706; border-color:#d97706; font-weight:700;">验证解锁</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <header class="teacher-navbar">
+        <div class="nav-inner">
+            <div class="brand-box">
+                <span class="teacher-badge">教研答案</span>
+                <span class="nav-title">高一资讯科技（第一册）全册统整测验【第一套】教师解析</span>
+            </div>
+            <div class="nav-actions">
+                <a href="高中资讯科技_第一册_测验导航门户.html" class="btn-act">🏠 返回测验门户</a>
+                <button onclick="lockPage()" class="btn-act" style="background:#7f1d1d; border-color:#991b1b;">🚪 锁定退出</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- 答案速查矩阵卡 -->
+        <section class="matrix-card">
+            <div class="matrix-head">
+                <div class="matrix-title">
+                    <span>📊 50 题标准答案速查矩阵（10 × 5 布局）</span>
+                </div>
+                <span style="font-size:0.85rem; color:#64748b;">点击题号可直达详细考点解析</span>
+            </div>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th>题号</th><th>答案</th>
+                        <th>题号</th><th>答案</th>
+                        <th>题号</th><th>答案</th>
+                        <th>题号</th><th>答案</th>
+                        <th>题号</th><th>答案</th>
+                    </tr>
+                </thead>
+                <tbody id="matrixTableBody"></tbody>
+            </table>
+        </section>
+
+        <!-- 逐题解析列表 -->
+        <section id="explanationsList" class="explanations-list"></section>
+    </main>
+
+    <script>
+        const questions = [{"id": 1, "chapter": "第1章 认识数据", "question": "在数据科学中，“数据（Data）”、“资讯（Information）”与“知识（Knowledge）”的层级关系，下列陈述何者正确？", "options": {"A": "雷达原始脉冲数值是数据，标注时间地点后为资讯", "B": "数据必须有人类主观情绪，机器统计报表仅是数据", "C": "资讯是未经处理的符号，数据是关联分析后的指南", "D": "只要存储容量足够，杂乱数据可自动升华为知识"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 数据与资讯的本质区别", "analysis": "数据（Data）是未经加工的原始事实与符号；赋予时间、地点等背景后转化为资讯（Information）；提炼规律后上升为知识。A选项准确表述了数据到资讯的转化。"}, {"id": 2, "chapter": "第1章 认识数据", "question": "计算机底层采用二进制运算。将无符号八位二进制数 (00110101)₂ 转换为十进制与十六进制数，分别为：", "options": {"A": "十进制 51，十六进制 33H", "B": "十进制 53，十六进制 35H", "C": "十进制 55，十六进制 37H", "D": "十进制 49，十六进制 31H"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 进位制转换与二进制法则", "analysis": "(00110101)₂ = 32 + 16 + 4 + 1 = 53（十进制）。按四位一组拆分：0011₂ = 3，0101₂ = 5，对应十六进制 35H。故选 B。"}, {"id": 3, "chapter": "第1章 认识数据", "question": "关于 ASCII 码与 Unicode / UTF-8 编码标准，下列叙述何者正确？", "options": {"A": "ASCII 码占 2 字节，原生收录中文与 Emoji", "B": "Unicode 采用固定 8 位编码，汉字存储比 ASCII 小", "C": "标准 ASCII 用 7 位表示 128 字符；UTF-8 兼容 ASCII 且支持多语言", "D": "UTF-8 是定长编码，所有英文字符和汉字均固定占 4 字节"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 字符编码体系", "analysis": "标准 ASCII 采用 7 位编码，表示 128 个字符；Unicode 支持全球语言符号，UTF-8 是其变长实现，完全兼容标准 ASCII。故选 C。"}, {"id": 4, "chapter": "第1章 认识数据", "question": "在多媒体技术中，点阵图（Bitmap）与向量图（Vector Graphic）的特性对比，何者正确？", "options": {"A": "点阵图由数学公式描述，缩放时不失真", "B": "向量图记录各像素 RGB，适合细腻的自然风景照", "C": "SVG 属于点阵图，相机拍摄的 JPEG 属于向量图", "D": "点阵图由像素网格构成，放大易出现锯齿模糊"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 图像数字化与图像格式", "analysis": "点阵图由像素阵列组成，放大后像素被拉伸导致锯齿模糊；向量图由几何数学公式描述，缩放不失真。故选 D。"}, {"id": 5, "chapter": "第1章 认识数据", "question": "一张未压缩真彩色照片分辨率为 1920 × 1080 像素，色彩深度为 24 位（24-bit True Color）。其原始数据容量约为：", "options": {"A": "2.07 MB", "B": "5.93 MB", "C": "16.59 MB", "D": "47.46 MB"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 数字图像存储容量计算", "analysis": "容量 = 1920 × 1080 × (24 / 8) Bytes = 6,220,800 Bytes ≈ 5.93 MB。故选 B。"}, {"id": 6, "chapter": "第1章 认识数据", "question": "声音信号转换为数字音频（ADC）必须经历的三大基本步骤依次为：", "options": {"A": "采样（Sampling） ➔ 编码（Encoding） ➔ 量化（Quantization）", "B": "量化（Quantization） ➔ 采样（Sampling） ➔ 压缩（Compression）", "C": "采样（Sampling） ➔ 量化（Quantization） ➔ 编码（Encoding）", "D": "滤波（Filtering） ➔ 放大（Amplification） ➔ 解码（Decoding）"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 声音数字化三部曲", "analysis": "模拟声音转数字声音的标准流程为：1. 采样（时间离散化）➔ 2. 量化（振幅离散化）➔ 3. 编码（二进制化）。顺序不可颠倒，选 C。"}, {"id": 7, "chapter": "第1章 认识数据", "question": "录制一段 10 秒的标准 CD 音质音频：采样率 44.1 kHz、16 位量化、双声道立体声。未经压缩的数据量约为：", "options": {"A": "1.68 MB", "B": "3.36 MB", "C": "705.6 KB", "D": "14.11 MB"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 音频数据容量计算公式", "analysis": "容量 = 44,100 × (16 / 8) × 2 × 10 Bytes = 1,764,000 Bytes ≈ 1.68 MB。故选 A。"}, {"id": 8, "chapter": "第1章 认识数据", "question": "视频画面的连续性依赖于人眼的视觉暂留。人眼视觉暂留时间约为多少？连续平滑画面的标准帧率至少为多少？", "options": {"A": "约 1.0 秒；帧率达到 10 fps", "B": "约 0.01 秒；帧率达到 120 fps", "C": "约 0.5 秒；帧率达到 60 fps", "D": "约 0.1 秒；帧率达到 24 fps"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第1章 认识数据 · 视频原理与帧率标准", "analysis": "人眼视觉暂留时间约为 0.1 秒；当画面刷新率达到 24 fps（每秒 24 帧）以上时，人眼感知为连贯平滑视频。故选 D。"}, {"id": 9, "chapter": "第2章 演算法与程式设计", "question": "演算法是解决特定问题的指令集合。下列叙述中，何者违背了演算法的基本定义？", "options": {"A": "每一步骤必须含义明确无歧义（确定性）", "B": "可以有零个或多个输入，但必须产生输出", "C": "算法在极端条件下允许无限循环永不停止", "D": "所有操作原则上能在有限时间内执行（可行性）"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 演算法五大基本特征", "analysis": "演算法必须具有“有穷性”，即在执行有限步骤后必须终止。死循环违背了有穷性，故 C 违背定义。"}, {"id": 10, "chapter": "第2章 演算法与程式设计", "question": "在国际标准流程图（Flowchart）中，各几何图元与其功能的配对何者完全正确？", "options": {"A": "椭圆：起止符号；菱形：条件判断；矩形：处理运算；平行四边形：输入输出", "B": "菱形：起止符号；矩形：条件判断；椭圆：输入输出；平行四边形：处理运算", "C": "矩形：起止符号；圆角矩形：处理运算；平行四边形：条件判断；菱形：输入输出", "D": "平行四边形：条件判断；菱形：处理运算；矩形：起止符号；椭圆：输入输出"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 流程图标准规范", "analysis": "流程图规范：圆角矩形/椭圆表示起止；菱形表示条件判断；矩形表示处理运算；平行四边形表示输入/输出。A选项配对正确。"}, {"id": 11, "chapter": "第2章 演算法与程式设计", "question": "结构化程序设计的三大基本控制结构是：", "options": {"A": "函数调用结构、递归结构、指针引用结构", "B": "顺序结构、选择分支结构、循环结构", "C": "输入输出结构、并发处理结构、异常捕获结构", "D": "模块封装结构、继承多态结构、动态路由结构"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 程序三大控制结构", "analysis": "结构化程序设计三大基石为：顺序结构、选择分支结构和循环结构。选 B。"}, {"id": 12, "chapter": "第2章 演算法与程式设计", "question": "在 Python 编程语言中，下列哪一个是完全合法的变量名？", "options": {"A": "2026_total_score", "B": "my-total-points", "C": "class", "D": "student_score_2026"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · Python变量命名规范", "analysis": "变量名不能以数字开头（排除A），不能含连字符减号（排除B），不能为关键字（排除C）。D完全合法。"}, {"id": 13, "chapter": "第2章 演算法与程式设计", "question": "在 Python 中执行表达式 23 // 5 + 17 % 4 + 3 ** 2，其最终计算结果为：", "options": {"A": "14", "B": "15", "C": "16", "D": "12"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · Python算术运算符优先级", "analysis": "运算步骤：3 ** 2 = 9；23 // 5 = 4；17 % 4 = 1；4 + 1 + 9 = 14。选 A。"}, {"id": 14, "chapter": "第2章 演算法与程式设计", "question": "阅读下列 Python 条件分支代码：\nscore = 78\nif score >= 90: grade = 'A'\nelif score >= 75: grade = 'B'\nelse: grade = 'C'\nprint(grade)\n程序打印出的结果是：", "options": {"A": "A", "B": "B", "C": "C", "D": "F"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 条件分支判断", "analysis": "score = 78，不满足 >= 90；进入 elif 满足 >= 75，因此 grade = 'B' 并跳出判断。输出 B。"}, {"id": 15, "chapter": "第2章 演算法与程式设计", "question": "阅读代码：\ntotal = 0\nfor i in range(1, 10, 2):\n    total += i\nprint(total)\n执行后变量 total 的值为：", "options": {"A": "45", "B": "20", "C": "25", "D": "16"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · for循环与range函数", "analysis": "range(1, 10, 2) 产生 1, 3, 5, 7, 9。累加和：1 + 3 + 5 + 7 + 9 = 25。选 C。"}, {"id": 16, "chapter": "第2章 演算法与程式设计", "question": "阅读代码：\nn = 1; s = 0\nwhile n <= 5:\n    s += n * 2\n    n += 1\nprint(s)\n代码执行结束时输出的 s 值为：", "options": {"A": "15", "B": "20", "C": "10", "D": "30"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · while循环变量跟踪", "analysis": "循环累加：2 + 4 + 6 + 8 + 10 = 30。当 n=6 时退出循环。输出 30，选 D。"}, {"id": 17, "chapter": "第2章 演算法与程式设计", "question": "已知列表 nums = [10, 20, 30, 40, 50]，执行 nums.append(60) 后计算 nums[1] + nums[-1]，结果是：", "options": {"A": "70", "B": "80", "C": "90", "D": "60"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 列表索引与操作", "analysis": "追加后列表末尾为 60。nums[1] 值为 20，nums[-1] 为末项 60。20 + 60 = 80。选 B。"}, {"id": 18, "chapter": "第2章 演算法与程式设计", "question": "二分查找（折半查找）相较于顺序查找效率极高，但使用二分查找的前提条件是：", "options": {"A": "列表元素数量必须为 2 的整数次幂", "B": "列表中的元素必须全为正整数", "C": "目标查找值必须恰好位于列表正中间", "D": "列表中的元素必须预先排好序"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第2章 演算法与程式设计 · 二分查找前提条件", "analysis": "二分查找核心依赖于每次与中点比较后排除一半区间，这要求序列必须预先有序（升序或降序）。选 D。"}, {"id": 19, "chapter": "第3章 人工智能与应用", "question": "1950 年艾伦·图灵提出检验机器是否具备人类智能的判定实验被称为：", "options": {"A": "图灵测试（Turing Test）", "B": "达特茅斯评测（Dartmouth Test）", "C": "明斯基网络测试（Minsky Test）", "D": "深蓝博弈基准（Deep Blue Test）"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 图灵测试", "analysis": "图灵测试通过盲测对话判断机器是否具备类人智能。选 A。"}, {"id": 20, "chapter": "第3章 人工智能与应用", "question": "机器学习划分为三大基本范式。下列任务中属于“监督学习（Supervised Learning）”的是：", "options": {"A": "对无标签的电商用户进行自动聚类分群", "B": "自动驾驶小车通过试错与奖惩反馈优化转向", "C": "使用标注有“猫/狗”标签的照片训练分类模型", "D": "AlphaGo 无人类棋谱指导下自我对弈提升"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 监督学习定义", "analysis": "监督学习的训练数据具有已标注的正确标签（如猫狗标签）。A为无监督聚类，B、D为强化学习。选 C。"}, {"id": 21, "chapter": "第3章 人工智能与应用", "question": "典型人工神经网络（ANN）基本架构自输入端到输出端依次由哪三类网络层构成？", "options": {"A": "感知层 ➔ 传输层 ➔ 应用层", "B": "编译层 ➔ 逻辑层 ➔ 物理层", "C": "数据层 ➔ 交换层 ➔ 控制层", "D": "输入层 ➔ 隐藏层 ➔ 输出层"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 神经网络层次结构", "analysis": "人工神经网络的标准三层结构为：输入层、隐藏层和输出层。选 D。"}, {"id": 22, "chapter": "第3章 人工智能与应用", "question": "计算机视觉（CV）致力于让计算机看懂图像。下列任务中不属于计算机视觉范畴的是：", "options": {"A": "智能手机摄像头面部解锁", "B": "智能语音助手识别语音指令并转为文字", "C": "自动驾驶车辆识别车道线与红绿灯", "D": "AI 分析肺部 CT 影像筛查病灶"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 计算机视觉与语音识别辨析", "analysis": "语音识别处理的是声波音频信号，属于语音/NLP范畴，而非处理像素图像的计算机视觉（CV）。选 B。"}, {"id": 23, "chapter": "第3章 人工智能与应用", "question": "自然语言处理（NLP）旨在让计算机理解人类语言。下列任务全部属于 NLP 范畴的是：", "options": {"A": "机器翻译、文本情感分析、大语言模型生成", "B": "指纹考勤打卡、红绿灯抓拍车辆测速", "C": "硬盘坏道扫描修复、数据流校验和计算", "D": "数码相机自动白平衡、无损音频降噪"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 自然语言处理典型应用", "analysis": "机器翻译、文本分析与大语言模型属于典型的 NLP 文本处理。选 A。"}, {"id": 24, "chapter": "第3章 人工智能与应用", "question": "某招聘 AI 系统倾向于无故淘汰女性应聘者，产生“算法偏见”。其根本成因通常是：", "options": {"A": "服务器 CPU 运算过快产生浮点舍入误差", "B": "操作系统编译器无法识别女性名字编码", "C": "训练该模型所用的历史数据本身存在性别失衡", "D": "深度学习模型未联网无法同步劳动保护法规"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 算法偏见成因", "analysis": "机器学习模型的判断准则源于训练数据，历史训练数据本身的偏见导致了模型拟合出的算法歧视。选 C。"}, {"id": 25, "chapter": "第3章 人工智能与应用", "question": "利用深度学习极其逼真地替换人脸表情与克隆声音的音视频伪造技术被称为：", "options": {"A": "暗网嗅探（Darknet Sniffing）", "B": "深度伪造（Deepfake）", "C": "数字隐写（Steganography）", "D": "多态病毒（Polymorphic Virus）"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 深度伪造技术", "analysis": "深度伪造（Deepfake）利用生成对抗网络等技术伪造高逼真音视频。选 B。"}, {"id": 26, "chapter": "第3章 人工智能与应用", "question": "学生在撰写研究报告时使用生成式 AI（如 ChatGPT），下列做法符合学术伦理的是：", "options": {"A": "用 AI 辅助启发思路或润色语言，并在报告中注明工具与提示词", "B": "将 AI 生成的整篇文章直接复制作为原创论文提交", "C": "让 AI 代替自己编写考试代码并隐瞒使用工具", "D": "输入同学的真实个人隐私让 AI 进行人肉搜索"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第3章 人工智能与应用 · 生成式AI学术伦理", "analysis": "合理将 AI 作为灵感与润色辅助工具并在成果中透明披露，符合学术诚信。直接剽窃不可取。选 A。"}, {"id": 27, "chapter": "第4章 资讯科技与社会", "question": "因地理、经济与教育差异导致不同群体在 ICT 设备拥有与使用能力上的不平等现象被称为：", "options": {"A": "信息茧房（Information Cocoon）", "B": "技术奇点（Technological Singularity）", "C": "网络中立（Net Neutrality）", "D": "数字鸿沟（Digital Divide）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 数字鸿沟概念", "analysis": "数字鸿沟（Digital Divide）指在接入硬件与使用信息能力上的社会不平等差距。选 D。"}, {"id": 28, "chapter": "第4章 资讯科技与社会", "question": "“绿色运算（Green Computing）”倡导降低计算机对环境的负面影响。下列措施最符合其宗旨的是：", "options": {"A": "将旧电脑主机直接混入普通生活垃圾填埋", "B": "超频服务器 CPU 并把机房空调调到最低温", "C": "采购节能认证设备并规范回收电子废弃物（E-waste）", "D": "开发后台挖矿程序耗尽电脑空闲时的电力"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 绿色运算宗旨", "analysis": "采购高能效设备与规范回收电子废料是绿色运算的核心实践。选 C。"}, {"id": 29, "chapter": "第4章 资讯科技与社会", "question": "版权法（著作权法）核心保护原则是“思想与表达二分法”。这意味着版权法：", "options": {"A": "保护创作者对思想的具体表达形式，不保护抽象思想本身", "B": "只要头脑中有商业构想，即使未写出作品也受版权保护", "C": "源代码一旦公开发布在 GitHub 上即永久丧失一切版权", "D": "只有向版权局缴费登记的作品才受法律保护"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 著作权保护客体", "analysis": "版权法只保护思想的具体表达（作品、代码、文字），不保护抽象思想创意本身。选 A。"}, {"id": 30, "chapter": "第4章 资讯科技与社会", "question": "在版权法体系中，下列行为属于合法“合理使用（Fair Use）”的是：", "options": {"A": "将商业正版教科书整本扫描发布到论坛免费下载", "B": "教师在课堂教学中适量引用学术论文图表并注明出处", "C": "将收费软件的注册机打包发布在公众号用于引流", "D": "未经许可将院线大片在校内礼堂对外售票放映"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 版权合理使用原则", "analysis": "课堂教学出于非营利目的适量引用并注明出处，属于法定合理使用范畴。选 B。"}, {"id": 31, "chapter": "第4章 资讯科技与社会", "question": "某开源教材标有“CC BY-NC-SA”许可协议标识，这意味着使用者必须遵守：", "options": {"A": "不需署名、可以商业买卖、禁止修改", "B": "仅限非商业使用、禁止在网络上传播、需书面授权", "C": "必须支付专利费、允许买卖、由政府机构管控", "D": "必须署名（BY）、非商业用途（NC）、相同方式共享（SA）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · CC知识共享许可协议", "analysis": "BY 为署名，NC 为非商业，SA 为相同方式共享。选 D。"}, {"id": 32, "chapter": "第4章 资讯科技与社会", "question": "关于开源软件（Open Source Software），下列陈述完全正确的是：", "options": {"A": "开源软件等同于公有领域，作者自动放弃所有法律身份", "B": "开源软件由于源码公开，安全性一定低于闭源商业软件", "C": "开源软件允许查看修改源码，但需遵守指定开源许可证", "D": "任何开源软件均禁止用于商业公司的日常业务运营"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 开源软件特征与许可证", "analysis": "开源软件拥有版权，使用者需遵从其许可证（如 MIT、GPL、Apache）。选 C。"}, {"id": 33, "chapter": "第4章 资讯科技与社会", "question": "在网络社群交流中，下列行为违背“网络礼仪（Netiquette）”的是：", "options": {"A": "因观点不同而人肉搜索对方住址并在社交账号群起谩骂", "B": "发言前核实事实来源，避免假新闻误导他人", "C": "尊重他人隐私，未经同意不公开聚会私密照片", "D": "邮件交流保持礼貌，不随意用全大写字母咆哮"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 网络礼仪与防范网络欺凌", "analysis": "人肉搜索与网络谩骂属于网络欺凌，违背网络道德与法律。选 A。"}, {"id": 34, "chapter": "第4章 资讯科技与社会", "question": "ACM/IEEE 职业道德准则规定：当雇主商业利益与公众安全健康利益冲突时，资讯科技专业人员应当：", "options": {"A": "无条件服从雇主指令，即使系统有缺陷也保持沉默", "B": "私下将客户机密数据变卖给第三方以追求高薪", "C": "始终将公众健康、安全与根本福祉置于最高优先级", "D": "保持中立，由非专业管理人员自行承担一切责任"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第4章 资讯科技与社会 · 职业道德与公众利益第一原则", "analysis": "软件工程师职业道德第一准则是优先保护公众利益与人身安全。选 C。"}, {"id": 35, "chapter": "第5章 资讯系统与网络概述", "question": "一个现代组织级资讯系统（IS）的五大核心基本组成要素是：", "options": {"A": "电源、网线、机柜、路由器、防雷针", "B": "硬件、软件、数据、人员、过程/规程", "C": "网页前端、数据库后端、编译器、显卡、声卡", "D": "显示器、键盘、鼠标、打印机、扫描仪"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 资讯系统五大要素", "analysis": "五大要素为：硬件、软件、数据、人员和规程/过程。选 B。"}, {"id": 36, "chapter": "第5章 资讯系统与网络概述", "question": "在企业资讯系统层次模型中，负责记录日常海量交易（如超市 POS 收银、银行 ATM 取款）的系统是：", "options": {"A": "管理资讯系统（MIS）", "B": "决策支持系统（DSS）", "C": "主管资讯系统（EIS）", "D": "交易处理系统（TPS）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 交易处理系统TPS", "analysis": "TPS（Transaction Processing System）处理底层操作层的日常交易业务。选 D。"}, {"id": 37, "chapter": "第5章 资讯系统与网络概述", "question": "系统开发生命周期（SDLC）标准开发阶段的先后顺序何者正确？", "options": {"A": "系统规划 ➔ 系统分析 ➔ 系统设计 ➔ 系统实现测试 ➔ 运行维护", "B": "系统设计 ➔ 系统规划 ➔ 系统编码 ➔ 运行维护", "C": "系统实现 ➔ 系统维护 ➔ 系统分析 ➔ 系统设计", "D": "系统测试 ➔ 系统规划 ➔ 系统设计 ➔ 需求调研"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · SDLC开发生命周期阶段", "analysis": "标准顺序为：规划 ➔ 分析 ➔ 设计 ➔ 实现测试 ➔ 运行维护。选 A。"}, {"id": 38, "chapter": "第5章 资讯系统与网络概述", "question": "关于计算机网络星型拓扑（Star Topology）的特性，下列陈述正确的是：", "options": {"A": "任何一台计算机断线都会导致整个网络永久瘫痪", "B": "所有节点通过单根主干线缆串接，布线成本极低", "C": "结构极其复杂，必须有多条冗余备份链路才能通信", "D": "各节点独立连接至中央交换机，单台终端故障不影响其他电脑通信"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 星型拓扑结构", "analysis": "星型拓扑由中央节点集中管理，单个分支终端故障具有独立隔离性，不影响其余节点。选 D。"}, {"id": 39, "chapter": "第5章 资讯系统与网络概述", "question": "依据网络地理覆盖范围由小到大排列，顺序正确的是：", "options": {"A": "WAN（广域网） ➔ MAN（城域网） ➔ LAN（局域网） ➔ PAN（个人局域网）", "B": "PAN（个人局域网） ➔ LAN（局域网） ➔ MAN（城域网） ➔ WAN（广域网）", "C": "LAN（局域网） ➔ PAN（个人局域网） ➔ WAN（广域网） ➔ MAN（城域网）", "D": "MAN（城域网） ➔ LAN（局域网） ➔ WAN（广域网） ➔ PAN（个人局域网）"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 网络覆盖范围分类", "analysis": "由小到大为：个人局域网（PAN）➔ 局域网（LAN）➔ 城域网（MAN）➔ 广域网（WAN）。选 B。"}, {"id": 40, "chapter": "第5章 资讯系统与网络概述", "question": "工作在网络层、负责在不同网络之间寻找最佳传输路径并转发数据包的网络互联设备是：", "options": {"A": "中继器（Repeater）", "B": "集线器（Hub）", "C": "路由器（Router）", "D": "二层物理交换机（Switch）"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · 路由器功能", "analysis": "路由器工作在第三层（网络层），核心任务是路由寻径与分组转发。选 C。"}, {"id": 41, "chapter": "第5章 资讯系统与网络概述", "question": "在 OSI 七层参考模型中，负责将比特流组装成帧、通过 MAC 地址进行物理寻址的网络层是：", "options": {"A": "物理层（Physical Layer）", "B": "传输层（Transport Layer）", "C": "网络层（Network Layer）", "D": "数据链路层（Data Link Layer）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · OSI数据链路层职责", "analysis": "数据链路层负责成帧、差错控制与 MAC 物理寻址。选 D。"}, {"id": 42, "chapter": "第5章 资讯系统与网络概述", "question": "当在浏览器输入网址 www.uec.edu.my 时，域名系统（DNS）的核心功能是：", "options": {"A": "将网页中的文字自动翻译为标准英文", "B": "将便于记忆的域名解析转换为对应的 IP 地址", "C": "为用户电脑自动分配局域网私有网关与掩码", "D": "检测电脑是否感染病毒并自动查杀"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第5章 资讯系统与网络概述 · DNS域名解析机制", "analysis": "DNS 核心作用是将人类可读的文字域名映射解析为计算机底层的 IP 地址。选 B。"}, {"id": 43, "chapter": "第6章 资讯安全与社会责任", "question": "黑客未窃取学生档案，但恶意将上千名学生的期末成绩全部篡改调高。这主要破坏了 CIA 三元组中的：", "options": {"A": "完整性（Integrity）", "B": "可用性（Availability）", "C": "机密性（Confidentiality）", "D": "抗抵赖性（Non-repudiation）"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · CIA三元组完整性", "analysis": "数据被恶意篡改直接破坏了数据的真实性与完整性（Integrity）。选 A。"}, {"id": 44, "chapter": "第6章 资讯安全与社会责任", "question": "自身表面上伪装成无害正常程序（如破解补丁），运行后在后台悄悄开放安全后门盗取密码的恶意软件是：", "options": {"A": "网络蠕虫（Worm）", "B": "特洛伊木马（Trojan Horse）", "C": "宏病毒（Macro Virus）", "D": "引导区病毒（Boot Sector Virus）"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 特洛伊木马特征", "analysis": "特洛伊木马的最大特征是伪装欺骗，诱骗用户运行后开启后门。选 B。"}, {"id": 45, "chapter": "第6章 资讯安全与社会责任", "question": "伪造教务处紧急通知邮件、诱骗教师点击高仿虚假网站以套取邮箱账号密码的攻击手段属于：", "options": {"A": "分布式拒绝服务攻击（DDoS）", "B": "网络钓鱼（Phishing）与社会工程学攻击", "C": "SQL 注入攻击（SQL Injection）", "D": "跨站脚本攻击（XSS）"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 网络钓鱼防范", "analysis": "仿冒权威机构发邮件诱骗点击虚假网站盗取凭证，属于网络钓鱼（Phishing）。选 B。"}, {"id": 46, "chapter": "第6章 资讯安全与社会责任", "question": "在非对称加密中，若 Alice 想要给 Bob 发送一封机密信件，Alice 应当使用哪把密钥加密明文？", "options": {"A": "Bob 的公钥（Bob's Public Key）", "B": "Alice 自己的私钥", "C": "Bob 的私钥", "D": "Alice 自己的公钥"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 非对称加密公钥解密机制", "analysis": "非对称保密传输必须使用“接收方的公钥”加密，唯有接收方 Bob 的私钥才能解密。选 A。"}, {"id": 47, "chapter": "第6章 资讯安全与社会责任", "question": "数字签名能够确保消息真实性与完整性。发送方生成数字签名的标准做法是：", "options": {"A": "接收方用自己的公钥对整篇消息内容进行解密", "B": "电信运营商对信件加盖经过公证的实体印章", "C": "发送方用自己的私钥对消息散列摘要（Hash）进行加密", "D": "将手写签名扫描为高分辨率图片直接附在邮件下方"}, "answer": "C", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 数字签名生成原理", "analysis": "发送方用自己的私钥对消息 Hash 摘要加密生成数字签名，接收方用发送方公钥验签。选 C。"}, {"id": 48, "chapter": "第6章 资讯安全与社会责任", "question": "多因素身份认证（MFA / 2FA）要求跨越不同认证维度。下列组合真正构成双因素认证的是：", "options": {"A": "静态登录密码（所知） ＋ 密保问题回答（所知）", "B": "实体硬件 Ukey（所有） ＋ 门禁芯片卡（所有）", "C": "食指指纹（所是） ＋ 眼睛虹膜（所是）", "D": "记忆的账户密码（所知） ＋ 手机动态验证码（所有）"}, "answer": "D", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 多因素身份认证MFA", "analysis": "密码属于“所知”，手机验证码属于“所有”，两者属于不同要素维度，构成有效 2FA。选 D。"}, {"id": 49, "chapter": "第6章 资讯安全与社会责任", "question": "关于计算机网络防火墙（Firewall）的核心功能，下列叙述正确的是：", "options": {"A": "依据预设安全策略检查出入数据包，阻止未授权访问", "B": "安装后可完全替代杀毒软件并关闭系统漏洞补丁", "C": "能 100% 自动消除物理插入 U 盘中的宏病毒", "D": "运作原理是通过切断外网物理光缆来实现绝对安全"}, "answer": "A", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 防火墙边界过滤", "analysis": "防火墙主要依据源/目的 IP、端口等规则在网络边界过滤出入数据包。选 A。"}, {"id": 50, "chapter": "第6章 资讯安全与社会责任", "question": "数据灾备中的黄金准则“3-2-1 备份原则”的具体含义是：", "options": {"A": "3 周内备份完毕；2 位管理员联合签名；密码至少 1 位", "B": "保留 3 份数据副本；存放在 2 种不同介质；至少 1 份异地或离线保存", "C": "最多允许 3 次病毒入侵；每年更换 2 次主板；硬盘容量为 1 TB", "D": "存放在 3 台同机房服务器；每隔 2 分钟备份；占用 1% 磁盘空间"}, "answer": "B", "source": "董总高中资讯科技第一册 · 第6章 资讯安全与社会责任 · 3-2-1备份原则", "analysis": "3-2-1 原则：3 份副本、2 种介质、至少 1 份异地或离线。选 B。"}];
+        const PAGE_PASS = "sinmin888";
+
+        function checkPageSecurity() {
+            const val = document.getElementById('gatePwdInput').value.trim();
+            if (val === PAGE_PASS) {
+                sessionStorage.setItem('teacher_auth_token', PAGE_PASS);
+                unlockPage();
+            } else {
+                document.getElementById('gateErrMsg').style.display = 'block';
+            }
+        }
+
+        function unlockPage() {
+            document.getElementById('gateOverlay').style.display = 'none';
+        }
+
+        function lockPage() {
+            sessionStorage.removeItem('teacher_auth_token');
+            document.getElementById('gateOverlay').style.display = 'flex';
+        }
+
+        function renderMatrix() {
+            const tbody = document.getElementById('matrixTableBody');
+            tbody.innerHTML = '';
+            for (let r = 1; r <= 10; r++) {
+                const tr = document.createElement('tr');
+                for (let c = 0; c < 5; c++) {
+                    const qid = c * 10 + r;
+                    const q = questions[qid - 1];
+                    tr.innerHTML += `
+                        <td><a href="#exp-card-${qid}" class="q-link">${qid}</a></td>
+                        <td><span class="ans-val">${q.answer}</span></td>
+                    `;
+                }
+                tbody.appendChild(tr);
+            }
+        }
+
+        function renderExplanations() {
+            const container = document.getElementById('explanationsList');
+            container.innerHTML = '';
+            questions.forEach(q => {
+                const card = document.createElement('article');
+                card.className = 'explanation-card';
+                card.id = `exp-card-${q.id}`;
+
+                let optsHtml = '';
+                ['A', 'B', 'C', 'D'].forEach(k => {
+                    const isCorr = (k === q.answer);
+                    optsHtml += `
+                        <div class="opt-item-t ${isCorr ? 'is-correct' : ''}">
+                            <strong>${k}.</strong> ${q.options[k]}
+                            ${isCorr ? '<span style="margin-left:auto; font-weight:700;">✓ 正确答案</span>' : ''}
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="q-meta">
+                        <div>
+                            <span class="q-id-badge">第 ${q.id} 题</span>
+                            <span class="q-ch-badge">${q.chapter}</span>
+                        </div>
+                        <div class="q-ans-badge">标准答案：${q.answer}</div>
+                    </div>
+                    <div style="font-size:1.02rem; font-weight:600; margin-bottom:12px;">${q.question.replace(/\n/g, '<br>')}</div>
+                    <div>${optsHtml}</div>
+                    <div class="analysis-box">
+                        <div style="font-size:0.85rem; color:#1e3a8a; margin-bottom:4px;"><strong>【考纲出处】</strong>${q.source}</div>
+                        <strong>💡 名师考点精析：</strong>${q.analysis}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        (function() {
+            renderMatrix();
+            renderExplanations();
+            if (sessionStorage.getItem('teacher_auth_token') === PAGE_PASS) {
+                unlockPage();
+            }
+            document.getElementById('gatePwdInput').addEventListener('keydown', e => {
+                if (e.key === 'Enter') checkPageSecurity();
+            });
+        })();
+    </script>
+</body>
+</html>

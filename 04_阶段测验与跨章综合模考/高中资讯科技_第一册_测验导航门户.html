@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高一资讯科技（第一册）全册统整测验 - 云端测验门户</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b1329;
+            --bg-card: rgba(22, 33, 62, 0.75);
+            --bg-card-hover: rgba(30, 45, 84, 0.95);
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.3);
+            --emerald: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.3);
+            --accent: #f59e0b;
+            --accent-glow: rgba(245, 158, 11, 0.3);
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-line: rgba(255, 255, 255, 0.1);
+            --shadow-card: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .portal-nav {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 22px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-tag {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0284c7, #6366f1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        .logo-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-status {
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-status::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .btn-switch-book {
+            text-decoration: none;
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--primary);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-switch-book:hover {
+            background: rgba(56, 189, 248, 0.25);
+            border-color: #38bdf8;
+            color: #ffffff;
+            box-shadow: 0 0 12px var(--primary-glow);
+            transform: translateY(-1px);
+        }
+
+        /* 头部介绍 */
+        .portal-hero {
+            max-width: 1240px;
+            margin: 20px auto 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-line);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-desc {
+            font-size: 1.02rem;
+            color: var(--text-sub);
+            max-width: 820px;
+            margin: 0 auto 40px auto;
+            line-height: 1.7;
+        }
+
+        /* 三卡片网格布局 */
+        .portals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .entry-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-line);
+            border-radius: 20px;
+            padding: 32px 26px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .entry-card:hover {
+            transform: translateY(-6px);
+            background: var(--bg-card-hover);
+        }
+
+        .card-student-exam:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--primary-glow);
+        }
+
+        .card-student-review:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--emerald-glow);
+        }
+
+        .card-teacher-admin:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+        }
+
+        .card-top {
+            margin-bottom: 22px;
+        }
+
+        .card-icon-badge {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+        }
+
+        .card-student-exam .card-icon-badge {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(37, 99, 235, 0.2));
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .card-student-review .card-icon-badge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .card-teacher-admin .card-icon-badge {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.2));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .card-role {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .card-student-exam .card-role { color: var(--primary); }
+        .card-student-review .card-role { color: var(--emerald); }
+        .card-teacher-admin .card-role { color: var(--accent); }
+
+        .card-name {
+            font-size: 1.32rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-summary {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 18px;
+            min-height: 44px;
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .card-features li {
+            font-size: 0.84rem;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        .lock-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 6px;
+        }
+
+        .lock-green {
+            background: rgba(16, 185, 129, 0.15);
+            color: #a7f3d0;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .lock-gold {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fde68a;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-enter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 13px 18px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #0284c7, #2563eb);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+        .btn-blue:hover {
+            background: linear-gradient(135deg, #0369a1, #1d4ed8);
+            transform: translateY(-2px);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+        }
+        .btn-purple:hover {
+            background: linear-gradient(135deg, #4338ca, #6d28d9);
+            transform: translateY(-2px);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+        }
+        .btn-green:hover {
+            background: linear-gradient(135deg, #047857, #065f46);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+        }
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #b45309, #92400e);
+            transform: translateY(-2px);
+        }
+
+        /* 模态框统一设计 */
+        .modal-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 10, 24, 0.75);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-box {
+            background: #111c38;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .auth-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 16px auto;
+        }
+
+        .auth-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .auth-subtitle {
+            font-size: 0.88rem;
+            color: var(--text-sub);
+            margin-bottom: 22px;
+            line-height: 1.5;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.15rem;
+            text-align: center;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .auth-err-msg {
+            color: #f87171;
+            font-size: 0.82rem;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .auth-btns {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-cancel {
+            flex: 1;
+            padding: 11px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn-confirm {
+            flex: 1;
+            padding: 11px;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .portal-footer {
+            max-width: 1240px;
+            margin: 30px auto 20px auto;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-line);
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 960px) {
+            .portals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="portal-nav">
+        <a href="#" class="logo-tag">
+            <div class="logo-icon">💻</div>
+            <div class="logo-text">独中高中资讯科技 · 云端测验平台</div>
+        </a>
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div class="badge-status">第一册 全册 100 题全真题库（第一套 + 第二套已就绪）</div>
+            <a href="高中资讯科技_第二册_测验导航门户.html" class="btn-switch-book">
+                📚 切换至【高二 第二册全册统整测验】 ➔
+            </a>
+        </div>
+    </header>
+
+    <main class="portal-hero">
+        <div class="hero-chip">📚 马来西亚董总 UEC 2026/2027 考纲对齐</div>
+        <h1 class="hero-title">高一资讯科技（第一册）全册统整测验</h1>
+        <p class="hero-desc">
+            涵盖第1~6章全册核心考点（认识数据、算法与编程、人工智能、资讯社会、系统网络、资讯安全）。现已上线【第一套】与【第二套】双套 50 题全真选择题测试卷，支持免密即测、学号查分与教师教研精析。
+        </p>
+
+        <!-- 三卡片网格 -->
+        <div class="portals-grid">
+            <!-- 1. 学生在线作答通道 -->
+            <div class="entry-card card-student-exam">
+                <div class="card-top">
+                    <div class="card-icon-badge">✍️</div>
+                    <div class="card-role">Student Exam · 学生通道</div>
+                    <h2 class="card-name">开始模拟测验与练习</h2>
+                    <p class="card-summary">学生无需密码即可开始测验，自动计时、漏题核验并实时上交评分。</p>
+                    <ul class="card-features">
+                        <li><strong>双套题库</strong>：涵盖第一册全部 6 个章节</li>
+                        <li><strong>第一套 (50题)</strong>：基础跨章统整测评卷</li>
+                        <li><strong>第二套 (50题)</strong>：全真强化进阶实战卷</li>
+                        <li>交卷后自动即时解锁错题与精析</li>
+                    </ul>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <a href="高中资讯科技_第一册_全册50题选择题测验_学生作答卷.html" class="btn-enter btn-blue">
+                        🚀 进入【第一套】在线测验（50题）
+                    </a>
+                    <a href="高中资讯科技_第一册_全册50题选择题测验_第二套_学生作答卷.html" class="btn-enter btn-purple">
+                        🔥 进入【第二套】在线测验（50题）
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. 学生查分与错题复习通道 -->
+            <div class="entry-card card-student-review">
+                <div class="card-top">
+                    <div class="card-icon-badge">📖</div>
+                    <div class="card-role">Student Review · 考后复习</div>
+                    <h2 class="card-name">
+                        成绩查询与错题精析
+                        <span class="lock-indicator lock-green">凭学号登录</span>
+                    </h2>
+                    <p class="card-summary">学生输入自己的学号，调阅专属答卷、对错选择及名师考点剖析。</p>
+                    <ul class="card-features">
+                        <li><strong>凭学号登录</strong>：保护隐私，只看自己</li>
+                        <li>调阅个人 50 题真实作答选项</li>
+                        <li>直观红绿对错标识与失分点剖析</li>
+                        <li>解锁 50 题官方考纲名师详解</li>
+                    </ul>
+                </div>
+                <button onclick="openStudentLoginModal()" class="btn-enter btn-green">
+                    🎓 输入学号调阅我的答卷
+                </button>
+            </div>
+
+            <!-- 3. 教师教研总控台 -->
+            <div class="entry-card card-teacher-admin">
+                <div class="card-top">
+                    <div class="card-icon-badge">🛡️</div>
+                    <div class="card-role">Teacher Admin · 教研总控</div>
+                    <h2 class="card-name">
+                        教师教研与答案专区
+                        <span class="lock-indicator lock-gold">教研工具</span>
+                    </h2>
+                    <p class="card-summary">全班成绩总榜、各题错误率热力分析、高频错题排行榜及双套考卷教师答案与考点精析。</p>
+                    <ul class="card-features">
+                        <li><strong>教研总控中心</strong>：学情看板与成绩总榜</li>
+                        <li><strong>智能数据分析</strong>：高频错题榜与及格率统计</li>
+                        <li><strong>第一套教师答案</strong>：50题答案矩阵与详细解析</li>
+                        <li><strong>第二套教师答案</strong>：50题答案矩阵与详细解析</li>
+                    </ul>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <button onclick="openTeacherAuthModal()" class="btn-enter btn-gold" style="border:none; cursor:pointer;">
+                        🔑 进入教师教研总控台
+                    </button>
+                    <a href="高中资讯科技_第一册_全册50题选择题测验_第一套_教师参考答案与解析版.html" class="btn-enter btn-gold" style="text-decoration:none;">
+                        📖 进入【第一套】教师答案与考点精析
+                    </a>
+                    <a href="高中资讯科技_第一册_全册50题选择题测验_第二套_教师参考答案与解析版.html" class="btn-enter btn-gold" style="text-decoration:none;">
+                        📖 进入【第二套】教师答案与考点精析
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 弹窗 1：学生输入学号模态框 -->
+    <div id="studentLoginModal" class="modal-mask">
+        <div class="auth-box">
+            <div class="auth-icon" style="background:rgba(16, 185, 129, 0.2); color:#10b981;">🎓</div>
+            <h3 class="auth-title">学号成绩调阅</h3>
+            <p class="auth-subtitle">请输入您的独中 5~6 位学生学号<br>系统将为您调阅个人作答记录与错题详解</p>
+            <input type="text" id="stuLoginId" class="auth-input" placeholder="例如：23108" maxlength="12">
+            <div id="stuErr" class="auth-err-msg">请输入有效的学生学号！</div>
+            <div class="auth-btns">
+                <button onclick="closeModal('studentLoginModal')" class="btn-cancel">取消</button>
+                <button onclick="confirmStudentLogin()" class="btn-confirm" style="background:#059669;">调阅答卷</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹窗 2：教师密码验证模态框 -->
+    <div id="teacherAuthModal" class="modal-mask">
+        <div class="auth-box">
+            <div class="auth-icon" style="background:rgba(245, 158, 11, 0.2); color:#f59e0b;">🛡️</div>
+            <h3 class="auth-title">教师教研管理中心</h3>
+            <p class="auth-subtitle">本区域仅供任课教师与科主任调阅全班成绩、数据热力看板与评分量规。</p>
+            <input type="password" id="teacherAuthPwd" class="auth-input" placeholder="请输入教师安全访问密码">
+            <div id="teaErr" class="auth-err-msg">访问密码错误，请重新输入！</div>
+            <div class="auth-btns">
+                <button onclick="closeModal('teacherAuthModal')" class="btn-cancel">取消</button>
+                <button onclick="confirmTeacherAuth()" class="btn-confirm" style="background:#d97706;">安全登入</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="portal-footer">
+        <p>© 2026 亚罗士打新民独立中学 电脑与资讯科技科组 ｜ 高一资讯科技（第一册）在线测试总平台</p>
+    </footer>
+
+    <script>
+        const TEACHER_PASS = "sinmin888";
+        const STUDENT_REVIEW_URL = "高中资讯科技_第一册_学生查分与错题精析.html";
+        const TEACHER_DASHBOARD_URL = "高中资讯科技_第一册_教师教研总控台.html";
+
+        function openStudentLoginModal() {
+            document.getElementById('studentLoginModal').style.display = 'flex';
+            document.getElementById('stuLoginId').focus();
+        }
+
+        function openTeacherAuthModal() {
+            document.getElementById('teacherAuthModal').style.display = 'flex';
+            document.getElementById('teacherAuthPwd').focus();
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function confirmStudentLogin() {
+            const idVal = document.getElementById('stuLoginId').value.trim();
+            if (!idVal) {
+                document.getElementById('stuErr').style.display = 'block';
+                return;
+            }
+            sessionStorage.setItem('ict_book1_stu_id_review', idVal);
+            window.location.href = STUDENT_REVIEW_URL + '?stuid=' + encodeURIComponent(idVal);
+        }
+
+        function confirmTeacherAuth() {
+            const pwd = document.getElementById('teacherAuthPwd').value.trim();
+            if (pwd === TEACHER_PASS) {
+                sessionStorage.setItem('teacher_auth_token', TEACHER_PASS);
+                window.location.href = TEACHER_DASHBOARD_URL;
+            } else {
+                document.getElementById('teaErr').style.display = 'block';
+            }
+        }
+
+        // 回车快捷键
+        document.getElementById('stuLoginId').addEventListener('keydown', e => {
+            if (e.key === 'Enter') confirmStudentLogin();
+        });
+        document.getElementById('teacherAuthPwd').addEventListener('keydown', e => {
+            if (e.key === 'Enter') confirmTeacherAuth();
+        });
+    </script>
+</body>
+</html>
