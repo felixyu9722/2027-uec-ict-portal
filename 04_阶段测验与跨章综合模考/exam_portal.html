@@ -14,12 +14,13 @@
             --bg-card-hover: rgba(30, 45, 84, 0.95);
             --primary: #38bdf8;
             --primary-glow: rgba(56, 189, 248, 0.3);
+            --emerald: #10b981;
+            --emerald-glow: rgba(16, 185, 129, 0.3);
             --accent: #f59e0b;
             --accent-glow: rgba(245, 158, 11, 0.3);
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
             --border-line: rgba(255, 255, 255, 0.1);
-            --border-hover: rgba(56, 189, 248, 0.4);
             --shadow-card: 0 15px 35px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -33,24 +34,22 @@
             font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-dark);
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 45%),
-                radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 10% 15%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
             background-attachment: fixed;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            overflow-x: hidden;
         }
 
-        /* 顶部微型导航 */
         .portal-nav {
-            max-width: 1200px;
+            max-width: 1240px;
             width: 100%;
             margin: 0 auto;
-            padding: 24px 20px;
+            padding: 22px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -64,19 +63,19 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
             background: linear-gradient(135deg, #0284c7, #6366f1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             box-shadow: 0 4px 12px var(--primary-glow);
         }
 
         .logo-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #fff;
             letter-spacing: 0.5px;
@@ -86,9 +85,9 @@
             background: rgba(56, 189, 248, 0.12);
             color: var(--primary);
             border: 1px solid rgba(56, 189, 248, 0.3);
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            padding: 5px 12px;
+            padding: 5px 14px;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -97,17 +96,17 @@
 
         .badge-status::before {
             content: '';
-            width: 7px;
-            height: 7px;
+            width: 8px;
+            height: 8px;
             background: #10b981;
             border-radius: 50%;
             box-shadow: 0 0 8px #10b981;
         }
 
-        /* 主视口区域 */
+        /* 头部介绍 */
         .portal-hero {
-            max-width: 1100px;
-            margin: 30px auto;
+            max-width: 1240px;
+            margin: 20px auto 40px auto;
             padding: 0 20px;
             text-align: center;
         }
@@ -118,38 +117,38 @@
             gap: 8px;
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border-line);
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 30px;
             font-size: 0.85rem;
             color: #cbd5e1;
-            margin-bottom: 22px;
+            margin-bottom: 18px;
         }
 
         .hero-title {
             font-family: 'Noto Serif SC', serif;
             font-size: 2.5rem;
             line-height: 1.25;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #ffffff 30%, #93c5fd 100%);
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .hero-desc {
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             color: var(--text-sub);
-            max-width: 750px;
-            margin: 0 auto 45px auto;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
             line-height: 1.7;
         }
 
-        /* 双通道入口网格 */
+        /* 三卡片网格布局 */
         .portals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 28px;
-            max-width: 960px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -157,7 +156,7 @@
             background: var(--bg-card);
             border: 1px solid var(--border-line);
             border-radius: 20px;
-            padding: 38px 32px;
+            padding: 32px 26px;
             text-align: left;
             position: relative;
             overflow: hidden;
@@ -171,72 +170,92 @@
 
         .entry-card:hover {
             transform: translateY(-6px);
-            border-color: var(--border-hover);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--primary-glow);
             background: var(--bg-card-hover);
         }
 
-        .entry-card.teacher-card:hover {
-            border-color: rgba(245, 158, 11, 0.5);
+        /* 卡片主题色区分 */
+        .card-student-exam:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--primary-glow);
+        }
+
+        .card-student-review:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--emerald-glow);
+        }
+
+        .card-teacher-admin:hover {
+            border-color: rgba(245, 158, 11, 0.4);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
         }
 
         .card-top {
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .card-icon-badge {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2));
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-size: 1.7rem;
+            margin-bottom: 18px;
         }
 
-        .teacher-card .card-icon-badge {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
-            border-color: rgba(245, 158, 11, 0.3);
+        .card-student-exam .card-icon-badge {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(37, 99, 235, 0.2));
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .card-student-review .card-icon-badge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .card-teacher-admin .card-icon-badge {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.2));
+            border: 1px solid rgba(245, 158, 11, 0.3);
         }
 
         .card-role {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--primary);
             margin-bottom: 6px;
         }
 
-        .teacher-card .card-role {
-            color: var(--accent);
-        }
+        .card-student-exam .card-role { color: var(--primary); }
+        .card-student-review .card-role { color: var(--emerald); }
+        .card-teacher-admin .card-role { color: var(--accent); }
 
         .card-name {
-            font-size: 1.45rem;
+            font-size: 1.32rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .card-summary {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             color: var(--text-sub);
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+            min-height: 44px;
         }
 
         .card-features {
             list-style: none;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
 
         .card-features li {
-            font-size: 0.88rem;
+            font-size: 0.84rem;
             color: #cbd5e1;
             margin-bottom: 8px;
             display: flex;
@@ -250,15 +269,36 @@
             font-weight: 700;
         }
 
+        .lock-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 6px;
+        }
+
+        .lock-green {
+            background: rgba(16, 185, 129, 0.15);
+            color: #a7f3d0;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .lock-gold {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fde68a;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
         .btn-enter {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             width: 100%;
-            padding: 14px 20px;
+            padding: 13px 18px;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             text-decoration: none;
             cursor: pointer;
@@ -266,45 +306,37 @@
             transition: all 0.2s;
         }
 
-        .btn-student {
+        .btn-blue {
             background: linear-gradient(135deg, #0284c7, #2563eb);
             color: #fff;
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
         }
-
-        .btn-student:hover {
+        .btn-blue:hover {
             background: linear-gradient(135deg, #0369a1, #1d4ed8);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
         }
 
-        .btn-teacher {
+        .btn-green {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.4);
+        }
+        .btn-green:hover {
+            background: linear-gradient(135deg, #047857, #065f46);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
             background: linear-gradient(135deg, #d97706, #b45309);
             color: #fff;
             box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
         }
-
-        .btn-teacher:hover {
+        .btn-gold:hover {
             background: linear-gradient(135deg, #b45309, #92400e);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
         }
 
-        .lock-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 0.78rem;
-            padding: 2px 8px;
-            border-radius: 6px;
-            background: rgba(245, 158, 11, 0.15);
-            color: #fde68a;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            margin-left: 8px;
-            vertical-align: middle;
-        }
-
-        /* 模态框样式 */
+        /* 模态框统一设计 */
         .modal-mask {
             position: fixed;
             top: 0;
@@ -341,14 +373,11 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background: rgba(245, 158, 11, 0.15);
-            border: 1px solid rgba(245, 158, 11, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.6rem;
             margin: 0 auto 16px auto;
-            color: var(--accent);
         }
 
         .auth-title {
@@ -365,19 +394,6 @@
             line-height: 1.5;
         }
 
-        .auth-input-group {
-            margin-bottom: 18px;
-            text-align: left;
-        }
-
-        .auth-input-group label {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #94a3b8;
-            margin-bottom: 6px;
-        }
-
         .auth-input {
             width: 100%;
             padding: 12px 16px;
@@ -385,17 +401,10 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 10px;
             color: #fff;
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+            font-size: 1.15rem;
             text-align: center;
             outline: none;
             transition: all 0.2s;
-        }
-
-        .auth-input:focus {
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
         }
 
         .auth-err-msg {
@@ -422,29 +431,19 @@
             cursor: pointer;
         }
 
-        .btn-cancel:hover {
-            background: rgba(255, 255, 255, 0.12);
-        }
-
         .btn-confirm {
             flex: 1;
             padding: 11px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #d97706, #b45309);
             border: none;
             color: #fff;
             font-weight: 700;
             cursor: pointer;
         }
 
-        .btn-confirm:hover {
-            background: linear-gradient(135deg, #b45309, #92400e);
-        }
-
-        /* 底部版权与说明 */
         .portal-footer {
-            max-width: 1200px;
-            margin: 40px auto 20px auto;
+            max-width: 1240px;
+            margin: 30px auto 20px auto;
             padding: 20px;
             text-align: center;
             border-top: 1px solid var(--border-line);
@@ -452,133 +451,174 @@
             color: #64748b;
         }
 
-        .shake {
-            animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
-        }
-
-        @keyframes shake {
-            10%, 90% { transform: translate3d(-1px, 0, 0); }
-            20%, 80% { transform: translate3d(2px, 0, 0); }
-            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-            40%, 60% { transform: translate3d(4px, 0, 0); }
+        @media (max-width: 960px) {
+            .portals-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 导航栏 -->
     <header class="portal-nav">
         <a href="#" class="logo-tag">
             <div class="logo-icon">💻</div>
             <div class="logo-text">独中高中资讯科技 · 云端测验平台</div>
         </a>
-        <div class="badge-status">
-            第二册 全册 50 题题库就绪
-        </div>
+        <div class="badge-status">第二册 全册 50 题题库就绪</div>
     </header>
 
-    <!-- 标头 Hero -->
     <main class="portal-hero">
-        <div class="hero-chip">
-            📚 马来西亚董总 UEC 2026/2027 新考纲对标
-        </div>
+        <div class="hero-chip">📚 马来西亚董总 UEC 2026/2027 考纲对齐</div>
         <h1 class="hero-title">高二资讯科技（第二册）全册统整测验</h1>
         <p class="hero-desc">
-            全面涵盖：第1章 资讯系统 · 第2章 网络类型与传输质量 · 第3章 网络通讯与作业系统 · 第4章 网络安全与资源分享 · 第5章 物联网应用。
-            采用双通道分离设计，学生免密即刻测验，教师端配备专属密钥保护。
+            涵盖第1~5章全册核心考点。三通道清晰分工：学生免密测验、学生凭学号调阅个人错题精析、教师教研总控台全盘数据监控。
         </p>
 
-        <!-- 入口卡片 -->
+        <!-- 三卡片网格 -->
         <div class="portals-grid">
-            <!-- 学生通道 -->
-            <div class="entry-card">
+            <!-- 1. 学生在线作答通道 -->
+            <div class="entry-card card-student-exam">
                 <div class="card-top">
                     <div class="card-icon-badge">✍️</div>
-                    <div class="card-role">Student Portal · 学生通道</div>
+                    <div class="card-role">Student Exam · 学生通道</div>
                     <h2 class="card-name">开始模拟测验与练习</h2>
-                    <p class="card-summary">
-                        学生凭学号姓名登记即可直接作答。支持进度跟踪、快速答题卡导航与即时交卷核验。
-                    </p>
+                    <p class="card-summary">学生凭学号姓名登记即可开启测验，自动计时、漏题核验并实时上交。</p>
                     <ul class="card-features">
                         <li><strong>免密进入</strong>：点击即可立即开启测试</li>
                         <li>50 题单选题：涵盖第二册全部章节</li>
-                        <li>内置 60 分钟倒计时与未答题检测</li>
-                        <li>支持一键导出 A4 纸笔印刷试卷</li>
+                        <li>自动计算得分，答卷即时入库</li>
+                        <li>交卷后自动解锁全卷复习</li>
                     </ul>
                 </div>
-                <a href="student_exam.html" class="btn-enter btn-student">
-                    🚀 点击进入学生测验卷（无需密码）
+                <a href="student_exam.html" class="btn-enter btn-blue">
+                    🚀 点击进入在线测验（免密码）
                 </a>
             </div>
 
-            <!-- 教师通道 -->
-            <div class="entry-card teacher-card">
+            <!-- 2. 学生查分与错题复习通道 -->
+            <div class="entry-card card-student-review">
                 <div class="card-top">
-                    <div class="card-icon-badge">🔒</div>
-                    <div class="card-role">Teacher Portal · 教师教研</div>
+                    <div class="card-icon-badge">📖</div>
+                    <div class="card-role">Student Review · 考后复习</div>
                     <h2 class="card-name">
-                        教师参考答案与考点精析
-                        <span class="lock-indicator">密码保护</span>
+                        成绩查询与错题精析
+                        <span class="lock-indicator lock-green">凭学号登录</span>
                     </h2>
-                    <p class="card-summary">
-                        备课、评卷与考后评讲专区。内置 50 题标准答案速查矩阵表、选项分布平衡统计及逐题名师考点剖析。
-                    </p>
+                    <p class="card-summary">学生输入自己的学号，调阅专属答卷、对错选择及 50 题名师考点剖析。</p>
                     <ul class="card-features">
-                        <li><strong>安全门禁</strong>：受专属管理密钥保护</li>
-                        <li>标准答案速查表：支持点击题号秒速定位</li>
-                        <li>深度解析：命题意图、知识点溯源与错项剖析</li>
-                        <li>支持按章节即时筛选与关键字检索</li>
+                        <li><strong>凭学号登录</strong>：保护隐私，只看自己</li>
+                        <li>调阅个人 50 题真实作答选项</li>
+                        <li>直观红绿对错标识与失分点剖析</li>
+                        <li>解锁 50 题官方考纲名师详解</li>
                     </ul>
                 </div>
-                <button onclick="openTeacherAuthModal()" class="btn-enter btn-teacher">
-                    🔑 输入密码进入教师专区
+                <button onclick="openStudentLoginModal()" class="btn-enter btn-green">
+                    🎓 输入学号调阅我的答卷
+                </button>
+            </div>
+
+            <!-- 3. 教师教研总控台 -->
+            <div class="entry-card card-teacher-admin">
+                <div class="card-top">
+                    <div class="card-icon-badge">🛡️</div>
+                    <div class="card-role">Teacher Admin · 教研总控</div>
+                    <h2 class="card-name">
+                        教师教研总控台
+                        <span class="lock-indicator lock-gold">密码保护</span>
+                    </h2>
+                    <p class="card-summary">全班成绩总榜、各题错误率热力分析、高频错题排行榜及 Excel 成绩导出。</p>
+                    <ul class="card-features">
+                        <li><strong>安全门禁</strong>：密码 <code style="color:#fde68a;">sinmin888</code></li>
+                        <li>全班平均分、最高分与及格率概览</li>
+                        <li>高频错题 Top 5 榜单及错误率分析</li>
+                        <li>单人完整答题卡调阅与 CSV 导出</li>
+                    </ul>
+                </div>
+                <button onclick="openTeacherAuthModal()" class="btn-enter btn-gold">
+                    🔑 输入教师密码进入总控台
                 </button>
             </div>
         </div>
     </main>
 
-    <!-- 教师密码验证弹窗 -->
-    <div class="modal-mask" id="teacherAuthModal">
-        <div class="auth-box" id="authBox">
-            <div class="auth-icon">🛡️</div>
-            <h3 class="auth-title">教师身份安全验证</h3>
-            <p class="auth-subtitle">该页面包含完整标准答案与核心解析，请输入教师访问密钥以解锁：</p>
-            
-            <div class="auth-input-group">
-                <label for="teacherPwdInput">教师专用密钥（6位密码）：</label>
-                <input type="password" id="teacherPwdInput" class="auth-input" placeholder="••••••" maxlength="12" autofocus>
-                <div class="auth-err-msg" id="authErrMsg">⚠️ 密码不正确，请重新输入</div>
+    <!-- 学生凭学号登录模态框 -->
+    <div class="modal-mask" id="studentLoginModal">
+        <div class="auth-box">
+            <div class="auth-icon" style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981;">🎓</div>
+            <h3 class="auth-title">学生成绩与错题自查</h3>
+            <p class="auth-subtitle">请输入作答时填写的【学号】，系统将调阅您的专属答题卡：</p>
+            <div style="margin-bottom:18px; text-align:left;">
+                <label style="font-size:0.8rem; font-weight:600; color:#94a3b8; display:block; margin-bottom:6px;">考生学号：</label>
+                <input type="text" id="studentIdInput" class="auth-input" placeholder="例如：230105" autofocus>
+                <div class="auth-err-msg" id="studentErrMsg">⚠️ 请输入有效学号</div>
             </div>
-
             <div class="auth-btns">
-                <button class="btn-cancel" onclick="closeTeacherAuthModal()">取消</button>
-                <button class="btn-confirm" onclick="verifyTeacherPassword()">解锁进入</button>
+                <button class="btn-cancel" onclick="closeStudentLoginModal()">取消</button>
+                <button class="btn-confirm" style="background:linear-gradient(135deg, #059669, #047857);" onclick="verifyStudentIdAndGo()">调阅答卷</button>
             </div>
         </div>
     </div>
 
-    <!-- 页脚 -->
+    <!-- 教师密码验证模态框 (密码: sinmin888) -->
+    <div class="modal-mask" id="teacherAuthModal">
+        <div class="auth-box">
+            <div class="auth-icon" style="background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); color:#f59e0b;">🛡️</div>
+            <h3 class="auth-title">教师教研总控台安全验证</h3>
+            <p class="auth-subtitle">请输入教师专用管理密钥以解锁全班答卷与分析数据：</p>
+            <div style="margin-bottom:18px; text-align:left;">
+                <label style="font-size:0.8rem; font-weight:600; color:#94a3b8; display:block; margin-bottom:6px;">教师访问密码：</label>
+                <input type="password" id="teacherPwdInput" class="auth-input" placeholder="••••••••" maxlength="20">
+                <div class="auth-err-msg" id="teacherErrMsg">⚠️ 密码不正确，请重新输入</div>
+            </div>
+            <div class="auth-btns">
+                <button class="btn-cancel" onclick="closeTeacherAuthModal()">取消</button>
+                <button class="btn-confirm" style="background:linear-gradient(135deg, #d97706, #b45309);" onclick="verifyTeacherPassword()">解锁总控台</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="portal-footer">
-        <p>独中高中资讯科技新课本教学评估系统 · 支持 GitHub Pages 静态部署与 Supabase 实时云端数据库同步</p>
+        <p>亚罗士打新民独立中学 · 高中资讯科技教学评估系统 | GitHub Pages 静态托管与 Supabase 云端同步</p>
     </footer>
 
     <script>
-        const CORRECT_PWD = "972288";
+        const TEACHER_CORRECT_PWD = "sinmin888";
+        const STUDENT_REVIEW_URL = "student_review.html";
         const TEACHER_TARGET_URL = "teacher_answers.html";
 
+        // 学生查分弹窗
+        function openStudentLoginModal() {
+            document.getElementById('studentIdInput').value = '';
+            document.getElementById('studentErrMsg').style.display = 'none';
+            document.getElementById('studentLoginModal').style.display = 'flex';
+            setTimeout(() => document.getElementById('studentIdInput').focus(), 100);
+        }
+
+        function closeStudentLoginModal() {
+            document.getElementById('studentLoginModal').style.display = 'none';
+        }
+
+        function verifyStudentIdAndGo() {
+            const sid = document.getElementById('studentIdInput').value.trim();
+            if (!sid) {
+                document.getElementById('studentErrMsg').style.display = 'block';
+                return;
+            }
+            sessionStorage.setItem('current_student_id', sid);
+            window.location.href = `${STUDENT_REVIEW_URL}?sid=${encodeURIComponent(sid)}`;
+        }
+
+        // 教师密码弹窗
         function openTeacherAuthModal() {
-            // 检查之前是否已经验证过
-            if (sessionStorage.getItem('teacher_auth_token') === CORRECT_PWD) {
+            if (sessionStorage.getItem('teacher_auth_token') === TEACHER_CORRECT_PWD) {
                 window.location.href = TEACHER_TARGET_URL;
                 return;
             }
-            const modal = document.getElementById('teacherAuthModal');
-            const input = document.getElementById('teacherPwdInput');
-            const errMsg = document.getElementById('authErrMsg');
-            errMsg.style.display = 'none';
-            input.value = '';
-            modal.style.display = 'flex';
-            setTimeout(() => input.focus(), 100);
+            document.getElementById('teacherPwdInput').value = '';
+            document.getElementById('teacherErrMsg').style.display = 'none';
+            document.getElementById('teacherAuthModal').style.display = 'flex';
+            setTimeout(() => document.getElementById('teacherPwdInput').focus(), 100);
         }
 
         function closeTeacherAuthModal() {
@@ -586,29 +626,21 @@
         }
 
         function verifyTeacherPassword() {
-            const input = document.getElementById('teacherPwdInput');
-            const errMsg = document.getElementById('authErrMsg');
-            const authBox = document.getElementById('authBox');
-
-            if (input.value.trim() === CORRECT_PWD) {
-                // 验证成功，在 sessionStorage 登记凭证并跳转
-                sessionStorage.setItem('teacher_auth_token', CORRECT_PWD);
+            const pwd = document.getElementById('teacherPwdInput').value.trim();
+            if (pwd === TEACHER_CORRECT_PWD) {
+                sessionStorage.setItem('teacher_auth_token', TEACHER_CORRECT_PWD);
                 window.location.href = TEACHER_TARGET_URL;
             } else {
-                // 验证失败
-                errMsg.style.display = 'block';
-                authBox.classList.add('shake');
-                setTimeout(() => authBox.classList.remove('shake'), 400);
-                input.focus();
-                input.select();
+                document.getElementById('teacherErrMsg').style.display = 'block';
+                document.getElementById('teacherPwdInput').focus();
             }
         }
 
-        // 监听回车键直接提交
-        document.getElementById('teacherPwdInput').addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                verifyTeacherPassword();
-            }
+        document.getElementById('studentIdInput').addEventListener('keydown', e => {
+            if (e.key === 'Enter') verifyStudentIdAndGo();
+        });
+        document.getElementById('teacherPwdInput').addEventListener('keydown', e => {
+            if (e.key === 'Enter') verifyTeacherPassword();
         });
     </script>
 </body>
