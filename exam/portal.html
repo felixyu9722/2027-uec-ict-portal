@@ -465,14 +465,14 @@
             <div class="logo-icon">💻</div>
             <div class="logo-text">独中高中资讯科技 · 云端测验平台</div>
         </a>
-        <div class="badge-status">第二册 全册 50 题题库就绪</div>
+        <div class="badge-status">第二册 全册 100 题全真题库（第一套 + 第二套已就绪）</div>
     </header>
 
     <main class="portal-hero">
         <div class="hero-chip">📚 马来西亚董总 UEC 2026/2027 考纲对齐</div>
         <h1 class="hero-title">高二资讯科技（第二册）全册统整测验</h1>
         <p class="hero-desc">
-            涵盖第1~5章全册核心考点。三通道清晰分工：学生免密测验、学生凭学号调阅个人错题精析、教师教研总控台全盘数据监控。
+            涵盖第1~5章全册核心考点。现已上线【第一套】与【第二套】双套 50 题全真选择题测试卷，支持免密即测、学号查分与教师教研精析。
         </p>
 
         <!-- 三卡片网格 -->
@@ -483,17 +483,22 @@
                     <div class="card-icon-badge">✍️</div>
                     <div class="card-role">Student Exam · 学生通道</div>
                     <h2 class="card-name">开始模拟测验与练习</h2>
-                    <p class="card-summary">学生凭学号姓名登记即可开启测验，自动计时、漏题核验并实时上交。</p>
+                    <p class="card-summary">学生无需密码即可开始测验，自动计时、漏题核验并实时上交评分。</p>
                     <ul class="card-features">
-                        <li><strong>免密进入</strong>：点击即可立即开启测试</li>
-                        <li>50 题单选题：涵盖第二册全部章节</li>
-                        <li>自动计算得分，答卷即时入库</li>
-                        <li>交卷后自动解锁全卷复习</li>
+                        <li><strong>双套题库</strong>：涵盖第二册全部章节</li>
+                        <li><strong>第一套 (50题)</strong>：基础跨章统整测评卷</li>
+                        <li><strong>第二套 (50题)</strong>：全真强化进阶实战卷</li>
+                        <li>交卷后自动即时解锁错题与精析</li>
                     </ul>
                 </div>
-                <a href="student.html" class="btn-enter btn-blue">
-                    🚀 点击进入在线测验（免密码）
-                </a>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <a href="高中资讯科技_第二册_全册50题选择题测验_学生作答卷.html" class="btn-enter btn-blue">
+                        🚀 进入【第一套】在线测验（50题）
+                    </a>
+                    <a href="高中资讯科技_第二册_全册50题选择题测验_第二套_学生作答卷.html" class="btn-enter" style="background:linear-gradient(135deg, #4f46e5, #7c3aed); color:#fff; box-shadow:0 4px 15px rgba(124, 58, 237, 0.4);">
+                        🔥 进入【第二套】在线测验（50题）
+                    </a>
+                </div>
             </div>
 
             <!-- 2. 学生查分与错题复习通道 -->
@@ -505,7 +510,7 @@
                         成绩查询与错题精析
                         <span class="lock-indicator lock-green">凭学号登录</span>
                     </h2>
-                    <p class="card-summary">学生输入自己的学号，调阅专属答卷、对错选择及 50 题名师考点剖析。</p>
+                    <p class="card-summary">学生输入自己的学号，调阅专属答卷、对错选择及名师考点剖析。</p>
                     <ul class="card-features">
                         <li><strong>凭学号登录</strong>：保护隐私，只看自己</li>
                         <li>调阅个人 50 题真实作答选项</li>
@@ -524,43 +529,128 @@
                     <div class="card-icon-badge">🛡️</div>
                     <div class="card-role">Teacher Admin · 教研总控</div>
                     <h2 class="card-name">
-                        教师教研总控台
-                        <span class="lock-indicator lock-gold">密码保护</span>
+                        教师教研与答案专区
+                        <span class="lock-indicator lock-gold">教研工具</span>
                     </h2>
-                    <p class="card-summary">全班成绩总榜、各题错误率热力分析、高频错题排行榜及 Excel 成绩导出。</p>
+                    <p class="card-summary">全班成绩总榜、各题错误率热力分析、高频错题排行榜及双套考卷教师答案与考点精析。</p>
                     <ul class="card-features">
-                        <li><strong>安全门禁</strong>：密码 <code style="color:#fde68a;">sinmin888</code></li>
-                        <li>全班平均分、最高分与及格率概览</li>
-                        <li>高频错题 Top 5 榜单及错误率分析</li>
-                        <li>单人完整答题卡调阅与 CSV 导出</li>
+                        <li><strong>教研总控中心</strong>：学情看板与成绩总榜</li>
+                        <li><strong>智能数据分析</strong>：高频错题榜与及格率统计</li>
+                        <li><strong>第一套教师答案</strong>：50题答案矩阵与详细解析</li>
+                        <li><strong>第二套教师答案</strong>：50题答案矩阵与详细解析</li>
                     </ul>
                 </div>
-                <button onclick="openTeacherAuthModal()" class="btn-enter btn-gold">
-                    🔑 输入教师密码进入总控台
-                </button>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                    <button onclick="openTeacherAuthModal()" class="btn-enter" style="background:linear-gradient(135deg, #d97706, #b45309); color:#fff; box-shadow:0 4px 15px rgba(217, 119, 6, 0.4); border:none; cursor:pointer;">
+                        🔑 进入教师教研总控台
+                    </button>
+                    <a href="高中资讯科技_第二册_全册50题选择题测验_第一套_教师参考答案与解析版.html" class="btn-enter" style="background:linear-gradient(135deg, #d97706, #b45309); color:#fff; box-shadow:0 4px 15px rgba(217, 119, 6, 0.4); text-decoration:none;">
+                        📖 进入【第一套】教师答案与考点精析
+                    </a>
+                    <a href="高中资讯科技_第二册_全册50题选择题测验_第二套_教师参考答案与解析版.html" class="btn-enter" style="background:linear-gradient(135deg, #d97706, #b45309); color:#fff; box-shadow:0 4px 15px rgba(217, 119, 6, 0.4); text-decoration:none;">
+                        📖 进入【第二套】教师答案与考点精析
+                    </a>
+                </div>
             </div>
         </div>
+    
+    <!-- 📘 重点专项实战研练展板（位于三大通道正下方） -->
+    <section class="dfd-featured-card" id="dfd-featured-section" style="max-width:1200px; margin:35px auto 10px auto; background:linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.95)); border:1px solid rgba(56, 189, 248, 0.25); border-radius:20px; padding:32px 34px; box-shadow:0 15px 35px rgba(0,0,0,0.5); backdrop-filter:blur(16px); text-align:left;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:20px;">
+            <div>
+                <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(56,189,248,0.12); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); font-size:0.78rem; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:8px;">
+                    ⭐ 核心大题专项突破 · 非测验练习
+                </div>
+                <h2 style="font-size:1.6rem; font-weight:800; color:#fff; margin-bottom:6px;">第 1 章 数据流程图（DFD）与背景图绘制实战</h2>
+                <p style="color:#94a3b8; font-size:0.92rem; max-width:760px; line-height:1.6;">
+                    针对独中高中资讯科技高频作答大题！包含 5 套真实系统业务场景（线上选课、图书借还、外卖配送、库存控制与入学注册）。
+                    重新排版适合手机/电脑浏览，每题均支持<strong>一键点击展开参考答案与矢量高清流程图</strong>。
+                </p>
+            </div>
+            <a href="高中资讯科技_第二册_数据流程图交互练习(含参考答案).html" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:12px; background:linear-gradient(135deg, #0284c7, #2563eb); color:#fff; font-size:0.95rem; font-weight:700; text-decoration:none; box-shadow:0 4px 15px rgba(37,99,235,0.4); transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                🚀 进入流程图交互复习台 →
+            </a>
+        </div>
+
+        <!-- 5 道题目快速导览胶囊 -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:12px; margin-top:14px; border-top:1px dashed rgba(255,255,255,0.1); padding-top:18px;">
+            <a href="高中资讯科技_第二册_数据流程图交互练习(含参考答案).html#dfd-q-1" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; text-decoration:none; color:#cbd5e1; font-size:0.85rem; display:block; transition:all 0.2s;" onmouseover="this.style.background='rgba(56,189,248,0.1)';this.style.borderColor='rgba(56,189,248,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)'">
+                <span style="color:#38bdf8; font-weight:700; display:block; font-size:0.78rem;">题 1 · 背景图 (6%)</span>
+                <strong>线上选课系统</strong>
+            </a>
+            <a href="高中资讯科技_第二册_数据流程图交互练习(含参考答案).html#dfd-q-2" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; text-decoration:none; color:#cbd5e1; font-size:0.85rem; display:block; transition:all 0.2s;" onmouseover="this.style.background='rgba(56,189,248,0.1)';this.style.borderColor='rgba(56,189,248,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)'">
+                <span style="color:#38bdf8; font-weight:700; display:block; font-size:0.78rem;">题 2 · 背景图 (6%)</span>
+                <strong>图书借还书系统</strong>
+            </a>
+            <a href="高中资讯科技_第二册_数据流程图交互练习(含参考答案).html#dfd-q-3" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; text-decoration:none; color:#cbd5e1; font-size:0.85rem; display:block; transition:all 0.2s;" onmouseover="this.style.background='rgba(56,189,248,0.1)';this.style.borderColor='rgba(56,189,248,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)'">
+                <span style="color:#38bdf8; font-weight:700; display:block; font-size:0.78rem;">题 3 · 背景图 (6%)</span>
+                <strong>外卖订餐配送系统</strong>
+            </a>
+            <a href="高中资讯科技_第二册_数据流程图交互练习(含参考答案).html#dfd-q-4" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; text-decoration:none; color:#cbd5e1; font-size:0.85rem; display:block; transition:all 0.2s;" onmouseover="this.style.background='rgba(16,185,129,0.1)';this.style.borderColor='rgba(16,185,129,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)'">
+                <span style="color:#10b981; font-weight:700; display:block; font-size:0.78rem;">题 4 · 0 阶图 (10%)</span>
+                <strong>库存控制管理系统</strong>
+            </a>
+            <a href="高中资讯科技_第二册_数据流程图交互练习(含参考答案).html#dfd-q-5" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; text-decoration:none; color:#cbd5e1; font-size:0.85rem; display:block; transition:all 0.2s;" onmouseover="this.style.background='rgba(16,185,129,0.1)';this.style.borderColor='rgba(16,185,129,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='rgba(255,255,255,0.08)'">
+                <span style="color:#10b981; font-weight:700; display:block; font-size:0.78rem;">题 5 · 0 阶图 (10%)</span>
+                <strong>入学注册管理系统</strong>
+            </a>
+        </div>
+    </section>
+    
     </main>
 
-    <!-- 学生凭学号登录模态框 -->
+    <!-- 学生凭学号登录模态框（两阶段：先选套卷，再输入学号） -->
     <div class="modal-mask" id="studentLoginModal">
         <div class="auth-box">
-            <div class="auth-icon" style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981;">🎓</div>
-            <h3 class="auth-title">学生成绩与错题自查</h3>
-            <p class="auth-subtitle">请输入作答时填写的【学号】，系统将调阅您的专属答题卡：</p>
-            <div style="margin-bottom:18px; text-align:left;">
-                <label style="font-size:0.8rem; font-weight:600; color:#94a3b8; display:block; margin-bottom:6px;">考生学号：</label>
-                <input type="text" id="studentIdInput" class="auth-input" placeholder="例如：230105" autofocus>
-                <div class="auth-err-msg" id="studentErrMsg">⚠️ 请输入有效学号</div>
+            <!-- 阶段 1：先选第一套还是第二套 -->
+            <div id="modalStepChooseSet">
+                <div class="auth-icon" style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981;">🎓</div>
+                <h3 class="auth-title">选择要调阅的测验卷</h3>
+                <p class="auth-subtitle">请先选择您要查阅的试卷版本：</p>
+                <div style="display:flex; flex-direction:column; gap:12px; margin:22px 0 20px 0;">
+                    <button type="button" onclick="chooseExamSet(1)" style="display:flex; align-items:center; justify-content:space-between; padding:15px 18px; border-radius:14px; border:1.5px solid rgba(16,185,129,0.4); background:rgba(16,185,129,0.12); color:#fff; cursor:pointer; text-align:left; transition:all 0.2s;">
+                        <div>
+                            <div style="font-weight:700; font-size:1.02rem; color:#a7f3d0; margin-bottom:3px;">📘 第一套题目（50题选择题）</div>
+                            <div style="font-size:0.82rem; color:#94a3b8;">基础统整测试卷</div>
+                        </div>
+                        <span style="font-size:1.2rem; color:#10b981; font-weight:700;">➔</span>
+                    </button>
+                    <button type="button" onclick="chooseExamSet(2)" style="display:flex; align-items:center; justify-content:space-between; padding:15px 18px; border-radius:14px; border:1.5px solid rgba(56,189,248,0.4); background:rgba(56,189,248,0.12); color:#fff; cursor:pointer; text-align:left; transition:all 0.2s;">
+                        <div>
+                            <div style="font-weight:700; font-size:1.02rem; color:#7dd3fc; margin-bottom:3px;">📙 第二套题目（50题选择题）</div>
+                            <div style="font-size:0.82rem; color:#94a3b8;">进阶强化测试卷</div>
+                        </div>
+                        <span style="font-size:1.2rem; color:#38bdf8; font-weight:700;">➔</span>
+                    </button>
+                </div>
+                <div class="auth-btns">
+                    <button class="btn-cancel" style="width:100%;" onclick="closeStudentLoginModal()">取消返回</button>
+                </div>
             </div>
-            <div class="auth-btns">
-                <button class="btn-cancel" onclick="closeStudentLoginModal()">取消</button>
-                <button class="btn-confirm" style="background:linear-gradient(135deg, #059669, #047857);" onclick="verifyStudentIdAndGo()">调阅答卷</button>
+
+            <!-- 阶段 2：输入学号调阅 -->
+            <div id="modalStepInputSid" style="display:none;">
+                <div class="auth-icon" style="background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#10b981;">🎓</div>
+                <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.3); color:#a7f3d0; padding:4px 12px; border-radius:20px; font-size:0.82rem; font-weight:700; margin-bottom:12px;">
+                    已选择：<span id="labelChosenSet">第一套题目</span>
+                    <button type="button" onclick="backToSetChoice()" style="background:none; border:none; color:#38bdf8; text-decoration:underline; cursor:pointer; font-size:0.8rem; font-weight:600; padding:0 2px;">切换套卷</button>
+                </div>
+                <h3 class="auth-title">请输入考生学号</h3>
+                <p class="auth-subtitle">系统将调阅您在【<span id="textChosenSet" style="color:#a7f3d0; font-weight:700;">第一套题目</span>】提交的专属答题卡：</p>
+                <div style="margin-bottom:18px; text-align:left;">
+                    <label style="font-size:0.8rem; font-weight:600; color:#94a3b8; display:block; margin-bottom:6px;">考生学号：</label>
+                    <input type="text" id="studentIdInput" class="auth-input" placeholder="例如：230105" autofocus>
+                    <div class="auth-err-msg" id="studentErrMsg">⚠️ 请输入有效学号</div>
+                </div>
+                <div class="auth-btns">
+                    <button class="btn-cancel" onclick="backToSetChoice()">‹ 上一步</button>
+                    <button class="btn-confirm" style="background:linear-gradient(135deg, #059669, #047857);" onclick="verifyStudentIdAndGo()">调阅答卷</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- 教师密码验证模态框 (密码: sinmin888) -->
+    <!-- 教师密码验证模态框 -->
     <div class="modal-mask" id="teacherAuthModal">
         <div class="auth-box">
             <div class="auth-icon" style="background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); color:#f59e0b;">🛡️</div>
@@ -584,19 +674,38 @@
 
     <script>
         const TEACHER_CORRECT_PWD = "sinmin888";
-        const STUDENT_REVIEW_URL = "review.html";
-        const TEACHER_TARGET_URL = "teacher.html";
+        const STUDENT_REVIEW_URL = "高中资讯科技_第二册_学生查分与错题精析.html";
+        const TEACHER_TARGET_URL = "高中资讯科技_第二册_教师教研总控台.html";
 
-        // 学生查分弹窗
+        let selectedExamSet = 1;
+
+        // 学生查分弹窗：两阶段
         function openStudentLoginModal() {
+            selectedExamSet = 1;
+            document.getElementById('modalStepChooseSet').style.display = 'block';
+            document.getElementById('modalStepInputSid').style.display = 'none';
             document.getElementById('studentIdInput').value = '';
             document.getElementById('studentErrMsg').style.display = 'none';
             document.getElementById('studentLoginModal').style.display = 'flex';
-            setTimeout(() => document.getElementById('studentIdInput').focus(), 100);
         }
 
         function closeStudentLoginModal() {
             document.getElementById('studentLoginModal').style.display = 'none';
+        }
+
+        function chooseExamSet(setNum) {
+            selectedExamSet = setNum;
+            const setName = (setNum === 1) ? "第一套题目" : "第二套题目";
+            document.getElementById('labelChosenSet').innerText = setName;
+            document.getElementById('textChosenSet').innerText = setName;
+            document.getElementById('modalStepChooseSet').style.display = 'none';
+            document.getElementById('modalStepInputSid').style.display = 'block';
+            setTimeout(() => document.getElementById('studentIdInput').focus(), 100);
+        }
+
+        function backToSetChoice() {
+            document.getElementById('modalStepInputSid').style.display = 'none';
+            document.getElementById('modalStepChooseSet').style.display = 'block';
         }
 
         function verifyStudentIdAndGo() {
@@ -606,7 +715,8 @@
                 return;
             }
             sessionStorage.setItem('current_student_id', sid);
-            window.location.href = `${STUDENT_REVIEW_URL}?sid=${encodeURIComponent(sid)}`;
+            sessionStorage.setItem('current_exam_set', selectedExamSet);
+            window.location.href = `${STUDENT_REVIEW_URL}?sid=${encodeURIComponent(sid)}&set=${selectedExamSet}`;
         }
 
         // 教师密码弹窗

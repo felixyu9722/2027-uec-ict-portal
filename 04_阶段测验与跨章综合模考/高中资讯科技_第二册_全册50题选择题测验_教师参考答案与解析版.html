@@ -3,1009 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高中资讯科技（第二册）全册统整测验 - 教师教研与实时批改总控台</title>
+    <title>高中资讯科技（第二册）全册统整测验【第1套】 - 教师参考答案与解析版</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
+            --primary-dark: #0f172a;
             --secondary: #1e3a8a;
             --accent: #d97706;
-            --success: #059669;
-            --success-bg: #ecfdf5;
-            --danger: #dc2626;
-            --danger-bg: #fef2f2;
-            --text-main: #1e293b;
+            --accent-light: #fef3c7;
+            --text-dark: #0f172a;
             --text-muted: #64748b;
             --bg-page: #f8fafc;
             --card-bg: #ffffff;
             --border: #e2e8f0;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --success: #10b981;
+            --danger: #ef4444;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
             background-color: var(--bg-page);
-            color: var(--text-main);
+            color: var(--text-dark);
             line-height: 1.6;
             padding-bottom: 90px;
         }
-
-        /* 顶部导航 */
-        .teacher-navbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(8px);
-            color: #fff;
-            border-bottom: 1px solid #334155;
-            box-shadow: var(--shadow-md);
+        .top-navbar {
+            position: sticky; top: 0; z-index: 100;
+            background: #0f172a; color: #fff;
+            padding: 14px 28px; display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .badge-teacher {
+            background: #f59e0b; color: #78350f; font-size: 0.8rem; font-weight: 800;
+            padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px;
         }
-
-        .brand-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .nav-title { font-size: 1.15rem; font-weight: 700; color: #f8fafc; }
+        .btn-portal-back {
+            background: #d97706; border: 1px solid #b45309; color: #fff;
+            padding: 8px 18px; border-radius: 8px; font-size: 0.88rem; font-weight: 700;
+            text-decoration: none; display: flex; align-items: center; gap: 6px;
+            box-shadow: 0 2px 6px rgba(217, 119, 6, 0.3); transition: all 0.2s;
         }
-
-        .teacher-badge {
-            background: #f59e0b;
-            color: #78350f;
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 6px;
+        .btn-portal-back:hover {
+            background: #b45309; transform: translateY(-1px);
         }
-
-        .nav-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #f8fafc;
+        .main-container { max-width: 1200px; margin: 28px auto; padding: 0 20px; }
+        .header-card {
+            background: #fff; border-radius: 14px; border: 1px solid var(--border);
+            padding: 28px; box-shadow: var(--shadow-sm); margin-bottom: 24px; text-align: center;
         }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .header-title { font-family: 'Noto Serif SC', serif; font-size: 1.6rem; color: #1e3a8a; margin-bottom: 6px; }
+        .header-sub { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        .matrix-box {
+            background: #fff; border-radius: 14px; border: 1px solid var(--border);
+            padding: 24px; box-shadow: var(--shadow-sm); margin-bottom: 28px;
         }
-
-        .btn-act {
-            background: #1e293b;
-            border: 1px solid #475569;
-            color: #f1f5f9;
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
+        .matrix-header { font-size: 1.1rem; font-weight: 700; color: #1e3a8a; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .table-ans { width: 100%; border-collapse: collapse; text-align: center; }
+        .table-ans th { background: #1e3a8a; color: #fff; padding: 8px; font-size: 0.85rem; font-weight: 700; }
+        .table-ans td { padding: 8px; border: 1px solid #e2e8f0; font-size: 0.9rem; }
+        .table-ans tr:nth-child(even) { background: #f8fafc; }
+        .ans-code { font-weight: 800; color: #b91c1c; font-size: 1rem; }
+        .filter-bar {
+            display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;
         }
-
-        .btn-act:hover {
-            background: #334155;
+        .filter-btn {
+            padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border);
+            background: #fff; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.15s;
         }
-
-        .btn-gold {
-            background: #d97706;
-            border-color: #b45309;
-            color: #fff;
+        .filter-btn.active { background: #1e40af; border-color: #1e40af; color: #fff; }
+        .filter-btn:hover:not(.active) { background: #f1f5f9; }
+        .q-card {
+            background: #fff; border-radius: 12px; padding: 24px;
+            border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 20px;
         }
-
-        .btn-gold:hover {
-            background: #b45309;
+        .q-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+        .q-title-box { display: flex; align-items: flex-start; gap: 12px; }
+        .q-badge-num {
+            background: #1e40af; color: #fff; font-size: 0.9rem; font-weight: 800;
+            width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
-
-        /* 主体布局 */
-        .main-container {
-            max-width: 1200px;
-            margin: 25px auto;
-            padding: 0 20px;
+        .q-chapter-badge {
+            font-size: 0.76rem; color: #0369a1; background: #e0f2fe; padding: 2px 8px; border-radius: 4px; font-weight: 700;
         }
-
-        /* 顶部视图切换 Tabs */
-        .view-tabs {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 12px;
+        .q-stem { font-size: 1.05rem; font-weight: 600; color: #1e293b; line-height: 1.6; margin-top: 4px; white-space: pre-line; }
+        .ans-badge-right {
+            background: #dcfce7; border: 1.5px solid #86efac; color: #166534;
+            padding: 6px 14px; border-radius: 8px; font-weight: 800; font-size: 1rem; flex-shrink: 0;
         }
-
-        .tab-btn {
-            padding: 10px 24px;
-            border-radius: 10px;
-            border: none;
-            background: #f1f5f9;
-            color: #475569;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .options-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0;
         }
-
-        .tab-btn:hover {
-            background: #e2e8f0;
+        .opt-box {
+            padding: 10px 14px; border-radius: 8px; border: 1px solid #e2e8f0; background: #f8fafc;
+            font-size: 0.92rem; display: flex; align-items: center; gap: 8px;
         }
-
-        .tab-btn.active {
-            background: var(--secondary);
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+        .opt-box.is-correct {
+            background: #f0fdf4; border-color: #4ade80; color: #166534; font-weight: 700;
         }
-
-        .tab-pane {
-            display: none;
+        .opt-box.is-correct::after {
+            content: "✓ 正解"; margin-left: auto; color: #16a34a; font-size: 0.8rem; font-weight: 800;
         }
-
-        .tab-pane.active {
-            display: block;
-        }
-
-        /* 核心指标卡片 */
-        .board-metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-bottom: 25px;
-        }
-
-        .metric-card {
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 18px 20px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .metric-num {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--secondary);
-        }
-
-        .metric-lbl {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* 高频错题榜卡片 */
-        .wrong-rank-card {
-            background: #fff;
-            border: 1px solid #fed7aa;
-            border-left: 5px solid #f97316;
-            border-radius: 12px;
-            padding: 22px 24px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 25px;
-        }
-
-        .wrong-rank-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #9a3412;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .wrong-items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 12px;
-        }
-
-        .wrong-item {
-            background: #fff7ed;
-            border: 1px solid #ffedd5;
-            border-radius: 8px;
-            padding: 12px 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .wrong-item:hover {
-            background: #ffedd5;
-            transform: translateY(-2px);
-        }
-
-        .wrong-item-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 6px;
-        }
-
-        .wrong-q-badge {
-            font-weight: 700;
-            font-size: 0.88rem;
-            color: #c2410c;
-        }
-
-        .wrong-rate-badge {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #fff;
-            background: #ea580c;
-            padding: 2px 8px;
-            border-radius: 12px;
-        }
-
-        .wrong-q-text {
-            font-size: 0.82rem;
-            color: #431407;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        /* 数据表格卡片 */
-        .board-card {
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 25px;
-        }
-
-        .board-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .sub-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.92rem;
-        }
-
-        .sub-table th {
-            background: #f8fafc;
-            color: #475569;
-            padding: 12px 14px;
-            font-weight: 700;
-            text-align: left;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .sub-table td {
-            padding: 12px 14px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .sub-table tr:hover {
-            background: #f8fafc;
-        }
-
-        .score-pill {
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            display: inline-block;
-        }
-
-        .score-pill.pass { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
-        .score-pill.fail { background: #fee2e2; color: #dc2626; border: 1px solid #fecaca; }
-
-        .btn-view-paper {
-            background: #eff6ff;
-            color: var(--secondary);
-            border: 1px solid #bfdbfe;
-            padding: 4px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.82rem;
-            font-weight: 600;
-        }
-
-        .btn-view-paper:hover {
-            background: #dbeafe;
-        }
-
-        /* 错题抽屉模态框 */
-        .drawer-mask {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 9999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .drawer-box {
-            background: #fff;
-            border-radius: 16px;
-            max-width: 780px;
-            width: 100%;
-            max-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-        }
-
-        .drawer-head {
-            padding: 18px 24px;
-            background: #0f172a;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .drawer-body {
-            padding: 24px;
-            overflow-y: auto;
-            flex: 1;
-        }
-
-        /* 矩阵表格 */
-        .matrix-section {
-            background: #fff;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            padding: 26px 30px;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 25px;
-        }
-
-        .ans-matrix-table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: center;
-            font-size: 0.92rem;
-        }
-
-        .ans-matrix-table th {
-            background: #1e3a8a;
-            color: #fff;
-            padding: 9px 6px;
-            font-weight: 600;
-            border: 1px solid #1e40af;
-        }
-
-        .ans-matrix-table td {
-            padding: 8px 6px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .ans-matrix-table tr:nth-child(even) {
-            background: #f8fafc;
-        }
-
-        .q-link {
-            color: #1e293b;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .ans-val {
-            font-weight: 700;
-            color: #b91c1c;
-            background: #fee2e2;
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            line-height: 28px;
-            border-radius: 50%;
-        }
-
-        .rate-val {
-            font-size: 0.72rem;
-            display: block;
-            margin-top: 2px;
-            color: #64748b;
-        }
-
-        .rate-val.high-err {
-            color: #dc2626;
-            font-weight: 700;
-        }
-
-        /* 试题与详解 */
-        .explanation-card {
-            background: #fff;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-            padding: 24px 28px;
-            margin-bottom: 22px;
-        }
-
-        .q-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .q-id-badge {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #fff;
-            background: var(--secondary);
-            padding: 3px 10px;
-            border-radius: 6px;
-        }
-
-        .q-ch-badge {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: #f1f5f9;
-            padding: 3px 8px;
-            border-radius: 4px;
-        }
-
-        .q-ans-badge {
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: var(--success);
-            background: var(--success-bg);
-            border: 1px solid #a7f3d0;
-            padding: 4px 12px;
-            border-radius: 6px;
-        }
-
-        .opt-item-t {
-            padding: 9px 14px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            font-size: 0.92rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: #fff;
-            margin-bottom: 6px;
-        }
-
-        .opt-item-t.is-correct {
-            background: #ecfdf5;
-            border-color: #6ee7b7;
-            color: #065f46;
-            font-weight: 600;
-        }
-
         .analysis-box {
-            background: #f0fdf4;
-            border-left: 4px solid var(--success);
-            padding: 14px 18px;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.92rem;
-            line-height: 1.65;
-            color: #14532d;
-            margin-top: 14px;
+            background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 16px 18px; margin-top: 14px;
         }
-
-        /* 密码拦截遮罩 */
-        #pageSecurityOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #0b1329;
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        .analysis-header {
+            font-size: 0.88rem; font-weight: 700; color: #b45309; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;
+        }
+        .analysis-text { font-size: 0.92rem; color: #78350f; line-height: 1.6; }
+        .source-tag {
+            font-size: 0.8rem; color: #0284c7; background: #f0f9ff; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 6px;
+        }
+        @media(max-width: 768px) {
+            .options-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 密码拦截安全门禁（密码 972288） -->
-    <div id="pageSecurityOverlay">
-        <div style="background:#1e293b; border:1px solid #334155; border-radius:18px; padding:36px; max-width:440px; width:100%; text-align:center; box-shadow:0 25px 50px rgba(0,0,0,0.6); color:#fff;">
-            <div style="width:60px; height:60px; border-radius:50%; background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.3); display:flex; align-items:center; justify-content:center; font-size:1.8rem; margin:0 auto 16px auto; color:#f59e0b;">🔒</div>
-            <h2 style="font-size:1.35rem; margin-bottom:8px; font-weight:700;">教师专属教研专区</h2>
-            <p style="color:#94a3b8; font-size:0.9rem; margin-bottom:24px; line-height:1.5;">请输入教师安全访问密钥（密码：sinmin888）以解锁查看学生答卷与标准解析：</p>
-            <input type="password" id="gatePwdInput" placeholder="••••••" maxlength="12" style="width:100%; padding:12px 16px; background:#0f172a; border:1px solid #475569; border-radius:10px; color:#fff; font-size:1.2rem; letter-spacing:4px; text-align:center; outline:none; margin-bottom:10px;">
-            <div id="gateErrMsg" style="color:#f87171; font-size:0.85rem; display:none; margin-bottom:12px;">⚠️ 密码不正确，无权查阅</div>
-            <div style="display:flex; gap:10px; margin-top:14px;">
-                <a href="高中资讯科技_第二册_测验导航门户.html" style="flex:1; padding:11px; border-radius:10px; background:#334155; color:#cbd5e1; text-decoration:none; font-size:0.9rem; font-weight:600; display:flex; align-items:center; justify-content:center;">返回门户</a>
-                <button onclick="checkPageSecurity()" style="flex:1; padding:11px; border-radius:10px; background:linear-gradient(135deg, #d97706, #b45309); border:none; color:#fff; font-size:0.95rem; font-weight:700; cursor:pointer;">解锁专区</button>
-            </div>
+    <header class="top-navbar">
+        <div class="nav-brand">
+            <span class="badge-teacher">名师精析 · 教师专属版</span>
+            <span class="nav-title">高中资讯科技（第二册）全册统整测验【第1套】</span>
         </div>
-    </div>
-
-    <!-- 顶部导航 -->
-    <header class="teacher-navbar">
-        <div class="nav-inner">
-            <div class="brand-box">
-                <span class="teacher-badge">教师教研总控台</span>
-                <span class="nav-title">高中资讯科技（第二册）全册测验系统</span>
-            </div>
-            <div class="nav-actions">
-                <a href="高中资讯科技_第二册_测验导航门户.html" class="btn-act">🏠 返回门户</a>
-                <button class="btn-act btn-gold" onclick="fetchSubmissionsFromSupabase()">🔄 刷新云端答卷</button>
-                <button class="btn-act" onclick="lockPage()" style="background:#7f1d1d; border-color:#991b1b; color:#fee2e2;">🚪 退出锁定</button>
-            </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+            <a href="高中资讯科技_第二册_测验导航门户.html" class="btn-portal-back">🏠 返回测验门户</a>
         </div>
     </header>
 
     <div class="main-container">
-        <!-- 标签栏切换 -->
-        <div class="view-tabs">
-            <button class="tab-btn active" onclick="switchTab('dashboard', this)">
-                📊 学生实时答卷管理看板 (<span id="tabCountBadge">0</span>)
-            </button>
-            <button class="tab-btn" onclick="switchTab('answers', this)">
-                📖 50 题标准答案与名师解析
-            </button>
+        <div class="header-card">
+            <h1 class="header-title">高中资讯科技（第二册）全册统整测验【第1套】</h1>
+            <p class="header-sub">教师标准答案、考点定位与选项逐一辨析参考版 · 基础跨章统整测评</p>
+            <div style="display:flex; justify-content:center; gap:12px; margin-top:14px;">
+                <a href="高中资讯科技_第二册_教师教研总控台.html" style="text-decoration:none; padding:8px 16px; border-radius:8px; background:#fef3c7; color:#92400e; border:1px solid #fde68a; font-weight:700; font-size:0.9rem;">📊 切换至教师教研总控台</a>
+            </div>
         </div>
 
-        <!-- TAB 1: 学生答卷管理看板 -->
-        <section id="pane-dashboard" class="tab-pane active">
-            <!-- 核心数据卡片 -->
-            <div class="board-metrics">
-                <div class="metric-card">
-                    <div class="metric-num" id="metricTotalSubmissions">0</div>
-                    <div class="metric-lbl">已交卷学生总数</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-num" id="metricAvgScore">0.0</div>
-                    <div class="metric-lbl">全班平均分 (满分100)</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-num" style="color:#059669;" id="metricPassRate">0%</div>
-                    <div class="metric-lbl">测验及格率 (≥60分)</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-num" style="color:#d97706;" id="metricMaxScore">0</div>
-                    <div class="metric-lbl">全场最高分</div>
-                </div>
+        <!-- 50题速查矩阵表 -->
+        <div class="matrix-box">
+            <div class="matrix-header">
+                <span>📋 50 题标准答案速查矩阵（5 列 × 10 行）</span>
             </div>
-
-            <!-- 🔥 高频错题排行榜卡片 -->
-            <div class="wrong-rank-card" id="wrongRankCard" style="display:none;">
-                <div class="wrong-rank-title">
-                    <span>🔥 全班高频错题排行榜（错误率前 5 名 · 建议课堂重点精讲）</span>
-                </div>
-                <div class="wrong-items-grid" id="wrongItemsGrid"></div>
-            </div>
-
-            <!-- 学生提交数据列表 -->
-            <div class="board-card">
-                <div class="board-bar">
-                    <h3 style="font-size:1.15rem; color:var(--secondary);">📋 学生提交明细表</h3>
-                    <div style="display:flex; gap:10px;">
-                        <input type="text" id="filterStudentInput" placeholder="搜索学生姓名/学号..." oninput="filterStudentsTable()" style="padding:6px 12px; border:1px solid #cbd5e1; border-radius:6px; font-size:0.85rem; outline:none;">
-                        <button class="btn-act" style="background:#f1f5f9; color:#334155; border-color:#cbd5e1;" onclick="exportToCSV()">📥 导出 Excel (CSV)</button>
-                    </div>
-                </div>
-
-                <div style="overflow-x:auto;">
-                    <table class="sub-table" id="submissionsTable">
-                        <thead>
-                            <tr>
-                                <th>序号</th>
-                                <th>姓名</th>
-                                <th>班级</th>
-                                <th>学号</th>
-                                <th>得分</th>
-                                <th>作答用时</th>
-                                <th>交卷时间</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody id="submissionsTableBody">
-                            <tr><td colspan="8" style="text-align:center; color:#94a3b8; padding:30px;">正在连接 Supabase 加载学生提交记录...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 2: 标准参考答案与解析 -->
-        <section id="pane-answers" class="tab-pane">
-            <div class="matrix-section">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-                    <h3 style="font-size:1.2rem; color:var(--secondary);">📊 50 题标准答案与各题实时错误率</h3>
-                    <span style="font-size:0.82rem; color:#64748b;">红色标签代表错误率超 40%</span>
-                </div>
-                <table class="ans-matrix-table">
+            <div style="overflow-x:auto;">
+                <table class="table-ans" id="matrixTable">
                     <thead>
                         <tr>
-                            <th>题号</th><th>答案/错率</th>
-                            <th>题号</th><th>答案/错率</th>
-                            <th>题号</th><th>答案/错率</th>
-                            <th>题号</th><th>答案/错率</th>
-                            <th>题号</th><th>答案/错率</th>
+                            <th>题号</th><th>答案</th>
+                            <th>题号</th><th>答案</th>
+                            <th>题号</th><th>答案</th>
+                            <th>题号</th><th>答案</th>
+                            <th>题号</th><th>答案</th>
                         </tr>
                     </thead>
-                    <tbody id="matrixTableBody"></tbody>
+                    <tbody id="matrixTbody"></tbody>
                 </table>
             </div>
-
-            <div id="explanationsList"></div>
-        </section>
-    </div>
-
-    <!-- 单个学生答题抽屉模态框 -->
-    <div class="drawer-mask" id="studentDrawer">
-        <div class="drawer-box">
-            <div class="drawer-head">
-                <div>
-                    <h3 style="font-size:1.15rem;" id="drawerStudentName">学生答卷调阅</h3>
-                    <div style="font-size:0.8rem; color:#94a3b8;" id="drawerStudentMeta">--</div>
-                </div>
-                <button onclick="closeStudentDrawer()" style="background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer;">✕</button>
-            </div>
-            <div class="drawer-body" id="drawerQuestionsContent"></div>
         </div>
+
+        <!-- 章节快速筛选器 -->
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" onclick="filterChapter('ALL')">全部 50 题</button>
+            <button class="filter-btn" onclick="filterChapter('第1章')">第1章 资讯系统</button>
+            <button class="filter-btn" onclick="filterChapter('第2章')">第2章 网络类型与传输质量</button>
+            <button class="filter-btn" onclick="filterChapter('第3章')">第3章 网络通讯与作业系统</button>
+            <button class="filter-btn" onclick="filterChapter('第4章')">第4章 网络安全与网络资源分享</button>
+            <button class="filter-btn" onclick="filterChapter('第5章')">第5章 物联网与其应用</button>
+        </div>
+
+        <!-- 逐题卡片列表 -->
+        <div id="questionsContainer"></div>
     </div>
 
     <script>
         const questions = [{"id": 1, "chapter": "第1章 资讯系统", "question": "在系统规划与初步调查阶段，系统分析员必须进行可行性分析（Feasibility Study）。若重点评估“组织现有的预算资金是否足以支持新系统的开发与软硬件采购，以及未来能否带来预期的经济回报”，这属于下列哪一种可行性评估？", "options": {"A": "技术可行性（Technical Feasibility）", "B": "经济可行性（Economic Feasibility）", "C": "操作可行性（Operational Feasibility）", "D": "法律可行性（Legal Feasibility）"}, "answer": "B", "analysis": "经济可行性（Economic Feasibility）的核心评估目标是成本效益分析（Cost-Benefit Analysis），衡量项目所需的软硬件投资、人员培训等成本与预期带来的收益（ROI），确保预算在组织可承受范围内。技术可行性关注现有软硬件与团队技能是否达标；操作可行性关注用户是否愿用、能用；法律可行性关注法律合规。"}, {"id": 2, "chapter": "第1章 资讯系统", "question": "在现代企业资讯系统的开发团队中，主要负责规划数据库结构、管理数据存储效率、设定数据安全权限，并确保数据完整性与日常备份的技术人员是：", "options": {"A": "系统分析员（System Analyst）", "B": "程式编写员（Programmer）", "C": "数据库管理员（Database Administrator, DBA）", "D": "网络管理员（Network Administrator）"}, "answer": "C", "analysis": "数据库管理员（DBA）专门负责企业数据库的设计实现、性能调优、权限安全管理、完整性约束维护与备份容灾；系统分析员负责需求调研与系统架构设计；程式编写员负责编写具体功能代码；网络管理员负责网络基础设施的通畅与安全。"}, {"id": 3, "chapter": "第1章 资讯系统", "question": "在结构化系统分析与设计方法中，数据流程图（Data Flow Diagram, DFD）用于描绘系统内数据的流动与处理过程。在 DFD 标准图形符号中，用“两条平行的水平横线（或一侧开口的矩形）”表示的元素是：", "options": {"A": "外部实体（External Entity）", "B": "处理过程 / 程序（Process）", "C": "数据流（Data Flow）", "D": "数据存储（Data Store）"}, "answer": "D", "analysis": "在 Gane-Sarson 或 Yourdon 规范的 DFD 中，平行双横线（或右侧开口矩形）代表数据存储（Data Store，如数据库表格或档案）；圆形或圆角矩形代表处理程序（Process）；带箭头的直线代表数据流（Data Flow）；正方形或实体矩形代表外部实体（External Entity）。"}, {"id": 4, "chapter": "第1章 资讯系统", "question": "连锁超市收银台的 POS 系统在顾客结账时，扫描条形码读取单价、计算总金额并自动扣减库存记录。这类主要用于记录、处理日常基层例行业务交易的资讯系统属于：", "options": {"A": "交易处理系统（Transaction Processing System, TPS）", "B": "管理资讯系统（Management Information System, MIS）", "C": "决策支援系统（Decision Support System, DSS）", "D": "高阶主管资讯系统（Executive Information System, EIS）"}, "answer": "A", "analysis": "交易处理系统（TPS）位于企业资讯金字塔的最底层，专门负责高速、准确地记录和处理每日大量的日常营运事务交易（如超市 POS 收银、银行 ATM 取款、航空订票等）。MIS 负责生成总结性定期报表；DSS 辅助中层管理进行半结构化决策；EIS 供高层进行战略分析。"}, {"id": 5, "chapter": "第1章 资讯系统", "question": "某大型连锁书局准备全面上线一套崭新的会员积分管理系统。为了降低系统故障对全马业务的冲击，总管理处决定先在吉隆坡旗舰店试运行一个月，待系统各项功能成熟稳定且修复所有隐患后，再全面推广到全马其余 50 家分店。这种系统转换策略称为：", "options": {"A": "直接转换（Direct Conversion）", "B": "并行转换（Parallel Conversion）", "C": "试点转换（Pilot Conversion）", "D": "分段转换（Phased Conversion）"}, "answer": "C", "analysis": "试点转换（Pilot Conversion）是指先在组织的一个特定部门、单一地点或分支机构完整安装运行新系统，经实践检验成功后再推广到整个组织。直接转换是立即全面停用旧系统切换新系统；并行转换是全组织新旧系统同时运行；分段转换是按功能模块逐步分批替换。"}, {"id": 6, "chapter": "第1章 资讯系统", "question": "在系统开发生命周期（SDLC）的系统实现与测试阶段，关于各项测试工作的内容，下列叙述哪些是正确的？\nI. 单元测试（Unit Testing）针对各个独立的函数或代码模块进行逻辑检验\nII. 整合测试（Integration Testing）检验各模块组合连接后数据接口能否正常协同工作\nIII. 验收测试（Acceptance Testing）由最终使用者或客户参与，检验系统是否满足实际业务需求\nIV. 回归测试（Regression Testing）必须在旧系统被永久销毁后才能开始进行", "options": {"A": "I、II", "B": "I、II、III", "C": "II、III、IV", "D": "I、II、III、IV"}, "answer": "B", "analysis": "叙述 I、II、III 正确。叙述 IV 错误：回归测试（Regression Testing）是指在修改代码或修复已知 Bug 后重新运行测试，以确认修改没有破坏系统中现有的其他正常功能，与“旧系统销毁”无关。"}, {"id": 7, "chapter": "第1章 资讯系统", "question": "系统分析员在进行结构化系统分析时，通常会编写一份“数据字典”（Data Dictionary）。数据字典在系统分析中的核心作用是：", "options": {"A": "记录程序员每天编写代码的行数与出勤记录", "B": "详细定义和记录数据流程图中每个数据项、数据流及数据存储的结构与含义", "C": "作为向用户展示系统操作按钮排版的图形化线框图", "D": "自动将系统的英文错误提示信息翻译为多国语言"}, "answer": "B", "analysis": "数据字典（Data Dictionary）是系统分析的重要工具，它对数据流程图（DFD）中出现的所有数据元素、数据结构、数据流、数据存储进行精确、集中的定义与描述，消除开发团队中关于数据命名的二义性。"}, {"id": 8, "chapter": "第1章 资讯系统", "question": "由于马来西亚政府调整了销售与服务税（SST）的税率，某学院财务处要求技术部门修改财务系统中的自动算税算法以遵循最新税法法规。这种系统维护类型属于：", "options": {"A": "纠正性维护（Corrective Maintenance）", "B": "适应性维护（Adaptive Maintenance）", "C": "完善性维护（Perfective Maintenance）", "D": "预防性维护（Preventive Maintenance）"}, "answer": "B", "analysis": "适应性维护（Adaptive Maintenance）是指为了使系统适应外部环境的变化（如国家新税法出台、法律法规变更、操作系统升级或硬件更替）而对系统进行的修改。纠正性维护是修补程序原本运行中的错误 Bug；完善性维护是增加新功能或提升性能；预防性维护是防患于未然。"}, {"id": 9, "chapter": "第1章 资讯系统", "question": "将制造企业的生产管理、物料采购、库存仓储、财务会计、人力资源及销售订单等不同部门的业务流程全面整合进同一个集中数据库，消除信息孤岛的企业级核心系统是：", "options": {"A": "企业资源规划系统（Enterprise Resource Planning, ERP）", "B": "客户关系管理系统（Customer Relationship Management, CRM）", "C": "供应链管理系统（Supply Chain Management, SCM）", "D": "办公自动化系统（Office Automation System, OAS）"}, "answer": "A", "analysis": "企业资源规划系统（ERP）强调企业内部全方位业务流程的一体化整合，通过统一的数据架构实现财务、采购、生产、销售等跨部门数据的实时流动与协同；CRM 侧重客户生命周期与营销；SCM 侧重供应链上下游协调；OAS 侧重日常公文与协同办公。"}, {"id": 10, "chapter": "第1章 资讯系统", "question": "在系统开发过程中，若最终使用者在立项初期无法清晰表达自己的具体功能需求，开发团队先快速构建出一个具备基本界面与操作交互的简易模型供使用者体验，并根据使用者反馈迭代修改。这种系统开发方法被称为：", "options": {"A": "瀑布模型（Waterfall Model）", "B": "原型法（Prototyping）", "C": "结构化分析法（Structured Analysis）", "D": "甘特进度法（Gantt Scheduling）"}, "answer": "B", "analysis": "原型法（Prototyping）的核心理念是通过快速构建“工作原型”（Prototype），让使用者在直观使用中逐步明确、细化真实需求，减少因初期需求理解偏差而导致开发失败的风险，非常适合需求模糊或易变的项目。瀑布模型则强调阶段严格线性推进。"}, {"id": 11, "chapter": "第2章 网络类型与传输质量", "question": "某商业银行将分布在吉隆坡市区内的 20 间分行营业厅，通过城域级高速光纤专网互联为一个专属网络，该网络覆盖范围通常在数十公里以内。按照计算机网络的地理覆盖范围分类，该网络属于：", "options": {"A": "个人区域网（PAN）", "B": "局域网（LAN）", "C": "城域网（MAN）", "D": "广域网（WAN）"}, "answer": "C", "analysis": "城域网（Metropolitan Area Network, MAN）的覆盖范围通常为一个城市或大都市圈（通常几公里到数十公里），用于连接同一城市内不同地点的机构或企业分支；PAN 覆盖数米（个人空间）；LAN 覆盖一间办公室或单座建筑物；WAN 覆盖跨州、跨国乃至全球。"}, {"id": 12, "chapter": "第2章 网络类型与传输质量", "question": "现代独中电脑室普遍采用“星状拓扑结构”（Star Topology）来连接所有学生电脑。相较于早期的汇流排拓扑（Bus Topology），星状拓扑最显著的运行优势是：", "options": {"A": "不需要消耗任何网络线缆，安装成本在所有拓扑中最为低廉", "B": "任意一台单机或单条网线发生损坏断路，不会导致网络中其他电脑瘫痪", "C": "即使中央集线设备（交换机）发生硬件短路，全网通信也不会受到任何影响", "D": "数据在主干线路上单向循环流动，完全不需要任何地址寻址机制"}, "answer": "B", "analysis": "星状拓扑中所有节点独立连接到中央设备（交换机）。当某台电脑的网线断开或网卡损坏时，仅该节点掉线，其余所有节点完全正常工作，且故障排查极其直观；其缺点是中央交换机是单点故障（Single Point of Failure）。汇流排拓扑干线中断会导致全网瘫痪。"}, {"id": 13, "chapter": "第2章 网络类型与传输质量", "question": "在工业厂房或大型配电室等强电磁干扰环境下布设网络线缆时，为了防止外部电动机、变压器产生的强杂散电磁波穿透线缆造成严重数据误码，最应选用的双绞线类型是：", "options": {"A": "非屏蔽双绞线（UTP）", "B": "屏蔽双绞线（STP）", "C": "细同轴电缆（10Base2）", "D": "无护套双绞线（PVC Pair）"}, "answer": "B", "analysis": "屏蔽双绞线（Shielded Twisted Pair, STP）在线对外部包裹了金属铝箔或编织铜网屏蔽层，具有极高的抗外界电磁干扰（EMI）与射频干扰（RFI）能力，非常适合强电工业环境；普通办公室通常使用成本较低的非屏蔽双绞线（UTP）。"}, {"id": 14, "chapter": "第2章 网络类型与传输质量", "question": "关于光纤传输介质中“单模光纤”（Single-mode Fiber）与“多模光纤”（Multi-mode Fiber）的特性比较，下列叙述哪些是正确的？\nI. 单模光纤的纤芯直径（约 9 微米）比多模光纤（50~62.5 微米）细得多\nII. 单模光纤通常使用高指向性激光器（Laser）作为发光源\nIII. 多模光纤内部存在光的多路径反射，模间色散较大，通常用于短距离建筑物内部局域网\nIV. 多模光纤的信号衰减远小于单模光纤，因此跨洋海底光缆全部采用多模光纤", "options": {"A": "I、II", "B": "I、II、III", "C": "II、III、IV", "D": "I、II、III、IV"}, "answer": "B", "analysis": "叙述 I、II、III 正确。叙述 IV 错误：海底光缆与跨省骨干网几乎全部采用“单模光纤”，因为单模光纤光线沿单一路径传播、无模间色散、衰减极小，支持数百公里的长距离超高速传输；多模光纤衰减和色散较大，距离受限。"}, {"id": 15, "chapter": "第2章 网络类型与传输质量", "question": "电视机遥控器在操作时，必须正对着电视机的受光窗口才能换台；若有人或厚书本挡在遥控器前方，电视机便无法响应。这说明该遥控器使用的是哪种无线传输介质？", "options": {"A": "红外线（Infrared）", "B": "蓝牙（Bluetooth）", "C": "Wi-Fi 无线局域网（2.4GHz）", "D": "超高频微波（Microwave）"}, "answer": "A", "analysis": "红外线（Infrared）的波长介于微波与可见光之间，具有严格的“视距传输”（Line of Sight）特性，无法穿透不透明实体障碍物（如墙壁、书本），且传输距离通常在 10 米以内；蓝牙和 Wi-Fi 采用射频电波，具有较好的绕射与穿透墙壁能力。"}, {"id": 16, "chapter": "第2章 网络类型与传输质量", "question": "交警在执勤时使用传统手持无线对讲机进行联络，通话时必须按住“PTT 通话键”说话，松开按键后才能收听对方声音，双方不能在同一时刻同时向对方说话。这种通信方向方式属于：", "options": {"A": "单工（Simplex）", "B": "半双工（Half-Duplex）", "C": "全双工（Full-Duplex）", "D": "复用工（Multiplex）"}, "answer": "B", "analysis": "半双工（Half-Duplex）允许数据在两个方向上传输，但在同一特定时刻只能由一方发送、另一方接收（如对讲机、传统集线器连接的局域网）；单工（Simplex）只能单向流动（如无线电广播）；全双工（Full-Duplex）允许双方同时收发（如手机通话、现代交换机双全工链路）。"}, {"id": 17, "chapter": "第2章 网络类型与传输质量", "question": "学生在家里玩即时对战网络游戏时，画面突然出现角色移动迟滞、点击技能后延迟 1 秒才有反应，甚至发生角色在地图上瞬间跳跃的现象。网络诊断显示宽带下载速率充足，但 Ping 值高达 350 ms 且伴随偶发丢包。导致该体验急剧恶化的主要网络性能指标是：", "options": {"A": "频宽不足（Insufficient Bandwidth）", "B": "高延迟（High Latency）与网络抖动（Jitter）", "C": "电缆阻抗过大（High Cable Impedance）", "D": "调制解调器发热量过高（Overheating）"}, "answer": "B", "analysis": "网络游戏的即时交互对“延迟（Latency）”和“抖动（Jitter，延迟的波动程度）”极其敏感。虽然游戏传输的数据包体积很小（对带宽要求不高），但高延迟与抖动会导致操作指令无法按时到达服务器，造成卡顿、瞬移和技能响应迟滞。"}, {"id": 18, "chapter": "第2章 网络类型与传输质量", "question": "电信号或光脉冲信号在物理传输线缆中长距离传播时，随着传播距离的延伸，信号的幅值会自然逐渐减弱并发生波形失真。网络工程中将这一物理损耗现象称为：", "options": {"A": "串扰（Crosstalk）", "B": "衰减（Attenuation）", "C": "色散（Dispersion）", "D": "反射（Reflection）"}, "answer": "B", "analysis": "信号在传输介质中传播时能量随距离衰减变弱的现象称为“衰减”（Attenuation）。为了克服衰减，网络在超出规定距离（如双绞线 100 米限制）时需要添加中继器（Repeater）或放大器（Amplifier）来重整与放大信号。"}, {"id": 19, "chapter": "第2章 网络类型与传输质量", "question": "国家级金融清算系统在设计骨干通讯网时，要求具备极高的容错可靠性（Fault Tolerance）。即使任意一条光缆因施工被挖断，数据包仍可立刻通过其他备用路径自动绕行，确保业务秒级不中断。这类系统最理想的网络拓扑架构是：", "options": {"A": "星状拓扑（Star Topology）", "B": "汇流排拓扑（Bus Topology）", "C": "网状拓扑（Mesh Topology）", "D": "环状拓扑（Ring Topology）"}, "answer": "C", "analysis": "网状拓扑（Mesh Topology）中各个核心节点之间存在多条冗余物理链路互联。其最大优势是具备极高的容错性与多路径冗余能力，某条链路断开完全不影响其他链路寻径，非常适合电信骨干网和核心金融系统；缺点是布线与端口成本高。"}, {"id": 20, "chapter": "第2章 网络类型与传输质量", "question": "关于网络性能指标中“频宽”（Bandwidth）与“吞吐量”（Throughput）的核心概念区别，下列描述最准确的是：", "options": {"A": "频宽指单位时间内实际成功传输的数据量，吞吐量指信道的理论物理上限", "B": "频宽指信道理论上单位时间能承载的最大数据传输能力，吞吐量指实际测得的有效数据传输速率", "C": "频宽只用于衡量无线网络，吞吐量只用于衡量有线光纤网络", "D": "频宽的计量单位是 Byte/s，吞吐量的计量单位是 bit/s"}, "answer": "B", "analysis": "频宽（Bandwidth）好比公路理论上的最大车道容量（理论最大传输速率，如 100 Mbps）；吞吐量（Throughput）则是特定时间内实际在公路上顺利通过的实际车流量（扣除网络拥塞、协议开销、重传后的实际传输速率）。吞吐量始终小于或等于理论频宽。"}, {"id": 21, "chapter": "第3章 网络通讯与作业系统", "question": "在国际标准化组织制定的 OSI 七层参考模型中，负责为不同网络之间的数据包进行逻辑寻址（IP 寻址）并选择最佳传输路径（路由选择，Routing）的是：", "options": {"A": "物理层（Physical Layer）", "B": "数据链路层（Data Link Layer）", "C": "网络层（Network Layer）", "D": "传输层（Transport Layer）"}, "answer": "C", "analysis": "网络层（Network Layer，OSI 第 3 层）的核心职责是逻辑寻址（Logical Addressing，如 IP 地址）和路由选择（Routing），决定数据包从源端到目的端经过哪些路由器网络；数据链路层负责 MAC 地址和帧同步；传输层负责端到端进程通信（端口与可靠性）。"}, {"id": 22, "chapter": "第3章 网络通讯与作业系统", "question": "我们在浏览器地址栏输入易记的网站域名（例如 www.dongzong.my）时，负责将该域名解析查询并转换为计算机网络通信所需的实际 IP 地址的协议是：", "options": {"A": "超文本传输协议（HTTP）", "B": "域名系统（DNS）", "C": "动态主机配置协议（DHCP）", "D": "文件传输协议（FTP）"}, "answer": "B", "analysis": "域名系统（Domain Name System, DNS）充当互联网的“电话簿”，主要功能是将人类易于记忆的字符域名（如 www.dongzong.my）翻译转换为机器互相通信识别的 IP 地址（如 203.106.x.x）。"}, {"id": 23, "chapter": "第3章 网络通讯与作业系统", "question": "在 TCP/IP 体系的传输层中，TCP 协议与 UDP 协议具有截然不同的通信机制。下列关于两者的对比，哪一项描述是正确的？", "options": {"A": "TCP 是无连接协议，传输速度极快且不保证数据按序送达", "B": "UDP 建立通信前必须进行三次握手，具备严格的丢包重传确认机制", "C": "TCP 提供面向连接的可靠数据传输服务，适合网页浏览（HTTP）与文件下载", "D": "UDP 由于可靠性差，因此在网络流媒体广播与在线多人语音中已被完全弃用"}, "answer": "C", "analysis": "TCP 是面向连接的可靠协议，通过三次握手、序号确认、流量控制和重传机制确保数据 100% 准确到达，适用于 HTTP/HTTPS、FTP、SMTP 等；UDP 是无连接不可靠协议，开销极小且延迟极低，非常适合对实时性要求高但允许轻微丢包的场景（如视频直播、语音对讲、DNS 查询）。"}, {"id": 24, "chapter": "第3章 网络通讯与作业系统", "question": "互联网工程任务组（IETF）在 IPv4 协议中保留了部分 IP 地址范围专门用于组织局域网内部通信（私有 IP 地址），这些地址不会在公共互联网上被直接路由。下列属于标准私有 IP 地址的是：", "options": {"A": "8.8.8.8", "B": "192.168.10.25", "C": "115.132.88.2", "D": "202.188.0.133"}, "answer": "B", "analysis": "根据 RFC 1918 规范，三大类私有 IPv4 地址范围是：A 类 10.0.0.0 ~ 10.255.255.255；B 类 172.16.0.0 ~ 172.31.255.255；C 类 192.168.0.0 ~ 192.168.255.255。因此 192.168.10.25 是私有 IP。选项 A（Google 公共 DNS）及选项 C、D 均为公网 IP。"}, {"id": 25, "chapter": "第3章 网络通讯与作业系统", "question": "某台电脑配置的 IP 地址为 192.168.1.88，子网掩码（Subnet Mask）设置为 255.255.255.0。子网掩码在网络寻址中的核心作用是：", "options": {"A": "自动将电脑的私有 IP 转换为公网真实 IP 地址", "B": "区分 IP 地址中哪部分代表“网络识别码”（Network ID），哪部分代表“主机识别码”（Host ID）", "C": "为局域网内的电脑分配唯一的 48 位硬件 MAC 地址", "D": "记录并缓存电脑访问过的网页图片与历史记录"}, "answer": "B", "analysis": "子网掩码（Subnet Mask）是一串与 IP 地址长度相同的二进制掩码（全1部分对应网络位，全0部分对应主机位），其核心作用是通过与运算将 IP 地址明确区分为“网络位（Network ID）”和“主机位（Host ID）”，用于判断目标主机是否在同一局域网内。"}, {"id": 26, "chapter": "第3章 网络通讯与作业系统", "question": "为了彻底解决 IPv4 地址枯竭的危机，新一代网际协议 IPv6 获得了广泛应用。关于 IPv6 的格式与特性，下列叙述正确的是：", "options": {"A": "IPv6 地址长度为 64 位元，采用点分十进制表示法", "B": "IPv6 地址长度为 128 位元，通常采用冒号十六进制表示法", "C": "IPv6 地址中连续的“0”区块可以用双冒号“::”无限制多次压缩省略", "D": "IPv6 的总地址空间仅比 IPv4 增加了 4 倍"}, "answer": "B", "analysis": "IPv6 地址长度为 128 位（Bits），通常以 8 组由冒号分隔的十六进制数字表示（如 2001:0db8:85a3::8a2e:0370:7334）；地址中连续的全零区块可用“::”压缩，但为了保证反解唯一性，双冒号“::”在一个 IPv6 地址中只能出现一次！其地址总量为 2^128，极其浩瀚。"}, {"id": 27, "chapter": "第3章 网络通讯与作业系统", "question": "局域网交换机（Switch）工作在 OSI 参考模型的数据链路层。交换机之所以能够比传统集线器（Hub）提供显著更高的数据转发性能与安全性，核心机制在于：", "options": {"A": "交换机会自动为每个数据包重新计算加密哈希摘要", "B": "交换机能够自主学习并维护 MAC 地址表，仅将数据定向单播转发至目标端口", "C": "交换机可以将模拟信号调制成可在电话线上传输的高频数字脉冲", "D": "交换机能够自动分配全球公网 IP 地址"}, "answer": "B", "analysis": "集线器（Hub）是物理层共享设备，收到数据后向所有端口广播盲发，冲突严重且不安全；交换机（Switch）是数据链路层设备，通过学习数据帧的源 MAC 地址建立 MAC 地址表，根据目标 MAC 地址进行独享带宽的单播精准转发，有效隔离冲突域。"}, {"id": 28, "chapter": "第3章 网络通讯与作业系统", "question": "在计算机网络中，用于连接不同网段或不同网络（例如将独中校园局域网连接至电信运营商的互联网），并根据 IP 路由表决定数据包最佳转发路径的核心网络设备是：", "options": {"A": "网卡（NIC）", "B": "调制解调器（Modem）", "C": "网络路由器（Router）", "D": "中继器（Repeater）"}, "answer": "C", "analysis": "路由器（Router）工作在网络层，其主要职责是连接两个或多个不同的逻辑网络（跨网互联），维护路由表并根据最佳算法（如最短路径）执行数据包的路由转发与广播域隔离。"}, {"id": 29, "chapter": "第3章 网络通讯与作业系统", "question": "网络操作系统（Network Operating System, NOS，如 Windows Server、Linux Server）是管理网络资源的中枢软件。下列哪些属于 NOS 的核心特性与功能？\nI. 集中管理网络中所有使用者的账号、访问组及资源安全策略\nII. 具备高效稳定的多用户、多任务并发管理与网络服务处理能力\nIII. 内置提供 DNS、DHCP、Web、文件与打印共享等服务器角色支持\nIV. 只能在特定的巨型超级计算机硬件上安装，无法兼容普通服务器架构", "options": {"A": "I、II", "B": "I、II、III", "C": "II、III、IV", "D": "I、II、III、IV"}, "answer": "B", "analysis": "叙述 I、II、III 正确。叙述 IV 错误：现代网络操作系统（NOS）广泛支持标准的 x86_64 服务器硬件与普通 PC 架构，并非只能运行在超级计算机上。"}, {"id": 30, "chapter": "第3章 网络通讯与作业系统", "question": "学生携带笔记本电脑走进学校图书馆，连接校内无线 Wi-Fi 信号后，无需手动配置复杂的 IP 地址、网关和 DNS，几秒钟后便能直接上网。这是因为图书馆网络中的服务器运行了哪种网络服务协议为其自动分配参数？", "options": {"A": "简单邮件传输协议（SMTP）", "B": "动态主机配置协议（DHCP）", "C": "地址解析协议（ARP）", "D": "简单网络管理协议（SNMP）"}, "answer": "B", "analysis": "动态主机配置协议（Dynamic Host Configuration Protocol, DHCP）的作用是集中管理并在客户端接入网络时，自动动态为其分配 IP 地址、子网掩码、预设网关（Default Gateway）及 DNS 服务器地址，免除人工逐机配置的繁琐与 IP 冲突问题。"}, {"id": 31, "chapter": "第4章 网络安全与网络资源分享", "question": "一种表面上伪装成无害或实用软件（如游戏外挂修改器或办公辅助插件），一旦被用户下载安装并执行后，便会在后台悄悄开启后门端口，允许远程黑客窃取资料或控制该电脑的恶意软件属于：", "options": {"A": "计算机病毒（Virus）", "B": "计算机蠕虫（Worm）", "C": "特洛伊木马（Trojan Horse）", "D": "逻辑炸弹（Logic Bomb）"}, "answer": "C", "analysis": "特洛伊木马（Trojan Horse）借用了特洛伊木马屠城的典故，其核心特征是“伪装欺骗”，表面看似有用，后台暗藏破坏性或远程控制后门代码。与病毒不同，木马通常不具备主动感染其他宿主文件的自我复制能力。"}, {"id": 32, "chapter": "第4章 网络安全与网络资源分享", "question": "某公司会计电脑不慎点击运行了一封不明邮件附件，导致电脑内所有的重要 Excel 报表和财务凭证被强行加密，后缀名被篡改且无法打开。屏幕弹出醒目倒计时窗口，威胁受害者必须在指定时间内支付比特币赎金才能获得解密密钥。这种恶意软件是：", "options": {"A": "间谍软件（Spyware）", "B": "勒索软件（Ransomware）", "C": "广告软件（Adware）", "D": "嗅探器（Sniffer）"}, "answer": "B", "analysis": "勒索软件（Ransomware）是一种极具破坏性的恶意软件，它利用高强度非对称加密算法将受害者的重要个人文件锁死，以此勒索金钱或虚拟货币（如比特币），防范此类攻击最有效的防线是定期执行冷备份与离线备份。"}, {"id": 33, "chapter": "第4章 网络安全与网络资源分享", "question": "小明收到一封自称来自银行官方的紧急安全警告邮件，称其网银密码存在被盗风险，要求小明点击邮件中的超链接立即登录并验证密码。小明点击后打开了一个与银行官网几乎一模一样的仿冒登录界面。这种诱骗用户泄露机密凭证的黑客攻击手段被称为：", "options": {"A": "网络钓鱼（Phishing）", "B": "中间人攻击（Man-in-the-Middle）", "C": "跨站脚本攻击（XSS）", "D": "缓冲区溢出（Buffer Overflow）"}, "answer": "A", "analysis": "网络钓鱼（Phishing）属于典型的社会工程学攻击，黑客通过伪造电子邮件、短信或山寨仿冒网页，诱导受害者主动输入敏感密码、信用卡号或身份认证信息。"}, {"id": 34, "chapter": "第4章 网络安全与网络资源分享", "question": "在现代网络安全与密码学应用中，“数字签名”（Digital Signature）用于验证消息的完整性并确认发送者的真实身份。发送方在生成数字签名时，必须使用下列哪一把密钥对消息的哈希摘要进行加密？", "options": {"A": "发送方自己的公钥（Public Key）", "B": "发送方自己的私钥（Private Key）", "C": "接收方的公钥（Public Key）", "D": "接收方的私钥（Private Key）"}, "answer": "B", "analysis": "在数字签名机制中，发送方用自己的“私钥（Private Key）”对数据摘要进行加密生成签名。因为私钥只有发送方一人持有，任何人用发送方的公钥解密成功即可证明该文件确实出自该发送方且未被篡改，实现“不可抵赖性（Non-repudiation）”与“完整性”。"}, {"id": 35, "chapter": "第4章 网络安全与网络资源分享", "question": "我们在使用浏览器访问网银系统时，地址栏显示为安全协议 `https://` 并带有绿色或灰色小锁图标。这表明该网站已向具有国际公信力的权威机构申请并部署了数字证书。该权威证书签发机构被称为：", "options": {"A": "互联网域名管理机构（ICANN）", "B": "电子证书认证中心 / 凭证认证机构（Certificate Authority, CA）", "C": "电气与电子工程师协会（IEEE）", "D": "网络服务供应商（ISP）"}, "answer": "B", "analysis": "证书认证机构（Certificate Authority, CA）是负责颁发、管理和吊销数字证书的第三方受信任权威机构。CA 负责核验申请者的真实身份，并将申请者的公钥与组织信息绑定并签名，确保 HTTPS 传输的安全与身份真实性。"}, {"id": 36, "chapter": "第4章 网络安全与网络资源分享", "question": "校园网或企业网在接入互联网的入口处通常会安装配置硬件“防火墙”（Firewall）。关于防火墙的核心安全防护功能，下列叙述最准确的是：", "options": {"A": "自动清除进入内网电脑硬盘中的所有垃圾缓存与重复文件", "B": "根据预先设定的安全过滤规则，检查进出网络的数据包，阻止未经授权的外部非法访问", "C": "完全替代杀毒软件，对所有经过的网络流量实现 100% 查杀未知木马", "D": "在服务器机房发生物理火灾时自动喷洒惰性气体进行灭火"}, "answer": "B", "analysis": "网络防火墙（Firewall）部署在不同信任级别的网络边界（如内网与互联网之间），其主要功能是依据安全规则对出入网络的数据包进行严格检查（包括源/目的 IP、端口、连接状态等），阻隔非授权访问与恶意扫描，但它不能完全替代端点防病毒软件。"}, {"id": 37, "chapter": "第4章 网络安全与网络资源分享", "question": "现代各大互联网平台普遍强制启用“多因素验证”（Multi-Factor Authentication, MFA / 2FA）以大幅提升账户安全性。下列哪些登录验证组合符合多因素验证的设计原则（结合了两种或以上不同维度的认证要素）？\nI. 静态账号密码 + 手机接收的短信动态验证码（SMS OTP）\nII. 智能手机指纹生物识别 + 用户设置的 6 位数字支付密码\nIII. 账号密码 + 备用邮箱找回密码提示问题（如母亲的出生地）\nIV. 静态账号密码 + 物理硬件安全密钥（FIDO2 / Ukey 硬件令牌）", "options": {"A": "I、II", "B": "I、II、IV", "C": "II、III、IV", "D": "I、II、III、IV"}, "answer": "B", "analysis": "身份认证三大维度：1. 所知（Something you know，如密码）；2. 所有（Something you have，如手机短信 OTP、硬件 Ukey）；3. 所是（Something you are，如指纹、人脸）。MFA 必须跨越不同维度。组合 I、II、IV 均结合了不同维度的要素，符合 MFA；组合 III 中密码与密保问题都属于“所知”维度，本质上仍是单要素验证。"}, {"id": 38, "chapter": "第4章 网络安全与网络资源分享", "question": "黑客操纵分布在全球各地的海量受感染“僵尸电脑”（Botnet），在同一时间段内向某电商平台的 Web 服务器疯狂发送数以亿计的伪造网络访问请求，导致目标服务器网络信道堵塞、CPU 资源枯竭而全面瘫痪，正常用户完全无法访问。这种网络攻击被称为：", "options": {"A": "SQL 注入攻击（SQL Injection）", "B": "分散式拒绝服务攻击（Distributed Denial of Service, DDoS）", "C": "零日漏洞攻击（Zero-day Attack）", "D": "跨站请求伪造（CSRF）"}, "answer": "B", "analysis": "分散式拒绝服务攻击（DDoS）利用分布式僵尸网络向目标发起压倒性的海量流量或并发连接轰炸，耗尽目标服务器或网络骨干的带宽、计算与内存资源，导致合法正常用户无法获得正常服务。"}, {"id": 39, "chapter": "第4章 网络安全与网络资源分享", "question": "学校无需出资购买专用的邮件服务器硬件，也无需自行安装和维护复杂的底层操作系统与邮件系统软件，而是直接向云端服务商按需租用 Google Workspace 或 Microsoft 365 提供的网页版邮件和在线文档协作服务。这种云端运算服务模型属于：", "options": {"A": "基础设施即服务（Infrastructure as a Service, IaaS）", "B": "平台即服务（Platform as a Service, PaaS）", "C": "软件即服务（Software as a Service, SaaS）", "D": "硬件即服务（Hardware as a Service, HaaS）"}, "answer": "C", "analysis": "云服务三层模型：1. IaaS 提供计算、存储与网络等底层基础设施（如 AWS EC2、阿里云主机）；2. PaaS 提供开发运行环境与数据库平台（如 Google App Engine）；3. SaaS 直接向终端用户交付完整的应用软件（如 Google Workspace、Microsoft 365），用户直接开箱即用。"}, {"id": 40, "chapter": "第4章 网络安全与网络资源分享", "question": "某多媒体设计工作室在局域网内配置了一台专门连接到中央交换机的独立网络存储设备，内部装有 4 块硬盘并配置了 RAID 冗余阵列，所有设计师都可以通过网络同时高速访问、共享与自动备份海量高清视频素材。这种专用的网络存储设备被称为：", "options": {"A": "网络附属存储（Network Attached Storage, NAS）", "B": "直接连接存储（Direct Attached Storage, DAS）", "C": "虚拟专用网（Virtual Private Network, VPN）", "D": "统一威胁管理（Unified Threat Management, UTM）"}, "answer": "A", "analysis": "网络附属存储（NAS）是一种通过局域网直接连接到交换机、采用专用轻量级系统进行文件级数据存储与跨平台共享的专用设备，支持 RAID 容错阵列，广泛应用于中小企业、学校和多媒体工作室的文件集中存储与备份。"}, {"id": 41, "chapter": "第5章 物联网与其应用", "question": "物联网（Internet of Things, IoT）构建了人与物、物与物互联的庞大网络。在国际公认的物联网经典体系三层架构中，自底层至顶层的正确排列顺序是：", "options": {"A": "网络层 → 感知层 → 应用层", "B": "感知层 → 网络层 → 应用层", "C": "应用层 → 网络层 → 感知层", "D": "感知层 → 应用层 → 网络层"}, "answer": "B", "analysis": "物联网标准三层架构：1. 最底层是“感知层”（Perception Layer），负责利用传感器、RFID 等采集物理世界信息；2. 中间层是“网络层”（Network Layer），负责通过互联网、移动通信网络传输数据；3. 最顶层是“应用层”（Application Layer），将数据与具体行业结合实现智能化控制与应用。"}, {"id": 42, "chapter": "第5章 物联网与其应用", "question": "在独中智慧图书馆的自助借还书机或高速公路 RFID 电子收费系统中，贴在图书封面内侧或汽车挡风玻璃上的 RFID 标签内部本身并没有内置任何化学电池，而是依靠读写器发射的高频电磁波在标签天线上感应产生的微弱电流来激活芯片并回传数据。这种 RFID 标签属于：", "options": {"A": "有源标签 / 主动式标签（Active Tag）", "B": "无源标签 / 被动式标签（Passive Tag）", "C": "半有源标签（Semi-active Tag）", "D": "激光反射标签（Optical Tag）"}, "answer": "B", "analysis": "无源标签（Passive Tag，被动式标签）内部无内置电源，寿命极长、体积轻薄且造价低廉，依赖外部读卡器发射的电磁场通过电磁感应获得工作能量；有源标签（Active Tag）内部自带电池，发射距离更远但体积大且成本高。"}, {"id": 43, "chapter": "第5章 物联网与其应用", "question": "近场通信（Near Field Communication, NFC）是由 RFID 技术演变而来的短距离高频无线通信技术。关于 NFC 技术的特点，下列叙述正确的是：", "options": {"A": "通信有效距离通常在 10 厘米（实际常在 4 厘米）以内，靠近即可极速建立连接", "B": "最大无线传输距离可达 100 米，适合跨房间的高清视频推流", "C": "必须由两台设备预先进行繁琐的人工蓝牙 PIN 码配对才能传输数据", "D": "NFC 只能用于单向只读，两台智能手机之间绝对无法实现双向数据交换"}, "answer": "A", "analysis": "NFC 工作在 13.56 MHz 高频，有效距离极短（通常小于 4~10 厘米），具有触碰即连、建立时间极短（小于 0.1 秒）、安全性高、功耗低的特点，非常适合非接触式小额移动支付、门禁刷卡与电子名片碰一碰分享。"}, {"id": 44, "chapter": "第5章 物联网与其应用", "question": "在智慧家居室内环境中，需要连接分布在各个房间的大量低功耗小型设备（如智能门窗磁传感器、人体红外感应探头、智能灯泡）。这些设备对传输速率要求不高，但要求干电池能持续供电数年，并支持自动组建具备自愈能力的网状网络（Mesh Network）。最适合选用的无线物联网通信协议是：", "options": {"A": "4G LTE", "B": "Zigbee", "C": "超宽带（UWB）", "D": "光纤通道（FC）"}, "answer": "B", "analysis": "Zigbee 是一种基于 IEEE 802.15.4 标准的低功耗、低数据率、短距离无线组网技术，支持强大的 Mesh（网状）拓扑结构，具备自组织与多跳中继能力，设备休眠功耗极低，被广泛应用于智能家居与工业自动化传感控制。"}, {"id": 45, "chapter": "第5章 物联网与其应用", "question": "在覆盖范围达几十平方公里的智慧城市公共管理中（如全城自来水水表远程自动抄表、城市地下管网压力监测），传感器分布极其分散且无法连接外接电源。最适合采用的低功耗广域网（Low-Power Wide-Area Network, LPWAN）通信技术是：", "options": {"A": "红外线（Infrared）", "B": "近场通讯（NFC）", "C": "LoRa 或 NB-IoT", "D": "高速 Wi-Fi 6"}, "answer": "C", "analysis": "低功耗广域网（LPWAN）包括 LoRa 与 NB-IoT，其核心优势是“远距离传输（数公里至数十公里）、超低功耗（纽扣电池可持续工作数年）、广覆盖与海量并发连接”，完美适用于城市远程抄表、智慧路灯、农业野外监测等低频小数据传输场景。"}, {"id": 46, "chapter": "第5章 物联网与其应用", "question": "在物联网自动化控制闭环系统中，设备通常可归为“传感器（Sensor）”与“执行器（Actuator）”。传感器负责将物理量转换为电信号，而执行器负责接收控制指令并将其转化为具体的机械动作或物理状态。下列属于“执行器”的设备是：", "options": {"A": "光敏电阻（用于感知光照强弱）", "B": "热敏电阻（用于测量当前温度）", "C": "智能电动窗帘驱动电机（用于自动拉开或关闭窗帘）", "D": "MQ-2 烟雾检测探头（用于检测燃气泄漏）"}, "answer": "C", "analysis": "执行器（Actuator）负责“执行动作”，根据控制信号驱动机械结构运转，如电动电机、电磁阀门、水泵马达、加热丝继电器等；选项 A、B、D 均为采集物理环境数据的“传感器（Sensor）”。"}, {"id": 47, "chapter": "第5章 物联网与其应用", "question": "智能自动驾驶汽车在行驶中配备了大量高清摄像头、激光雷达和毫米波雷达，每秒产生海量图像数据，系统必须在数毫秒内做出紧急避障与刹车决策。若将所有传感器原始数据全部上传至数千公里外的远程云端服务器处理，会因网络传输延迟而导致严重安全事故。因此，计算任务被部署在车载计算平台本地实时完成。这种计算模式被称为：", "options": {"A": "集中式批处理运算（Centralized Batch Computing）", "B": "边缘运算（Edge Computing）", "C": "离线网格运算（Offline Grid Computing）", "D": "主机时间片轮转运算（Mainframe Time-sharing）"}, "answer": "B", "analysis": "边缘运算（Edge Computing）将数据处理与分析从中心云端下沉到靠近数据源的“网络边缘设备”（如车载计算平台、边缘网关、基站），大大降低了端到端网络延迟，减少了骨干网络带宽消耗，能满足毫秒级实时响应与本地隐私安全需求。"}, {"id": 48, "chapter": "第5章 物联网与其应用", "question": "现代智慧交通系统（ITS）中，通过在车辆、交通信号灯及路侧电子看板上安装无线通信模块，实现车辆与车辆（V2V）、车辆与路侧基础设施（V2I）、车辆与行人（V2P）之间的全方位实时协同交互，以大幅减少交通事故并缓解拥堵。这一综合通信体系被称为：", "options": {"A": "车联网（Vehicle-to-Everything, V2X）", "B": "电子政务系统（E-Government）", "C": "虚拟局域网（VLAN）", "D": "客户体验管理（CEM）"}, "answer": "A", "analysis": "车联网 V2X（Vehicle-to-Everything）是智慧交通的核心基石，涵盖 V2V（车与车）、V2I（车与路）、V2P（车与人）、V2N（车与网络）的信息无缝交互，为高阶协同自动驾驶与交通流智能化调度提供实时网络支撑。"}, {"id": 49, "chapter": "第5章 物联网与其应用", "question": "在现代智慧农业示范园区中，物联网技术被广泛应用于现代化果蔬温室大棚的管理。下列哪些属于物联网在智慧农业中的典型应用？\nI. 利用土壤温湿度传感器与光照传感器，实时采集作物的生长微环境数据\nII. 当土壤含水量低于设定阈值时，云端控制平台自动启动水肥一体化电磁喷淋系统\nIII. 利用搭载多光谱相机的农业无人机巡检果园，利用图像识别算法评估农作物病虫害\nIV. 依靠农作物自身的叶绿素直接发射强电磁波，取代所有电子传感器与路由器", "options": {"A": "I、II", "B": "I、II、III", "C": "II、III、IV", "D": "I、II、III、IV"}, "answer": "B", "analysis": "应用 I、II、III 均是智慧农业物联网的典型成功应用实例；叙述 IV 荒诞违背科学常识，农作物本身无法作为电子发射机发射无线电通信信号。"}, {"id": 50, "chapter": "第5章 物联网与其应用", "question": "近年来，海量家用智能摄像头、智能路由器等消费级物联网设备频繁被黑客攻击挟持并沦为发起网络攻击的僵尸网络工具。导致多数物联网设备在安全防护上极为脆弱的最主要内部根源是：", "options": {"A": "物联网设备全部必须连接高压交流电源，导致电路容易受干扰", "B": "设备硬件计算与存储资源有限难以部署强加密算法，且出厂默认弱密码、固件维护升级机制匮乏", "C": "物联网设备只能使用早已被淘汰的二进制机器语言进行通信", "D": "物联网设备生产过程中禁止使用任何防火墙与加密芯片"}, "answer": "B", "analysis": "物联网安全的主要挑战在于：绝大多数 IoT 终端硬件体积小、成本极低、CPU 算力与内存极其有限，无法运行复杂的安全防护与重型加密套件；同时设备厂商安全意识薄弱，大量设备使用硬编码出厂默认密码（如 admin/admin），且缺乏长期的固件安全空中补丁（OTA）机制，极易被利用。"}];
-        const SUPABASE_URL = "https://wjabyyystvtyanqncmcf.supabase.co";
-        const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndqYWJ5eXlzdHZ0eWFucW5jbWNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2ODA3NzYsImV4cCI6MjEwNzI1Njc3Nn0.39gXbYKXk4t6iNf747BmRjuIR_aZB9Qb8la9LUTHaV8";
-        const PAGE_PASS = "sinmin888";
 
-        let allSubmissions = [];
-        let questionStats = {}; // 各题答错人数统计
-
-        function checkPageSecurity() {
-            const val = document.getElementById('gatePwdInput').value.trim();
-            const err = document.getElementById('gateErrMsg');
-            if (val === PAGE_PASS) {
-                sessionStorage.setItem('teacher_auth_token', PAGE_PASS);
-                unlockPage();
-            } else {
-                err.style.display = 'block';
-            }
-        }
-
-        function unlockPage() {
-            const overlay = document.getElementById('pageSecurityOverlay');
-            if (overlay) overlay.style.display = 'none';
-            fetchSubmissionsFromSupabase();
-        }
-
-        function lockPage() {
-            sessionStorage.removeItem('teacher_auth_token');
-            window.location.href = "高中资讯科技_第二册_测验导航门户.html";
-        }
-
-        function switchTab(tabKey, btn) {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById(`pane-${tabKey}`).classList.add('active');
-        }
-
-        async function fetchSubmissionsFromSupabase() {
-            const tbody = document.getElementById('submissionsTableBody');
-            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#94a3b8; padding:30px;">正在连接 Supabase 同步云端数据...</td></tr>`;
-
-            try {
-                const res = await fetch(`${SUPABASE_URL}/rest/v1/exam_submissions?select=*&order=created_at.desc`, {
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_KEY}`
-                    }
-                });
-
-                if (!res.ok) throw new Error("读取数据失败: " + res.status);
-
-                allSubmissions = await res.json();
-                computeQuestionStats();
-                renderSubmissionsDashboard(allSubmissions);
-                renderMatrix();
-                renderTopWrongQuestions();
-            } catch (err) {
-                console.error("加载答卷出错:", err);
-                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:#dc2626; padding:30px;">无法连接数据库: ${err.message}</td></tr>`;
-            }
-        }
-
-        // 计算每道题的错误率
-        function computeQuestionStats() {
-            questionStats = {};
-            questions.forEach(q => {
-                questionStats[q.id] = { wrongCount: 0, total: allSubmissions.length };
-            });
-
-            allSubmissions.forEach(sub => {
-                const ans = sub.answers || {};
-                questions.forEach(q => {
-                    if (ans[q.id] !== q.answer) {
-                        questionStats[q.id].wrongCount++;
-                    }
-                });
-            });
-        }
-
-        // 渲染高频错题榜
-        function renderTopWrongQuestions() {
-            const card = document.getElementById('wrongRankCard');
-            const grid = document.getElementById('wrongItemsGrid');
-            if (allSubmissions.length === 0) {
-                card.style.display = 'none';
-                return;
-            }
-
-            const sorted = questions.map(q => {
-                const st = questionStats[q.id];
-                const rate = Math.round((st.wrongCount / allSubmissions.length) * 100);
-                return { q, rate, wrongCount: st.wrongCount };
-            }).sort((a, b) => b.rate - a.rate);
-
-            // 取前 5 名
-            const top5 = sorted.slice(0, 5);
-            grid.innerHTML = '';
-
-            top5.forEach(item => {
-                const div = document.createElement('div');
-                div.className = 'wrong-item';
-                div.onclick = () => {
-                    switchTab('answers', document.querySelectorAll('.tab-btn')[1]);
-                    document.getElementById(`exp-card-${item.q.id}`).scrollIntoView({ behavior: 'smooth', block: 'center' });
-                };
-
-                div.innerHTML = `
-                    <div class="wrong-item-top">
-                        <span class="wrong-q-badge">第 ${item.q.id} 题</span>
-                        <span class="wrong-rate-badge">错误率 ${item.rate}% (${item.wrongCount}人错)</span>
-                    </div>
-                    <div class="wrong-q-text">${item.q.question.split('\n')[0]}</div>
-                `;
-                grid.appendChild(div);
-            });
-
-            card.style.display = 'block';
-        }
-
-        function renderSubmissionsDashboard(list) {
-            document.getElementById('tabCountBadge').innerText = list.length;
-            document.getElementById('metricTotalSubmissions').innerText = list.length;
-
-            if (list.length === 0) {
-                document.getElementById('submissionsTableBody').innerHTML = `
-                    <tr><td colspan="8" style="text-align:center; color:#94a3b8; padding:35px;">暂无学生提交试卷，学生交卷后将实时显示在此处。</td></tr>
-                `;
-                return;
-            }
-
-            let totalScore = 0;
-            let passCount = 0;
-            let maxScore = 0;
-
-            list.forEach(item => {
-                totalScore += item.score;
-                if (item.score >= 60) passCount++;
-                if (item.score > maxScore) maxScore = item.score;
-            });
-
-            const avgScore = (totalScore / list.length).toFixed(1);
-            const passRate = Math.round((passCount / list.length) * 100);
-
-            document.getElementById('metricAvgScore').innerText = avgScore;
-            document.getElementById('metricPassRate').innerText = passRate + "%";
-            document.getElementById('metricMaxScore').innerText = maxScore;
-
-            const tbody = document.getElementById('submissionsTableBody');
-            tbody.innerHTML = '';
-
-            list.forEach((s, idx) => {
-                const tr = document.createElement('tr');
-                const isPass = s.score >= 60;
-                const mins = Math.floor((s.time_spent || 0) / 60);
-                const secs = (s.time_spent || 0) % 60;
-                const timeStr = `${mins}分${secs}秒`;
-                const dateStr = new Date(s.created_at).toLocaleString('zh-CN', { hour12: false });
-
-                tr.innerHTML = `
-                    <td>${idx + 1}</td>
-                    <td><strong>${s.student_name}</strong></td>
-                    <td>${s.student_class}</td>
-                    <td>${s.student_id}</td>
-                    <td><span class="score-pill ${isPass ? 'pass' : 'fail'}">${s.score} 分</span></td>
-                    <td>${timeStr}</td>
-                    <td style="font-size:0.85rem; color:#64748b;">${dateStr}</td>
-                    <td><button class="btn-view-paper" onclick="openStudentDrawer(${idx})">🔍 查看答题卡</button></td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function filterStudentsTable() {
-            const kw = document.getElementById('filterStudentInput').value.trim().toLowerCase();
-            const filtered = allSubmissions.filter(s => 
-                s.student_name.toLowerCase().includes(kw) || 
-                s.student_id.toLowerCase().includes(kw) ||
-                s.student_class.toLowerCase().includes(kw)
-            );
-            renderSubmissionsDashboard(filtered);
-        }
-
-        function openStudentDrawer(index) {
-            const s = allSubmissions[index];
-            if (!s) return;
-
-            document.getElementById('drawerStudentName').innerText = `学生答卷：${s.student_name}（得分：${s.score}分）`;
-            document.getElementById('drawerStudentMeta').innerText = `班级：${s.student_class} · 学号：${s.student_id} · 提交时间：${new Date(s.created_at).toLocaleString()}`;
-
-            const container = document.getElementById('drawerQuestionsContent');
-            container.innerHTML = '';
-
-            questions.forEach(q => {
-                const studentChoice = s.answers ? s.answers[q.id] : null;
-                const isRight = (studentChoice === q.answer);
-
-                const itemDiv = document.createElement('div');
-                itemDiv.style.padding = '12px 14px';
-                itemDiv.style.borderRadius = '8px';
-                itemDiv.style.marginBottom = '12px';
-                itemDiv.style.background = isRight ? '#f0fdf4' : '#fef2f2';
-                itemDiv.style.border = isRight ? '1px solid #bbf7d0' : '1px solid #fecaca';
-
-                itemDiv.innerHTML = `
-                    <div style="font-weight:600; font-size:0.92rem; margin-bottom:6px;">
-                        ${q.id}. ${q.question.split('\n')[0]}
-                    </div>
-                    <div style="font-size:0.85rem; display:flex; gap:16px;">
-                        <span>学生选择：<strong style="color:${isRight ? '#059669' : '#dc2626'};">${studentChoice || '未作答'}</strong></span>
-                        <span>标准答案：<strong style="color:#059669;">${q.answer}</strong></span>
-                        <span style="font-weight:700; color:${isRight ? '#059669' : '#dc2626'};">${isRight ? '✓ 正确(+2分)' : '✗ 错误(0分)'}</span>
-                    </div>
-                `;
-                container.appendChild(itemDiv);
-            });
-
-            document.getElementById('studentDrawer').style.display = 'flex';
-        }
-
-        function closeStudentDrawer() {
-            document.getElementById('studentDrawer').style.display = 'none';
-        }
-
-        function exportToCSV() {
-            if (allSubmissions.length === 0) {
-                alert("当前暂无数据可导出！");
-                return;
-            }
-            let csv = "序号,姓名,班级,学号,得分,用时(秒),提交时间\n";
-            allSubmissions.forEach((s, i) => {
-                csv += `${i+1},"${s.student_name}","${s.student_class}","${s.student_id}",${s.score},${s.time_spent || 0},"${s.created_at}"\n`;
-            });
-            const blob = new Blob(["\uFEFF" + csv], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `高中资讯科技_第二册测验学生成绩表_${new Date().toISOString().slice(0,10)}.csv`;
-            a.click();
-        }
-
-        // 渲染矩阵并展示错误率
         function renderMatrix() {
-            const tbody = document.getElementById('matrixTableBody');
+            const tbody = document.getElementById('matrixTbody');
             tbody.innerHTML = '';
             for (let r = 1; r <= 10; r++) {
                 const tr = document.createElement('tr');
                 for (let c = 0; c < 5; c++) {
                     const qid = c * 10 + r;
                     const q = questions[qid - 1];
-                    const stat = questionStats[qid];
-                    let rateText = '';
-                    let isHighErr = false;
-
-                    if (allSubmissions.length > 0 && stat) {
-                        const rate = Math.round((stat.wrongCount / allSubmissions.length) * 100);
-                        rateText = `错率: ${rate}%`;
-                        isHighErr = (rate >= 40);
-                    }
-
                     tr.innerHTML += `
-                        <td><a href="#exp-card-${qid}" class="q-link">${qid}</a></td>
-                        <td>
-                            <span class="ans-val">${q.answer}</span>
-                            <span class="rate-val ${isHighErr ? 'high-err' : ''}">${rateText}</span>
-                        </td>
+                        <td><a href="#q-card-${qid}" style="color:#1e3a8a; text-decoration:none; font-weight:700;">第 ${qid} 题</a></td>
+                        <td><span class="ans-code">${q.answer}</span></td>
                     `;
                 }
                 tbody.appendChild(tr);
             }
         }
 
-        function renderExplanations() {
-            const container = document.getElementById('explanationsList');
+        function renderQuestions(list) {
+            const container = document.getElementById('questionsContainer');
             container.innerHTML = '';
-            questions.forEach(q => {
-                const card = document.createElement('article');
-                card.className = 'explanation-card';
-                card.id = `exp-card-${q.id}`;
+            list.forEach(q => {
+                const card = document.createElement('div');
+                card.className = 'q-card';
+                card.id = `q-card-${q.id}`;
 
                 let optsHtml = '';
-                ['A', 'B', 'C', 'D'].forEach(key => {
-                    const isCorr = (key === q.answer);
+                ['A', 'B', 'C', 'D'].forEach(opt => {
+                    const isCorrect = (q.answer === opt);
                     optsHtml += `
-                        <div class="opt-item-t ${isCorr ? 'is-correct' : ''}">
-                            <strong>${key}.</strong> ${q.options[key]}
-                            ${isCorr ? '<span style="margin-left:auto; font-weight:700;">✓ 正确答案</span>' : ''}
+                        <div class="opt-box ${isCorrect ? 'is-correct' : ''}">
+                            <span style="font-weight:700; min-width:24px;">${opt}.</span>
+                            <span>${q.options[opt]}</span>
                         </div>
                     `;
                 });
 
+                const sourceTag = q.source ? `<div class="source-tag">🎯 课本考点定位：${q.source}</div>` : '';
+
                 card.innerHTML = `
-                    <div class="q-meta">
-                        <div>
-                            <span class="q-id-badge">第 ${q.id} 题</span>
-                            <span class="q-ch-badge">${q.chapter}</span>
+                    <div class="q-top">
+                        <div class="q-title-box">
+                            <div class="q-badge-num">${q.id}</div>
+                            <div>
+                                <span class="q-chapter-badge">${q.chapter}</span>
+                                <div class="q-stem">${q.question}</div>
+                            </div>
                         </div>
-                        <div class="q-ans-badge">标准答案：${q.answer}</div>
+                        <div class="ans-badge-right">正解：${q.answer}</div>
                     </div>
-                    <div style="font-size:1.02rem; font-weight:600; margin-bottom:12px;">${q.question.split('\n')[0]}</div>
-                    <div>${optsHtml}</div>
+                    <div class="options-grid">${optsHtml}</div>
                     <div class="analysis-box">
-                        <strong>💡 名师考点精析：</strong>${q.analysis}
+                        <div class="analysis-header">
+                            <span>💡 【名师解析与考点精析】</span>
+                        </div>
+                        <div class="analysis-text">${q.analysis}</div>
+                        ${sourceTag}
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
-        (function() {
-            renderMatrix();
-            renderExplanations();
-
-            if (sessionStorage.getItem('teacher_auth_token') === PAGE_PASS) {
-                unlockPage();
+        function filterChapter(chap) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            if (chap === 'ALL') {
+                renderQuestions(questions);
+            } else {
+                renderQuestions(questions.filter(q => q.chapter.includes(chap)));
             }
+        }
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const input = document.getElementById('gatePwdInput');
-                if (input) {
-                    input.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter') checkPageSecurity();
-                    });
-                }
-            });
-        })();
+        renderMatrix();
+        renderQuestions(questions);
     </script>
 </body>
 </html>
