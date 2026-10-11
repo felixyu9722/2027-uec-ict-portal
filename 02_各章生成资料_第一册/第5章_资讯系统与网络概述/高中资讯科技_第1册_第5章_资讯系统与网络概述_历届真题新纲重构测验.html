@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一册 第 5 章 资讯系统与网络概述 ｜ 历届真题新纲重构在线测试系统</title>
+  <meta name="description" content="董总统编高中资讯科技第一册第5章《资讯系统与网络概述》历届统考真题新纲重构测试卷 · 满分80分 · 甲组20题机读自评 + 乙组5题官方评分量规精析">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+    :root {
+      --primary-blue: #1E3A8A;
+      --primary-indigo: #2563EB;
+      --primary-hover: #1D4ED8;
+      --bg-slate: #F8FAFC;
+      --border-slate: #E2E8F0;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --success-green: #10B981;
+      --success-bg: #ECFDF5;
+      --error-red: #EF4444;
+      --error-bg: #FEF2F2;
+      --warn-amber: #F59E0B;
+      --warn-bg: #FFFBEB;
+      --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-slate);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 76px;
+    }
+
+    /* 顶部导航状态栏 */
+    .exam-top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-slate);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .exam-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-back-home:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+      color: #ffffff !important;
+    }
+
+    .exam-title-group h1 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.2px;
+    }
+    .exam-badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--primary-indigo);
+      border: 1px solid #BFDBFE;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .exam-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-reset-practice {
+      background: #F1F5F9;
+      color: #475569;
+      border: 1px solid var(--border-slate);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-reset-practice:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    .instant-feedback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .badge-correct {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+    }
+    .badge-wrong {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* 主容器 */
+    .main-container {
+      max-width: 960px;
+      margin: 28px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* 试卷头部信息板 */
+    .paper-header-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 14px;
+      padding: 26px 30px;
+      margin-bottom: 26px;
+      box-shadow: var(--card-shadow);
+      border-left: 5px solid var(--primary-indigo);
+    }
+    .paper-header-card h2 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 8px;
+    }
+    .paper-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-slate);
+    }
+    .paper-meta-item strong {
+      color: var(--text-dark);
+    }
+
+    /* 组别标题横条 */
+    .section-banner {
+      background: linear-gradient(135deg, #1E3A8A, #2563EB);
+      color: #FFF;
+      padding: 14px 22px;
+      border-radius: 10px;
+      margin: 32px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+    .section-banner.section-qa {
+      background: linear-gradient(135deg, #0D9488, #0F766E);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+    }
+    .section-banner h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+    }
+    .section-banner span {
+      font-size: 12.5px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* 单选题卡片 */
+    .question-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.2s;
+    }
+    .question-card:hover {
+      border-color: #CBD5E1;
+    }
+
+    .q-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .q-badge-num {
+      background: #1E40AF;
+      color: #FFFFFF;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(30, 64, 175, 0.25);
+    }
+    .q-points {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+    .q-source-tag {
+      font-size: 11.5px;
+      color: #64748B;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .q-stem {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1E293B;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* 选项列表 */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border-slate);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #FFF;
+      user-select: none;
+    }
+    .option-item:hover {
+      background: #F8FAFC;
+      border-color: #94A3B8;
+    }
+    .option-item.selected {
+      border-color: var(--primary-indigo);
+      background: #EFF6FF;
+    }
+    .option-item.correct-answer {
+      border-color: var(--success-green) !important;
+      background: var(--success-bg) !important;
+    }
+    .option-item.wrong-answer {
+      border-color: var(--error-red) !important;
+      background: var(--error-bg) !important;
+    }
+
+    .opt-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #94A3B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .option-item.selected .opt-circle {
+      border-color: var(--primary-indigo);
+      background: var(--primary-indigo);
+      color: #FFF;
+    }
+    .option-item.correct-answer .opt-circle {
+      border-color: var(--success-green);
+      background: var(--success-green);
+      color: #FFF;
+    }
+    .option-item.wrong-answer .opt-circle {
+      border-color: var(--error-red);
+      background: var(--error-red);
+      color: #FFF;
+    }
+
+    .opt-text {
+      font-size: 14.5px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* 即时解析栏 */
+    .analysis-panel {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      background: #F8FAFC;
+      border-left: 4px solid var(--primary-indigo);
+      border-radius: 0 8px 8px 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .analysis-panel.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .analysis-header {
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+    }
+
+    /* 乙组作答题卡片（紧凑标准版） */
+    .qa-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+      border-top: 3px solid #0D9488;
+    }
+    .qa-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .qa-badge {
+      background: #0F766E;
+      color: #FFFFFF;
+      border: 1px solid #0F766E;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      font-weight: 700;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+
+    /* 情境案例与试题背景框 */
+    .qa-scenario-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 3.5px solid #0284C7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 8px 0 12px;
+    }
+    .qa-scenario-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0369A1;
+      margin-bottom: 6px;
+    }
+    .qa-scenario-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #1E293B;
+    }
+    .data-pill {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 参数标签条 */
+    .param-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed #CBD5E1;
+    }
+    .param-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .param-key {
+      color: #64748B;
+      font-size: 11.5px;
+    }
+    .param-val {
+      font-weight: 700;
+      color: #0F172A;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 子题紧凑列表排版 */
+    .sub-q-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .sub-q-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      transition: all 0.15s ease;
+    }
+    .sub-q-card:hover {
+      border-color: #CBD5E1;
+      background: #FBFDFE;
+    }
+    .sub-q-stem {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1E293B;
+    }
+    .sub-q-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0F766E;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 1px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+    .sub-q-text {
+      flex: 1;
+    }
+    .sub-q-score {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0D9488;
+      background: #F0FDFA;
+      border: 1px solid #99F6E4;
+      padding: 1px 6px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      margin-left: 6px;
+      margin-top: 2px;
+    }
+
+    /* 答题提示指引 */
+    .sub-q-guide {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #F8FAFC;
+      border-left: 2.5px solid #0284C7;
+      padding: 4px 8px;
+      margin: 6px 0 0 30px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.45;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* 评分量规与参考答案折叠面板 */
+    .rubric-toggle-btn {
+      background: #F0FDFA;
+      color: #0F766E;
+      border: 1px solid #99F6E4;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .rubric-toggle-btn:hover {
+      background: #CCFBF1;
+    }
+
+    .rubric-content {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: #FAFAFA;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .rubric-content.show {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .rubric-table th, .rubric-table td {
+      border: 1px solid #E2E8F0;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    .rubric-table th {
+      background: #F1F5F9;
+      color: #475569;
+      font-weight: 700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部状态栏 -->
+  <header class="exam-top-bar">
+    <div class="exam-nav-left">
+      <a href="../../index.html" class="btn-back-home">
+        <span>←</span> 返回总控大厅
+      </a>
+      <div class="exam-title-group">
+        <h1><span class="exam-badge">第一册 · 第 5 章</span>资讯系统与网络概述 ｜ 历届真题新纲重构测验</h1>
+      </div>
+    </div>
+    <div class="exam-nav-right">
+      <div id="score-pill" style="display:none; align-items:center; gap:6px; font-size:13px; font-weight:700; color:#1E40AF; background:#EFF6FF; border:1px solid #BFDBFE; padding:5px 12px; border-radius:20px;">
+        <span>🎯 已答正确：<span id="correct-count">0</span> / <span id="total-done">0</span></span>
+      </div>
+      <button class="btn-reset-practice" onclick="resetPractice()">
+        <span>🔄</span> 重置作答
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- 试卷信息板 -->
+    <section class="paper-header-card">
+      <h2>董总高中统考 · 资讯科技重构模考试卷</h2>
+      <p style="font-size:14px; color:#475569;">本卷严密对接董总《2027年高中统考资讯科技 模拟题》规范，深度考查资讯系统 I-P-O-F 模型与六大要素、TPS/MIS/DSS/ESS 组织金字塔、专家系统双引擎架构、ARPANET 与 TCP/IP 标准化基石、1G至5G移动互联演进（1ms超低时延）、电子商务五大模式（B2B/B2C/C2B/C2C/O2O）及网络社会数码鸿沟。</p>
+      <div class="paper-meta-row">
+        <div class="paper-meta-item">试卷结构：<strong>甲组选择题（20题/40分） + 乙组作答题（5题/40分）</strong></div>
+        <div class="paper-meta-item">卷面总分：<strong>80 分（可折合百分制）</strong></div>
+        <div class="paper-meta-item">评测模式：<strong>选择题即选即判 · 作答题配 4 栏评分量规</strong></div>
+        <div class="paper-meta-item">已作答：<strong><span id="answered-count">0</span> / 20 题</strong></div>
+      </div>
+    </section>
+
+    <!-- 甲组 单选题 -->
+    <div class="section-banner">
+      <h3>甲组：单项选择题（每题 2 分，共 40 分）</h3>
+      <span>即选即判 · 20 题共 40 分</span>
+    </div>
+
+    <!-- Q1 -->
+    <article class="question-card" id="card-q1">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 1 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">核心考点 · 资讯系统基本操作模型 (I-P-O-F)</span>
+      </div>
+      <div class="q-stem">1. 资讯系统是由相互联系的元件构成的有机整体。关于资讯系统最基础的操作闭环流向，下列哪项表述完全符合科学规范？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(1, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">接收数据与指令输入（Input） → 按照程序进行任务处理（Process） → 以资讯模式输出结果辅助决策（Output） → 检验正确性并修正逻辑（Feedback）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">纯粹依靠物理打印机在纸张上盲目输出未经计算的乱码</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅允许在完全不接入任何电源的情况下进行离线人工算盘操作</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">系统在输出结果后绝对不允许对底层逻辑进行任何校验与修改</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-1">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：资讯系统的基本模型包含：接收数据与指令输入（Input） → 执行算法处理（Process） → 以资讯呈现输出辅助决策（Output） → 通过反馈回路检验与修正（Feedback）。<br>
+        <strong>B、C、D 错误</strong>：违背了资讯系统自动处理与闭环控制的基本规律。</p>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="question-card" id="card-q2">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 2 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">核心概念 · 六大要素之工作程序</span>
+      </div>
+      <div class="q-stem">2. 在资讯系统的六大组成要素中，“工作程序（Working Procedure）”扮演着至关重要的规范指导角色。下列关于工作程序的描述，哪一项是正确的？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(2, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">它是指电脑机箱内部 CPU 晶体管在纳秒级通断电的物理量子运动</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">它是指人们在使用软件、硬件和数据时要遵循的规则或指导方针，通常记录在系统开发手册与用户使用手册中</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">它是专门用于控制网络交换机外壳涂层防锈的化学喷漆工艺</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">它是指由国家宪法直接规定的所有国民每日强制开机上网的作息时间表</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-2">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：课本第 142 页明确定义：“工作程序即人们在使用软件、硬件和数据时要遵循的规则或指导方针。这些程序一般记录在系统开发手册中及使用者的使用手册里”。<br>
+        <strong>A、C、D 错误</strong>：脱离了管理信息系统关于规程与指引的标准定义。</p>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="question-card" id="card-q3">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 3 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">企业金字塔 · 交易处理系统 TPS</span>
+      </div>
+      <div class="q-stem">3. 在企业资讯系统金字塔中，负责执行和记录企业日常大量、重复性例行交易（如商品扫码结账、银行自动提款）的基层系统是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(3, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">决策支援系统（DSS）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">主管支援系统（ESS）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">交易处理系统（Transaction Processing System, TPS）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">专家系统（ES）</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-3">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：交易处理系统（TPS）负责记录与处理企业最底层的日常高频例行业务交易（如 POS 销售点系统、ATM 自动柜员机），属于企业最基层的事务支撑平台。<br>
+        <strong>A、B、D 错误</strong>：分别对应中层半结构化决策、高层战略概括支持与专家经验推理系统。</p>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="question-card" id="card-q4">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 4 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">企业金字塔 · 主管支援系统 ESS/EIS</span>
+      </div>
+      <div class="q-stem">4. 某跨国商业集团的董事会主席需要审视全集团未来五年的全球战略布局，并评估近期国际汇率波动对各海外分公司的潜在冲击。最能为其提供“高度概括（Summarized）图表并融合外部宏观环境数据”的资讯系统是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(4, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">销售点系统（POS）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">图书条码借阅系统</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">个人单机文本打字软件</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">主管支援系统（Executive Support System, ESS / EIS）</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-4">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：主管支援系统（ESS/EIS）以高度概括的图表形式汇聚企业内部核心经营指标并融合外部宏观环境数据，专门辅助企业董事长等高层管理者进行战略级长期决策。<br>
+        <strong>A、B、C 错误</strong>：均为基层交易操作或桌面工具。</p>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="question-card" id="card-q5">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 5 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">专家系统架构 · 知识库核心组件</span>
+      </div>
+      <div class="q-stem">5. 专家系统（Expert System, ES）模拟人类专家的决策过程。在某油田地质勘探专家系统中，负责结构化存储由数十位资深地质学家几十年来归纳出的“地层断裂与油气赋存规则”的核心组件是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(5, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">知识库（Knowledge Base）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">显示器阴极射线管</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">鼠标光电感应器</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">热敏纸卷轴</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-5">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：专家系统两大核心支柱为“知识库 (Knowledge Base)”与“推理机 (Inference Engine)”。知识库专门存储人类专家的专业知识、事实经验与 IF-THEN 决策规则。<br>
+        <strong>B、C、D 错误</strong>：均为普通输入输出外部物理硬件。</p>
+      </div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="question-card" id="card-q6">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 6 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">计算机网络起源 · ARPANET 实验网</span>
+      </div>
+      <div class="q-stem">6. 1969年，美国国防部高级研究计划署（ARPA）资助建立了著名的实验网络 ARPANET，将犹他大学、斯坦福研究院等4个大学研究中心连接在一起。这一历史事件被公认为：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(6, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">世界上第一台商用智能手机的面世</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">人类真正意义上电脑网络的起源，为现代互联网的发展奠定了坚实基础</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">全球首个完全脱离实体硬件的纯脑机接口虚拟社区的建立</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">国际刑警组织全面取缔一切跨国电话通信的开端</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-6">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：1969 年建立的 ARPANET 首次实现数据在异地不同电脑节点之间分组交换传输，标志着现代计算机网络的诞生，是全球互联网的前身基石。<br>
+        <strong>A、C、D 错误</strong>：与互联网起源的历史事实不符。</p>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="question-card" id="card-q7">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 7 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">互联基石 · TCP/IP 协议标准化</span>
+      </div>
+      <div class="q-stem">7. 在电脑网络互通阶段，为了解决不同操作系统、不同硬件架构的电脑网络之间互联互通的难题，确立并推广了标准化的国际核心通讯协定。该通讯协定是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(7, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">局域网 NetBEUI 协议</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">TCP/IP 通讯协定</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">蓝牙 1.0 近场传输协议</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">机械红外线遥控编码</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-7">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：TCP/IP 协议的标准化消除了异构系统与硬件之间的壁垒，让全球所有网络依据完全相同的规则寻址与路由交换，是现代互联网络的通用语言。<br>
+        <strong>A、C、D 错误</strong>：非跨网际互联的核心标准协议。</p>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="question-card" id="card-q8">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 8 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">信息时代革命 · 蒂姆·伯纳斯-李与万维网</span>
+      </div>
+      <div class="q-stem">8. 1989年，科学家蒂姆·伯纳斯-李（Tim Berners-Lee）设计了一项革命性技术，使得大众能够通过超文本网页极其便捷地访问全球网络资源，将互联网真正带入千家万户。这项技术是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(8, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">电子管高频发生器</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">局域网同轴电缆</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">虚拟专用网加密隧道</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">万维网（World Wide Web, WWW）</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-8">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：1989 年，蒂姆·伯纳斯-李发明了万维网（WWW），通过 URL、HTTP 与 HTML 构筑了超文本信息空间，使网络真正走向平民化普及。<br>
+        <strong>A、B、C 错误</strong>：混淆了底层硬件与网络安全隧道。</p>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="question-card" id="card-q9">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 9 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">移动通信演进 · 1G 至 5G 技术特征</span>
+      </div>
+      <div class="q-stem">9. 移动通讯网络的发展以“G（Generation，代）”为标志进行演进。关于 1G 到 5G 核心技术演进特征的叙述，下列哪项是完全正确的？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(9, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">1G 时代已经实现了高清晰度 4K 在线视频直播</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">1G 采用模拟讯号进行纯语音通话；2G 改用数码讯号支持短信；3G 开启移动互联时代；4G 普及移动宽频多媒体；5G 实现高宽频、1毫秒低时延与万物互联</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">3G 网络的传输速率和设备连接数均高于 5G 网络</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">5G 技术由于采用激光传导，在雨雪大雾天气下完全无法传输任何数据</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-9">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：1G 为模拟纯语音；2G 引入数字加密与短信；3G 正式连接 Internet 开启移动互联；4G 带来高清流媒体与直播；5G 达成千兆宽带、1ms极低时延与万物互联。<br>
+        <strong>A、C、D 错误</strong>：技术代际特征颠倒或不实。</p>
+      </div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="question-card" id="card-q10">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 10 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">5G 关键性能 · 1ms 极低时延与高危场景</span>
+      </div>
+      <div class="q-stem">10. 5G 移动通讯技术具备“超高宽频、超低延迟、超大规模连接”三大核心性能。其中，网络端到端延迟低至 1 毫秒这一指标，最直接为下列哪项尖端前沿应用提供了安全可靠的通信保障？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(10, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">在线文字聊天室发送纯文本表情包</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">远程无人驾驶汽车毫秒级紧急协同避障与远程高精度手术</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">离线使用计算器进行十进制加减法</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">在黑白墨水屏阅读器上翻阅纯文本小说</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-10">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：1 毫秒极低时延是保障毫秒级车路协同避障、无人驾驶刹车决策与远程达芬奇微创手术不可或缺的高可靠指标。<br>
+        <strong>A、C、D 错误</strong>：非高敏极低时延的关键场景。</p>
+      </div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="question-card" id="card-q11">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 11 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">网络应用分类 · 事务处理应用</span>
+      </div>
+      <div class="q-stem">11. 现代智能手机普及后，网络应用深度重构了人们的日常生活。课本将丰富的网络应用系统划分为六大类别。下列应用中，属于“事务处理（Transaction/Work Processing）”类别的是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(11, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">在大型多人在线角色扮演网游中组队打怪</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">在视频网站收看搞笑综艺直播</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">使用在线办公套件、电子邮件与云端存储（如 Google Drive, OneDrive）进行远程协同办公与文件处理</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">在电商平台上参与限时秒杀抢购运动鞋</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-11">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：课本将网络应用分为基础应用、事务处理、商务交易、网络金融、网络娱乐和公共服务。电子邮件、云文档与云存储属于标准的“事务处理”类别。<br>
+        <strong>A、B 属于</strong>网络娱乐；<strong>D 属于</strong>商务交易。</p>
+      </div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="question-card" id="card-q12">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 12 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">电商模式识别 · B2B 跨国工业品外贸</span>
+      </div>
+      <div class="q-stem">12. 在现代电子商务的多元化商业形态中，像阿里巴巴（Alibaba.com）与 TradeKey 这类主要服务于“生产制造企业与跨国采购企业之间开展大批量工业品贸易与数据交换”的模式属于：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(12, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">C2C (Consumer to Consumer)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">B2C (Business to Consumer)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">B2B (Business to Business)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">O2O (Online to Offline)</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-12">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：B2B (Business to Business) 是企业与企业之间通过网络进行批量大宗商品交易和数据交换的模式，阿里巴巴国际站是典型的 B2B 平台。<br>
+        <strong>A、B、D 错误</strong>：交易参与主体划分错误。</p>
+      </div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="question-card" id="card-q13">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 13 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">电商模式识别 · O2O 本地生活外卖服务</span>
+      </div>
+      <div class="q-stem">13. 许多独中生放学后经常使用 GrabFood 或 FoodPanda 平台在线点餐，通过电子钱包支付后，由附近实体餐厅烹饪并由骑手配送至家中。这种将“线下实体商务机会与互联网线上平台紧密结合”的电商模式被称为：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(13, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">O2O (Online to Offline)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">B2B (Business to Business)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">C2B (Consumer to Business)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">C2C (Consumer to Consumer)</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-13">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：O2O (Online to Offline) 将线上引流交易与线下实体店铺消费履约相结合，外卖订餐配送是典型的 O2O 闭环。<br>
+        <strong>B、C、D 错误</strong>：非纯线上到线下实体履约模式。</p>
+      </div>
+    </article>
+
+    <!-- Q14 -->
+    <article class="question-card" id="card-q14">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 14 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">电商模式识别 · C2B 消费者反向团购</span>
+      </div>
+      <div class="q-stem">14. 在中国“天猫双十一”等电商促销活动中，消费者通过网络集合成千上万具有相同购买意向的人群发起“反向团购”，凭借巨大的集中采购订单规模向家电制造厂家提出定制与深度降价议价要求。这种商业模式属于：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(14, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">B2B</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">B2C</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">C2B (Consumer to Business)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">O2O</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-14">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：C2B (Consumer to Business) 是由消费者聚集需求反向向企业定制或议价发起团购的颠覆性商业模式。<br>
+        <strong>A、B、D 错误</strong>：传统由商家向客户发起单向销售的模式与题意相反。</p>
+      </div>
+    </article>
+
+    <!-- Q15 -->
+    <article class="question-card" id="card-q15">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 15 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">2027 统考样题映射 · 企业协作系统 ECS</span>
+      </div>
+      <div class="q-stem">15. 某跨国企业在吉隆坡、新山与古晋均设有分公司。全集团各分公司高管每周通过 Microsoft Teams 召开高清视频会议，并借助 Trello 管理各项目进度与资源看板。在资讯系统类型中，这类平台属于：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(15, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">销售点系统（POS）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">企业协作系统（Enterprise Collaboration System, ECS）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">硬件温度监控固件</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">自动提款机终端系统（ATM）</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-15">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：旨在促进团队协同办公、视频沟通、文档共享与任务看板调度的系统被称为企业协作系统（ECS），Microsoft Teams 和 Trello 是标准范例。<br>
+        <strong>A、C、D 错误</strong>：非协作办公系统。</p>
+      </div>
+    </article>
+
+    <!-- Q16 -->
+    <article class="question-card" id="card-q16">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 16 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 1 · POS 系统的四大综合益处</span>
+      </div>
+      <div class="q-stem">16.【罗马组合题 1】 某超级市场为了提升运营效益，在收银台部署了一批现代化 POS 交易处理系统。关于该系统给超市与一线员工带来的综合益处，下列哪些项是客观真实的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 准确性：通过扫描条码自动读取价格并计算总额，大幅降低收银员手工计算找零的人为差错<br>
+      Ⅱ. 高效率：极大地缩短每位顾客的结账排队时间，大幅提升高峰期的客流吞吐能力<br>
+      Ⅲ. 低压力：将收银员工从繁琐紧张的高强度心算与手写记账中解放出来，减轻工作疲劳<br>
+      Ⅳ. 满意度：快速准确的结账服务显著提升了消费者的购物满意度，树立了企业良好口碑</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(16, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅱ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-16">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：官方参考答案第 8 题明确提炼了基层引入 POS 的四大核心优势：准确性（避免算错）、高效率（吞吐迅速）、低压力（减轻繁琐工作量）与高满意度（顾客信任良好口碑）。</p>
+      </div>
+    </article>
+
+    <!-- Q17 -->
+    <article class="question-card" id="card-q17">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 17 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 2 · 临床决策支援系统 CDSS 功能</span>
+      </div>
+      <div class="q-stem">17.【罗马组合题 2】 在现代医院的智慧医疗系统中，“临床决策支援系统（CDSS）”发挥着越来越显著的辅助诊断作用。根据课本与参考答案阐述，一个理想的 CDSS 应当涵盖下列哪些基本功能？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 模拟资深专科医生的临床思维逻辑与医疗行为，为基层医师提供诊疗建议<br>
+      Ⅱ. 自动实时更新并归档患者的电子健康记录（EMR / 电子病历）<br>
+      Ⅲ. 自动监测并对病患当下的异常生理体征与健康风险发出即时预警提醒<br>
+      Ⅳ. 快速并有效地跨科室整理、统计与呈现患者的历史检查报告与病理趋势</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(17, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-17">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：官方答案系统归纳了成熟 CDSS 的四大职能：模拟专科医生临床思维、更新电子病历档案、实时异常风险预警以及跨科室历史病理趋势整理呈现。</p>
+      </div>
+    </article>
+
+    <!-- Q18 -->
+    <article class="question-card" id="card-q18">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 18 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 3 · 电脑网络对社会的正面影响</span>
+      </div>
+      <div class="q-stem">18.【罗马组合题 3】 电脑网络的普及极大地推动了人类社会的文明互鉴与发展进步。关于电脑网络对现代社会带来的正面影响，下列哪些项是真实的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 打破讯息垄断：使社会不同背景、阶层的公众均能便捷获取资讯与平等表达观点，促进社会透明<br>
+      Ⅱ. 促进文化交流与全球化：让不同国家和民族的传统文化、节日民俗得以跨越国界广泛传播共享<br>
+      Ⅲ. 推动教育公平与终身学习：提供海量优质线上开放课程（如 MOOC）与跨校教学观摩资源<br>
+      Ⅳ. 赋能经济与商业模式创新：孕育出电子商务、电子金融、智能物流及远程协同办公等新质生产力</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(18, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-18">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：四项陈述分别对应课本官方总结的网络五大积极社会影响：打破垄断促进透明、赋能跨国文化交流、推动终身教育公平以及引领电商与数字经济创新。</p>
+      </div>
+    </article>
+
+    <!-- Q19 -->
+    <article class="question-card" id="card-q19">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 19 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 4 · 电脑网络伴生的负面社会隐忧</span>
+      </div>
+      <div class="q-stem">19.【罗马组合题 4】 尽管网络带来了无与伦比的便利，但课本明确指出其伴随而来的负面社会影响同样不容忽视。下列哪些现象属于网络社会中值得高度警惕的现实问题？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 网络交流始终存在物理距离感，无法完全取代面对面情感交流，导致部分网民产生“网络使我更孤独”的心理困境<br>
+      Ⅱ. 英语等强势语言在网络世界中占据主导垄断地位，容易导致弱势民族的本土语言与特色传统文化遭受侵蚀<br>
+      Ⅲ. 经济条件与基础设施差距导致城乡之间、国家之间的“数码鸿沟”不断扩大，加剧资讯与财富的不平等<br>
+      Ⅳ. 网络上任何人都能低门槛发布内容，容易滋生未经核实的虚假谣言、恶意篡改讯息与不良诱导言论</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(19, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-19">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：课本第 156 页发人深省地警示了四重社会代价：心理孤独感加剧、强势语言文化侵蚀弱势传统、数码鸿沟拉大贫富分化以及网络虚假谣言的病毒式扩散。</p>
+      </div>
+    </article>
+
+    <!-- Q20 -->
+    <article class="question-card" id="card-q20">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 20 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 5 · 网游沉迷与青少年健康治理</span>
+      </div>
+      <div class="q-stem">20.【罗马组合题 5】 面对网络游戏引发的部分青少年过度沉迷与未经父母同意大额充值的社会问题，根据课本教学引导方向，科学且合法的综合治理对策应包括：<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 政府立法强制网络游戏运营商严格落实全员“实名制注册”，并对未成年人适玩的游戏类型予以严格分级审核<br>
+      Ⅱ. 设立刚性的未成年人上网年龄与游戏时长限制，严格设定工作日与节假日每日最大游玩与充值限额<br>
+      Ⅲ. 制作正向生动的公益宣传片在主流媒体广泛播放，引导在学青少年多方面接触现实文体与社会实践活动<br>
+      Ⅳ. 彻底炸毁全国所有通信基站并全面切断所有家庭的宽频光纤以实现绝对物理隔离</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(20, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-20">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>（仅 Ⅰ、Ⅱ、Ⅲ）：<br>
+        Ⅰ、Ⅱ、Ⅲ 均为课本课后答案所推崇的实名制立法、时长/充值防沉迷限制以及正面宣传引导等合情合法对策；<br>
+        <strong>Ⅳ 错误</strong>：炸毁基站破坏基础设施属于违法极端破坏犯罪言论。</p>
+      </div>
+    </article>
+
+    <!-- 乙组 作答题 -->
+    <div class="section-banner section-qa">
+      <h3>乙组：综合情境作答题（共 5 题，满分 40 分）</h3>
+      <span>官方评分量规 · 5 题共 40 分</span>
+    </div>
+
+    <!-- QA 1 -->
+    <article class="qa-card" id="qa-card-1">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 1 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · POS 销售点系统工作程序与三大要素映射</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【大型超市收银结账情境】</div>
+        <div class="qa-scenario-text">
+          在大型连锁超市的收银结账环节，销售点系统（POS）是典型的电脑化交易处理系统。顾客选购商品后，在收银台前排队由收银员通过扫描枪扫描条码结算并打印纸质小票。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">系统类型:</span> <span class="param-val">交易处理系统 (TPS / POS)</span></div>
+          <div class="param-tag"><span class="param-key">要素映射:</span> <span class="param-val">硬件、数据、人员</span></div>
+          <div class="param-tag"><span class="param-key">流程控制:</span> <span class="param-val">规范前四步严密算法循环</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">将下列 POS 系统中的具体实体，分别精准对应到资讯系统的三大核心要素中：（3分）<br>
+            ① “激光条码扫描枪与热敏收据打印机”属于：<strong>______元件</strong>；<br>
+            ② “商品条码、折后售价与结账金额”属于：<strong>______元件</strong>；<br>
+            ③ “在收银台前排队的顾客与收银员”属于：<strong>______元件</strong>。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：① 硬体 (Hardware)；② 数据 (Data)；③ 人员 (People)。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">根据课本官方参考答案，超市 POS 系统在进行商品结算时有着规范严格的工作程序。请完整写出从“扫描货品二维码”到“列印单据”的前 4 个标准工作步骤。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：步骤1（扫描条码取售价） ➔ 步骤2（折扣计算/维持原价） ➔ 步骤3（售价×数量累加） ➔ 步骤4（判断是否还有货品循环）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">结合企业财务运营，简要阐述为什么超市必须在 POS 系统中设置“若收取现金多于总数，系统自动计算并显示退还余额”这一规则？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：消除收银员心算找零失误/杜绝短款账目不平风险（1分）；荧幕小票白纸黑字杜绝顾客纠纷，维护商业信誉（1分）。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa1')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa1">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 资讯系统三大元件精准映射：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① 激光条形码扫描枪与热敏打印机属于：<strong>硬体（Hardware）元件</strong>（1分）；<br>
+          ② 商品条形码、折后售价与结账金额属于：<strong>数据（Data）元件</strong>（1分）；<br>
+          ③ 排队的顾客与操作收银员属于：<strong>人员（People / Human）元件</strong>（1分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) POS 系统商品结算前 4 步标准工作程序：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          • <strong>步骤 1</strong>：扫描货品二维码/条形码，并从数据库获取该商品售价；<br>
+          • <strong>步骤 2</strong>：若系统判定该货品享有折扣，则进行折扣计算；否则，维持原本售价；<br>
+          • <strong>步骤 3</strong>：把单项产品折后售价乘以购买数量，并加入本次交易的累计总数额中；<br>
+          • <strong>步骤 4</strong>：若尚有未扫描的货品，回到步骤1继续扫描；否则，继续步骤5准备结算付款。（每写对一步得1分，满分3分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 自动计算退还余额的财务运营必要性：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>防范人为计算失误</strong>：避免收银员在高强度工作下出现人工心算找零失误，消除收银钱箱短款与每日账目不符的财务风险（1分）；<br>
+          ② <strong>保障交易透明度与信誉</strong>：电脑荧幕和纸质小票明确标出应收、实收与找零金额，彻底杜绝与顾客产生多找少找的金钱纠纷，维护超市信誉（1分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 元件映射</td>
+              <td>精准对应三大组成要素</td>
+              <td>硬体(1分)、数据(1分)、人员(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) POS前4步程序</td>
+              <td>准确写出顺序结算逻辑</td>
+              <td>扫描取价(1分) ➔ 折扣判断(1分) ➔ 数量累加(1分) ➔ 循环判定</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) 财务运营价值</td>
+              <td>阐明防范失误与透明凭证</td>
+              <td>避免人工算错消除短款风险(1分)；荧幕小票凭证杜绝顾客纠纷(1分)</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 2 -->
+    <article class="qa-card" id="qa-card-2">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 2 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · 企业管理层级金字塔与系统赋能</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【组织层级金字塔情境】</div>
+        <div class="qa-scenario-text">
+          在现代企业管理金字塔中，高层、中层与基层管理人员面对着完全不同的工作目标、决策环境与数据粒度需求。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">高层管理:</span> <span class="param-val">长期战略规划 + 高度不确定性</span></div>
+          <div class="param-tag"><span class="param-key">中层管理:</span> <span class="param-val">MIS 汇总分类报告辅助监控</span></div>
+          <div class="param-tag"><span class="param-key">基层操作:</span> <span class="param-val">TPS 记录日常高频交易流水</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">写出金字塔顶端的高层管理层（Top Management）的核心使命（负责什么规划？），并说明其决策结构的根本特征（确定性还是不确定性？）。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：负责长期规划/战略规划（1.5分）；面对外部竞争具有高度不确定性/无法完全预知（1.5分）。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">分别指出 TPS 与 MIS 的主要服务对象，并说明 MIS 是如何从 TPS 底层数据中提炼出运行报告的。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：TPS 服务基层员工与操作层，MIS 服务中层管理人员（1.5分）；MIS 自动将 TPS 原始流水汇总统计提炼成结构化报表（1.5分）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">某软件公司为两家不同的独中开发“成绩管理系统”，最终交付的系统截然不同。结合课本分析造成该现象的两项客观原因。</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：① 行政管理政策与运营规程差异；② 功能模块选择范围不同；③ 资金预算投入不同（任写两点）。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa2')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa2">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 高层管理核心使命与决策结构特征：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          • <strong>核心使命</strong>：负责企业的<strong>长期规划（战略规划 Strategic Planning）</strong>，把控组织未来5至10年的大方向（1.5分）；<br>
+          • <strong>决策结构特征</strong>：面对复杂多变的外部市场环境，其决策具有<strong>高度的不确定性（Unstructured）且无法完全预知</strong>（1.5分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) TPS 与 MIS 服务对象及数据提炼机制：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          • <strong>服务对象划分</strong>：TPS 服务于<strong>基层员工与日常操作人员</strong>；MIS 主要服务于<strong>中层管理人员</strong>（1.5分）；<br>
+          • <strong>数据提炼机制</strong>：MIS 自动从 TPS 日常捕获的成千上万条底层原始流水中，进行<strong>抽取、分类、汇总与综合统计</strong>，汇编成反映全局运营状态的结构化报表（如部门周销售统计、库存预警月报），辅助中层监控业务（1.5分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 两校管理系统截然不同的客观原因：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>各校管理政策与运营模式差异</strong>：每所独中有自己独特的教务考核制度、学分评级标准与审批流程；<br>
+          ② <strong>功能需求与模块选定不同</strong>：两校面临的痛点不同，选定纳入系统的功能模块侧重点不同；<br>
+          ③ <strong>资金预算与资源投入差异</strong>：预算规模直接制约了软件开发的深度与定制化程度。（写出任意两点即给满分2分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 高层战略与不确定</td>
+              <td>答明战略长期与非结构化</td>
+              <td>长期/战略规划(1.5分)；决策结构具有高度不确定性(1.5分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) TPS/MIS关系</td>
+              <td>答明服务层级与汇总提炼</td>
+              <td>TPS基层/MIS中层(1.5分)；原始交易数据汇总分类加工为报表(1.5分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) 系统差异成因</td>
+              <td>答出管理模式、需求或预算</td>
+              <td>管理制度政策差异、功能模块选择不同、资金预算差异（任选两项）</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 3 -->
+    <article class="qa-card" id="qa-card-3">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 3 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · 电脑网络互通基石与 5G 移动互联技术飞跃</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【网络通信与移动演进情境】</div>
+        <div class="qa-scenario-text">
+          网络协议标准化打破了异构网络孤岛壁垒，而从 1G 到 5G 的移动通信演进更是深刻改变了全人类的连接方式。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">互通基石:</span> <span class="param-val">TCP/IP 全球标准化协定</span></div>
+          <div class="param-tag"><span class="param-key">代际演进:</span> <span class="param-val">3G 移动互联 ➔ 5G 万物互联 (1ms)</span></div>
+          <div class="param-tag"><span class="param-key">移动网络优势:</span> <span class="param-val">不受特定地点限制，随时随地接入</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">TCP/IP 通讯协定的推广被誉为网络史上的里程碑。请阐述 TCP/IP 协定为全球不同电脑网络的互通带来了哪些核心规范作用？</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：实现网络通讯协议统一标准化，消除异构系统壁垒，让不同网络依据相同标准交换数据实现全球互联。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">从第几代移动通讯技术开始正式开启了“移动互联网时代”？并在传输速率与支持的多媒体应用类型上，对比分析 4G 与 5G 的显著跃升。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：3G 开启移动互联网时代（1分）；4G 支持高清音频流媒体与直播，5G 速率提升数十倍且时延低至 1ms，支持物联网与无人驾驶（2分）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">现今大多数公众为何在绝大多数生活场景下更倾向于选择移动网络而非传统的固定有线网络？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：不受特定工位地点限制，只要有无线信号即可随时随地 24 小时随身无缝连接。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa3')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa3">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) TCP/IP 通讯协定的核心规范作用：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>打破异构网络孤岛壁垒</strong>：确立了全球通用的网络通讯协定标准，彻底消除了不同国家、不同品牌硬件与各异操作系统之间的底层通信隔阂（1.5分）；<br>
+          ② <strong>奠定全球互联互通基石</strong>：规范了数据切片封装、寻址、路由与可靠校验规则，使全球无数独立的计算机网络能够依据完全一致的标准进行信息交换，构筑了现代互联网（1.5分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 移动互联网起源与 4G/5G 对比：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          • <strong>起源代际</strong>：从 <strong>3G 时代</strong> 开始，手机设备正式融入互联网，开启了“移动互联网时代”（1分）。<br>
+          • <strong>4G vs 5G 跃升</strong>：4G 能够流畅支持网络高清视频播放、高质量音频与在线直播；5G 传输速率比 4G 提升 10~100 倍，端到端延迟低至 1 毫秒，支持超海量设备并发互联，将应用扩展到物联网、车路协同自动驾驶与远程手术等尖端领域（2分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 公众倾向选择移动网络的原因：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>摆脱固定地理位置束缚</strong>：有线网络需要敷设实体网线且只能在固定办公桌使用，而移动网络<strong>不受特定地点限制</strong>，无线信号覆盖处皆可自由接入（1分）；<br>
+          ② <strong>高度契合智能手机移动便携需求</strong>：提供 24 小时随身在线的无缝网络服务，极大提升了日常生活与移动出行的便利性（1分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) TCP/IP 规范作用</td>
+              <td>阐述协定统一与全球互联</td>
+              <td>通讯协定标准化打破异构壁垒(1.5分)；奠定全球网络统一交换互通基石(1.5分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 3G 与 4G/5G 跃升</td>
+              <td>准确写明代际与性能应用</td>
+              <td>3G开启移动互联(1分)；4G流媒体直播/5G速率提升数十倍且时延1ms(2分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) 移动网络优势</td>
+              <td>阐述随时随地与移动便携</td>
+              <td>不受特定地点限制(1分)；随时随地随身连接符合现代生活(1分)</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 4 -->
+    <article class="qa-card" id="qa-card-4">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 4 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · 电子商务五大模式商业闭环与实战</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【电子商务实操情境】</div>
+        <div class="qa-scenario-text">
+          电子商务（E-Commerce）包含了 B2B, B2C, C2B, C2C 与 O2O 五种成熟模式，重塑了从大宗工业品贸易到日常外卖订餐的完整商业形态。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">模式划分:</span> <span class="param-val">B2B, B2C, C2B, C2C, O2O</span></div>
+          <div class="param-tag"><span class="param-key">O2O闭环:</span> <span class="param-val">线上引流支付 + 线下出餐配送</span></div>
+          <div class="param-tag"><span class="param-key">C2B优势:</span> <span class="param-val">集采规模带来对等降价议价</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">根据下述商业场景，准确写出其所对应的电子商务模式类型缩写：（3分）<br>
+            ① 某家具厂通过阿里巴巴向欧洲采购商批量出口 500 套餐桌椅：<strong>______</strong>；<br>
+            ② 小敏在 Shopee 官方旗舰店选购降噪耳机：<strong>______</strong>；<br>
+            ③ 小林在二手网拍卖转让闲置登山包：<strong>______</strong>。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：① B2B；② B2C；③ C2C。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">结合 O2O 模式定义，说明 GrabFood 外卖是如何将“线上互联网平台”与“线下实体店铺商机”紧密结合实现商业闭环的？</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：线上聚集消费者点餐与电子支付（1.5分）；系统路由至线下实体店制作并由骑手送达，线上成为线下实体获客调度平台（1.5分）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">相比于普通单向 B2C 零售，C2B 模式为什么能够使消费者在交易中获得更加对等的议价权并争取到更低廉的优惠价格？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：汇聚成千上万消费者的相同意愿，形成庞大的集中订单采购规模，促使厂家让利降价。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa4')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa4">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 电商模式缩写精准判定：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① 制造厂大宗外贸出口：<strong>B2B</strong> (Business to Business)（1分）；<br>
+          ② 官方旗舰店零售：<strong>B2C</strong> (Business to Consumer)（1分）；<br>
+          ③ 二手个人闲置转让：<strong>C2C</strong> (Consumer to Consumer)（1分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) O2O 模式实现线上与线下闭环机制：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>线上集客与支付</strong>：消费者通过手机 APP 浏览挑选周边餐品并通过电子钱包在线付款，云端平台高效聚合了原本分散的线上用餐需求（1.5分）；<br>
+          ② <strong>线下实体履约</strong>：系统将订单路由给线下的实体餐饮门店开展制作，并指派附近骑手到店取餐送达，让互联网成为线下实体商家的数字化获客与交付调度中心，完成从线上到线下的闭环（1.5分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) C2B 模式对等议价权与低价成因：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          C2B 模式通过网络将成千上万个零散消费者的相同购买诉求集合起来，<strong>形成了庞大的批量采购订单规模</strong>；消费者群体以此作为有力筹码向制造商提出对等定制议价，企业因获得大批量确定性订单而愿意给予深幅出厂折扣，使买方争取到更优惠价格（2分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 电商模式缩写</td>
+              <td>准确写出标准三项缩写</td>
+              <td>B2B(1分)、B2C(1分)、C2C(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) O2O 商业闭环</td>
+              <td>清晰阐述线上聚合与线下履约</td>
+              <td>线上浏览挑选聚合支付(1.5分)；线下实体店出餐制作与骑手配送闭环(1.5分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) C2B 议价机制</td>
+              <td>阐明反向聚集规模效应</td>
+              <td>聚集零散需求形成庞大集采订单规模，赢得对等降价谈判筹码</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 5 -->
+    <article class="qa-card" id="qa-card-5">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 5 · 共 8 分</span>
+        <span class="q-source-tag">高阶思维反思 · 网络社会辩证反思、虚假资讯甄别与数码鸿沟</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【网络社会辩证反思情境】</div>
+        <div class="qa-scenario-text">
+          网络打破了传统的“讯息垄断”，使人人皆可自由发声；但随之而来的是虚假新闻泛滥与数码鸿沟导致的不平等加剧。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">积极影响:</span> <span class="param-val">打破垄断，促进公共治理透明</span></div>
+          <div class="param-tag"><span class="param-key">防范措施:</span> <span class="param-val">权威信源查验 + 独立信源交叉比对</span></div>
+          <div class="param-tag"><span class="param-key">深层警示:</span> <span class="param-val">数码鸿沟转化为财富与权力不平等</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">网络打破了传统的“讯息垄断”，这种“人人皆可发声”的开放网络环境对于社会公共治理具有哪些显著的正面促进作用？</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：打破少数媒体控制垄断，真相更易揭示（1.5分）；赋权普通民众监督公共事务，汇聚民智促进决策透明与民主（1.5分）。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">在面对社交网络上真伪难辨的爆炸性新闻时，作为高中生应当采取哪些科学严谨的核实步骤甄别真伪？（列举两项具体做法）</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：查验权威官方发布或辟谣平台（如 sebenarnya.my）；多方独立信源交叉互证；警惕标题党并利用图片反向搜索溯源（任写两点）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">课本警示：“在当今资讯社会中，讯息不平等意味着财富和权力的不平等。”简要阐明数码鸿沟（Digital Divide）为何会加剧社会贫富差距与阶层固化？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：拥有高阶网络与数据技能者占领教育与高薪机遇，缺乏设备与网络者丧失数字经济门槛，将资讯差距转化为财富与发展权力的不可逆鸿沟。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa5')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa5">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 打破垄断对社会公共治理的正面促进作用：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>打破舆论控制垄断，还原事实真相</strong>：彻底改变了以往仅由少数垄断媒体单向把关话语权的格局，多维度信息使真相更容易被揭示，降低了利益集团掩盖事实的可能（1.5分）；<br>
+          ② <strong>赋权公众参与监督，推动透明民主</strong>：为广大普通民众提供了平等表达诉求、监督公共事务运作的畅通渠道，有助于汇聚广泛社会民智，促进政府决策公开透明与社会公平正义（1.5分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 科学严谨甄别虚假新闻的具体做法：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>查验权威官方信源</strong>：核实信息是否源自政府权威部门、官方辟谣平台（如大马事实核查网 sebenarnya.my）或具有公信力的主流通讯社；<br>
+          ② <strong>多方独立交叉核对</strong>：面对离奇震惊的传言，检索多个独立的信源相互印证，不盲信单一自媒体的片面叙述；<br>
+          ③ <strong>技术工具溯源与审辩思维</strong>：警惕煽动情绪的标题党，利用图片反向搜索等技术工具核验事件发生的时间、地点与真实背景。（答对任意两点即给满分3分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 数码鸿沟加剧贫富分化与阶层固化的机理：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          在资讯社会中，即时数据与网络技能是创造财富的关键生产要素。拥有优渥网络设备与数据素养的群体，能够轻松获取优质在线教育、高薪数字岗位与前沿投资机会；而因基础设施落后或经济贫困被阻隔在网络之外的弱势群体，丧失了参与数字经济竞争的基本门槛。<strong>资讯获取的不平等直接演变并放大了财富分配与社会发展权力的不平等</strong>，导致贫者愈贫，加剧阶层固化（2分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 民主治理促进</td>
+              <td>阐述打破垄断与赋权监督</td>
+              <td>打破少数媒体垄断还原真相(1.5分)；赋权公众监督参与促进决策透明(1.5分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 虚假资讯核实</td>
+              <td>答明官方查验与交叉印证</td>
+              <td>官方辟谣平台核实、多方独立交叉印证、技术工具溯源（任答两项）</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) 数码鸿沟机理</td>
+              <td>深入揭示技能转化为财富壁垒</td>
+              <td>资讯技能与网络成为财富生产资料，弱势群体缺乏门槛加剧财富权力不平等</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+  </main>
+
+  <script>
+    // 董总统考历届真题标准答案表 (第一册 第 5 章 资讯系统与网络概述)
+    const correctAnswers = {
+      1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'A',
+      6: 'B', 7: 'B', 8: 'D', 9: 'B', 10: 'B',
+      11: 'C', 12: 'C', 13: 'A', 14: 'C', 15: 'B',
+      16: 'D', 17: 'D', 18: 'D', 19: 'D', 20: 'A'
+    };
+
+    let userAnswers = {};
+
+    // 即选即判核心交互
+    function selectOption(qid, choice) {
+      const card = document.getElementById(`card-q${qid}`);
+      if (!card) return;
+
+      const correctChoice = correctAnswers[qid];
+      const options = card.querySelectorAll('.option-item');
+      const analysis = document.getElementById(`analysis-${qid}`);
+
+      userAnswers[qid] = choice;
+
+      options.forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+        const circle = opt.querySelector('.opt-circle');
+        const optLetter = circle ? circle.innerText.trim() : '';
+
+        if (optLetter === correctChoice) {
+          opt.classList.add('correct-answer');
+        } else if (optLetter === choice && choice !== correctChoice) {
+          opt.classList.add('wrong-answer');
+        }
+      });
+
+      if (analysis) {
+        let feedbackEl = analysis.querySelector('.instant-feedback-badge');
+        if (!feedbackEl) {
+          feedbackEl = document.createElement('div');
+          feedbackEl.className = 'instant-feedback-badge';
+          analysis.insertBefore(feedbackEl, analysis.firstChild);
+        }
+
+        if (choice === correctChoice) {
+          feedbackEl.className = 'instant-feedback-badge badge-correct';
+          feedbackEl.innerHTML = '✅ 回答正确！得分 +2分';
+        } else {
+          feedbackEl.className = 'instant-feedback-badge badge-wrong';
+          feedbackEl.innerHTML = `❌ 回答错误！您的选择是 <strong>${choice}</strong>，正确答案是 <strong>${correctChoice}</strong>`;
+        }
+
+        analysis.classList.add('show');
+      }
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answeredKeys = Object.keys(userAnswers);
+      const totalAnswered = answeredKeys.length;
+      let corrects = 0;
+      answeredKeys.forEach(qid => {
+        if (userAnswers[qid] === correctAnswers[qid]) {
+          corrects++;
+        }
+      });
+
+      const countEl = document.getElementById('answered-count');
+      if (countEl) countEl.innerText = totalAnswered;
+
+      const scorePill = document.getElementById('score-pill');
+      if (scorePill) {
+        if (totalAnswered > 0) {
+          scorePill.style.display = 'inline-flex';
+          const correctEl = document.getElementById('correct-count');
+          const totalEl = document.getElementById('total-done');
+          if (correctEl) correctEl.innerText = corrects;
+          if (totalEl) totalEl.innerText = totalAnswered;
+        } else {
+          scorePill.style.display = 'none';
+        }
+      }
+    }
+
+    function resetPractice() {
+      if (!confirm('确定要清空作答记录并重新练习吗？')) return;
+      userAnswers = {};
+      document.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+      });
+      document.querySelectorAll('.analysis-panel').forEach(panel => {
+        panel.classList.remove('show');
+        const badge = panel.querySelector('.instant-feedback-badge');
+        if (badge) badge.remove();
+      });
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 展开/折叠评分量规 (乙组作答题)
+    function toggleRubric(id) {
+      const box = document.getElementById(`rubric-${id}`);
+      if (box) box.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

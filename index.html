@@ -570,6 +570,121 @@
                 gap: 12px;
             }
         }
+    
+        /* === 2026/2027 增强型新纲题库章节卡片样式 === */
+        .card-spec-badge {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        .card-action-group {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin: 16px 0 14px;
+        }
+
+        .action-btn-row {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 10px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .btn-note {
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent-blue);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+        .btn-note:hover {
+            background: var(--accent-blue);
+            color: #0b1120;
+            box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* 历届真题重构题库：雅致低饱和度深灰微光色调，配合深色沉稳排版，不刺眼不鲜艳 */
+        .btn-exam {
+            background: rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+        .btn-exam:hover {
+            background: rgba(255, 255, 255, 0.14);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.4);
+        }
+
+        .btn-rubric {
+            background: rgba(13, 148, 136, 0.15);
+            color: #2dd4bf;
+            border: 1px solid rgba(45, 212, 191, 0.28);
+            padding: 8px 12px;
+        }
+        .btn-rubric:hover {
+            background: rgba(13, 148, 136, 0.28);
+            color: #5eead4;
+            border-color: rgba(45, 212, 191, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .card-spec-footer {
+            background: rgba(15, 23, 42, 0.45);
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 12px 2px 2px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.77rem;
+            color: #94a3b8;
+        }
+
+        .spec-footer-info {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .spec-divider {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .spec-link {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            transition: color 0.15s;
+        }
+        .spec-link:hover {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
@@ -649,61 +764,72 @@
             </div>
 
             <div class="cards-grid">
-                <!-- 第 1 章 -->
-                <article class="portal-card">
+                                <!-- 第 1 章 (新纲重构优化示范) -->
+                <article class="portal-card" id="card-b1-ch1">
                     <div class="card-top">
                         <div class="card-header-row">
                             <span class="card-ch-num ch-num-b1">第 1 册 · 第 1 章</span>
+                            <span class="card-spec-badge">🏷️ 统考新纲重构 · 70分卷</span>
                         </div>
-                        <h3 class="card-title">认识数据与资讯</h3>
-                        <p class="card-summary">数制转换（二/八/十六进制）、原码反码补码、定点浮点表示、ASCII/Unicode 编码标准及数据度量。</p>
+                        <h3 class="card-title">认识数据 (Data Essentials)</h3>
+                        <p class="card-summary">数制转换（二/八/十六进制）、原码反码补码、定点浮点表示、ASCII/Unicode/UTF-8 编码及多媒体容量计算。</p>
                         <div class="feature-tags">
-                            <span class="ft-tag">二八十六进制</span>
+                            <span class="ft-tag">DIKW模型</span>
                             <span class="ft-tag">补码运算</span>
                             <span class="ft-tag">字符编码</span>
-                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                            <span class="ft-tag">多媒体三步容量计算</span>
                         </div>
                     </div>
-                    <div class="card-bottom">
-                        <div class="card-meta-info">
-                            <span>配套：PDF/图片课件 + 模拟练习</span>
+
+                    <!-- 核心交互入口 -->
+                    <div class="card-action-group">
+                        <div class="action-btn-row">
+                            <a href="./02_各章生成资料_第一册/第1章_认识数据/01_精准复习笔记/高中资讯科技_第1章_认识数据_图文交互复习Web网页版.html" target="_self" class="btn-action btn-note">
+                                进入复习 ➔
+                            </a>
+                            <a href="./02_各章生成资料_第一册/第1章_认识数据/高中资讯科技_第1册_第1章_认识数据_历届真题新纲重构测验.html" target="_self" class="btn-action btn-exam">
+                                📝 历届真题重构题库
+                            </a>
                         </div>
-                        <a href="./02_各章生成资料_第一册/第1章_认识数据/01_精准复习笔记/高中资讯科技_第1章_认识数据_图文交互复习Web网页版.html" target="_self" class="card-btn">
-                            进入复习 ➔
-                        </a>
                     </div>
                 </article>
 
                 <!-- 第 2 章 -->
-                <article class="portal-card">
+                <article class="portal-card" id="card-b1-ch2">
                     <div class="card-top">
                         <div class="card-header-row">
                             <span class="card-ch-num ch-num-b1">第 1 册 · 第 2 章</span>
+                            <span class="card-spec-badge">🏷️ 统考新纲重构 · 100分卷</span>
                         </div>
                         <h3 class="card-title">演算法与程式设计</h3>
-                        <p class="card-summary">流程图规范符号、三种基本控制结构（顺序/分支/循环）、典型演算法跟踪推演与时间复杂度概念。</p>
+                        <p class="card-summary">流程图规范符号、三种基本控制结构（顺序/分支/循环）、追踪表手工推演、冒泡排序降序优化与二分查找。</p>
                         <div class="feature-tags">
                             <span class="ft-tag">流程图逻辑</span>
-                            <span class="ft-tag">循环跟踪</span>
-                            <span class="ft-tag">演算法设计</span>
-                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                            <span class="ft-tag">追踪表推演</span>
+                            <span class="ft-tag">冒泡与二分</span>
+                            <span class="ft-tag">自适应配时算法</span>
                         </div>
                     </div>
-                    <div class="card-bottom">
-                        <div class="card-meta-info">
-                            <span>配套：交互流程图推演 + 精解</span>
+
+                    <!-- 核心交互入口 -->
+                    <div class="card-action-group">
+                        <div class="action-btn-row">
+                            <a href="./02_各章生成资料_第一册/第2章_演算法与程式设计/01_精准复习笔记/高中资讯科技_第2章_演算法与程式设计_图文交互复习Web网页版.html" target="_self" class="btn-action btn-note">
+                                进入复习 ➔
+                            </a>
+                            <a href="./02_各章生成资料_第一册/第2章_演算法与程式设计/高中资讯科技_第1册_第2章_演算法与程式设计_历届真题新纲重构测验.html" target="_self" class="btn-action btn-exam">
+                                📝 历届真题重构题库
+                            </a>
                         </div>
-                        <a href="./02_各章生成资料_第一册/第2章_演算法与程式设计/01_精准复习笔记/高中资讯科技_第2章_演算法与程式设计_图文交互复习Web网页版.html" target="_self" class="card-btn">
-                            进入复习 ➔
-                        </a>
                     </div>
                 </article>
 
                 <!-- 第 3 章 -->
-                <article class="portal-card">
+                <article class="portal-card" id="card-b1-ch3">
                     <div class="card-top">
                         <div class="card-header-row">
                             <span class="card-ch-num ch-num-b1">第 1 册 · 第 3 章</span>
+                            <span class="card-spec-badge">🏷️ 统考新纲重构 · 80分卷</span>
                         </div>
                         <h3 class="card-title">人工智能与应用</h3>
                         <p class="card-summary">AI 发展简史、机器学习四大范式（监督/无监督/强化/深度）、图灵测试、生成式 AI 与社会伦理考量。</p>
@@ -711,91 +837,110 @@
                             <span class="ft-tag">机器学习范式</span>
                             <span class="ft-tag">深度学习网络</span>
                             <span class="ft-tag">AI 伦理</span>
-                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                            <span class="ft-tag">大模型与提示词</span>
                         </div>
                     </div>
-                    <div class="card-bottom">
-                        <div class="card-meta-info">
-                            <span>配套：AI 知识图谱 + 统考前沿题</span>
+
+                    <!-- 核心交互入口 -->
+                    <div class="card-action-group">
+                        <div class="action-btn-row">
+                            <a href="./02_各章生成资料_第一册/第3章_人工智能与应用/01_精准复习笔记/高中资讯科技_第3章_人工智能与应用_图文交互复习Web网页版.html" target="_self" class="btn-action btn-note">
+                                进入复习 ➔
+                            </a>
+                            <a href="./02_各章生成资料_第一册/第3章_人工智能与应用/高中资讯科技_第1册_第3章_人工智能与应用_历届真题新纲重构测验.html" target="_self" class="btn-action btn-exam">
+                                📝 历届真题重构题库
+                            </a>
                         </div>
-                        <a href="./02_各章生成资料_第一册/第3章_人工智能与应用/01_精准复习笔记/高中资讯科技_第3章_人工智能与应用_图文交互复习Web网页版.html" target="_self" class="card-btn">
-                            进入复习 ➔
-                        </a>
                     </div>
                 </article>
 
                 <!-- 第 4 章 -->
-                <article class="portal-card">
+                <article class="portal-card" id="card-b1-ch4">
                     <div class="card-top">
                         <div class="card-header-row">
                             <span class="card-ch-num ch-num-b1">第 1 册 · 第 4 章</span>
+                            <span class="card-spec-badge">🏷️ 统考新纲重构 · 80分卷</span>
                         </div>
                         <h3 class="card-title">资讯科技与社会</h3>
-                        <p class="card-summary">数码落差、知识产权与版权法、开源许可协议（GPL/MIT/CC）、资讯伦理规范及电子废弃物环保。</p>
+                        <p class="card-summary">数码落差、知识产权与版权法、开源许可协议（GPL/MIT/CC/BSD）、资讯伦理规范及电子废弃物环保。</p>
                         <div class="feature-tags">
+                            <span class="ft-tag">数码鸿沟治理</span>
                             <span class="ft-tag">智慧财产法</span>
-                            <span class="ft-tag">开源授权</span>
-                            <span class="ft-tag">绿色运算</span>
-                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                            <span class="ft-tag">开源授权协议</span>
+                            <span class="ft-tag">绿色计算与回收</span>
                         </div>
                     </div>
-                    <div class="card-bottom">
-                        <div class="card-meta-info">
-                            <span>配套：法律情境案例 + 考题</span>
+
+                    <!-- 核心交互入口 -->
+                    <div class="card-action-group">
+                        <div class="action-btn-row">
+                            <a href="./02_各章生成资料_第一册/第4章_资讯科技与社会/01_精准复习笔记/高中资讯科技_第4章_资讯科技与社会_图文交互复习Web网页版.html" target="_self" class="btn-action btn-note">
+                                进入复习 ➔
+                            </a>
+                            <a href="./02_各章生成资料_第一册/第4章_资讯科技与社会/高中资讯科技_第1册_第4章_资讯科技与社会_历届真题新纲重构测验.html" target="_self" class="btn-action btn-exam">
+                                📝 历届真题重构题库
+                            </a>
                         </div>
-                        <a href="./02_各章生成资料_第一册/第4章_资讯科技与社会/01_精准复习笔记/高中资讯科技_第4章_资讯科技与社会_图文交互复习Web网页版.html" target="_self" class="card-btn">
-                            进入复习 ➔
-                        </a>
                     </div>
                 </article>
 
                 <!-- 第 5 章 -->
-                <article class="portal-card">
+                <article class="portal-card" id="card-b1-ch5">
                     <div class="card-top">
                         <div class="card-header-row">
                             <span class="card-ch-num ch-num-b1">第 1 册 · 第 5 章</span>
+                            <span class="card-spec-badge">🏷️ 统考新纲重构 · 80分卷</span>
                         </div>
                         <h3 class="card-title">资讯系统与网络概述</h3>
-                        <p class="card-summary">计算机硬体架构（冯·诺伊曼）、系统汇流排、网络拓扑结构（星型/总线/环形）、传输介质及OSI模型。</p>
+                        <p class="card-summary">冯·诺伊曼架构、系统汇流排（控制/地址/数据）、网络拓扑（星型/总线/环形/网状）、传输介质及OSI七层模型。</p>
                         <div class="feature-tags">
-                            <span class="ft-tag">冯诺伊曼架构</span>
-                            <span class="ft-tag">拓扑结构</span>
+                            <span class="ft-tag">冯·诺伊曼架构</span>
+                            <span class="ft-tag">系统总线</span>
+                            <span class="ft-tag">网络拓扑结构</span>
                             <span class="ft-tag">双绞线与光纤</span>
-                            <span class="ft-tag">80 MCQ + 15 作答</span>
                         </div>
                     </div>
-                    <div class="card-bottom">
-                        <div class="card-meta-info">
-                            <span>配套：系统硬件图解 + 网络拓扑</span>
+
+                    <!-- 核心交互入口 -->
+                    <div class="card-action-group">
+                        <div class="action-btn-row">
+                            <a href="./02_各章生成资料_第一册/第5章_资讯系统与网络概述/01_精准复习笔记/高中资讯科技_第5章_资讯系统与网络概述_图文交互复习Web网页版.html" target="_self" class="btn-action btn-note">
+                                进入复习 ➔
+                            </a>
+                            <a href="./02_各章生成资料_第一册/第5章_资讯系统与网络概述/高中资讯科技_第1册_第5章_资讯系统与网络概述_历届真题新纲重构测验.html" target="_self" class="btn-action btn-exam">
+                                📝 历届真题重构题库
+                            </a>
                         </div>
-                        <a href="./02_各章生成资料_第一册/第5章_资讯系统与网络概述/01_精准复习笔记/高中资讯科技_第5章_资讯系统与网络概述_图文交互复习Web网页版.html" target="_self" class="card-btn">
-                            进入复习 ➔
-                        </a>
                     </div>
                 </article>
 
                 <!-- 第 6 章 -->
-                <article class="portal-card">
+                <article class="portal-card" id="card-b1-ch6">
                     <div class="card-top">
                         <div class="card-header-row">
                             <span class="card-ch-num ch-num-b1">第 1 册 · 第 6 章</span>
+                            <span class="card-spec-badge">🏷️ 统考新纲重构 · 80分卷</span>
                         </div>
                         <h3 class="card-title">资讯安全与社会责任</h3>
-                        <p class="card-summary">密码学基础（对称/非对称/哈希）、恶意软件类型、防火墙与入侵检测、社会工程学防御与安全备援机制。</p>
+                        <p class="card-summary">全量与增量备份灾备推演、恶性软件分类与WannaCry攻防、公共Wi-Fi防钓鱼、PAPA伦理框架与大马数码法规。</p>
                         <div class="feature-tags">
-                            <span class="ft-tag">公钥非对称加密</span>
-                            <span class="ft-tag">勒索软件</span>
-                            <span class="ft-tag">钓鱼防范</span>
-                            <span class="ft-tag">80 MCQ + 15 作答</span>
+                            <span class="ft-tag">数据容灾备份</span>
+                            <span class="ft-tag">恶性软件攻防</span>
+                            <span class="ft-tag">PAPA伦理准则</span>
+                            <span class="ft-tag">大马电脑犯罪法</span>
                         </div>
                     </div>
-                    <div class="card-bottom">
-                        <div class="card-meta-info">
-                            <span>配套：网络攻防实操模拟 + 解题</span>
+
+                    <!-- 核心交互入口 -->
+                    <div class="card-action-group">
+                        <div class="action-btn-row">
+                            <a href="./02_各章生成资料_第一册/第6章_资讯安全与社会责任/01_精准复习笔记/高中资讯科技_第6章_资讯安全与社会责任_图文交互复习Web网页版.html" target="_self" class="btn-action btn-note">
+                                进入复习 ➔
+                            </a>
+                            <a href="./02_各章生成资料_第一册/第6章_资讯安全与社会责任/高中资讯科技_第1册_第6章_资讯安全与社会责任_历届真题新纲重构测验.html" target="_self" class="btn-action btn-exam">
+                                📝 历届真题重构题库
+                            </a>
                         </div>
-                        <a href="./02_各章生成资料_第一册/第6章_资讯安全与社会责任/01_精准复习笔记/高中资讯科技_第6章_资讯安全与社会责任_图文交互复习Web网页版.html" target="_self" class="card-btn">
-                            进入复习 ➔
-                        </a>
                     </div>
                 </article>
             </div>

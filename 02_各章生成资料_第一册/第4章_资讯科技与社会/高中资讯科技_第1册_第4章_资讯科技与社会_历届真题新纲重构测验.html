@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一册 第 4 章 资讯科技与社会 ｜ 历届真题新纲重构在线测试系统</title>
+  <meta name="description" content="董总统编高中资讯科技第一册第4章《资讯科技与社会》历届统考真题新纲重构测试卷 · 满分80分 · 甲组20题机读自评 + 乙组5题官方评分量规精析">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+    :root {
+      --primary-blue: #1E3A8A;
+      --primary-indigo: #2563EB;
+      --primary-hover: #1D4ED8;
+      --bg-slate: #F8FAFC;
+      --border-slate: #E2E8F0;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --success-green: #10B981;
+      --success-bg: #ECFDF5;
+      --error-red: #EF4444;
+      --error-bg: #FEF2F2;
+      --warn-amber: #F59E0B;
+      --warn-bg: #FFFBEB;
+      --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-slate);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 76px;
+    }
+
+    /* 顶部导航状态栏 */
+    .exam-top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-slate);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .exam-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-back-home:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+      color: #ffffff !important;
+    }
+
+    .exam-title-group h1 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.2px;
+    }
+    .exam-badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--primary-indigo);
+      border: 1px solid #BFDBFE;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .exam-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-reset-practice {
+      background: #F1F5F9;
+      color: #475569;
+      border: 1px solid var(--border-slate);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-reset-practice:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    .instant-feedback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .badge-correct {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+    }
+    .badge-wrong {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* 主容器 */
+    .main-container {
+      max-width: 960px;
+      margin: 28px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* 试卷头部信息板 */
+    .paper-header-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 14px;
+      padding: 26px 30px;
+      margin-bottom: 26px;
+      box-shadow: var(--card-shadow);
+      border-left: 5px solid var(--primary-indigo);
+    }
+    .paper-header-card h2 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 8px;
+    }
+    .paper-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-slate);
+    }
+    .paper-meta-item strong {
+      color: var(--text-dark);
+    }
+
+    /* 组别标题横条 */
+    .section-banner {
+      background: linear-gradient(135deg, #1E3A8A, #2563EB);
+      color: #FFF;
+      padding: 14px 22px;
+      border-radius: 10px;
+      margin: 32px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+    .section-banner.section-qa {
+      background: linear-gradient(135deg, #0D9488, #0F766E);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+    }
+    .section-banner h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+    }
+    .section-banner span {
+      font-size: 12.5px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* 单选题卡片 */
+    .question-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.2s;
+    }
+    .question-card:hover {
+      border-color: #CBD5E1;
+    }
+
+    .q-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .q-badge-num {
+      background: #1E40AF;
+      color: #FFFFFF;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(30, 64, 175, 0.25);
+    }
+    .q-points {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+    .q-source-tag {
+      font-size: 11.5px;
+      color: #64748B;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .q-stem {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1E293B;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* 选项列表 */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border-slate);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #FFF;
+      user-select: none;
+    }
+    .option-item:hover {
+      background: #F8FAFC;
+      border-color: #94A3B8;
+    }
+    .option-item.selected {
+      border-color: var(--primary-indigo);
+      background: #EFF6FF;
+    }
+    .option-item.correct-answer {
+      border-color: var(--success-green) !important;
+      background: var(--success-bg) !important;
+    }
+    .option-item.wrong-answer {
+      border-color: var(--error-red) !important;
+      background: var(--error-bg) !important;
+    }
+
+    .opt-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #94A3B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .option-item.selected .opt-circle {
+      border-color: var(--primary-indigo);
+      background: var(--primary-indigo);
+      color: #FFF;
+    }
+    .option-item.correct-answer .opt-circle {
+      border-color: var(--success-green);
+      background: var(--success-green);
+      color: #FFF;
+    }
+    .option-item.wrong-answer .opt-circle {
+      border-color: var(--error-red);
+      background: var(--error-red);
+      color: #FFF;
+    }
+
+    .opt-text {
+      font-size: 14.5px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* 即时解析栏 */
+    .analysis-panel {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      background: #F8FAFC;
+      border-left: 4px solid var(--primary-indigo);
+      border-radius: 0 8px 8px 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .analysis-panel.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .analysis-header {
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+    }
+
+    /* 乙组作答题卡片（紧凑标准版） */
+    .qa-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+      border-top: 3px solid #0D9488;
+    }
+    .qa-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .qa-badge {
+      background: #0F766E;
+      color: #FFFFFF;
+      border: 1px solid #0F766E;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      font-weight: 700;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+
+    /* 情境案例与试题背景框 */
+    .qa-scenario-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 3.5px solid #0284C7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 8px 0 12px;
+    }
+    .qa-scenario-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0369A1;
+      margin-bottom: 6px;
+    }
+    .qa-scenario-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #1E293B;
+    }
+    .data-pill {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 参数标签条 */
+    .param-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed #CBD5E1;
+    }
+    .param-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .param-key {
+      color: #64748B;
+      font-size: 11.5px;
+    }
+    .param-val {
+      font-weight: 700;
+      color: #0F172A;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 子题紧凑列表排版 */
+    .sub-q-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .sub-q-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      transition: all 0.15s ease;
+    }
+    .sub-q-card:hover {
+      border-color: #CBD5E1;
+      background: #FBFDFE;
+    }
+    .sub-q-stem {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1E293B;
+    }
+    .sub-q-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0F766E;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 1px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+    .sub-q-text {
+      flex: 1;
+    }
+    .sub-q-score {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0D9488;
+      background: #F0FDFA;
+      border: 1px solid #99F6E4;
+      padding: 1px 6px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      margin-left: 6px;
+      margin-top: 2px;
+    }
+
+    /* 答题提示指引 */
+    .sub-q-guide {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #F8FAFC;
+      border-left: 2.5px solid #0284C7;
+      padding: 4px 8px;
+      margin: 6px 0 0 30px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.45;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* 评分量规与参考答案折叠面板 */
+    .rubric-toggle-btn {
+      background: #F0FDFA;
+      color: #0F766E;
+      border: 1px solid #99F6E4;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .rubric-toggle-btn:hover {
+      background: #CCFBF1;
+    }
+
+    .rubric-content {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: #FAFAFA;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .rubric-content.show {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .rubric-table th, .rubric-table td {
+      border: 1px solid #E2E8F0;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    .rubric-table th {
+      background: #F1F5F9;
+      color: #475569;
+      font-weight: 700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部状态栏 -->
+  <header class="exam-top-bar">
+    <div class="exam-nav-left">
+      <a href="../../index.html" class="btn-back-home">
+        <span>←</span> 返回总控大厅
+      </a>
+      <div class="exam-title-group">
+        <h1><span class="exam-badge">第一册 · 第 4 章</span>资讯科技与社会 ｜ 历届真题新纲重构测验</h1>
+      </div>
+    </div>
+    <div class="exam-nav-right">
+      <div id="score-pill" style="display:none; align-items:center; gap:6px; font-size:13px; font-weight:700; color:#1E40AF; background:#EFF6FF; border:1px solid #BFDBFE; padding:5px 12px; border-radius:20px;">
+        <span>🎯 已答正确：<span id="correct-count">0</span> / <span id="total-done">0</span></span>
+      </div>
+      <button class="btn-reset-practice" onclick="resetPractice()">
+        <span>🔄</span> 重置作答
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- 试卷信息板 -->
+    <section class="paper-header-card">
+      <h2>董总高中统考 · 资讯科技重构模考试卷</h2>
+      <p style="font-size:14px; color:#475569;">本卷严密对接董总《2027年高中统考资讯科技 模拟题》规范，全景考查资讯科技闭环定义、三大支柱（传感/电脑/通讯）、智能家居、微电子度量衡、现代工业机器人装配、数码化蔬菜大棚、丹尼尔·贝尔后工业社会理论、联合国WSIS原则宣言以及马来西亚电子政务与数码危机应对。</p>
+      <div class="paper-meta-row">
+        <div class="paper-meta-item">试卷结构：<strong>甲组选择题（20题/40分） + 乙组作答题（5题/40分）</strong></div>
+        <div class="paper-meta-item">卷面总分：<strong>80 分（可折合百分制）</strong></div>
+        <div class="paper-meta-item">评测模式：<strong>选择题即选即判 · 作答题配 4 栏评分量规</strong></div>
+        <div class="paper-meta-item">已作答：<strong><span id="answered-count">0</span> / 20 题</strong></div>
+      </div>
+    </section>
+
+    <!-- 甲组 单选题 -->
+    <div class="section-banner">
+      <h3>甲组：单项选择题（每题 2 分，共 40 分）</h3>
+      <span>即选即判 · 20 题共 40 分</span>
+    </div>
+
+    <!-- Q1 -->
+    <article class="question-card" id="card-q1">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 1 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">课本核心定义 · IT 数据处理闭环</span>
+      </div>
+      <div class="q-stem">1. 资讯科技（Information Technology, IT）涵盖了电脑与通讯技术的综合应用。根据课本定义，资讯科技在处理数据过程中的核心闭环链条是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(1, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">数据的收集、管理、处理和应用</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">单纯将纸质手稿扫描成位图图像并在显示器上静态展示</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅限于开发高级程序设计语言的编译系统与虚拟机代码</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">专门用于生产与装配各种消费级电子数码家电产品的机械外壳</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-1">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：课本第 112 页明确界定：资讯科技是运用电脑与通讯对数据进行“收集、管理、处理和应用”的各种科技总称。四大核心阶段缺一不可。<br>
+        <strong>B、C、D 错误</strong>：均属于以偏概全或偏离 IT 根本科学定义。</p>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="question-card" id="card-q2">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 2 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">人类传播史 · 文字出现的本质飞跃</span>
+      </div>
+      <div class="q-stem">2. 在人类资讯处理与传播的历史演进中，文字的出现标志着人类文明的一次重大质的飞跃。文字相比于早期口口相传的“语音传播”，其最关键的本质突破在于：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(2, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">必须完全依赖于无线电磁波的高频电磁脉冲进行远距离中继</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">将资讯从瞬时的语音传播转变为可长久留存的视觉传播，使思维表达能够流传得更远、更深、更长久</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">彻底杜绝了一切由于传抄疏漏导致的文字错误与歧义</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">使得全球各地的所有民族能够瞬间使用完全统一的二进制机器代码进行无障碍沟通</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-2">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：语言传播受限于声音的物理衰减，转瞬即逝。文字的出现实现了从“语音传播”向“视觉传播”的跨越，使得人类对实体、思绪与情感的表达能够突破时空阻隔，长久传承。<br>
+        <strong>A、C、D 错误</strong>：均与文字发明的科学历史事实不符。</p>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="question-card" id="card-q3">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 3 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">电信技术演进 · 电磁波与广播电视</span>
+      </div>
+      <div class="q-stem">3. 19世纪电磁学理论的成熟与电磁波的发现，催生了广播与电视科技（Multimedia）的繁荣。这一阶段的重大突破主要体现在哪个方面？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(3, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">人类首次完全消除了个人电脑在处理微观数据时的散热瓶颈</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">彻底取代了所有学校的面对面课堂教学，全面推行自动化无人机远程监考</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">使人们能够突破物理距离与时间限制，同时接收由电磁波传送的图像、音频和视频等多媒体资讯</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">彻底禁止了任何形式的纸质印刷书刊与手写信件在民间的自由邮寄</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-3">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：课本第 113 页指出，电磁波的应用使人们能够跨越千山万水，同时接收由电磁波传送的图像、音频与视频等多媒体资讯，“距离不再是获取资讯的障碍，时间也不再是绊脚石”。<br>
+        <strong>A、B、D 错误</strong>：均为编造的不实陈述。</p>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="question-card" id="card-q4">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 4 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">纳米与集成电路 · 芯片微型化赋能</span>
+      </div>
+      <div class="q-stem">4. 现代数码化设备正沿着纳米技术与千兆规模集成电路（GSI）方向迅速演进。这种芯片微型化技术给现代日常家居与个人数码产品带来的最显著变化是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(4, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">导致芯片电力能耗剧增，普通家庭必须配备工业级特高压变压器方可驱动智能家电</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">芯片集成度越高，其体积反而成倍膨胀，导致智能手机重量超过数公斤</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">使得传统家电完全丧失联网能力，退化为仅支持单一手动物理机械按键控制</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">芯片体积越小、能耗越低且性能越强，使传统单一功能的家电产品能够同时处理多种不同的复合任务</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-4">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：纳米技术与高密度集成使得芯片“体积越小、能耗越低、性能越强、功能越多”。传统家电嵌入芯片后突破了单一机械功能，实现复杂多任务并行处理。<br>
+        <strong>A、B、C 错误</strong>：与微型化、低功耗及智能化的技术趋势完全相反。</p>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="question-card" id="card-q5">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 5 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">智能家居典范 · 智能冰箱复合能力</span>
+      </div>
+      <div class="q-stem">5. 许多智能家电已经深度融入人们的日常生活。例如，课本中介绍的“智能冰箱”，除了具备基础冷藏食材的功能外，还展现出何种“数码化与网络化融合”的典型能力？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(5, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">估算空间使用量并调控温度、统计特定食材消耗并自动线上添购补货，以及实时监控温湿度与杀毒灭菌</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">自动变形为多旋翼无人机飞赴社区超市进行线下实物提货与运送</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">自动为全家人编写年度个人所得税申报表格并向税务局申请退税</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">自动接管市政自来水管道的加压水泵以保障社区消防供水</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-5">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：课本第 115 页详细记载智能冰箱三大功能：① 调控温度并估算空间；② 统计特定食材消耗并自动线上补货；③ 实时监控温湿度并杀毒灭菌。<br>
+        <strong>B、C、D 错误</strong>：脱离家电功能的荒诞选项。</p>
+      </div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="question-card" id="card-q6">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 6 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">声控与声纹 · 语音指令鉴权</span>
+      </div>
+      <div class="q-stem">6. 语音声控（Speech Recognition）技术已普遍应用于车载多媒体与智能音箱。关于现代语音声控系统的核心功能特性，下列哪项表述是完全正确的？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(6, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">只能对固定频率的高分贝拍手声或敲桌声做出通断电机械反应</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">可判断使用者通过语音下达的指令，并能识别不同使用者的声音特征差异（声纹），只接受特定使用者的声音指令</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">必须佩戴专业的有线高灵敏度喉部微震麦克风方可进行语义解析</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">系统在任何情况下均无法区分家庭中成年人与幼童的说话声调</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-6">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：现代语音识别不仅能语义解析口头指令，更能结合声音频谱特征识别声纹差异（声纹识别），实现专属身份鉴权。<br>
+        <strong>A、C、D 错误</strong>：低估了现代声控与声纹识别技术的成熟度。</p>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="question-card" id="card-q7">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 7 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">人脸感知高阶应用 · 表情与情绪分析</span>
+      </div>
+      <div class="q-stem">7. 许多智能手机和公共安防设备搭载了“人脸识别（Face Recognition）”技术。根据教材阐述，人脸识别系统通过高分辨率镜头拍摄面部，除了身份比对之外，甚至能够实现哪项高阶情绪感知？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(7, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">透视人体大脑内部各神经元轴突之间微伏级电讯号的传导路径</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">拍摄并深度分析人们当下的脸部表情及情绪状况（如专注、疲倦或愉悦等）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">瞬间分析出被摄者体内胃肠道的消化吸收速度与血糖精确数值</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">自动推算出被摄者未来十年内的个人职业生涯规划与收入曲线</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-7">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：课本第 116 页明确指出，现代人脸视觉技术不仅用于身份识别，更能“通过镜头拍摄脸部表情，甚至分析当下情绪状况（如疲劳驾驶预警）”。<br>
+        <strong>A、C、D 错误</strong>：非光学视觉摄像头所能检测的虚假伪科学选项。</p>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="question-card" id="card-q8">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 8 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">大数据画像 · 个性化广告精准推送</span>
+      </div>
+      <div class="q-stem">8. 现代互联网平台普遍推行基于大数据的“个性化广告推送”。其背后的核心工作机制是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(8, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">强制性锁定所有用户的移动终端荧幕并随机轮播无差别电视商业广告</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">依靠数万名人工审核员通过偷听电话录音逐字手工整理用户的购物需求</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">彻底清除后台服务器上留存的一切用户历史搜索与点击浏览行为数据</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">通过汇聚并深度分析客户的历史搜索习惯、浏览偏好与消费行为，推送或推荐具有高度针对性的服务或产品</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-8">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：广告系统通过收集海量用户的网络搜索、浏览痕迹与消费行为，利用大数据建模形成用户画像，从而精准推送客制化广告服务。<br>
+        <strong>A、B、C 错误</strong>：均非大数据个性化推荐的机制。</p>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="question-card" id="card-q9">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 9 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考核心考点 · 资讯科技的三大支柱</span>
+      </div>
+      <div class="q-stem">9. 课本明确指出，在现代资讯科技的宏大技术体系中，有三项关键技术共同并称为“资讯科技的三大支柱”。这三大支柱指的是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(9, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">机械制造技术、材料化工技术与建筑土木技术</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">传感技术、电脑技术与通讯技术</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">蒸汽动力技术、水力发电技术与核能利用技术</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">手工雕版技术、造纸工艺技术与油墨配方技术</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-9">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：课本 4.1.3 节明确强调：“传感技术、电脑技术与通讯技术一起被称为资讯科技的三大支柱”，分别承担感知、运算与传输职责。<br>
+        <strong>A、C、D 错误</strong>：混淆了传统工业或印刷手工业技术。</p>
+      </div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="question-card" id="card-q10">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 10 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">课本事实考点 · 微电子微米与纳米单位换算</span>
+      </div>
+      <div class="q-stem">10. 微电子技术是现代资讯处理系统的关键组成部分。其空间物理尺寸通常以微米（μm）和纳米（nm）为度量单位。根据公制国际单位制定义，下列换算完全正确的是哪一项？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(10, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">1 μm = 10⁻³ m，1 nm = 10⁻⁶ m</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">1 μm = 10⁻⁶ m，1 nm = 10⁻⁹ m</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">1 μm = 10⁻⁹ m，1 nm = 10⁻¹² m</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">1 μm = 10⁻⁴ m，1 nm = 10⁻⁸ m</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-10">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：1 微米 (μm) = 10⁻⁶ 米；1 纳米 (nm) = 10⁻⁹ 米。课本第 117 页有明确换算标注。<br>
+        <strong>A、C、D 错误</strong>：数量级指数计算错误。</p>
+      </div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="question-card" id="card-q11">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 11 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">汽车传感技术 · 倒车雷达防撞效能</span>
+      </div>
+      <div class="q-stem">11. 在现代汽车的主动安全控制系统中，倒车超声波传感器在车辆运作过程中所发挥的核心效能是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(11, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">将车辆尾气排放中的二氧化碳浓度实时压缩并就地转化为固体干冰</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">自动提升发动机喷油嘴的燃油喷射压力以实现极限制动飘移</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">实时感测车辆后方是否有障碍物或行人靠近，显著减少驾驶视觉盲点并提升倒车安全性</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">在车辆熄火后自动通过车载无线电向周边所有住宅广播轻音乐</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-11">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：课本第 119 页图 4.13(a) 明确说明：倒车超声波传感器感应车后障碍物或行人距离，发出告警，消除视觉盲点。<br>
+        <strong>A、B、D 错误</strong>：均为不合常理的虚构干扰项。</p>
+      </div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="question-card" id="card-q12">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 12 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">高端计算装备 · 超级电脑应用场景</span>
+      </div>
+      <div class="q-stem">12. 在现代高端计算设备序列中，通常被用于国家级海量数据中心、执行卫星地形测绘数据还原三维地形图（3D Map）或气象复杂数值预测的运算速度最快的电脑是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(12, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">普通桌面微型电脑（Desktop PC）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">便携式平板电脑（Tablet PC）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">运算最快速的超级电脑（Supercomputer）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">嵌入在电子石英手表内的超低功耗微控制器（MCU）</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-12">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：课本第 120 页明确列出超级电脑（Supercomputer）负责承担高吞吐卫星遥感 3D 还原、核聚变与气象数值预测等极端科研任务。<br>
+        <strong>A、B、D 错误</strong>：算力等级相差数个数量级。</p>
+      </div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="question-card" id="card-q13">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 13 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">智能制造实操 · 工业机器人作业场景</span>
+      </div>
+      <div class="q-stem">13. 随着工业自动化与智能制造的普及，企业大量采用工业机器人代替人类从事各种繁重和危险作业。下列哪组任务属于工业机器人最典型的工业现场作业？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(13, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">点焊、弧焊、电子装配、工业喷漆与精密打磨</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">代表企业参加跨国法庭的法律纠纷口头质询与法理辩论</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">负责学校教导处对中学生进行全面的心理辅导与谈心疏导</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">独立进行具有复杂叙事结构与细腻人类情感的长篇文学小说原创写作</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-13">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：课本第 123 页指出，工业机器人（机器手臂）广泛用于流水线执行焊接、装配、喷漆、搬运等高负荷、重复性或有毒高危工业作业。<br>
+        <strong>B、C、D 错误</strong>：属于复杂人类伦理、情感与法律思辨领域。</p>
+      </div>
+    </article>
+
+    <!-- Q14 -->
+    <article class="question-card" id="card-q14">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 14 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">智慧农业装备 · 数码化蔬菜大棚调控</span>
+      </div>
+      <div class="q-stem">14. 在现代智慧农业生产中，“数码化蔬菜大棚”相比于传统露天菜地能够实现显著稳产增产。其核心技术应用方式是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(14, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">严禁使用任何电力与数码设备，纯粹依靠传统农夫人工经验进行肉眼判断</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">将蔬菜幼苗全封闭置于地下深处，仅依靠普通手电筒的弱光进行夜间照射</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">实时监控大棚内空气和土壤的温湿度、光照强度等参数，并由控制系统自动联动调节灌溉与温控设施</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">利用人工降雨炮弹直接改变本地区全年的宏观季风气候系统</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-14">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：数码化大棚通过传感器网络实时监测空气与土壤温湿度、光照度，并由电脑中控系统自动调节滴灌、风机与遮阳棚，实现精准农业。<br>
+        <strong>A、B、D 错误</strong>：均非数码化蔬菜大棚的应用方式。</p>
+      </div>
+    </article>
+
+    <!-- Q15 -->
+    <article class="question-card" id="card-q15">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 15 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">社会学名家理论 · 丹尼尔·贝尔资讯社会理论</span>
+      </div>
+      <div class="q-stem">15. 1959年美国社会学家丹尼尔·贝尔首次提出“后工业社会”概念，并于1973年出版专著系统阐述其内涵。贝尔明确指出，“后工业社会”的实质形态就是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(15, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">农耕自然经济社会</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">资讯社会（Information Society）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">蒸汽机重工业垄断社会</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">原始采集狩猎部落社会</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-15">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：课本第 127 页指出，丹尼尔·贝尔在 1973 年出版的《后工业社会的来临》中明确断言：后工业社会就是“资讯社会 (Information Society)”。<br>
+        <strong>A、C、D 错误</strong>：混淆了人类文明的历史阶段。</p>
+      </div>
+    </article>
+
+    <!-- Q16 -->
+    <article class="question-card" id="card-q16">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 16 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 1 · 冲绳宪章与弥合数码鸿沟</span>
+      </div>
+      <div class="q-stem">16.【罗马组合题 1】 2000年八国集团首脑共同发表了《全球资讯社会冲绳宪章》。关于该宪章所阐述的核心精神与主张，下列哪些项是客观真实的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 建设全球资讯化社会，大力促进资讯通讯科技发展，缩小国家间与地区间的发展差距（弥合数码鸿沟）<br>
+      Ⅱ. 资讯通讯科技的发展极大改变了人们生活、学习和工作方式，是世界经济增长的重要动力<br>
+      Ⅲ. 资讯科技带来的变革使个人和社会能更好地使用知识和智慧，从而充分发挥潜能、实现理想<br>
+      Ⅳ. 要求全球所有国家立即关闭所有民用公网通信，全面转入战时局域封闭网络模式</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(16, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅱ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-16">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>（仅 Ⅰ、Ⅱ、Ⅲ）：<br>
+        Ⅰ、Ⅱ、Ⅲ 均为《冲绳宪章》核心纲领，旨在促进 ICT 发展并弥合数码鸿沟；<br>
+        <strong>Ⅳ 错误</strong>：宪章倡导开放包容的全球互联，绝非关闭公网。</p>
+      </div>
+    </article>
+
+    <!-- Q17 -->
+    <article class="question-card" id="card-q17">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 17 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 2 · WSIS 世界资讯社会峰会原则宣言</span>
+      </div>
+      <div class="q-stem">17.【罗马组合题 2】 联合国《世界资讯社会峰会》（WSIS，2003日内瓦/2005突尼斯）发表的《原则宣言》中，确立了建设现代资讯社会的基本准则。下列哪些表述完全符合该宣言的倡导？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 以人为本、包容性和全面发展是资讯社会的基本原则<br>
+      Ⅱ. 资讯社会的好处必须普惠每一个社会阶层，承认多样性并包容个性化<br>
+      Ⅲ. 资讯社会是可持续发展的社会，既满足当代人需求，也不对未来社会发展产生负面影响，发展与环保并重<br>
+      Ⅳ. 资讯和知识成为资讯社会最重要的核心战略资源</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(17, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-17">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：四项陈述均准确再现了联合国 WSIS《原则宣言》的四大基石：以人为本、全阶层普惠包容、可持续绿色发展以及资讯/知识核心战略地位。</p>
+      </div>
+    </article>
+
+    <!-- Q18 -->
+    <article class="question-card" id="card-q18">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 18 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 3 · 资讯经济与网络社会四大特征</span>
+      </div>
+      <div class="q-stem">18.【罗马组合题 3】 资讯社会具有四大鲜明特征。关于“资讯经济”与“网络社会”这两大特征的叙述，下列哪些项是正确的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 资讯经济是以资讯与知识的生产、分配、拥有及使用为主要特征，以创新为驱动力的新型经济形态<br>
+      Ⅱ. 资讯经济展现出人力资源知识化、发展方式可持续、产业结构软化及经济水平发达四大特征<br>
+      Ⅲ. 网络社会的最典型社会特征是网络化，表现在资讯服务的可获得性与社会发展的全面性两个方面<br>
+      Ⅳ. 网络社会强调人与自然和谐共生，注重生态环境保护与节能减排，利用风能、太阳能等清洁绿色能源为科技设施供电</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(18, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-18">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：四项陈述分别精准归纳了课本第 129~130 页对“资讯经济”内涵特征以及“网络社会”在网络化、全面性与绿色可持续维度的法定阐述。</p>
+      </div>
+    </article>
+
+    <!-- Q19 -->
+    <article class="question-card" id="card-q19">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 19 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 4 · 马来西亚在线政府电子政务</span>
+      </div>
+      <div class="q-stem">19.【罗马组合题 4】 马来西亚政府在推行“在线政府（电子政务）”的进程中取得了一系列显著成果。下列哪些案例真实反映了我国在线政府在“公开透明、高效治理与互动参与”方面的实践？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 推出 Portal MyGovernment 官方综合门户，向民众公开政府资讯并提供政务指南<br>
+      Ⅱ. 开发电子报税系统（ezHASiL），让全体受薪人士直接在网上便捷申报缴纳个人所得税<br>
+      Ⅲ. 国民可以通过马来西亚国家登记局线上系统申请与更新大马卡（MyKad）<br>
+      Ⅳ. 推出 MyJPJ 手机应用程序，方便国民即时查询陆路交通局驾照、车辆路税等数字证件与互动业务</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(19, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-19">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：四项陈述均准确对应课本第 131 页记载的大马电子政务标杆成果：Portal MyGovernment（含报税与身份证业务）及 MyJPJ 移动应用，体现了高效透明的数字化公共行政治理。</p>
+      </div>
+    </article>
+
+    <!-- Q20 -->
+    <article class="question-card" id="card-q20">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 20 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考罗马题 5 · 网络危机防范与资讯素养</span>
+      </div>
+      <div class="q-stem">20.【罗马组合题 5】 资讯科技的迅猛发展极大地提升了生活品质，但同时也催生了一系列网络危机与社会隐忧。针对这些潜在风险，下列哪些应对措施是科学且合理的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      Ⅰ. 面对网络虚假新闻泛滥，应通过官方机构（如 sebenarnya.my）核查资讯来源，并查阅多个独立信源交叉比对<br>
+      Ⅱ. 在网购时应查阅商家信誉评价、保留完整交易电子凭证，遇货不对版或商业欺诈时向官方消协渠道投诉<br>
+      Ⅲ. 在即时通讯中不随意点击来历不明的超链接，不泄露个人银行账户敏感讯息，有效核实对方真实身份<br>
+      Ⅳ. 遭遇网络群组霸凌与恶意攻击时，不进行言语对骂，完整截取霸凌言论证据并向师长、监护人或平台举报</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(20, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅲ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 Ⅰ、Ⅱ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 Ⅰ、Ⅲ、Ⅳ</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ 全部正确</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-20">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：四项陈述均是课本规范的成熟网络安全与数码危机防范指南：官方辟谣查证、网购凭证维权、防范钓鱼诈骗以及理性应对网络霸凌。</p>
+      </div>
+    </article>
+
+    <!-- 乙组 作答题 -->
+    <div class="section-banner section-qa">
+      <h3>乙组：综合情境作答题（共 5 题，满分 40 分）</h3>
+      <span>官方评分量规 · 5 题共 40 分</span>
+    </div>
+
+    <!-- QA 1 -->
+    <article class="qa-card" id="qa-card-1">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 1 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · 资讯科技三大支柱在智能网联车中的工程协同</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【智能汽车工程情境】</div>
+        <div class="qa-scenario-text">
+          现代新能源智能汽车搭载了自动紧急制动（AEB）系统，高度集成了微电子芯片、毫米波雷达与车载网络总线，是资讯科技核心技术的集大成者。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">核心三大支柱:</span> <span class="param-val">传感、电脑、通讯</span></div>
+          <div class="param-tag"><span class="param-key">主动安全系统:</span> <span class="param-val">自动紧急制动 (AEB)</span></div>
+          <div class="param-tag"><span class="param-key">底层支撑:</span> <span class="param-val">微电子高度集成化芯片</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">请写出被称为“资讯科技三大支柱”的三项关键技术名称。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：传感技术、电脑技术、通讯技术。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">详细阐述这三大支柱在一辆 AEB 智能汽车运行过程中是如何紧密协同配合以避免碰撞事故的。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：传感器探障（感知） ➔ 车载电脑高速决策（运算） ➔ 网络总线指令毫秒下达制动（通讯传输）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">微电子技术将多个电子功能集成于芯片中。根据课本阐述，这种高度集成化对车载电子产品具有哪三项主要好处？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：缩小尺寸、降低功耗、提高产品可靠性与多功能性（任写两点即给满分）。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa1')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa1">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 资讯科技三大支柱：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          <strong>传感技术</strong>（1分）、<strong>电脑技术</strong>（1分）与 <strong>通讯技术</strong>（1分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) AEB 自动紧急制动避撞工程协同：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>传感技术</strong>：车载毫米波雷达/激光雷达/摄像头充当“眼睛”，实时探知前方障碍物、车辆距离与相对车速（1分）；<br>
+          ② <strong>电脑技术</strong>：车载电脑（ECU）对传感器数据进行高速运算，评估碰撞风险并果断下达刹车决策指令（1分）；<br>
+          ③ <strong>通讯技术</strong>：利用车载网络总线在毫秒级内将制动控制电信号传输至制动执行器，并向云端/后车广播告警（1分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 高度集成化对车载电子的三大好处：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>缩小产品物理尺寸</strong>；② <strong>显著降低系统电力功耗</strong>；③ <strong>提高产品工作可靠性与复合多功能性</strong>。（答出任意两点即得满分2分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 三大支柱名称</td>
+              <td>准确写出三大法定术语</td>
+              <td>传感技术(1分)、电脑技术(1分)、通讯技术(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) AEB 协同逻辑</td>
+              <td>完整阐明感知、计算、传输</td>
+              <td>传感探知障碍(1分)；电脑计算风险决策(1分)；通讯网络毫秒传输指令制动(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) 微电子芯片好处</td>
+              <td>写明体积、能耗与可靠性</td>
+              <td>缩小尺寸、降低功耗、提高可靠性/多功能性（任写两项满分）</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 2 -->
+    <article class="qa-card" id="qa-card-2">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 2 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · 智慧医疗远程协作与可穿戴健康监测</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【乡村急救与慢病监测情境】</div>
+        <div class="qa-scenario-text">
+          某偏远乡村卫生所接诊疑似突发急性心肌梗塞危重患者，当地专科资源匮乏，医生通过网络向千公里外大型医院请求即时支援，并在患者出院后建议其佩戴智能手环。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">远程医疗:</span> <span class="param-val">病理云端共享 + 在线专家会诊</span></div>
+          <div class="param-tag"><span class="param-key">可穿戴设备:</span> <span class="param-val">心率与血氧连续监测</span></div>
+          <div class="param-tag"><span class="param-key">理念转变:</span> <span class="param-val">被动求医转向日常主动预防</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">当地医生如何借助电脑网络系统向大型教学医院专家请求即时救治支援？写出两项具体方式。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：心电图与医学影像实时上传共享；多方高清视频在线联合会诊指导急救。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">智能手表等可穿戴智能设备主要能够为该患者提供哪些生理体征的实时监测功能？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：实时心率检测、血氧饱和度检测、睡眠与运动素质分析（写出心率与血氧满分）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">可穿戴健康设备的广泛普及对国民个人的疾病防治理念带来了怎样根本性的积极转变？</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：由“患病后被动去医院”向“日常主动预防与实时自我监测”转变，做到早发现、早干预。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa2')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa2">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 远程医疗救治支援的两项具体方式：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>临床病理数据与医学影像实时云共享</strong>：通过电脑网络将心电图、血液化验及医学影像实时上传至云端病历系统供专家查阅（1.5分）；<br>
+          ② <strong>多地专家远程高清在线联合会诊</strong>：通过远程视频医疗平台连线心脏专科专家，指导现场开展急救溶栓措施（1.5分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 可穿戴设备的核心监测指标：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>实时心率监测 (Heart Rate)</strong>；② <strong>血氧饱和度监测 (SpO₂)</strong>；③ 睡眠质量与运动步数记录。（答对心率和血氧两项核心指标即给满分2分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 防治理念的根本性积极转变：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          实现了从传统的<strong>“生病后被动就医求药”</strong>向现代的<strong>“日常主动预防、健康自主管理与实时监测”</strong>的根本转变（2分）；使公众随时掌握生理数据，及早识别异常并干预调整生活方式，达到“早预警、早防治”（1分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 远程医疗方式</td>
+              <td>答出云影像与在线会诊</td>
+              <td>影像心电图云共享(1.5分)；远程专家视频联合会诊指导(1.5分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 可穿戴监测指标</td>
+              <td>答中心率与血氧参数</td>
+              <td>心率实时检测(1分)；血氧饱和度检测(1分)</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(c) 防治理念升维</td>
+              <td>阐述被动转主动预防</td>
+              <td>从被动就医转为日常主动预防与自我健康监测，早预警早治疗</td>
+              <td>3分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 3 -->
+    <article class="qa-card" id="qa-card-3">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 3 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · 现代智慧农业无人协同立体作业</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【大型智慧农场作业情境】</div>
+        <div class="qa-scenario-text">
+          某大型农业种植基地引进了数码化蔬菜大棚、农业无人机以及配备全球卫星导航系统的无人驾驶收割机，全面推行智慧农业模式。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">数码大棚:</span> <span class="param-val">环境物理参数实时闭环监控</span></div>
+          <div class="param-tag"><span class="param-key">植保无人机:</span> <span class="param-val">人药分离 + 昼夜高效均匀喷洒</span></div>
+          <div class="param-tag"><span class="param-key">卫星无人机车:</span> <span class="param-val">规整无漏割协同收割</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">在“数码化蔬菜大棚”中，中央控制系统需要实时监控大棚内的哪些关键环境物理参数？列举三项。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：空气温度、空气湿度、土壤温湿度、光照强度（任写三项）。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">相比传统手工施肥喷药，利用农业无人机植保作业具有哪些显著优势？试从人身安全与作业效率两个方面作答。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：人身安全（人药分离，避免农药中毒与高温中暑）；作业效率（昼夜巡飞、喷洒均匀、效率提升数十倍）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">结合课本阐述，无人驾驶农机与全球卫星导航系统的结合，对大规模农作物收割带来了怎样的质量与效率提升？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：卫星高精度规划轨迹，笔直行进避免漏割与重复割，多机协同作业。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa3')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa3">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 数码化蔬菜大棚关键监控参数：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>空气温度</strong>；② <strong>空气湿度</strong>；③ <strong>土壤温湿度（含养分）</strong>；④ <strong>光照强度</strong>；⑤ <strong>二氧化碳浓度</strong>。（每答对一项得1分，任选三项得满分3分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 农业无人机作业双重优势：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>人身安全层面</strong>：实现“人药分离”，彻底避免农民暴晒以及直接吸入有毒化学农药导致急性或慢性中毒损伤（1.5分）；<br>
+          ② <strong>作业效率层面</strong>：无人机飞行速度快、雾化均匀且可昼夜巡飞作业，单机作业效率是传统手工的数十倍（1.5分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 卫星导航无人驾驶收割优势：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          农机依托厘米级卫星定位沿着规划路线笔直行进，<strong>彻底消除了人工驾驶导致的重复割与漏收现象</strong>（1分）；中控台可同时指挥调度多台无人农机开展网格化协同作业，效率极大提升（1分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 大棚物理参数</td>
+              <td>写出三项大棚传感参数</td>
+              <td>空气温湿度、土壤温湿度、光照强度（任写三项得满分）</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 安全与效率</td>
+              <td>兼顾人药分离与高吞吐效率</td>
+              <td>人身安全避免农药中毒(1.5分)；效率高/均匀雾化/昼夜作业(1.5分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) 卫星农机协同</td>
+              <td>阐述轨迹精准与避免漏割</td>
+              <td>路径规整消除漏割与重叠(1分)；多机协同指挥高效收割(1分)</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 4 -->
+    <article class="qa-card" id="qa-card-4">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 4 · 共 8 分</span>
+        <span class="q-source-tag">核心考点 · 在线政府四大特征与大马电子政务实践</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【电子政务与抗疫应用情境】</div>
+        <div class="qa-scenario-text">
+          在线政府（电子政务）是资讯科技应用于公共行政的新型模式。2020年大马卫生部推出 MySejahtera 应用程式精准溯源，国民亦通过 Portal MyGovernment 办理所得税申报与大马卡更新。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">核心特征:</span> <span class="param-val">数据决策/公开透明/高效治理/互动参与</span></div>
+          <div class="param-tag"><span class="param-key">典型案例:</span> <span class="param-val">MySejahtera 疫情精准追踪</span></div>
+          <div class="param-tag"><span class="param-key">行政效益:</span> <span class="param-val">无纸化减负 + 办事效率集约</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">课本指出，一个高效的在线政府具有四大核心特征。请完整写出这四大特征。</div>
+            <span class="sub-q-score">[4 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：① 精准的数据决策；② 公开透明；③ 高效治理；④ 互动参与。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">结合在线政府的特征，阐述 MySejahtera 手机应用程式是如何发挥“精准的数据决策”作用的。</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：收集每日健康打卡与定位数据，后台大数据精准锁定感染链与密切接触者身份。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">公民通过官方综合门户（Portal MyGovernment）在线申报所得税或申请大马卡，为政府部门带来了哪些直接行政益处？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：改变繁琐纸质手工办理；大大减缓公务员文书负荷，显著提升行政集约化效率。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa4')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa4">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 在线政府的四大核心特征：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>精准的数据决策</strong>（1分）<br>
+          ② <strong>公开透明</strong>（1分）<br>
+          ③ <strong>高效治理</strong>（1分）<br>
+          ④ <strong>互动参与</strong>（1分）
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) MySejahtera “精准数据决策”运作机制：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          通过汇聚全国民众每日健康自查与场所扫码打卡数据，卫生部在后台大数据系统中<strong>即时分析疫情扩散链条，精准识别感染者与密切接触者身份</strong>，为全国医疗资源科学调配与精准防疫管控提供客观数据支撑（2分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 门户在线服务为政府带来的直接行政益处：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① 彻底革新了传统纸质文件手工层层盖章核对的繁琐模式，构建集约化电子行政体系（1分）；<br>
+          ② 大大削减公务员的人工文书输入工作量，规避人为录入失误，<strong>显著提高政府办事行政效率与服务公众水平</strong>（1分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 四大特征全写</td>
+              <td>规范写出四大标准术语</td>
+              <td>精准的数据决策(1分)、公开透明(1分)、高效治理(1分)、互动参与(1分)</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>(b) 数据精准决策</td>
+              <td>阐述打卡数据与密接追踪</td>
+              <td>汇聚打卡健康数据，大数据精准分析传播链与锁定密切接触者</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(c) 政府行政效益</td>
+              <td>阐明文书减负与效率提升</td>
+              <td>改变传统手工办理模式(1分)；减缓文书工作量/提高行政办事效率(1分)</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 5 -->
+    <article class="qa-card" id="qa-card-5">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 5 · 共 8 分</span>
+        <span class="q-source-tag">高阶思维反思 · 资讯素养、无纸化转型与文明绑定</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【数码社会文明反思情境】</div>
+        <div class="qa-scenario-text">
+          在资讯社会中，人们面临“海量资讯真伪难辨”、企业“无纸张化办公推进”以及“现代人类社会高度绑定资讯科技无法脱离”的深层文明思考。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">资讯核查:</span> <span class="param-val">官方信源 + 多方交叉比对</span></div>
+          <div class="param-tag"><span class="param-key">无纸办公:</span> <span class="param-val">云存储 + 规范文件架构 + 安全</span></div>
+          <div class="param-tag"><span class="param-key">深度绑定:</span> <span class="param-val">庞大人口资源调配不可脱离</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">课本官方解答推荐了哪三项具体的资讯核查技巧，以减少网络资讯鱼龙混杂的问题？</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：① 官方机构权威网站核验；② 多方独立信源交叉比对；③ 善用技术检索工具（如高级搜索/图片溯源）。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">企业若想成功实施无纸张化办公（Paperless Office），必须切实落实哪两项核心保障措施？</div>
+            <span class="sub-q-score">[2 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：善用云端存储随时协作、建立良善规范的档案架构、员工技能观念培训、严密的数据安全措施（任写两点）。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">为何现代人类社会已经与资讯科技紧密绑定且无法抛弃它？从现代人口规模调控或社会生存模式质变任选一角度给出深刻解释。</div>
+            <span class="sub-q-score">[3 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：人口规模视角（现代海量人口聚集，唯有靠 IT 算力调配粮食水电与交通资源）；生存模式视角（金融/办公/运转完全架构在数码网络，深度嵌套无法脱离）。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa5')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa5">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 网络海量资讯核查的三大技巧：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>权威信源核验</strong>：检查资讯来源是否正规，优先以政府与权威机构发布为准（如 sebenarnya.my）（1分）；<br>
+          ② <strong>多方交叉比对</strong>：查阅多个相关的独立可信平台，对核心数据与事实进行多源交叉互证（1分）；<br>
+          ③ <strong>善用技术检索工具</strong>：利用搜索引擎的高级语法、以图搜图反向溯源等功能，寻找信息最早源头（1分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 成功落实无纸化办公的两项核心保障措施：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>善用云端存储</strong>：搭建统一云盘，落实随时随地安全协同编辑与调阅；<br>
+          ② <strong>建立良善档案架构</strong>：制定规范的文件夹层级与标准化的档案命名规则；<br>
+          ③ <strong>严密的数据安全备份与权限防护</strong>；<br>
+          ④ <strong>员工无纸化操作技能与数字化素养培训</strong>。（写出任意两点即给满分2分）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 现代社会高度绑定资讯科技的原理解释（任选一角度）：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          • <strong>【现代人口规模与资源调度视角】</strong>：现代全球人口数十倍于古代，城市人口密集，对食物供给、公共卫生、电网调度与交通流转的组织复杂度呈指数级爆炸。唯有借助资讯科技的超高运算力与实时网络调度，才能支撑如此庞大人口的动态物资调配与社会秩序运转。脱离 IT，庞大的现代社会体系将在瞬息间发生系统性瘫痪（3分）。<br>
+          • <strong>【生存协作模式深度嵌套视角】</strong>：现代社会已经彻底完成了数字化基础设施重构。金融支付、医疗档案、国际供应链、现代教育与政务治理均完全构建在电脑网络之上。资讯科技已深深融入现代文明的毛细血管，现代人类的生产与生存协作模式已不可逆地与其深度绑定（3分）。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 资讯核查技巧</td>
+              <td>答出官方信源与交叉核实</td>
+              <td>官方机构核验(1分)；多方交叉比对(1分)；善用技术工具溯源(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 无纸化核心保障</td>
+              <td>答出云存储、档案架构或安全</td>
+              <td>云端存储、良善档案架构、员工技能培训、安全备份措施（任选两项）</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(c) 文明绑定深度反思</td>
+              <td>深入论述人口调配或数码嵌套</td>
+              <td>人口庞大唯有靠IT算力精确调配资源/生存模式完全架构于网络不可逆转</td>
+              <td>3分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+  </main>
+
+  <script>
+    // 董总统考历届真题标准答案表 (第一册 第 4 章 资讯科技与社会)
+    const correctAnswers = {
+      1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'A',
+      6: 'B', 7: 'B', 8: 'D', 9: 'B', 10: 'B',
+      11: 'C', 12: 'C', 13: 'A', 14: 'C', 15: 'B',
+      16: 'A', 17: 'D', 18: 'D', 19: 'D', 20: 'D'
+    };
+
+    let userAnswers = {};
+
+    // 即选即判核心交互
+    function selectOption(qid, choice) {
+      const card = document.getElementById(`card-q${qid}`);
+      if (!card) return;
+
+      const correctChoice = correctAnswers[qid];
+      const options = card.querySelectorAll('.option-item');
+      const analysis = document.getElementById(`analysis-${qid}`);
+
+      userAnswers[qid] = choice;
+
+      options.forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+        const circle = opt.querySelector('.opt-circle');
+        const optLetter = circle ? circle.innerText.trim() : '';
+
+        if (optLetter === correctChoice) {
+          opt.classList.add('correct-answer');
+        } else if (optLetter === choice && choice !== correctChoice) {
+          opt.classList.add('wrong-answer');
+        }
+      });
+
+      if (analysis) {
+        let feedbackEl = analysis.querySelector('.instant-feedback-badge');
+        if (!feedbackEl) {
+          feedbackEl = document.createElement('div');
+          feedbackEl.className = 'instant-feedback-badge';
+          analysis.insertBefore(feedbackEl, analysis.firstChild);
+        }
+
+        if (choice === correctChoice) {
+          feedbackEl.className = 'instant-feedback-badge badge-correct';
+          feedbackEl.innerHTML = '✅ 回答正确！得分 +2分';
+        } else {
+          feedbackEl.className = 'instant-feedback-badge badge-wrong';
+          feedbackEl.innerHTML = `❌ 回答错误！您的选择是 <strong>${choice}</strong>，正确答案是 <strong>${correctChoice}</strong>`;
+        }
+
+        analysis.classList.add('show');
+      }
+
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answeredKeys = Object.keys(userAnswers);
+      const totalAnswered = answeredKeys.length;
+      let corrects = 0;
+      answeredKeys.forEach(qid => {
+        if (userAnswers[qid] === correctAnswers[qid]) {
+          corrects++;
+        }
+      });
+
+      const countEl = document.getElementById('answered-count');
+      if (countEl) countEl.innerText = totalAnswered;
+
+      const scorePill = document.getElementById('score-pill');
+      if (scorePill) {
+        if (totalAnswered > 0) {
+          scorePill.style.display = 'inline-flex';
+          const correctEl = document.getElementById('correct-count');
+          const totalEl = document.getElementById('total-done');
+          if (correctEl) correctEl.innerText = corrects;
+          if (totalEl) totalEl.innerText = totalAnswered;
+        } else {
+          scorePill.style.display = 'none';
+        }
+      }
+    }
+
+    function resetPractice() {
+      if (!confirm('确定要清空作答记录并重新练习吗？')) return;
+      userAnswers = {};
+      document.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+      });
+      document.querySelectorAll('.analysis-panel').forEach(panel => {
+        panel.classList.remove('show');
+        const badge = panel.querySelector('.instant-feedback-badge');
+        if (badge) badge.remove();
+      });
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 展开/折叠评分量规 (乙组作答题)
+    function toggleRubric(id) {
+      const box = document.getElementById(`rubric-${id}`);
+      if (box) box.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

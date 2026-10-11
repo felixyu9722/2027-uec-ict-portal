@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一册 第 1 章 认识数据 ｜ 历届真题新纲重构在线测试系统</title>
+  <meta name="description" content="董总统编高中资讯科技第一册第1章《认识数据》历届统考真题新纲重构测试卷 · 满分70分 · 甲组15题机读自评 + 乙组4题官方评分量规精析">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+    :root {
+      --primary-blue: #1E3A8A;
+      --primary-indigo: #2563EB;
+      --primary-hover: #1D4ED8;
+      --bg-slate: #F8FAFC;
+      --border-slate: #E2E8F0;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --success-green: #10B981;
+      --success-bg: #ECFDF5;
+      --error-red: #EF4444;
+      --error-bg: #FEF2F2;
+      --warn-amber: #F59E0B;
+      --warn-bg: #FFFBEB;
+      --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-slate);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 76px;
+    }
+
+    /* 顶部导航状态栏 */
+    .exam-top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-slate);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .exam-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-back-home:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+      color: #ffffff !important;
+    }
+
+    .exam-title-group h1 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.2px;
+    }
+    .exam-badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--primary-indigo);
+      border: 1px solid #BFDBFE;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .exam-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-reset-practice {
+      background: #F1F5F9;
+      color: #475569;
+      border: 1px solid var(--border-slate);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-reset-practice:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    .instant-feedback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .badge-correct {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+    }
+    .badge-wrong {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* 主容器 */
+    .main-container {
+      max-width: 960px;
+      margin: 28px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* 试卷头部信息板 */
+    .paper-header-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 14px;
+      padding: 26px 30px;
+      margin-bottom: 26px;
+      box-shadow: var(--card-shadow);
+      border-left: 5px solid var(--primary-indigo);
+    }
+    .paper-header-card h2 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 8px;
+    }
+    .paper-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-slate);
+    }
+    .paper-meta-item strong {
+      color: var(--text-dark);
+    }
+
+    /* 组别标题横条 */
+    .section-banner {
+      background: linear-gradient(135deg, #1E3A8A, #2563EB);
+      color: #FFF;
+      padding: 14px 22px;
+      border-radius: 10px;
+      margin: 32px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+    .section-banner h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+    }
+    .section-banner span {
+      font-size: 12.5px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* 单选题卡片 */
+    .question-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.2s;
+    }
+    .question-card:hover {
+      border-color: #CBD5E1;
+    }
+
+    .q-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .q-badge-num {
+      background: #1E40AF;
+      color: #FFFFFF;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(30, 64, 175, 0.25);
+    }
+    .q-points {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+    .q-source-tag {
+      font-size: 11.5px;
+      color: #64748B;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .q-stem {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1E293B;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* 选项列表 */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border-slate);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #FFF;
+      user-select: none;
+    }
+    .option-item:hover {
+      background: #F8FAFC;
+      border-color: #94A3B8;
+    }
+    .option-item.selected {
+      border-color: var(--primary-indigo);
+      background: #EFF6FF;
+    }
+    .option-item.correct-answer {
+      border-color: var(--success-green) !important;
+      background: var(--success-bg) !important;
+    }
+    .option-item.wrong-answer {
+      border-color: var(--error-red) !important;
+      background: var(--error-bg) !important;
+    }
+
+    .opt-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #94A3B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .option-item.selected .opt-circle {
+      border-color: var(--primary-indigo);
+      background: var(--primary-indigo);
+      color: #FFF;
+    }
+    .option-item.correct-answer .opt-circle {
+      border-color: var(--success-green);
+      background: var(--success-green);
+      color: #FFF;
+    }
+    .option-item.wrong-answer .opt-circle {
+      border-color: var(--error-red);
+      background: var(--error-red);
+      color: #FFF;
+    }
+
+    .opt-text {
+      font-size: 14.5px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* 即时解析栏 */
+    .analysis-panel {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      background: #F8FAFC;
+      border-left: 4px solid var(--primary-indigo);
+      border-radius: 0 8px 8px 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .analysis-panel.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .analysis-header {
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+    }
+
+    /* 乙组作答题卡片与题目排版重构 */
+    /* 乙组作答题卡片与题目排版（紧凑优雅版） */
+    .qa-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+      border-top: 3px solid #0D9488;
+    }
+    .qa-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .qa-badge {
+      background: #0F766E;
+      color: #FFFFFF;
+      border: 1px solid #0F766E;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      font-weight: 700;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+
+    /* 情境案例与试题背景框（紧凑） */
+    .qa-scenario-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 3.5px solid #0284C7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 8px 0 12px;
+    }
+    .qa-scenario-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0369A1;
+      margin-bottom: 6px;
+    }
+    .qa-scenario-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #1E293B;
+    }
+    .data-pill {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 已知条件参数标签条（紧凑） */
+    .param-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed #CBD5E1;
+    }
+    .param-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .param-key {
+      color: #64748B;
+      font-size: 11.5px;
+    }
+    .param-val {
+      font-weight: 700;
+      color: #0F172A;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 子题紧凑列表排版 */
+    .sub-q-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .sub-q-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      transition: all 0.15s ease;
+    }
+    .sub-q-card:hover {
+      border-color: #CBD5E1;
+      background: #FBFDFE;
+    }
+    .sub-q-stem {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1E293B;
+    }
+    .sub-q-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0F766E;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 1px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+    .sub-q-text {
+      flex: 1;
+    }
+    .sub-q-score {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0D9488;
+      background: #F0FDFA;
+      border: 1px solid #99F6E4;
+      padding: 1px 6px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      margin-left: 6px;
+      margin-top: 2px;
+    }
+
+    /* 答题提示与考点指引（紧凑） */
+    .sub-q-guide {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #F8FAFC;
+      border-left: 2.5px solid #0284C7;
+      padding: 4px 8px;
+      margin: 6px 0 0 30px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.45;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* 填空题答题格（紧凑） */
+    .sub-item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 6px 0 0 30px;
+    }
+    .fill-blank-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 4px 10px;
+      border-radius: 5px;
+      font-size: 13px;
+      color: #1E293B;
+    }
+    .blank-slot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      height: 22px;
+      background: #FFFFFF;
+      border: 1px dashed #94A3B8;
+      border-radius: 4px;
+      color: #64748B;
+      font-size: 11.5px;
+      padding: 0 8px;
+    }
+
+    /* 步骤引导列表（紧凑） */
+    .step-guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 6px;
+      margin: 6px 0 0 30px;
+    }
+    .step-guide-item {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-top: 2px solid #0284C7;
+      padding: 5px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.45;
+    }
+    .step-guide-item strong {
+      color: #0284C7;
+      display: block;
+      margin-bottom: 2px;
+      font-size: 12px;
+    }
+
+    /* 展开量规按钮（紧凑） */
+    .btn-toggle-rubric {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F1F5F9;
+      color: #0F172A;
+      border: 1px solid var(--border-slate);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-toggle-rubric:hover {
+      background: #E2E8F0;
+      color: #0D9488;
+    }
+
+    .rubric-box {
+      display: none;
+      margin-top: 10px;
+      padding: 14px 16px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .rubric-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    /* 4 栏评分量规表格 */
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    .rubric-table th, .rubric-table td {
+      border: 1px solid #CBD5E1;
+      padding: 10px 12px;
+      text-align: left;
+      line-height: 1.55;
+    }
+    .rubric-table th {
+      background: #EBF8FF;
+      color: #1E3A8A;
+      font-weight: 700;
+    }
+    .rubric-table tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+
+    /* 规范化参考答案排版组件 */
+    .ans-card {
+      background: #FFFFFF;
+      border: 1px solid #CCFBF1;
+      border-left: 4px solid #0D9488;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 18px;
+    }
+    .ans-card-header {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0F766E;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ans-sub-block {
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #E2E8F0;
+    }
+    .ans-sub-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .ans-sub-title {
+      font-weight: 700;
+      color: #1E293B;
+      font-size: 14px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .score-badge {
+      display: inline-block;
+      background: #E0F2FE;
+      color: #0369A1;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 4px;
+    }
+    .calc-step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 8px 0;
+    }
+    .calc-step-row {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 13.5px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .calc-formula {
+      font-family: 'Fira Code', monospace;
+      font-weight: 600;
+      color: #0F172A;
+    }
+    .flow-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-top: 6px;
+      font-size: 13px;
+    }
+    .flow-node {
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+      color: #1E3A8A;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    .flow-proc {
+      color: #0D9488;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .flow-arrow {
+      color: #94A3B8;
+      font-weight: 800;
+    }
+
+    /* 模态弹窗 */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.show {
+      display: flex;
+    }
+    .modal-card {
+      background: #FFF;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 520px;
+      padding: 30px 32px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    .modal-score {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--primary-indigo);
+      margin: 14px 0 6px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 固定顶部导航栏 -->
+  <header class="exam-top-bar">
+    <div class="exam-nav-left">
+      <a href="../../../index.html#book1" class="btn-back-home">
+        ⬅ 返回总控大厅
+      </a>
+      <div class="exam-title-group">
+        <span class="exam-badge">第一册 · 第 1 章</span>
+        <h1>认识数据 (Data Essentials) ｜ 历届真题重构题库</h1>
+      </div>
+    </div>
+    <div class="exam-nav-right">
+      <div class="progress-pill">
+        练习进度：<span id="answered-count" style="color: var(--primary-indigo); font-weight: 700;">0</span> / 15 题
+      </div>
+      <div class="progress-pill" id="score-pill" style="display: none;">
+        当前正确率：<span id="correct-count" style="color: var(--success-green); font-weight: 700;">0</span> / <span id="total-done">0</span>
+      </div>
+      <button class="btn-reset-practice" onclick="resetPractice()" title="清空选择并重新练习">
+        🔄 重置练习
+      </button>
+    </div>
+  </header>
+
+  <!-- 主试卷容器 -->
+  <main class="main-container">
+
+    <!-- 试卷头标信息 -->
+    <div class="paper-header-card">
+      <h2>董总统编《高中资讯科技》新纲分章重构题库</h2>
+      <p style="color: #475569; font-size: 14.5px;">
+        严格对齐 2026/2027 董总统考新课本《认识数据》考纲规范 · 深度融合 2017–2025 历届高中统考真题
+      </p>
+      <div class="paper-meta-row">
+        <div class="paper-meta-item">题库总分：<strong>70 分</strong></div>
+        <div class="paper-meta-item">题型分布：<strong>甲组单选题 15 题（30分） ｜ 乙组综合问答 4 题（40分）</strong></div>
+        <div class="paper-meta-item">学习模式：<strong>即选即判（点击任意选项立即揭晓正误与深度解析）</strong></div>
+        <div class="paper-meta-item">存储基准：<strong>1 KB = 1024 Bytes</strong></div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 甲组：单项选择题 -->
+    <!-- ========================================== -->
+    <div class="section-banner">
+      <h3>甲组：单项选择题（共 15 题，每题 2 分，共 30 分）</h3>
+      <span>即选即判 · 点击选项立现正误与解析</span>
+    </div>
+
+    <!-- 题目列表由 JS 或 HTML 模板渲染 -->
+    <div id="mcq-container">
+      <!-- Q1 -->
+      <article class="question-card" id="card-q1" data-qid="1" data-ans="A">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 1 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2023-P1-30 / DIKW 模型</span>
+        </div>
+        <div class="q-stem">
+          气象监测卫星上的辐射传感器直接采集并传输回地面的连续红外线数值读数（如：`298.15`、`298.40`），在资讯科学认知体系中，这些读数属于下列哪一层次？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(1, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">原始数据 (Raw Data)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(1, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">语境资讯 (Information)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(1, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">专业知识 (Knowledge)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(1, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">决断智慧 (Wisdom)</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-1">
+          <div class="analysis-header">【标准答案】：A ｜ 核心考点：DIKW 认知层级</div>
+          <p><strong>【破题解析】</strong>：传感器直接探测到的原始数值未经过任何统计整理、背景赋予或逻辑解释，属于纯粹的“原始数据 (Raw Data)”。当其结合地理坐标与时间戳转化为气温分布图时才成为“资讯”；进一步结合气象学规律推导台风路径则升华为“知识”。</p>
+        </div>
+      </article>
+
+      <!-- Q2 -->
+      <article class="question-card" id="card-q2" data-qid="2" data-ans="B">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 2 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2020-P2-4 / 数据处理过程</span>
+        </div>
+        <div class="q-stem">
+          某独中教务处收集了全校 1200 名学生的每日晨检体温数据，经过软体汇总、统计与筛选后，生成了一份《各班级体温异常学生名单与追踪趋势图》。这一过程体现了资讯科学中的哪一核心概念？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(2, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">编码还原 (Decoding)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(2, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">数据处理 (Data Processing)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(2, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">模数转换 (ADC)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(2, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">数据压缩 (Data Compression)</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-2">
+          <div class="analysis-header">【标准答案】：B ｜ 核心考点：数据加工转化为资讯</div>
+          <p><strong>【破题解析】</strong>：利用电脑对杂乱的原始数据进行收集、录入、排序、汇总、筛选并生成图表或报表，这一将数据转化为有用资讯的完整流程被称为“数据处理 (Data Processing)”。</p>
+        </div>
+      </article>
+
+      <!-- Q3 -->
+      <article class="question-card" id="card-q3" data-qid="3" data-ans="C">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 3 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2025-P1-26 / GIGO 原理</span>
+        </div>
+        <div class="q-stem">
+          某医院挂号处职员在输入病患资料时，不慎将病患的年龄“18”岁误录入为“81”岁，导致系统自动为该青年开具了老年心血管专属体检套餐。这种因输入错误数据而必然导致错误输出结果的现象，在电脑科学中被称为什么？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(3, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">摩尔定律 (Moore's Law)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(3, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">木桶效应 (Buckets Effect)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(3, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">垃圾进，垃圾出 (Garbage In, Garbage Out / GIGO)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(3, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">溢出错误 (Overflow Error)</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-3">
+          <div class="analysis-header">【标准答案】：C ｜ 核心考点：GIGO 原理</div>
+          <p><strong>【破题解析】</strong>：GIGO（Garbage In, Garbage Out）是电脑科学著名的基本法则：即使计算机算法和程序逻辑完全无误，如果输入的初始数据本身存在错误或劣质，计算机系统也绝不可能产出正确的结果。</p>
+        </div>
+      </article>
+
+      <!-- Q4 -->
+      <article class="question-card" id="card-q4" data-qid="4" data-ans="C">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 4 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2018-P1-01 / 二进制物理特性</span>
+        </div>
+        <div class="q-stem">
+          现代电子数字电脑的底层硬件电路普遍采用“二进制 (Binary)”来进行数据表示与运算，其最根本的物理原因是：
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(4, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">二进制比十进制能表达更多的数值种类</div>
+          </div>
+          <div class="option-item" onclick="selectOption(4, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">人类从古至今最习惯使用二进制进行口算</div>
+          </div>
+          <div class="option-item" onclick="selectOption(4, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">电子元器件天然具有两种稳定物理状态（如高低电平、开与关），物理实现成本最低且最稳定可靠</div>
+          </div>
+          <div class="option-item" onclick="selectOption(4, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">二进制代码在网络光纤传输中完全不受光波衰减影响</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-4">
+          <div class="analysis-header">【标准答案】：C ｜ 核心考点：二进制底层物理机制</div>
+          <p><strong>【破题解析】</strong>：半导体晶体管具有导通与截止、电压高与低两种天然稳定物理状态，恰好完美映射二进制中的数字 1 和 0。采用二进制能最大程度抵御环境杂讯干扰，降低硬件制造成本并提高计算稳定性。</p>
+        </div>
+      </article>
+
+      <!-- Q5 -->
+      <article class="question-card" id="card-q5" data-qid="5" data-ans="B">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 5 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2023-P1-03 / 十六进制按权展开</span>
+        </div>
+        <div class="q-stem">
+          若将十六进制数 (2B)₁₆ 转换为十进制数，其正确的结果应为：
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(5, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">41</div>
+          </div>
+          <div class="option-item" onclick="selectOption(5, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">43</div>
+          </div>
+          <div class="option-item" onclick="selectOption(5, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">45</div>
+          </div>
+          <div class="option-item" onclick="selectOption(5, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">54</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-5">
+          <div class="analysis-header">【标准答案】：B ｜ 核心考点：数制转换按权展开</div>
+          <p><strong>【破题解析】</strong>：在十六进制中，字母 B 代表十进制数 11。采用位权按权展开法计算：(2B)₁₆ = 2 × 16¹ + 11 × 16⁰ = 32 + 11 = 43。因此正确答案选 B。</p>
+        </div>
+      </article>
+
+      <!-- Q6 -->
+      <article class="question-card" id="card-q6" data-qid="6" data-ans="C">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 6 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2024-P1-02 / 编码位元位数计算</span>
+        </div>
+        <div class="q-stem">
+          某独中全校共有 850 名高中生。校方若要为每位学生编配一个长度固定且独一无二的“纯二进制学号”，则该二进制编码至少需要多少个位元 (bits)？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(6, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">8 个位元</div>
+          </div>
+          <div class="option-item" onclick="selectOption(6, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">9 个位元</div>
+          </div>
+          <div class="option-item" onclick="selectOption(6, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">10 个位元</div>
+          </div>
+          <div class="option-item" onclick="selectOption(6, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">11 个位元</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-6">
+          <div class="analysis-header">【标准答案】：C ｜ 核心考点：2ⁿ 组合状态容量计算</div>
+          <p><strong>【破题解析】</strong>：设需要 n 位二进制位元，根据排列组合公式必须满足 2ⁿ ≥ 850。计算可知：2⁹ = 512 < 850（无法容纳 850 人）；2¹⁰ = 1024 > 850（完全足够）。因此至少需要 10 个位元。</p>
+        </div>
+      </article>
+
+      <!-- Q7 -->
+      <article class="question-card" id="card-q7" data-qid="7" data-ans="B">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 7 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2021-P1-07 / 字符编码位数</span>
+        </div>
+        <div class="q-stem">
+          电脑键盘上包含 26 个大写英文字母和 26 个小写英文字母，总共 52 个不同字符。若要为这 52 个英文字母设计一套专用的二进制代码，每个字母占用相同长度的位元，则至少需要多少位元 (bits) 才能保证每个字母都有唯一的代码？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(7, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">5 个位元</div>
+          </div>
+          <div class="option-item" onclick="selectOption(7, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">6 个位元</div>
+          </div>
+          <div class="option-item" onclick="selectOption(7, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">7 个位元</div>
+          </div>
+          <div class="option-item" onclick="selectOption(7, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">8 个位元</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-7">
+          <div class="analysis-header">【标准答案】：B ｜ 核心考点：字母字符编码位元计算</div>
+          <p><strong>【破题解析】</strong>：总字符数为 52。5 个位元最多表示 2⁵ = 32 个字符（不够用）；6 个位元最多表示 2⁶ = 64 个字符，64 > 52，满足要求。因此至少需要 6 个位元。</p>
+        </div>
+      </article>
+
+      <!-- Q8 -->
+      <article class="question-card" id="card-q8" data-qid="8" data-ans="C">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 8 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2019-P1-07 / ASCII 码偏移推算</span>
+        </div>
+        <div class="q-stem">
+          已知标准 ASCII 码表中，大写英文字母 'A' 的十进制码值为 65。请根据英文字母在 ASCII 码表中的连续编码规律，推算出大写英文字母 'M' 的十进制码值应为：
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(8, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">75</div>
+          </div>
+          <div class="option-item" onclick="selectOption(8, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">76</div>
+          </div>
+          <div class="option-item" onclick="selectOption(8, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">77</div>
+          </div>
+          <div class="option-item" onclick="selectOption(8, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">78</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-8">
+          <div class="analysis-header">【标准答案】：C ｜ 核心考点：ASCII 字母连续顺序推导</div>
+          <p><strong>【破题解析】</strong>：在 26 个英文字母表中，'M' 是第 13 个字母，与 'A' 的偏移量差值为 13 - 1 = 12。因此 'M' 的 ASCII 码值 = 65 + 12 = 77。正确答案为 C。</p>
+        </div>
+      </article>
+
+      <!-- Q9 -->
+      <article class="question-card" id="card-q9" data-qid="9" data-ans="C">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 9 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2021-P1-08 / ASCII 存储容量换算</span>
+        </div>
+        <div class="q-stem">
+          某纯英文文本文件内仅包含纯 ASCII 字符，总字符数为 500 个（含英文字母、标点符号及空格）。若不计文件系统头信息的额外开销，该文本文件在磁碟中实际占用的纯数据存储空间为：
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(9, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">250 Bytes</div>
+          </div>
+          <div class="option-item" onclick="selectOption(9, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">500 bits</div>
+          </div>
+          <div class="option-item" onclick="selectOption(9, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">500 Bytes</div>
+          </div>
+          <div class="option-item" onclick="selectOption(9, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">1000 Bytes</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-9">
+          <div class="analysis-header">【标准答案】：C ｜ 核心考点：ASCII 字符存储容量计算</div>
+          <p><strong>【破题解析】</strong>：在计算机中，标准 ASCII 码每个字符固定占用 1 个字节 (1 Byte = 8 bits)。500 个 ASCII 字符占用的纯存储空间为 500 × 1 Byte = 500 Bytes。选 C。</p>
+        </div>
+      </article>
+
+      <!-- Q10 -->
+      <article class="question-card" id="card-q10" data-qid="10" data-ans="D">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 10 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2025-P1-08 / 存储容量单位指数换算</span>
+        </div>
+        <div class="q-stem">
+          在电脑存储容量单位换算中，1 TB（Terabyte）精确等于多少位元组（Bytes）？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(10, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">2¹⁰ 位元组 (Bytes)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(10, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">2²⁰ 位元组 (Bytes)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(10, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">2³⁰ 位元组 (Bytes)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(10, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">2⁴⁰ 位元组 (Bytes)</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-10">
+          <div class="analysis-header">【标准答案】：D ｜ 核心考点：二进制存储进率指数推导</div>
+          <p><strong>【破题解析】</strong>：计算机二进制进率按 1024 = 2¹⁰ 递增：1 KB = 2¹⁰ B；1 MB = 2²⁰ B；1 GB = 2³⁰ B；1 TB = 2⁴⁰ B。因此 1 TB 精确等于 2⁴⁰ Bytes。正确答案选 D。</p>
+        </div>
+      </article>
+
+      <!-- Q11 -->
+      <article class="question-card" id="card-q11" data-qid="11" data-ans="D">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 11 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2019-P1-08 / Unicode 与 UTF-8 辨析</span>
+        </div>
+        <div class="q-stem">
+          下列关于现代字符编码“统一码 (Unicode)”与“UTF-8”的叙述中，哪一项是<strong>错误</strong>的？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(11, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">Unicode 旨在为全球所有书写语言中的每一个字符设定统一且唯一的二进制编码</div>
+          </div>
+          <div class="option-item" onclick="selectOption(11, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">UTF-8 是目前互联网上应用最广泛的 Unicode 可变长度字符编码实现方式</div>
+          </div>
+          <div class="option-item" onclick="selectOption(11, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">在 UTF-8 编码下，标准英文字符仅占用 1 个字节，与 ASCII 码完全向下兼容</div>
+          </div>
+          <div class="option-item" onclick="selectOption(11, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">无论遇到任何文字符号，UTF-8 编码一律强制使用 4 个字节进行固定长度存储</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-11">
+          <div class="analysis-header">【标准答案】：D ｜ 核心考点：可变长度编码 UTF-8 特性</div>
+          <p><strong>【破题解析】</strong>：UTF-8 是典型的“可变长度 (Variable-length)”编码方式：ASCII 英文字符仅占 1 字节，希腊文阿拉伯文占 2 字节，常用汉字占 3 字节，罕见特殊符号才占 4 字节。绝非一律强制使用 4 字节。故 D 错误，当选。</p>
+        </div>
+      </article>
+
+      <!-- Q12 -->
+      <article class="question-card" id="card-q12" data-qid="12" data-ans="C">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 12 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：新课本第 15–17 页 / 图像类型比较</span>
+        </div>
+        <div class="q-stem">
+          多媒体资讯中，图像通常分为“点阵图 (Bitmap)”与“向量图 (Vector)”。下列关于这两类图像特性的比较，正确的是：
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(12, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">点阵图由数学几何公式与控制点定义，无限放大后边缘依然平滑无锯齿</div>
+          </div>
+          <div class="option-item" onclick="selectOption(12, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">向量图由网格状像素 (Pixel) 阵列构成，放大显示时容易出现马赛克模糊失真</div>
+          </div>
+          <div class="option-item" onclick="selectOption(12, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">照片、扫描图等多层次色彩的真实图像通常采用点阵图格式进行存储</div>
+          </div>
+          <div class="option-item" onclick="selectOption(12, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">点阵图文件的存储容量通常比相同分辨率的向量图文件小得多</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-12">
+          <div class="analysis-header">【标准答案】：C ｜ 核心考点：点阵图 vs 向量图特性</div>
+          <p><strong>【破题解析】</strong>：A 描述的是向量图；B 描述的是点阵图；D 错误（点阵图需记录每个像素色彩，通常体积大于公式描述的向量图）。照片因色彩细腻连续，必须精确记录每个点，故普遍采用点阵图。正确答案为 C。</p>
+        </div>
+      </article>
+
+      <!-- Q13 -->
+      <article class="question-card" id="card-q13" data-qid="13" data-ans="B">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 13 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2020-P1-18 / ADC 模数转换三步骤</span>
+        </div>
+        <div class="q-stem">
+          将自然界中连续变化的声波（类比信号）转换为电脑能够处理的数码音频（数码信号），必须经过模数转换 (ADC)。该转换过程的标准三步骤顺序是：
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(13, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">量化 (Quantization) ➔ 取样 (Sampling) ➔ 编码 (Encoding)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(13, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">取样 (Sampling) ➔ 量化 (Quantization) ➔ 编码 (Encoding)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(13, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">编码 (Encoding) ➔ 取样 (Sampling) ➔ 量化 (Quantization)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(13, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">取样 (Sampling) ➔ 编码 (Encoding) ➔ 量化 (Quantization)</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-13">
+          <div class="analysis-header">【标准答案】：B ｜ 核心考点：模数转换 (ADC) 标准工序</div>
+          <p><strong>【破题解析】</strong>：音频数字化三步曲：1. 取样（按固定时间间隔测量振幅）；2. 量化（将连续模拟振幅转换为离散量化阶梯整数）；3. 编码（将量化整数转换为二进制位元序列）。正确顺序为“取样 ➔ 量化 ➔ 编码”，选 B。</p>
+        </div>
+      </article>
+
+      <!-- Q14 -->
+      <article class="question-card" id="card-q14" data-qid="14" data-ans="A">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 14 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：2024-P1-10 / 常见数据压缩格式</span>
+        </div>
+        <div class="q-stem">
+          在日常数字化学习生活中，我们经常接触到多种格式的文件。下列各组文件格式中，全部属于<strong>有损压缩 (Lossy Compression)</strong> 的是：
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(14, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">JPEG, MP3, MP4</div>
+          </div>
+          <div class="option-item" onclick="selectOption(14, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">PNG, FLAC, ZIP</div>
+          </div>
+          <div class="option-item" onclick="selectOption(14, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">GIF, WAV, RAR</div>
+          </div>
+          <div class="option-item" onclick="selectOption(14, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">BMP, TXT, PDF</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-14">
+          <div class="analysis-header">【标准答案】：A ｜ 核心考点：有损压缩格式辨识</div>
+          <p><strong>【破题解析】</strong>：JPEG（有损图像）、MP3（利用人耳听觉掩蔽效应的有损音频）、MP4/H.264（有损视频）全部属于有损压缩。PNG、FLAC、ZIP 均为无损格式；WAV 与 BMP 通常为未压缩原始格式。选 A。</p>
+        </div>
+      </article>
+
+      <!-- Q15 -->
+      <article class="question-card" id="card-q15" data-qid="15" data-ans="B">
+        <div class="q-top-row">
+          <div>
+            <span class="q-badge-num">第 15 题</span>
+            <span class="q-points">(2分)</span>
+          </div>
+          <span class="q-source-tag">真题溯源：新课本第 1.3 节 / 大数据“4V”特征</span>
+        </div>
+        <div class="q-stem">
+          现代叫车平台（如 Grab）每天需要实时接收数百万辆汽车的 GPS 经纬度位置更新，并在一秒之内匹配出最佳行车路径。在海量数据特征中，这种“数据生成与处理流转速度极快、对实时响应要求极高”的特点主要体现了大数据的哪一个“V”？
+        </div>
+        <div class="options-grid">
+          <div class="option-item" onclick="selectOption(15, 'A')">
+            <div class="opt-circle">A</div>
+            <div class="opt-text">大量性 (Volume)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(15, 'B')">
+            <div class="opt-circle">B</div>
+            <div class="opt-text">高速性 / 快速流转 (Velocity)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(15, 'C')">
+            <div class="opt-circle">C</div>
+            <div class="opt-text">多样性 (Variety)</div>
+          </div>
+          <div class="option-item" onclick="selectOption(15, 'D')">
+            <div class="opt-circle">D</div>
+            <div class="opt-text">真实性 (Veracity)</div>
+          </div>
+        </div>
+        <div class="analysis-panel" id="analysis-15">
+          <div class="analysis-header">【标准答案】：B ｜ 核心考点：大数据 4V 特征（Velocity）</div>
+          <p><strong>【破题解析】</strong>：大数据 4V 特征中：Volume 代表数据规模庞大；Velocity 代表产生与处理速度极快、时效性强；Variety 代表数据模态多样；Value/Veracity 代表价值密度与真实性。秒级实时匹配属于典型的 Velocity。选 B。</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 乙组：综合分析与计算作答题 -->
+    <!-- ========================================== -->
+    <div class="section-banner" style="background: linear-gradient(135deg, #0D9488, #0F766E); margin-top: 48px;">
+      <h3>乙组：综合分析与计算作答题（共 4 题，每题 10 分，共 40 分）</h3>
+      <span>含统考官方 4 栏标准评分量规 (Rubric)</span>
+    </div>
+
+    <!-- 作答题 1 -->
+    <article class="qa-card">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 1 · 共 10 分</span>
+        <span class="q-source-tag">真题溯源：2020-P2-4 / 数据与资讯体系深度应用</span>
+      </div>
+      <!-- 情境案例背景框 -->
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">
+          📌 【案例情境与已知数据】
+        </div>
+        <p class="qa-scenario-text">
+          某独中体育处为高一全体新生进行体能测试。体测老师使用红外线身高仪和电子体重秤，为学生林小明测得两组数值：身高 <span class="data-pill">175 cm</span>、体重 <span class="data-pill">61 kg</span>。随后，电脑程序利用公式计算出其身体质量指数（BMI）为 <span class="data-pill">19.9</span>，系统判定其处于“正常健康体重”范围，并向林小明自动推送了《高一学生均衡饮食与耐力训练指南》。
+        </p>
+        <div class="param-tags-row">
+          <span class="param-tag"><span class="param-key">采集数值</span> <span class="param-val">身高 175 cm，体重 61 kg</span></span>
+          <span class="param-tag"><span class="param-key">程序判断</span> <span class="param-val">BMI = 19.9（正常健康体重）</span></span>
+          <span class="param-tag"><span class="param-key">知识推送</span> <span class="param-val">《均衡饮食与耐力训练指南》</span></span>
+        </div>
+      </div>
+
+      <!-- 子题紧凑列表排版 -->
+      <div class="sub-q-container">
+        <!-- (a) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">请结合<strong>“数据、资讯与知识 (DIK)”</strong>认知层级理论，分别辨析上述情境中的三项内容属于哪一认知层次：</div>
+            <span class="sub-q-score">3 分</span>
+          </div>
+          <div class="sub-item-list">
+            <div class="fill-blank-row">
+              <span>① 仪器测得“身高 175 cm，体重 61 kg”：</span>
+              <span class="blank-slot">数据 / 资讯 / 知识</span>
+            </div>
+            <div class="fill-blank-row">
+              <span>② 系统生成“该学生 BMI 值为 19.9，处于健康体重范围”：</span>
+              <span class="blank-slot">数据 / 资讯 / 知识</span>
+            </div>
+            <div class="fill-blank-row">
+              <span>③ 系统推送《高一学生均衡饮食与耐力训练指南》：</span>
+              <span class="blank-slot">数据 / 资讯 / 知识</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- (b) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">若体测老师在键盘输入时粗心大意，将林小明的体重 <strong>61 kg</strong> 错误输入为 <strong>16 kg</strong>，导致系统判定其“严重营养不良并濒临休克风险”。请写出电脑科学中描述此现象的<strong>著名法则（中英文名称）</strong>，并简要阐述该法则对学校信息化数据管理的<strong>防错启示</strong>。</div>
+            <span class="sub-q-score">3 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>写出该法则中英文全称（1分），并从输入校验机制与录入审核管理两方面提出 2 点信息化防范启示（2分）。</div>
+        </div>
+
+        <!-- (c) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">请画出或用文字框图呈现由<strong>“数据 (Data)”</strong>经过电脑处理转化为<strong>“资讯 (Information)”</strong>并进一步构建<strong>“知识 (Knowledge)”</strong>的完整逻辑流转过程。</div>
+            <span class="sub-q-score">4 分</span>
+          </div>
+          <div class="sub-q-guide">📐 <strong>作答要求：</strong>框图须完整体现三层跃迁（数据 ➔ 资讯 ➔ 知识），并标出加工处理与经验总结关键动作。</div>
+        </div>
+      </div>
+
+      <button class="btn-toggle-rubric" onclick="toggleRubric(1)">
+        📋 展开独中统考官方 4 栏评分量规与参考答案 ▾
+      </button>
+
+      <div class="rubric-box" id="rubric-1">
+        <div class="ans-card">
+          <div class="ans-card-header">
+            💡 【参考答案与答题示范】
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(a) DIK 认知层次判定</strong> <span class="score-badge">共 3 分</span></div>
+            <p>① 仪器直接测得的客观数值为 <strong>原始数据 (Data)</strong>（1分）<br>
+               ② 经公式计算并赋予健康评价语境的结果为 <strong>语境资讯 (Information)</strong>（1分）<br>
+               ③ 结合医学规律与指导方案的实用指南为 <strong>实践知识 (Knowledge)</strong>（1分）</p>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(b) 著名法则与数据管理启示</strong> <span class="score-badge">共 3 分</span></div>
+            <p><strong>法则名称</strong>：<strong>GIGO 法则（Garbage In, Garbage Out / 垃圾进，垃圾出）</strong>（1分）。<br>
+               <strong>管理启示</strong>：系统输出的可靠性完全取决于输入数据的真实与准确性。学校信息化系统在数据采集录入阶段，必须增加<strong>防御性数据校验机制</strong>（例如设定合理的输入范围：<code>30 kg ≤ 体重 ≤ 200 kg</code>，若超出则弹窗报警拦截），并配合双人复核，从源头杜绝垃圾数据录入。（2分）</p>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(c) 数据 ➔ 资讯 ➔ 知识 逻辑流转关系</strong> <span class="score-badge">共 4 分</span></div>
+            <div class="flow-diagram">
+              <span class="flow-node">原始数据 (Data)</span>
+              <span class="flow-arrow">➔</span>
+              <span class="flow-proc">【电脑处理 / 录入运算 / 汇总筛选】</span>
+              <span class="flow-arrow">➔</span>
+              <span class="flow-node">语境资讯 (Information)</span>
+              <span class="flow-arrow">➔</span>
+              <span class="flow-proc">【人类逻辑归纳 / 经验体系 / 规律模式】</span>
+              <span class="flow-arrow">➔</span>
+              <span class="flow-node">决策知识 (Knowledge)</span>
+            </div>
+            <p style="font-size: 13px; color: #64748B; margin-top: 6px;">（层级流转逻辑严谨、转化环节说明清晰即给满分 4分）</p>
+          </div>
+        </div>
+        
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) DIK 判定</td>
+              <td>准确区分数据、资讯与知识</td>
+              <td>①数据(1分)；②资讯(1分)；③知识(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) GIGO 分析</td>
+              <td>准确写出法则名称及管理启示</td>
+              <td>写出 GIGO / 垃圾进垃圾出(1分)；答出“输入范围校验 / 防呆设计 / 源头数据复核”(2分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) 流转模型</td>
+              <td>正确展现三者转化递进关系</td>
+              <td>数据经处理加工变为资讯(2分)；资讯结合规律经验升华为知识(2分)</td>
+              <td>4分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 作答题 2 -->
+    <article class="qa-card">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 2 · 共 10 分</span>
+        <span class="q-source-tag">真题溯源：2023-P1-03 / 2024-P1-02 编码综合分析</span>
+      </div>
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">
+          📌 【知识背景与技术规范】
+        </div>
+        <p class="qa-scenario-text">
+          编码是计算机识别、存储与处理客观世界信息的通用数字化语言。在不同的计算情境中，需根据设备接口协议、容纳数据规模与国际标准化规范选用恰当的数制与编码规则。
+        </p>
+        <div class="param-tags-row">
+          <span class="param-tag"><span class="param-key">(a) 待解状态码</span> <span class="param-val">(2B)₁₆</span></span>
+          <span class="param-tag"><span class="param-key">(b) 待编码规模</span> <span class="param-val">850 名学生</span></span>
+          <span class="param-tag"><span class="param-key">(c) 基准 ASCII 码</span> <span class="param-val">'A' = 65₁₀</span></span>
+        </div>
+      </div>
+
+      <!-- 子题紧凑列表排版 -->
+      <div class="sub-q-container">
+        <!-- (a) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">某物联网传感器向微控制器发送了十六进制状态码 <span class="data-pill">(2B)₁₆</span>。请写出其<strong>按权展开计算式</strong>，并求出对应的<strong>十进制数值</strong>。</div>
+            <span class="sub-q-score">3 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>写出基数 16 的规范乘积展开式（注意字符 'B' 代表的值），最终计算出十进制数值。</div>
+        </div>
+
+        <!-- (b) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">某独中规划为全校 <strong>850 名学生</strong> 编配固定长度的纯二进制学号代码。请利用 <code>2ⁿ</code> 不等式列出计算推导过程，并求出该二进制学号至少需要的位元位数 <code>n</code>。</div>
+            <span class="sub-q-score">3 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>列出容量不等式 <code>2ⁿ ≥ 850</code>，通过列举相邻 2 的幂次方找到满足要求的最小整数 n。</div>
+        </div>
+
+        <!-- (c) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">在标准 ASCII 编码中，大写字母 <code>'A'</code> 的十进制码值为 <strong>65</strong>。请推算大写字母 <code>'M'</code> 的<strong>十进制码值</strong>与<strong>十六进制码值</strong>，并写出详细推导算式。</div>
+            <span class="sub-q-score">4 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>按字母表顺序位移计算十进制（2分），再使用除以 16 取余数法换算为十六进制字符（2分）。</div>
+        </div>
+      </div>
+
+      <button class="btn-toggle-rubric" onclick="toggleRubric(2)">
+        📋 展开独中统考官方 4 栏评分量规与参考答案 ▾
+      </button>
+
+      <div class="rubric-box" id="rubric-2">
+        <div class="ans-card">
+          <div class="ans-card-header">
+            💡 【参考答案与答题示范】
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(a) 十六进制按权展开计算</strong> <span class="score-badge">共 3 分</span></div>
+            <p>十六进制符号 <strong>B</strong> 代表数值 <strong>11</strong>。<br>
+               <strong>按权展开式</strong>：<br>
+               <code class="calc-formula">(2B)₁₆ = 2 × 16¹ + 11 × 16⁰ = 32 + 11 = 43</code><br>
+               （列出规范展开算式得 2分，最终计算得出十进制结果 43 得 1分，共 3分）</p>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(b) 学生学号二进制位元数计算</strong> <span class="score-badge">共 3 分</span></div>
+            <div class="calc-step-list">
+              <div class="calc-step-row">
+                <span>① 列出编码容量不等式：</span>
+                <span class="calc-formula">2ⁿ ≥ 850</span>
+                <span class="score-badge">+1分</span>
+              </div>
+              <div class="calc-step-row">
+                <span>② 邻近二进制阶幂代入推导：</span>
+                <span class="calc-formula">2⁹ = 512 &lt; 850 ； 2¹⁰ = 1024 &gt; 850</span>
+                <span class="score-badge">+1分</span>
+              </div>
+              <div class="calc-step-row">
+                <span>③ 确定满足条件的最小正整数：</span>
+                <span class="calc-formula">n = 10，即至少需要 10 个位元 (bits)</span>
+                <span class="score-badge">+1分</span>
+              </div>
+            </div>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(c) ASCII 码与十六进制换算</strong> <span class="score-badge">共 4 分</span></div>
+            <p>① <strong>十进制码值推导</strong>：字母 'M' 为英文第 13 个字母，相对于 'A' 的偏移量为 <code>13 - 1 = 12</code>。<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;十进制码值 = <code>65 + 12 = 77</code>（2分）。<br>
+               ② <strong>十六进制码值换算</strong>：使用除以 16 取余数法：<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;<code>77 ÷ 16 = 4 余 13</code>。余数 13 对应十六进制字符 <strong>D</strong>。<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;故字母 'M' 的十六进制码值为 <strong>(4D)₁₆</strong>（或 <code>4D</code>H）（2分）。共 4分。</p>
+          </div>
+        </div>
+        
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 十六进制展开</td>
+              <td>正确写出权值展开式并算出十进制</td>
+              <td>正确展开 2 × 16¹ + 11 × 16⁰(2分)；计算结果 43(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 位元数计算</td>
+              <td>列出不等式并求得最小位元数</td>
+              <td>列出 2ⁿ ≥ 850 并指出 2⁹=512, 2¹⁰=1024(2分)；确定 10 位元(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(c) ASCII 推导</td>
+              <td>正确计算十进制与十六进制码</td>
+              <td>算出十进制 77(2分)；成功转换为十六进制 (4D)₁₆ 或 4D(2分)</td>
+              <td>4分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 作答题 3 -->
+    <article class="qa-card">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 3 · 共 10 分</span>
+        <span class="q-source-tag">真题溯源：新课本第 15–18 页 / 多媒体容量推导规范</span>
+      </div>
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">
+          📌 【案例情境与媒体参数】
+        </div>
+        <p class="qa-scenario-text">
+          某校多媒体制作社团拍摄了一张未压缩的校园全景航拍点阵照片，并设计了学校官方校徽矢量图。两类图像在存储容量与显示放大特性上表现出显著差异。
+        </p>
+        <div class="param-tags-row">
+          <span class="param-tag"><span class="param-key">图像分辨率</span> <span class="param-val">1920 × 1080 像素</span></span>
+          <span class="param-tag"><span class="param-key">色彩深度</span> <span class="param-val">24 位真彩色 (24-bit True Color)</span></span>
+          <span class="param-tag"><span class="param-key">压缩类型</span> <span class="param-val">未压缩点阵照片</span></span>
+          <span class="param-tag"><span class="param-key">对比矢量图</span> <span class="param-val">校徽矢量文件 (45 KB)</span></span>
+        </div>
+      </div>
+
+      <!-- 子题紧凑列表排版 -->
+      <div class="sub-q-container">
+        <!-- (a) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">若要将校园广播站的模拟朗读声音转换为数字音频录音，必须经过模数转换 (ADC)。请列出 ADC 的<strong>三个标准核心处理工序</strong>。</div>
+            <span class="sub-q-score">3 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>依时序写出将连续物理声波转化为离散二进制数字代码的 3 个阶段（中英文均可）。</div>
+        </div>
+
+        <!-- (b) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">请采用新课本规范的<strong>“三步推导法”</strong>，精确计算该航拍全景照片在未压缩时的纯数据文件大小（最终单位要求换算为 <strong>MB</strong>，保留两位小数）：</div>
+            <span class="sub-q-score">4 分</span>
+          </div>
+          <div class="step-guide-grid">
+            <div class="step-guide-item">
+              <strong>第 1 步：总位元数 (bits)</strong>
+              1920 × 1080 × 24
+            </div>
+            <div class="step-guide-item">
+              <strong>第 2 步：字节数 (Bytes)</strong>
+              除以 8 换算字节
+            </div>
+            <div class="step-guide-item">
+              <strong>第 3 步：兆字节 (MB)</strong>
+              连续除以两个 1024 保留两位小数
+            </div>
+          </div>
+        </div>
+
+        <!-- (c) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">学校官方校徽矢量图文件大小仅为 <strong>45 KB</strong>，即使放大到巨型舞台背景墙印刷也毫无锯齿。请从<strong>图形构建原理</strong>说明为什么矢量图放大不失真，而上述点阵航拍照片过度放大后会出现明显的马赛克模糊？</div>
+            <span class="sub-q-score">3 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>分别从“数学几何公式重绘”与“离散像素阵列拉伸”两方面阐明放大后的本质差别。</div>
+        </div>
+      </div>
+
+      <button class="btn-toggle-rubric" onclick="toggleRubric(3)">
+        📋 展开独中统考官方 4 栏评分量规与参考答案 ▾
+      </button>
+
+      <div class="rubric-box" id="rubric-3">
+        <div class="ans-card">
+          <div class="ans-card-header">
+            💡 【参考答案与答题示范】
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(a) 模数转换 (ADC) 三大核心工序</strong> <span class="score-badge">共 3 分</span></div>
+            <p>① <strong>取样 (Sampling)</strong>：按固定时间周期对连续声音波形采集瞬时振幅样本。（1分）<br>
+               ② <strong>量化 (Quantization)</strong>：将采集到的连续振幅值离散化映射到限定的量化阶梯等级。（1分）<br>
+               ③ <strong>编码 (Encoding)</strong>：将量化后的离散等级数值转换为二进制代码序列输出。（1分）</p>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(b) 图像容量三步推导法（标准采分格式）</strong> <span class="score-badge">共 4 分</span></div>
+            <div class="calc-step-list">
+              <div class="calc-step-row">
+                <span><strong>步骤 1（计算总位元数 bits）：</strong></span>
+                <span class="calc-formula">1920 × 1080 × 24 = 49,766,400 位元 (bits)</span>
+                <span class="score-badge">+1分</span>
+              </div>
+              <div class="calc-step-row">
+                <span><strong>步骤 2（换算为字节 Bytes）：</strong></span>
+                <span class="calc-formula">49,766,400 ÷ 8 = 6,220,800 字节 (Bytes)</span>
+                <span class="score-badge">+1分</span>
+              </div>
+              <div class="calc-step-row">
+                <span><strong>步骤 3（换算为兆字节 MB）：</strong></span>
+                <span class="calc-formula">6,220,800 ÷ 1024 ÷ 1024 ≈ 5.932 MB ≈ 5.93 MB</span>
+                <span class="score-badge">公式1分 + 结果1分</span>
+              </div>
+            </div>
+            <p style="font-size: 13px; color: #64748B; margin-top: 4px;">注：董总统考严格要求按计算机二进制标准 1 KB = 1024 Bytes，连续除以两个 1024 换算为 MB，最终保留两位小数得 5.93 MB。</p>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(c) 矢量图 vs 点阵图 构建原理与失真对比</strong> <span class="score-badge">共 3 分</span></div>
+            <p>① <strong>矢量图放大不失真原因</strong>：矢量图基于<strong>数学几何方程式、直线与曲线控制点坐标</strong>定义。在放大或缩放时，计算机实时重新计算几何路径与坐标进行重绘，因此边缘轮廓始终保持绝对平滑，绝无锯齿失真。（1.5分）<br>
+               ② <strong>点阵位图放大模糊原因</strong>：点阵照片由<strong>固定数量的离散像素点阵</strong>排列构成。当放大倍数超过原始物理分辨率（1920 × 1080）时，单个像素被机械拉伸放大成可视方块，从而暴露出明显的马赛克网格失真。（1.5分）</p>
+          </div>
+        </div>
+        
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) ADC 三工序</td>
+              <td>正确写出取样、量化、编码</td>
+              <td>取样(1分)、量化(1分)、编码(1分)</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 三步推导法</td>
+              <td>列出完整乘除步骤并正确除以1024²</td>
+              <td>写出长宽×色深算式(1分)；除以8换算Bytes(1分)；除以1024²(1分)；算出 5.93 MB(1分)</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>(c) 失真原理对比</td>
+              <td>从数学矢量与离散像素双向阐明</td>
+              <td>答出“矢量图依数学公式重绘不失真”(1.5分)；答出“点阵图受像素网格限制放大露出马赛克方块”(1.5分)</td>
+              <td>3分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- 作答题 4 -->
+    <article class="qa-card">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 4 · 共 10 分</span>
+        <span class="q-source-tag">真题溯源：2024-P1-10 / 数据压缩算法与应用</span>
+      </div>
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">
+          📌 【知识背景与技术案例】
+        </div>
+        <p class="qa-scenario-text">
+          数据压缩是解决海量数据传输带宽瓶颈与节约存储空间的核心关键技术。根据不同应用场景对数据真实保真度的容忍度，可选用<strong>无损压缩 (Lossless)</strong> 或 <strong>有损压缩 (Lossy)</strong>。
+        </p>
+        <div class="param-tags-row">
+          <span class="param-tag"><span class="param-key">传真像素序列</span> <span class="param-val">WWWWWWWWWWBBBBBBWW (18 字节)</span></span>
+          <span class="param-tag"><span class="param-key">RLE 压缩格式</span> <span class="param-val">W10B06W02 (9 字节)</span></span>
+          <span class="param-tag"><span class="param-key">长期归档资产</span> <span class="param-val">统考文凭扫描件 vs 百年校庆高清纪录片</span></span>
+        </div>
+      </div>
+
+      <!-- 子题紧凑列表排版 -->
+      <div class="sub-q-container">
+        <!-- (a) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">某黑白二值传真图像中存在一段长连续像素序列：<code class="data-pill">WWWWWWWWWWBBBBBBWW</code>（包含 10 个白、6 个黑、2 个白，原始未压缩数据占用 18 字节）。若采用行程编码 (Run-Length Encoding, RLE) 进行无损压缩，将“连续相同字符 + 出现计数值”打包表示为 <code class="data-pill">W10B06W02</code>（共 9 字节）。请计算该段数据的<strong>压缩比 (Compression Ratio)</strong>，并写出完整的<strong>计算公式与推导步骤</strong>。</div>
+            <span class="sub-q-score">4 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>写出压缩比标准公式（压缩前数据量 ÷ 压缩后数据量），代入数值计算出最简整数比（如 2:1 或 50% 压缩率均可）。</div>
+        </div>
+
+        <!-- (b) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">学校历史档案室计划将<strong>历届统考毕业文凭证书扫描件</strong>与<strong>建校百周年庆典高清纪录片</strong>进行长期数字归档。请分别为这两类数字资产推荐最合适的压缩技术类别（<strong>有损压缩 Lossy</strong> 或 <strong>无损压缩 Lossless</strong>），并结合实际使用要求阐明选用理由。</div>
+            <span class="sub-q-score">4 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>分别给出选型结论。文凭侧重法律凭据不可失真，纪录片侧重视听感知冗余与存储带宽平衡。</div>
+        </div>
+
+        <!-- (c) -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">大数据技术具有显著的“4V”特征。某智慧校园系统每天产生海量的<strong>刷卡日志、教室监控视频、学生选课点击流与教务成绩单</strong>。请问上述多种形态各异的数据结构体现了大数据的哪一个“V”？</div>
+            <span class="sub-q-score">2 分</span>
+          </div>
+          <div class="sub-q-guide">💡 <strong>作答提示：</strong>写出该特征的中英文全称（结构化、半结构化与非结构化多源数据共存）。</div>
+        </div>
+      </div>
+
+      <button class="btn-toggle-rubric" onclick="toggleRubric(4)">
+        📋 展开独中统考官方 4 栏评分量规与参考答案 ▾
+      </button>
+
+      <div class="rubric-box" id="rubric-4">
+        <div class="ans-card">
+          <div class="ans-card-header">
+            💡 【参考答案与答题示范】
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(a) RLE 压缩比计算</strong> <span class="score-badge">共 4 分</span></div>
+            <p>压缩前数据大小 = 18 字节，压缩后数据大小 = 9 字节。<br>
+               <strong>计算公式与推导</strong>：<br>
+               <code class="calc-formula">压缩比 = 压缩前数据量 ÷ 压缩后数据量 = 18 ÷ 9 = 2 : 1</code><br>
+               （写出公式得 2分，最终算出结果 2 : 1 得 2分；若采用压缩节省率计算：<code>(18 - 9) ÷ 18 × 100% = 50%</code> 同样给满分 4分）</p>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(b) 长期归档压缩技术选型与理由</strong> <span class="score-badge">共 4 分</span></div>
+            <p>① <strong>毕业文凭证书扫描件</strong>：推荐采用 <strong>无损压缩 (Lossless Compression)</strong>（1分）。<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;<em>理由</em>：文凭证书属于具有法律凭证效力的官方文件，文字、公章与辨伪细节绝不可丢失任何信息，必须能够 100% 完整无损还原（1分）。<br>
+               ② <strong>校庆高清纪录片视频</strong>：推荐采用 <strong>有损压缩 (Lossy Compression)</strong>（1分）。<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;<em>理由</em>：未压缩的高清视频体积极其庞大，无法满足实用存储与流畅播放需求；通过利用人眼视觉生理感知冗余，丢弃微弱不易察觉的数据，能在保持极佳画质的同时节省几十倍的存储空间（1分）。</p>
+          </div>
+          <div class="ans-sub-block">
+            <div class="ans-sub-title"><strong>(c) 大数据 4V 特征识别</strong> <span class="score-badge">共 2 分</span></div>
+            <p>体现了大数据的 <strong>多样性 (Variety)</strong> 特征（2分）。<br>
+               刷卡日志与教务成绩单（结构化数据）、选课点击流（半结构化数据）以及教室监控视频（非结构化数据）同时并存，体现了多源异构的数据形态。</p>
+          </div>
+        </div>
+        
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) RLE 压缩比计算</td>
+              <td>正确列式并求出压缩比率</td>
+              <td>写出压缩比计算公式(2分)；计算得出 2:1 或 50%(2分)</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>(b) 压缩技术选型</td>
+              <td>正确选型并依据失真容忍度论证</td>
+              <td>文凭选无损+保证法律真实细节100%还原(2分)；视频选有损+人眼视觉冗余大幅节约空间(2分)</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>(c) 4V 特征识别</td>
+              <td>准确写出多样性 Variety</td>
+              <td>准确答出“多样性”或“Variety”</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+  </main>
+
+  <script>
+    // 董总统考历届真题标准答案表 (第 1 章 认识数据)
+    const correctAnswers = {
+      1: 'A', 2: 'B', 3: 'C', 4: 'C', 5: 'B',
+      6: 'C', 7: 'B', 8: 'C', 9: 'C', 10: 'D',
+      11: 'D', 12: 'C', 13: 'B', 14: 'A', 15: 'B'
+    };
+
+    let userAnswers = {};
+
+    // 即选即判核心交互：学生点击选项立即判定正误，展开正确答案与深度解析
+    function selectOption(qid, choice) {
+      const card = document.getElementById(`card-q${qid}`);
+      if (!card) return;
+
+      const correctChoice = correctAnswers[qid];
+      const options = card.querySelectorAll('.option-item');
+      const analysis = document.getElementById(`analysis-${qid}`);
+
+      userAnswers[qid] = choice;
+
+      // 1. 高亮选项：正确选项标绿，错误选项标红
+      options.forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+        const circle = opt.querySelector('.opt-circle');
+        const optLetter = circle ? circle.innerText.trim() : '';
+
+        if (optLetter === correctChoice) {
+          opt.classList.add('correct-answer');
+        } else if (optLetter === choice && choice !== correctChoice) {
+          opt.classList.add('wrong-answer');
+        }
+      });
+
+      // 2. 注入即时正误反馈标签并展开解析
+      if (analysis) {
+        let feedbackEl = analysis.querySelector('.instant-feedback-badge');
+        if (!feedbackEl) {
+          feedbackEl = document.createElement('div');
+          feedbackEl.className = 'instant-feedback-badge';
+          analysis.insertBefore(feedbackEl, analysis.firstChild);
+        }
+
+        if (choice === correctChoice) {
+          feedbackEl.className = 'instant-feedback-badge badge-correct';
+          feedbackEl.innerHTML = '✅ 回答正确！得分 +2分';
+        } else {
+          feedbackEl.className = 'instant-feedback-badge badge-wrong';
+          feedbackEl.innerHTML = `❌ 回答错误！您的选择是 <strong>${choice}</strong>，正确答案是 <strong>${correctChoice}</strong>`;
+        }
+
+        analysis.classList.add('show');
+      }
+
+      // 3. 更新顶部实时进度与正确率
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answeredKeys = Object.keys(userAnswers);
+      const totalAnswered = answeredKeys.length;
+      let corrects = 0;
+      answeredKeys.forEach(qid => {
+        if (userAnswers[qid] === correctAnswers[qid]) {
+          corrects++;
+        }
+      });
+
+      const countEl = document.getElementById('answered-count');
+      if (countEl) countEl.innerText = totalAnswered;
+
+      const scorePill = document.getElementById('score-pill');
+      if (scorePill) {
+        if (totalAnswered > 0) {
+          scorePill.style.display = 'inline-flex';
+          const correctEl = document.getElementById('correct-count');
+          const totalEl = document.getElementById('total-done');
+          if (correctEl) correctEl.innerText = corrects;
+          if (totalEl) totalEl.innerText = totalAnswered;
+        } else {
+          scorePill.style.display = 'none';
+        }
+      }
+    }
+
+    function resetPractice() {
+      if (!confirm('确定要清空作答记录并重新练习吗？')) return;
+      userAnswers = {};
+      document.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+      });
+      document.querySelectorAll('.analysis-panel').forEach(panel => {
+        panel.classList.remove('show');
+        const badge = panel.querySelector('.instant-feedback-badge');
+        if (badge) badge.remove();
+      });
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 展开/折叠评分量规 (乙组作答题)
+    function toggleRubric(id) {
+      const box = document.getElementById(`rubric-${id}`);
+      if (box) box.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

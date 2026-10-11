@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一册 第 2 章 演算法与程式设计 ｜ 历届真题新纲重构在线测试系统</title>
+  <meta name="description" content="董总统编高中资讯科技第一册第2章《演算法与程式设计》历届统考真题新纲重构测试卷 · 满分100分 · 甲组20题机读自评 + 乙组5题官方评分量规精析">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+    :root {
+      --primary-blue: #1E3A8A;
+      --primary-indigo: #2563EB;
+      --primary-hover: #1D4ED8;
+      --bg-slate: #F8FAFC;
+      --border-slate: #E2E8F0;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --success-green: #10B981;
+      --success-bg: #ECFDF5;
+      --error-red: #EF4444;
+      --error-bg: #FEF2F2;
+      --warn-amber: #F59E0B;
+      --warn-bg: #FFFBEB;
+      --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-slate);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 76px;
+    }
+
+    /* 顶部导航状态栏 */
+    .exam-top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-slate);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .exam-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-back-home:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+      color: #ffffff !important;
+    }
+
+    .exam-title-group h1 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.2px;
+    }
+    .exam-badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--primary-indigo);
+      border: 1px solid #BFDBFE;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .exam-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-reset-practice {
+      background: #F1F5F9;
+      color: #475569;
+      border: 1px solid var(--border-slate);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-reset-practice:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    .instant-feedback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .badge-correct {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+    }
+    .badge-wrong {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* 主容器 */
+    .main-container {
+      max-width: 960px;
+      margin: 28px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* 试卷头部信息板 */
+    .paper-header-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 14px;
+      padding: 26px 30px;
+      margin-bottom: 26px;
+      box-shadow: var(--card-shadow);
+      border-left: 5px solid var(--primary-indigo);
+    }
+    .paper-header-card h2 {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--primary-blue);
+      margin-bottom: 8px;
+    }
+    .paper-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-slate);
+    }
+    .paper-meta-item strong {
+      color: var(--text-dark);
+    }
+
+    /* 组别标题横条 */
+    .section-banner {
+      background: linear-gradient(135deg, #1E3A8A, #2563EB);
+      color: #FFF;
+      padding: 14px 22px;
+      border-radius: 10px;
+      margin: 32px 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    }
+    .section-banner.section-qa {
+      background: linear-gradient(135deg, #0D9488, #0F766E);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+    }
+    .section-banner h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+    }
+    .section-banner span {
+      font-size: 12.5px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* 单选题卡片 */
+    .question-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 18px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.2s;
+    }
+    .question-card:hover {
+      border-color: #CBD5E1;
+    }
+
+    .q-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .q-badge-num {
+      background: #1E40AF;
+      color: #FFFFFF;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(30, 64, 175, 0.25);
+    }
+    .q-points {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+    .q-source-tag {
+      font-size: 11.5px;
+      color: #64748B;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .q-stem {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1E293B;
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* 选项列表 */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border: 1px solid var(--border-slate);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      background: #FFF;
+      user-select: none;
+    }
+    .option-item:hover {
+      background: #F8FAFC;
+      border-color: #94A3B8;
+    }
+    .option-item.selected {
+      border-color: var(--primary-indigo);
+      background: #EFF6FF;
+    }
+    .option-item.correct-answer {
+      border-color: var(--success-green) !important;
+      background: var(--success-bg) !important;
+    }
+    .option-item.wrong-answer {
+      border-color: var(--error-red) !important;
+      background: var(--error-bg) !important;
+    }
+
+    .opt-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #94A3B8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .option-item.selected .opt-circle {
+      border-color: var(--primary-indigo);
+      background: var(--primary-indigo);
+      color: #FFF;
+    }
+    .option-item.correct-answer .opt-circle {
+      border-color: var(--success-green);
+      background: var(--success-green);
+      color: #FFF;
+    }
+    .option-item.wrong-answer .opt-circle {
+      border-color: var(--error-red);
+      background: var(--error-red);
+      color: #FFF;
+    }
+
+    .opt-text {
+      font-size: 14.5px;
+      color: #334155;
+      line-height: 1.5;
+    }
+
+    /* 即时解析栏 */
+    .analysis-panel {
+      display: none;
+      margin-top: 16px;
+      padding: 16px 18px;
+      background: #F8FAFC;
+      border-left: 4px solid var(--primary-indigo);
+      border-radius: 0 8px 8px 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .analysis-panel.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .analysis-header {
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+    }
+
+    /* 乙组作答题卡片（紧凑标准版） */
+    .qa-card {
+      background: #FFF;
+      border: 1px solid var(--border-slate);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+      border-top: 3px solid #0D9488;
+    }
+    .qa-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .qa-badge {
+      background: #0F766E;
+      color: #FFFFFF;
+      border: 1px solid #0F766E;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-size: 12.5px;
+      font-weight: 700;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+
+    /* 情境案例与试题背景框 */
+    .qa-scenario-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-left: 3.5px solid #0284C7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 8px 0 12px;
+    }
+    .qa-scenario-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0369A1;
+      margin-bottom: 6px;
+    }
+    .qa-scenario-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #1E293B;
+    }
+    .data-pill {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 13px;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 参数标签条 */
+    .param-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed #CBD5E1;
+    }
+    .param-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .param-key {
+      color: #64748B;
+      font-size: 11.5px;
+    }
+    .param-val {
+      font-weight: 700;
+      color: #0F172A;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* 子题紧凑列表排版 */
+    .sub-q-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .sub-q-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      transition: all 0.15s ease;
+    }
+    .sub-q-card:hover {
+      border-color: #CBD5E1;
+      background: #FBFDFE;
+    }
+    .sub-q-stem {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #1E293B;
+    }
+    .sub-q-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0F766E;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 1px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-family: 'Fira Code', monospace;
+      box-shadow: 0 1px 2px rgba(15, 118, 110, 0.25);
+    }
+    .sub-q-text {
+      flex: 1;
+    }
+    .sub-q-score {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0D9488;
+      background: #F0FDFA;
+      border: 1px solid #99F6E4;
+      padding: 1px 6px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      margin-left: 6px;
+      margin-top: 2px;
+    }
+
+    /* 答题提示指引 */
+    .sub-q-guide {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #F8FAFC;
+      border-left: 2.5px solid #0284C7;
+      padding: 4px 8px;
+      margin: 6px 0 0 30px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.45;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* 紧凑代码块与表格 */
+    .code-box {
+      background: #0F172A;
+      color: #F8FAFC;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 8px 0;
+      overflow-x: auto;
+    }
+    .code-box pre {
+      margin: 0;
+      font-family: inherit;
+    }
+    .trace-table-ui {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      margin: 8px 0;
+    }
+    .trace-table-ui th, .trace-table-ui td {
+      border: 1px solid #CBD5E1;
+      padding: 6px 10px;
+      text-align: center;
+    }
+    .trace-table-ui th {
+      background: #F1F5F9;
+      color: #334155;
+      font-weight: 700;
+    }
+
+    /* 评分量规与参考答案折叠面板 */
+    .rubric-toggle-btn {
+      background: #F0FDFA;
+      color: #0F766E;
+      border: 1px solid #99F6E4;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .rubric-toggle-btn:hover {
+      background: #CCFBF1;
+    }
+
+    .rubric-content {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 16px;
+      background: #FAFAFA;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .rubric-content.show {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+    .rubric-table th, .rubric-table td {
+      border: 1px solid #E2E8F0;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    .rubric-table th {
+      background: #F1F5F9;
+      color: #475569;
+      font-weight: 700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部状态栏 -->
+  <header class="exam-top-bar">
+    <div class="exam-nav-left">
+      <a href="../../index.html" class="btn-back-home">
+        <span>←</span> 返回总控大厅
+      </a>
+      <div class="exam-title-group">
+        <h1><span class="exam-badge">第一册 · 第 2 章</span>演算法与程式设计 ｜ 历届真题新纲重构测验</h1>
+      </div>
+    </div>
+    <div class="exam-nav-right">
+      <div id="score-pill" style="display:none; align-items:center; gap:6px; font-size:13px; font-weight:700; color:#1E40AF; background:#EFF6FF; border:1px solid #BFDBFE; padding:5px 12px; border-radius:20px;">
+        <span>🎯 已答正确：<span id="correct-count">0</span> / <span id="total-done">0</span></span>
+      </div>
+      <button class="btn-reset-practice" onclick="resetPractice()">
+        <span>🔄</span> 重置作答
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- 试卷信息板 -->
+    <section class="paper-header-card">
+      <h2>董总高中统考 · 资讯科技重构模考试卷</h2>
+      <p style="font-size:14px; color:#475569;">本卷严密依据董总《2027年实施 高中统考资讯科技 模拟题》规格编制，全面重构历届统考核心考点，涵盖算法五大特征、流程图绘制、分支与循环结构追踪表、冒泡排序降序与 Flag 优化、二分查找区间折半推演及自适应红绿灯配时算法工程落地。</p>
+      <div class="paper-meta-row">
+        <div class="paper-meta-item">试卷结构：<strong>甲组选择题（20题/40分） + 乙组作答题（5题/60分）</strong></div>
+        <div class="paper-meta-item">卷面总分：<strong>100 分</strong></div>
+        <div class="paper-meta-item">评测模式：<strong>选择题即选即判 · 作答题配 4 栏评分量规</strong></div>
+        <div class="paper-meta-item">已作答：<strong><span id="answered-count">0</span> / 20 题</strong></div>
+      </div>
+    </section>
+
+    <!-- 甲组 单选题 -->
+    <div class="section-banner">
+      <h3>甲组：单项选择题（每题 2 分，共 40 分）</h3>
+      <span>即选即判 · 20 题共 40 分</span>
+    </div>
+
+    <!-- Q1 -->
+    <article class="question-card" id="card-q1">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 1 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">历届高频母题重构 · 软件工程规范</span>
+      </div>
+      <div class="q-stem">1. 在计算机软件工程中，解决实际问题时从理解分析到最终交付，其规范的第一步骤必然是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(1, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">深入分析问题本质并准确界定系统输入、输出与约束条件</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">直接打开集成开发环境编写上千行未经验证的高级语言代码</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">随意在键盘上输入多组随机数据并观察屏幕是否会报错死机</div>
+        </div>
+        <div class="option-item" onclick="selectOption(1, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">采购最高性能的多核服务器硬件并强行格式化原有操作系统</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-1">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：在软件工程生命周期中，“理解分析问题”是解决问题的绝对首要步骤，必须界定清楚输入、输出及系统约束。<br>
+        <strong>B、C、D 错误</strong>：未经需求分析与系统设计直接写代码、盲目输入数据测试或采购硬件格式化磁盘均违背软件工程与系统开发生命周期规范。</p>
+      </div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="question-card" id="card-q2">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 2 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">历届母题新拟 · 算法五大特征</span>
+      </div>
+      <div class="q-stem">2. 某算法在执行过程中，其中的某一条指令可以被不同程序员解释为两种完全不同的操作。这违背了算法的哪项特征？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(2, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">拥有零个或多个外部输入 (Input)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">每一步骤定义必须唯一且无歧义 (Definiteness / 确定性)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">在经历有限个步骤后终止 (Finiteness / 有穷性)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(2, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">运算完成后至少产生一个输出 (Output)</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-2">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：算法特征中的“确定性 (Definiteness)”要求算法的每一个步骤与指令含义必须明确、无二义性，在任何情况下执行路径与操作都必须唯一确定。<br>
+        <strong>A、C、D 错误</strong>：分别对应输入、有穷性与输出特征，存在歧义违背的是确定性。</p>
+      </div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="question-card" id="card-q3">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 3 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考核心考点 · 可行性特征</span>
+      </div>
+      <div class="q-stem">3. 下列关于演算法五大特征的描述，哪一项是完全符合计算机科学规范的？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(3, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">演算法必须从外界输入至少十个不同类型的变量参数</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">演算法在执行过程中允许无限期挂起且永远不向外界反馈</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">演算法中的每个计算步骤都必须能够在有限时间内精确完成 (Feasibility / 可行性)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(3, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">演算法所产生的最终计算结果必须全部是浮点数而不能是字符串</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-3">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：算法五大特征中的“可行性 (Feasibility)”要求算法中所有操作都原则上能够通过有限次基本运算精确完成。<br>
+        <strong>A 错误</strong>：算法可以有 0 个输入（内部预设常量）；<br>
+        <strong>B 错误</strong>：违背了有穷性（Finiteness）；<br>
+        <strong>D 错误</strong>：输出可以是布尔值、整数、字符串等合法数据类型。</p>
+      </div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="question-card" id="card-q4">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 4 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">历届高频母题 · 流程图特点</span>
+      </div>
+      <div class="q-stem">4. 在算法的多种表达方式中，流程图 (Flowchart) 相比于自然语言和伪代码，其最突出的优势是：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(4, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">可以被计算机中央处理器不经任何转译而物理直接执行</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">编写速度极快且完全不需要掌握任何统一的几何符号规则</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">占用的纸张面积最小且完全不需要绘制任何方向指示箭头</div>
+        </div>
+        <div class="option-item" onclick="selectOption(4, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">通过标准几何图形和带箭头流线高度直观呈现逻辑控制走向</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-4">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：流程图采用规范的几何框图与流向线，能够高度直观地展现程序的选择、分支与循环结构，便于逻辑验证与跨职能沟通。<br>
+        <strong>A 错误</strong>：流程图是逻辑图示，CPU 仅能执行机器指令代码；<br>
+        <strong>B、C 错误</strong>：流程图绘制要求遵循严格的标准几何符号，且占用版面较大。</p>
+      </div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="question-card" id="card-q5">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 5 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">董统考罗马题 1 · 流程图标准规范</span>
+      </div>
+      <div class="q-stem">5.【罗马组合题 1】 关于标准流程图符号的功能定义，下列叙述哪些是完全正确的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      I. 菱形框专用作条件判断，必须具有一条进入流线和至少两条带有 True/False 标记的流出线<br>
+      II. 平行四边形框专用作数据的输入（如从键盘读取）与数据的输出（如在屏幕打印）<br>
+      III. 矩形框专用作各种算术运算处理以及变量数据的初始化或重新赋值操作<br>
+      IV. 圆角矩形或椭圆框专用作整个演算法的唯一“开始 (Start)”或“结束 (End)”端点</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(5, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">I、II、III、IV 全部正确</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 I、II、III</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 I、III、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(5, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">仅 II、III、IV</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-5">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：四项陈述均准确描述了标准流程图符号的法定定义（菱形判断、平行四边形I/O、矩形处理及椭圆起止）。</p>
+      </div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="question-card" id="card-q6">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 6 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">2027 统考样题映射 · Python 整除运算符</span>
+      </div>
+      <div class="q-stem">6. 在 Python 程式语言中，若执行表达式 <code>Result = 25 // 4</code>，则 <code>Result</code> 的计算赋值结果应为多少？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(6, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">6.25</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">6</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">1</div>
+        </div>
+        <div class="option-item" onclick="selectOption(6, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">100</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-6">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：在 Python 中，<code>//</code> 是地板除法（向下取整除法）。25 ÷ 4 = 6.25，向下取整得到整数 6。<br>
+        <strong>A 错误</strong>：6.25 是真除法 <code>/</code> 的计算结果；<br>
+        <strong>C 错误</strong>：1 是取模运算符 <code>%</code> 计算出的余数；<br>
+        <strong>D 错误</strong>：100 是乘法 <code>25 * 4</code> 的结果。</p>
+      </div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="question-card" id="card-q7">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 7 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考高频考点 · 取模运算符</span>
+      </div>
+      <div class="q-stem">7. 若在程式中定义两个整数变量 <code>X = 19</code> 与 <code>Y = 5</code>，哪一个算术运算符的运算结果精确等于 4？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(7, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">X // Y</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">X / Y</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">X % Y</div>
+        </div>
+        <div class="option-item" onclick="selectOption(7, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">X ** Y</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-7">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：<code>%</code> 为求余（取模）运算符。19 ÷ 5 = 3 余 4，因此 <code>19 % 5 = 4</code>。<br>
+        <strong>A 错误</strong>：19 // 5 = 3；<br>
+        <strong>B 错误</strong>：19 / 5 = 3.8；<br>
+        <strong>D 错误</strong>：19 ** 5 为乘方运算（2,476,099）。</p>
+      </div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="question-card" id="card-q8">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 8 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">程式设计规范 · 变量命名法则</span>
+      </div>
+      <div class="q-stem">8. 在程式设计中，关于变量 (Variable) 命名规范的叙述，下列哪一项做法是完全正确且符合良好编程习惯的？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(8, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">变量名可以随意使用系统内置的核心保留字（如 if, while, for）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">变量名可以任意由纯数字开头命名（如 123_score, 2nd_student）</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">变量名尽量使用单个无意义的随机英文字母以最大程度节省内存空间</div>
+        </div>
+        <div class="option-item" onclick="selectOption(8, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">变量名应使用见名知意的英文单词组合并遵循驼峰命名法或下划线命名法</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-8">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：变量名应当见名知意（Self-documenting），由字母、数字和下划线组成且不能以数字开头，推荐驼峰法（studentScore）或蛇形下划线法（student_score）。<br>
+        <strong>A 错误</strong>：保留关键字不能用作变量名；<br>
+        <strong>B 错误</strong>：不能以数字开头；<br>
+        <strong>C 错误</strong>：单字母变量严重降低代码可读性与可维护性。</p>
+      </div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="question-card" id="card-q9">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 9 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">董统考罗马题 2 · 多分支选择结构</span>
+      </div>
+      <div class="q-stem">9.【罗马组合题 2】 针对程式中的多分支选择结构 (If-Elif-Else)，下列哪些理解是完全正确的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      I. 系统会按照代码书写顺序自上而下逐一评估各个条件表达式的真假<br>
+      II. 一旦某一个分支的条件判定为真，系统执行该分支代码块后即跳出整个选择结构<br>
+      III. 若所有条件表达式均判定为假，系统将直接执行默认的 Else 分支代码块<br>
+      IV. 在编写多分支结构时，条件的排列顺序通常对程序的最终逻辑输出没有任何影响</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(9, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 I、II、III</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 I、II、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 I、III、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(9, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">仅 II、III、IV</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-9">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>（仅 I、II、III）：<br>
+        I、II、III 准确描述了 If-Elif-Else 结构的短路顺序评估与兜底逻辑；<br>
+        <strong>IV 错误</strong>：多分支条件的先后顺序极为关键（例如成绩评级先判断 ≥80 还是 ≥60），顺序颠倒会导致逻辑短路与评分全错。</p>
+      </div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="question-card" id="card-q10">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 10 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考核心母题 · 结构嵌套设计</span>
+      </div>
+      <div class="q-stem">10. 某系统需要根据用户输入的密码进行验证：若密码正确则进入主界面，若错误则提示重新输入，且允许最多重试三次。该逻辑应采用什么组合？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(10, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">单纯的顺序执行结构组合</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">循环结构与选择结构的有机嵌套</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">无条件的死循环结构</div>
+        </div>
+        <div class="option-item" onclick="selectOption(10, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">单向 If 选择结构的简单平行排列</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-10">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：最多重试 3 次需要使用“循环结构”（While 或 For），循环体内比对密码正确与否需要使用“选择结构”（If-Else），两者有机嵌套是标准解法。<br>
+        <strong>A、C、D 错误</strong>：无法同时兼顾有限次重复重试与分支验证。</p>
+      </div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="question-card" id="card-q11">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 11 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">2027 统考样题映射 · While 死循环诱因</span>
+      </div>
+      <div class="q-stem">11. 在当型循环（While 循环）中，若循环体内遗漏了对循环控制变量进行递增或改变状态的语句，最可能引发什么严重问题？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(11, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">计算机显示器硬件发生物理烧毁</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">操作系统自动格式化本地固态硬盘</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">程式陷入无法自行终止的死循环 (Infinite Loop)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(11, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">编译器强行将所有源代码转译为英文散文</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-11">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：While 循环根据循环条件决定是否继续执行。若循环体内缺少改变循环控制变量的语句，条件将永远为真，导致程序陷入“死循环 (Infinite Loop)”。<br>
+        <strong>A、B、D 错误</strong>：死循环会耗尽 CPU 算力，但不会硬件物理损坏或格式化硬盘。</p>
+      </div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="question-card" id="card-q12">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 12 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">历届高频母题 · 循环步长与次数</span>
+      </div>
+      <div class="q-stem">12. 某计数型循环结构写为 <code>For I = 5 DownTo 1 Step 1</code>，则该循环体内部代码将被完整执行多少次？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(12, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">0 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">4 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">6 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(12, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">5 次</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-12">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：<code>For I = 5 DownTo 1 Step 1</code> 依次迭代取值：5, 4, 3, 2, 1，共完整执行 5 次。<br>
+        <strong>A、B、C 错误</strong>：执行次数计算错误。</p>
+      </div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="question-card" id="card-q13">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 13 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">董统考罗马题 3 · 追踪表与除错手段</span>
+      </div>
+      <div class="q-stem">13.【罗马组合题 3】 关于软件测试与追踪表 (Trace Table) 的作用，下列哪些陈述是正确的？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      I. 追踪表是程序员在不依赖电脑运行的情况下，通过手工推演验证算法逻辑的有效手段<br>
+      II. 追踪表的表头通常列出算法中涉及的所有关键变量、判断条件以及每一步的输出结果<br>
+      III. 通过追踪表可以清晰排查出程式中的逻辑错误 (Logic Error)，避免潜在的隐蔽漏洞<br>
+      IV. 追踪表只适用于简单的顺序结构，一旦遇到多层嵌套循环则完全失去任何跟踪意义</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(13, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 I、II、III</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 I、II、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 I、III、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(13, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">仅 II、III、IV</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-13">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>（仅 I、II、III）：<br>
+        I、II、III 准确描述了追踪表手工推演（Dry Run）验证逻辑与排查逻辑错误的核心价值；<br>
+        <strong>IV 错误</strong>：追踪表正是为了化解循环与多层嵌套中复杂变量状态推导而设计的有效利器。</p>
+      </div>
+    </article>
+
+    <!-- Q14 -->
+    <article class="question-card" id="card-q14">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 14 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考核心考点 · 线性搜索最坏比对次数</span>
+      </div>
+      <div class="q-stem">14. 在一个未经过排序的包含 100 个整数的无序列表中查找特定目标，使用“线性搜索”在最坏情况下需要进行多少次比对？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(14, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">1 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">100 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">50 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(14, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">7 次</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-14">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：在线性搜索（Linear Search）中，最坏情况是目标元素位于列表末尾或根本不存在于列表中。此时必须完整遍历扫描全部 N 个元素，故 100 个元素在最坏情况下需要比较 100 次。<br>
+        <strong>A 错误</strong>：1 次是最好情况（目标位于第 1 个）；<br>
+        <strong>D 错误</strong>：7 次是二分查找在 N=100 时的最坏比对上限（⌈log₂ 100⌉ = 7）。</p>
+      </div>
+    </article>
+
+    <!-- Q15 -->
+    <article class="question-card" id="card-q15">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 15 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考核心算力 · 二分查找命中推演</span>
+      </div>
+      <div class="q-stem">15. 某升序数组包含 15 个元素：<code>[2, 5, 8, 12, 16, 23, 38, 45, 56, 67, 78, 89, 91, 95, 99]</code>。若使用二分查找检索数字 45，共需多少次比对？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(15, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">3 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">2 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">1 次</div>
+        </div>
+        <div class="option-item" onclick="selectOption(15, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">4 次</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-15">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：数组共有 15 个元素，首位索引 Low = 0，末位索引 High = 14。<br>
+        中间指针 <code>Mid = (0 + 14) // 2 = 7</code>。<br>
+        索引 7 对应的元素值正是 <code>Array[7] = 45</code>，恰好与检索目标相等，<strong>仅需 1 次比对</strong>直接命中！</p>
+      </div>
+    </article>
+
+    <!-- Q16 -->
+    <article class="question-card" id="card-q16">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 16 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考核心考点 · 算法时间复杂度</span>
+      </div>
+      <div class="q-stem">16. 二分查找算法在处理海量规模数据时，其检索速度远高于线性搜索，这主要得益于其时间复杂度为：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(16, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">平方阶 O(N²)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">线性阶 O(N)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">指数阶 O(2ⁿ)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(16, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">对数阶 O(log₂ N)</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-16">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>：二分查找每次比对都能排除一半的待检索区间，数据规模折半递减，其时间复杂度为对数阶 <code>O(log₂ N)</code>。<br>
+        <strong>A、B、C 错误</strong>：分别为冒泡排序最坏情况复杂度 O(N²)、线性搜索复杂度 O(N) 及指数爆炸复杂度 O(2ⁿ)。</p>
+      </div>
+    </article>
+
+    <!-- Q17 -->
+    <article class="question-card" id="card-q17">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 17 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">董统考罗马题 4 · 冒泡排序运行机制</span>
+      </div>
+      <div class="q-stem">17.【罗马组合题 4】 关于“冒泡排序 (Bubble Sort)”算法的运行特征，下列叙述何者完全正确？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      I. 该算法通过相邻元素两两比较，并根据排序要求决定是否执行位置交换<br>
+      II. 在每一轮完全的外层遍历结束后，当前未排序区间中的极值元素必然沉底到其最终正确位置<br>
+      III. 若某轮遍历中没有发生任何一次位置交换，说明序列已然有序，可提前终止排序过程<br>
+      IV. 对于包含 N 个元素的数组，在最坏情况下的总比较次数可精确表示为 N(N - 1) / 2 次</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(17, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">I、II、III、IV 全部正确</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 I、II、III</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 I、III、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(17, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">仅 II、III、IV</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-17">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>A 正确</strong>：四项陈述均准确严密地概括了冒泡排序相邻两两交换机理、每轮极值沉底到正确位置、布尔标志位提前退出优化以及最坏情况比较次数公式 <code>N(N - 1) / 2</code>。</p>
+      </div>
+    </article>
+
+    <!-- Q18 -->
+    <article class="question-card" id="card-q18">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 18 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考高频考点 · 冒泡单轮遍历状态</span>
+      </div>
+      <div class="q-stem">18. 现有一个无序序列 <code>[9, 3, 7, 1]</code>。若采用标准冒泡排序进行升序排序，在完成第一轮（Pass 1）遍历后，该数组的状态为何？</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(18, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">[1, 3, 7, 9]</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">[3, 7, 1, 9]</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">[3, 1, 7, 9]</div>
+        </div>
+        <div class="option-item" onclick="selectOption(18, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">[9, 7, 3, 1]</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-18">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>B 正确</strong>：初始序列 <code>[9, 3, 7, 1]</code>：<br>
+        ① 9 与 3 比对：9 > 3 交换 → <code>[3, 9, 7, 1]</code>；<br>
+        ② 9 与 7 比对：9 > 7 交换 → <code>[3, 7, 9, 1]</code>；<br>
+        ③ 9 与 1 比对：9 > 1 交换 → <code>[3, 7, 1, 9]</code>。<br>
+        第一轮遍历结束，最大值 9 成功沉底至末尾，数组为 <code>[3, 7, 1, 9]</code>。<br>
+        <strong>A 错误</strong>：A 是多轮排序后的最终完成状态；<br>
+        <strong>C、D 错误</strong>：比对交换逻辑推导错误。</p>
+      </div>
+    </article>
+
+    <!-- Q19 -->
+    <article class="question-card" id="card-q19">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 19 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">统考核心考点 · 常数阶复杂度</span>
+      </div>
+      <div class="q-stem">19. 某算法在执行过程中，即使输入数据的规模 N 从 10 激增到 1,000,000，其所需的计算步骤依然保持恒定不变。该算法的复杂度为：</div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(19, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">线性阶 O(N)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">对数阶 O(log N)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">常数阶 O(1)</div>
+        </div>
+        <div class="option-item" onclick="selectOption(19, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">平方阶 O(N²)</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-19">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>C 正确</strong>：运行操作步数与输入数据规模 N 完全无关、始终保持恒定常数次数的算法，其时间复杂度记为常数阶 <code>O(1)</code>（例如根据已知下标直接读取数组中的某个元素）。<br>
+        <strong>A、B、D 错误</strong>：计算步数均会随数据规模 N 的增大而增长。</p>
+      </div>
+    </article>
+
+    <!-- Q20 -->
+    <article class="question-card" id="card-q20">
+      <div class="q-top-row">
+        <div style="display:flex; align-items:center;">
+          <span class="q-badge-num">第 20 题</span>
+          <span class="q-points">[2 分]</span>
+        </div>
+        <span class="q-source-tag">董统考罗马题 5 · 防御性编程与健壮性</span>
+      </div>
+      <div class="q-stem">20.【罗马组合题 5】 在程式编写与测试过程中，下列关于程式除错与健壮性 (Robustness) 的说法何者正确？<br>
+      <span style="font-size:13.5px; color:#475569; display:block; margin-top:6px; line-height:1.7;">
+      I. 健壮的算法必须具备良好的异常输入容错能力，不能因为非法数据而直接崩溃死机<br>
+      II. 在关键计算前加入条件边界校验（如被除数是否为零、数组索引是否越界）是防御性编程的体现<br>
+      III. 只要代码通过了编译且没有语法报错，就绝对不需要再进行任何实际业务场景的测试<br>
+      IV. 利用黑盒测试与白盒测试相结合的手段，能够有效覆盖算法的各种边界分支路径</span></div>
+      <div class="options-grid">
+        <div class="option-item" onclick="selectOption(20, 'A')">
+          <div class="opt-circle">A</div>
+          <div class="opt-text">仅 I、II、III</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'B')">
+          <div class="opt-circle">B</div>
+          <div class="opt-text">仅 I、III、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'C')">
+          <div class="opt-circle">C</div>
+          <div class="opt-text">仅 II、III、IV</div>
+        </div>
+        <div class="option-item" onclick="selectOption(20, 'D')">
+          <div class="opt-circle">D</div>
+          <div class="opt-text">仅 I、II、IV</div>
+        </div>
+      </div>
+      <div class="analysis-panel" id="analysis-20">
+        <div class="analysis-header">【破题解析】</div>
+        <p><strong>D 正确</strong>（仅 I、II、IV）：<br>
+        I、II、IV 准确概括了工业级算法工程的健壮性标准、防御性编程（Defensive Programming）边界校验机制以及黑盒/白盒测试的互补性；<br>
+        <strong>III 错误</strong>：代码通过编译仅证明没有语法错误（Syntax Error），绝不能证明算法逻辑完全正确，仍必须进行全面的业务与边界测试。</p>
+      </div>
+    </article>
+
+    <!-- 乙组 作答题 -->
+    <div class="section-banner section-qa">
+      <h3>乙组：综合情境作答题（共 5 题，满分 60 分）</h3>
+      <span>官方评分量规 · 5 题共 60 分</span>
+    </div>
+
+    <!-- QA 1 -->
+    <article class="qa-card" id="qa-card-1">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 1 · 共 12 分</span>
+        <span class="q-source-tag">历届统考核心重构 · 分段函数与流程图规范</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【案例情境与已知数据】</div>
+        <div class="qa-scenario-text">
+          某市立图书馆计划升级自助借还书终端的借阅逾期罚款计算模块。借阅与计费规则如下：<br>
+          1. 图书标准借阅期限为 <span class="data-pill">30 天</span>，读者还书时输入实际借阅天数 <span class="data-pill">T</span>；<br>
+          2. 若 <code>T ≤ 0</code>，系统判定输入无效并提示“借阅天数输入错误”；<br>
+          3. 若 <code>0 &lt; T ≤ 30</code>，正常归还，罚款金额 <span class="data-pill">F = 0.00 元</span>；<br>
+          4. 若 <code>30 &lt; T ≤ 40</code>，超期在 10 天以内，超期部分按每天 <span class="data-pill">0.50 元</span> 计费；<br>
+          5. 若 <code>T &gt; 40</code>，超期超过 10 天，前 10 天按每天 0.50 元计算，超过 10 天的部分每天收取罚款 <span class="data-pill">1.00 元</span>；<br>
+          6. 系统最终输出逾期天数与应缴纳的罚款总额 F。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">标准借期:</span> <span class="param-val">30 天</span></div>
+          <div class="param-tag"><span class="param-key">一阶超期(≤10天):</span> <span class="param-val">RM 0.50/天</span></div>
+          <div class="param-tag"><span class="param-key">二阶超期(&gt;10天):</span> <span class="param-val">RM 1.00/天</span></div>
+          <div class="param-tag"><span class="param-key">异常拦截:</span> <span class="param-val">T ≤ 0 报错</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">请依据上述规则，设计一个结构严谨的伪代码 (Pseudocode) 算法，必须包含输入验证与分段罚款计算逻辑。</div>
+            <span class="sub-q-score">[6 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 规范提示：包含 T ≤ 0 异常拦截、T ≤ 30 正常还书、30 &lt; T ≤ 40 一阶罚款及 T &gt; 40 二阶双梯度累加计算。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">请依据你设计的伪代码逻辑，写出该算法对应标准流程图 (Flowchart) 的图形符号布局与控制流走向说明。</div>
+            <span class="sub-q-score">[6 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 规范提示：椭圆起止框、平行四边形 I/O 框、菱形条件判断框（标注 True/False 分支）及矩形处理框。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa1')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa1">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 规范伪代码设计：</strong>
+          <div class="code-box">
+<pre>开始
+输入 实际借阅天数 T
+
+// 1. 输入数据有效性验证
+如果 T &lt;= 0 那么
+    输出 "输入错误：借阅天数必须大于 0！"
+否则
+    // 2. 多分支分段超期罚款计算
+    如果 T &lt;= 30 那么
+        逾期天数 = 0
+        罚款总额 = 0.00
+    否则如果 T &lt;= 40 那么
+        逾期天数 = T - 30
+        罚款总额 = 逾期天数 * 0.50
+    否则
+        逾期天数 = T - 30
+        罚款总额 = 10 * 0.50 + (逾期天数 - 10) * 1.00
+    
+    // 3. 输出结算结果
+    输出 "逾期天数：", 逾期天数
+    输出 "应缴罚款：RM ", 罚款总额
+结束</pre>
+          </div>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 流程图绘制要点规范：</strong>
+          <p style="font-size:13px; line-height:1.6; color:#334155;">
+          1. <strong>椭圆框</strong>：“开始”与“结束”；<br>
+          2. <strong>平行四边形框</strong>：“输入 T”以及“输出逾期天数与罚款总额”；<br>
+          3. <strong>第一级菱形判断</strong>：<code>T &lt;= 0？</code> → [True] 连线矩形“输出错误提示” ➔ 汇入“结束”；[False] 进入第二级判断；<br>
+          4. <strong>第二级菱形判断</strong>：<code>T &lt;= 30？</code> → [True] 矩形“逾期=0，罚款=0”；[False] 进入第三级判断；<br>
+          5. <strong>第三级菱形判断</strong>：<code>T &lt;= 40？</code> → [True] 矩形“逾期=T-30，罚款=逾期*0.5”；[False] 矩形“逾期=T-30，罚款=5.0+(逾期-10)*1.0”；<br>
+          6. 各有效计算分支流线汇聚至平行四边形输出框，最终平滑流向“结束”。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 伪代码输入验证</td>
+              <td>正确拦截非法输入</td>
+              <td>写出 T &lt;= 0 判断并输出错误提示</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(a) 正常与一阶分段</td>
+              <td>正确处理未超期及 ≤10 天罚款</td>
+              <td>T &lt;= 30 罚款为 0(1分)；T &lt;= 40 逾期天数*0.50(1分)</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(a) 二阶梯度累加</td>
+              <td>正确处理超过 10 天递增罚款</td>
+              <td>前10天 5.00 元 + 超过部分*(T-40)*1.00</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(b) 流程图符号规范</td>
+              <td>准确使用各标准几何框图</td>
+              <td>起止椭圆、I/O平行四边形、判断菱形、运算矩形完全正确</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 控制流向与分支</td>
+              <td>流向收敛与分支标注清晰</td>
+              <td>所有菱形分支明确标明 True/False，流向无死循环并最终收敛</td>
+              <td>3分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 2 -->
+    <article class="qa-card" id="qa-card-2">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 2 · 共 12 分</span>
+        <span class="q-source-tag">统考核心考点 · 追踪表演算与循环变量跟踪</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【算法代码与情境】</div>
+        <div class="qa-scenario-text">
+          分析下列计算序列累加与计数运算的伪代码演算法：
+          <div class="code-box" style="margin:6px 0;">
+<pre>开始
+Total = 0
+Count = 0
+For I = 1 To 4 Step 1
+    If I % 2 == 0 Then
+        Total = Total + I * 10
+        Count = Count + 1
+    Else
+        Total = Total + I
+输出 Total, Count
+结束</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">请在下方的追踪表格中，完整记录演算法执行过程中循环变量 I、条件判断结果以及 Total 与 Count 的每一步演算。</div>
+            <span class="sub-q-score">[8 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：循环 4 次迭代推导，每轮 2 分。需计算偶数乘 10 累加与奇数直接累加。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">演算法最终输出的 Total 与 Count 分别是多少？</div>
+            <span class="sub-q-score">[4 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：写出循环结束后的最终变量输出值。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa2')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa2">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 完整追踪表推导演算：</strong>
+          <table class="trace-table-ui">
+            <thead>
+              <tr>
+                <th>循环轮次</th>
+                <th>变量 I</th>
+                <th>条件 (I % 2 == 0)</th>
+                <th>变量 Total 变化计算及结果</th>
+                <th>变量 Count 变化结果</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>初始状态</td>
+                <td>-</td>
+                <td>-</td>
+                <td>0</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td>I = 1</td>
+                <td>1</td>
+                <td>False (1 % 2 = 1)</td>
+                <td>Total = 0 + 1 = <strong>1</strong></td>
+                <td>不变，仍为 <strong>0</strong></td>
+              </tr>
+              <tr>
+                <td>I = 2</td>
+                <td>2</td>
+                <td>True (2 % 2 = 0)</td>
+                <td>Total = 1 + 2 × 10 = <strong>21</strong></td>
+                <td>Count = 0 + 1 = <strong>1</strong></td>
+              </tr>
+              <tr>
+                <td>I = 3</td>
+                <td>3</td>
+                <td>False (3 % 2 = 1)</td>
+                <td>Total = 21 + 3 = <strong>24</strong></td>
+                <td>不变，仍为 <strong>1</strong></td>
+              </tr>
+              <tr>
+                <td>I = 4</td>
+                <td>4</td>
+                <td>True (4 % 2 = 0)</td>
+                <td>Total = 24 + 4 × 10 = <strong>64</strong></td>
+                <td>Count = 1 + 1 = <strong>2</strong></td>
+              </tr>
+              <tr style="background:#F0FDFA; font-weight:700;">
+                <td>循环结束</td>
+                <td>-</td>
+                <td>-</td>
+                <td>最终值：64</td>
+                <td>最终值：2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 最终输出值：</strong>
+          <p style="font-size:13.5px; color:#1E293B;">
+          ① 最终输出的 <code>Total</code>：<strong style="color:#0F766E; font-size:15px;">64</strong>（2分）<br>
+          ② 最终输出的 <code>Count</code>：<strong style="color:#0F766E; font-size:15px;">2</strong>（2分）
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 追踪表第 1 轮</td>
+              <td>正确计算 I=1 时的状态</td>
+              <td>I=1, False, Total=1, Count=0</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(a) 追踪表第 2 轮</td>
+              <td>正确计算 I=2 时的状态</td>
+              <td>I=2, True, Total=21, Count=1</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(a) 追踪表第 3 轮</td>
+              <td>正确计算 I=3 时的状态</td>
+              <td>I=3, False, Total=24, Count=1</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(a) 追踪表第 4 轮</td>
+              <td>正确计算 I=4 时的状态</td>
+              <td>I=4, True, Total=64, Count=2</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(b) 最终变量输出</td>
+              <td>准确写出输出数值</td>
+              <td>Total = 64 (2分)；Count = 2 (2分)</td>
+              <td>4分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 3 -->
+    <article class="qa-card" id="qa-card-3">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 3 · 共 12 分</span>
+        <span class="q-source-tag">统考核心考点 · 冒泡排序降序推导与 Flag 优化</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【待排序数组情境】</div>
+        <div class="qa-scenario-text">
+          现有一个包含 5 个整数的待排序数组：<span class="data-pill">List = [18, 56, 34, 92, 27]</span>。<br>
+          系统需将其按照 <strong>降序（从大到小）</strong> 进行重新排列。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">排序目标:</span> <span class="param-val">降序 (Descending)</span></div>
+          <div class="param-tag"><span class="param-key">元素总数:</span> <span class="param-val">N = 5</span></div>
+          <div class="param-tag"><span class="param-key">沉底特性:</span> <span class="param-val">每轮将未排序区间极小值交换沉底</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">请详细写出第一轮（Pass 1）外层遍历时，每一步相邻元素两两比较及交换后的数组状态演变，并写出 Pass 1 结束时的数组状态。</div>
+            <span class="sub-q-score">[4 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：4 次相邻两两比较与位置调换。若前项 &lt; 后项则执行交换。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">请写出第二轮（Pass 2）遍历结束时的数组排列状态。</div>
+            <span class="sub-q-score">[4 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：未排序区间 [56, 34, 92, 27] 内进行比对，写出次小值 27 沉底后的状态。</div>
+        </div>
+        <!-- Sub c -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(c)</span>
+            <div class="sub-q-text">若在冒泡排序中加入一个布尔变量 <code>Swapped</code> 作为标志位，说明其在什么情况下能起到优化算法的作用？这种优化能否改善最坏情况的时间复杂度？说明理由。</div>
+            <span class="sub-q-score">[4 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：标志位提前退出机制、最好情况降至 O(N)、最坏情况依然为 O(N²)。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa3')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa3">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 第一轮（Pass 1，降序排列）详细比对推导：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          初始数组：<code>[18, 56, 34, 92, 27]</code><br>
+          ① 比较 18 与 56：18 &lt; 56，发生交换 → <code>[56, 18, 34, 92, 27]</code><br>
+          ② 比较 18 与 34：18 &lt; 34，发生交换 → <code>[56, 34, 18, 92, 27]</code><br>
+          ③ 比较 18 与 92：18 &lt; 92，发生交换 → <code>[56, 34, 92, 18, 27]</code><br>
+          ④ 比较 18 与 27：18 &lt; 27，发生交换 → <code>[56, 34, 92, 27, 18]</code><br>
+          <strong>Pass 1 结束状态</strong>：<code style="color:#0F766E; font-weight:700;">[56, 34, 92, 27, 18]</code>（最小值 18 成功沉底至末位）。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 第二轮（Pass 2）遍历结束状态：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          在前 4 个未排序元素 <code>[56, 34, 92, 27]</code> 中继续比对：<br>
+          56 与 34（不换）→ 34 与 92（换为 92, 34）→ 34 与 27（不换）。<br>
+          <strong>Pass 2 结束状态</strong>：<code style="color:#0F766E; font-weight:700;">[56, 92, 34, 27, 18]</code>。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(c) 布尔标志位 Swapped 优化分析：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>优化时机</strong>：当待排序数组原本已然有序，或在中间某一轮提前达成完全有序时，整轮外层遍历中没有发生任何一次位置交换（<code>Swapped == False</code>）。算法可立即跳出循环提前终止，避免执行后续无意义的比较轮次，将 <strong>最好情况时间复杂度由 O(N²) 显著降为 O(N)</strong>。<br>
+          ② <strong>能否改善最坏情况</strong>：<strong>不能</strong>。在最坏情况（如序列完全反序）下，每一轮遍历都必须执行元素交换，标志位无法提前终止循环，最坏时间复杂度依然保持为 <strong>O(N²)</strong>。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) Pass 1 推导</td>
+              <td>完整呈现 4 步两两比较与最终状态</td>
+              <td>写出每步两两比较交换(2分)；最终状态 [56, 34, 92, 27, 18](2分)</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>(b) Pass 2 状态</td>
+              <td>准确写出第二轮沉底状态</td>
+              <td>准确得出 [56, 92, 34, 27, 18]</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>(c) 标志位优化作用</td>
+              <td>阐述提前退出与最好复杂度优化</td>
+              <td>阐明无交换提前终止 + 最好复杂度降为 O(N)</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>(c) 最坏情况分析</td>
+              <td>论证无法改变最坏复杂度</td>
+              <td>指出最坏情况每一轮均有交换，最坏复杂度依然为 O(N²)</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 4 -->
+    <article class="qa-card" id="qa-card-4">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 4 · 共 12 分</span>
+        <span class="q-source-tag">统考核心算力 · 二分查找区间折半与海量数据对比</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【日志检索情境】</div>
+        <div class="qa-scenario-text">
+          某服务器日志系统中存储了 16 个按时间戳严格升序排列的用户访问记录 ID：<br>
+          <span class="data-pill">IDs = [102, 115, 128, 134, 145, 156, 167, 178, 189, 201, 215, 228, 239, 250, 265, 280]</span>（索引从 0 至 15）。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">检索目标 ID:</span> <span class="param-val">228</span></div>
+          <div class="param-tag"><span class="param-key">区间范围:</span> <span class="param-val">Low = 0, High = 15</span></div>
+          <div class="param-tag"><span class="param-key">指针中项:</span> <span class="param-val">Mid = (Low + High) // 2</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <!-- Sub a -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(a)</span>
+            <div class="sub-q-text">现需在该列表中查找 ID 为 228 的记录。请写出使用二分查找算法的检索过程（必须写出每次比较时指针 Low、High、Mid 的位置及对应的中间元素值，直到命中目标）。</div>
+            <span class="sub-q-score">[6 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：写出第 1 次比对 (Mid=7) 与第 2 次比对 (Mid=11) 的指针变化及命中记录。</div>
+        </div>
+        <!-- Sub b -->
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(b)</span>
+            <div class="sub-q-text">若待检索的数据规模增大到 N = 1,000,000 条，分别计算线性搜索与二分查找在最坏情况下的比较次数（保留整数）。这展示了哪种复杂度层级的压倒性优势？</div>
+            <span class="sub-q-score">[6 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：线性 1,000,000 次 vs 二分 20 次，对比 O(log N) 相对 O(N) 的指数级能效优势。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa4')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa4">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>(a) 查找目标 ID = 228 的单步推导演算：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          列表共 16 个元素，有效索引范围 0 ~ 15。<br>
+          • <strong>第一次比对</strong>：<br>
+          &nbsp;&nbsp;指针位置：<code>Low = 0, High = 15</code> → <code>Mid = (0 + 15) // 2 = 7</code><br>
+          &nbsp;&nbsp;元素比对：<code>IDs[7] = 178</code>。因 <code>228 &gt; 178</code>，目标在右半区，调整区间：<code>Low = Mid + 1 = 8</code>。<br>
+          • <strong>第二次比对</strong>：<br>
+          &nbsp;&nbsp;指针位置：<code>Low = 8, High = 15</code> → <code>Mid = (8 + 15) // 2 = 11</code><br>
+          &nbsp;&nbsp;元素比对：<code>IDs[11] = 228</code>。因 <code>IDs[11] == 228</code>，<strong>直接命中目标！</strong> 查找成功并返回索引 11。
+          </p>
+        </div>
+
+        <div style="margin-bottom:12px;">
+          <strong>(b) 百万规模数据检索效率对比与复杂度优势：</strong>
+          <p style="font-size:13px; line-height:1.65; color:#334155;">
+          ① <strong>线性搜索最坏比对次数</strong>：在 N = 1,000,000 条数据下，最坏需要比对 <strong>1,000,000 次</strong>（线性阶 O(N)）。<br>
+          ② <strong>二分查找最坏比对次数</strong>：<br>
+          &nbsp;&nbsp;公式：<code>⌈log₂ 1,000,000⌉ = 20 次</code>（因 2¹⁹ = 524,288 &lt; 1,000,000 &lt; 2²⁰ = 1,048,576）。<br>
+          ③ <strong>复杂度优势结论</strong>：二分查找将百万级别的全量线性扫描骤降至区区 <strong>20 次</strong> 内存比对，充分展现了对数时间复杂度 <code>O(log₂ N)</code> 相对线性复杂度 <code>O(N)</code> 的指数级效率飞跃与压倒性优势。
+          </p>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>(a) 第一次比对计算</td>
+              <td>正确计算指针与中间值</td>
+              <td>Low=0, High=15, Mid=7, IDs[7]=178 &lt; 228, Low调整为8</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(a) 第二次比对命中</td>
+              <td>正确计算指针并命中</td>
+              <td>Low=8, High=15, Mid=11, IDs[11]=228 == 目标命中</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>(b) 最坏比较次数计算</td>
+              <td>准确算出两种算法数值</td>
+              <td>线性搜索 1,000,000 次(2分)；二分查找 20 次(2分)</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>(b) 复杂度优势总结</td>
+              <td>准确总结对数阶能效飞跃</td>
+              <td>阐述 O(log N) 相对 O(N) 的指数级能效提升与压倒性性能优势</td>
+              <td>2分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- QA 5 -->
+    <article class="qa-card" id="qa-card-5">
+      <div class="qa-title-row">
+        <span class="qa-badge">作答题 5 · 共 12 分</span>
+        <span class="q-source-tag">统考核心大题 · 智慧交通自适应红绿灯配时算法</span>
+      </div>
+
+      <div class="qa-scenario-box">
+        <div class="qa-scenario-header">📌 【智慧城市工程情境】</div>
+        <div class="qa-scenario-text">
+          某智慧城市路口安装了车流毫米波雷达传感器，能够每隔 2 分钟实时统计主干道南北方向等待的车辆排队数量 <span class="data-pill">V</span>（辆）。系统需根据车流量动态调节绿灯放行时长 <span class="data-pill">G</span>（秒）：<br>
+          1. 输入检测到的车流量 V；若 <code>V &lt; 0</code>，系统判定传感器数据异常并报警；<br>
+          2. 若 <code>0 ≤ V &lt; 10</code>（畅通平峰），绿灯时长固定设定为 <span class="data-pill">G = 20 秒</span>；<br>
+          3. 若 <code>10 ≤ V &lt; 30</code>（正常车流），绿灯时长计算公式为 <span class="data-pill">G = 20 + (V - 10) × 1.5 秒</span>；<br>
+          4. 若 <code>V ≥ 30</code>（严重拥堵早高峰），绿灯时长设定为上限最大值 <span class="data-pill">G = 60 秒</span>；<br>
+          5. 系统需输出当前交通状态（如“畅通”、“正常”、“拥堵”）及本次计算出的绿灯配时时长 G。
+        </div>
+        <div class="param-tags-row">
+          <div class="param-tag"><span class="param-key">平峰配时(V&lt;10):</span> <span class="param-val">20 秒</span></div>
+          <div class="param-tag"><span class="param-key">线性动态(10≤V&lt;30):</span> <span class="param-val">20 + (V-10)*1.5 秒</span></div>
+          <div class="param-tag"><span class="param-key">拥堵上限(V≥30):</span> <span class="param-val">60 秒封顶</span></div>
+          <div class="param-tag"><span class="param-key">异常拦截:</span> <span class="param-val">V &lt; 0 报警</span></div>
+        </div>
+      </div>
+
+      <div class="sub-q-container">
+        <div class="sub-q-card">
+          <div class="sub-q-stem">
+            <span class="sub-q-badge">(综合)</span>
+            <div class="sub-q-text">请编写一个结构严谨、逻辑完整且包含异常输入拦截的伪代码算法，实现上述智慧交通路口自适应配时控制系统。</div>
+            <span class="sub-q-score">[12 分]</span>
+          </div>
+          <div class="sub-q-guide">💡 考核点：传感器数据异常校验（3分）、分段函数动态配时（6分）、状态与配时结果输出（3分）。</div>
+        </div>
+      </div>
+
+      <button class="rubric-toggle-btn" onclick="toggleRubric('qa5')">
+        <span>📋 展开独中统考官方 4 栏评分量规与参考答案 ▾</span>
+      </button>
+
+      <div class="rubric-content" id="rubric-qa5">
+        <h4 style="color:#0F766E; margin-bottom:8px; font-weight:700;">【官方标准答案与实现】</h4>
+        
+        <div style="margin-bottom:12px;">
+          <strong>规范伪代码设计：</strong>
+          <div class="code-box">
+<pre>开始
+输入 车流量 V
+
+// 1. 传感器输入有效性验证（防御性编程）
+如果 V &lt; 0 那么
+    输出 "传感器数据异常：车流量不能为负数！"
+否则
+    // 2. 多分支动态绿灯时长计算与路况判定
+    如果 V &lt; 10 那么
+        交通状态 = "畅通"
+        绿灯时长 = 20
+    否则如果 V &lt; 30 那么
+        交通状态 = "正常"
+        绿灯时长 = 20 + (V - 10) * 1.5
+    否则
+        交通状态 = "严重拥堵"
+        绿灯时长 = 60
+    
+    // 3. 输出自适应配时与路况指令
+    输出 "当前路段交通状态：", 交通状态
+    输出 "本次分配绿灯时长：", 绿灯时长, " 秒"
+结束</pre>
+          </div>
+        </div>
+
+        <table class="rubric-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">得分点</th>
+              <th style="width: 30%;">评分标准</th>
+              <th style="width: 45%;">采分条件与关键词</th>
+              <th style="width: 10%;">分值</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>异常输入校验</td>
+              <td>拦截负数非法车流</td>
+              <td>正确写出 V &lt; 0 条件判断并输出报警错误信息</td>
+              <td>3分</td>
+            </tr>
+            <tr>
+              <td>平峰畅通分支</td>
+              <td>处理 V &lt; 10 逻辑</td>
+              <td>状态设为“畅通”，绿灯时长固定 20 秒</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>正常线性动态分支</td>
+              <td>处理 10 ≤ V &lt; 30 逻辑</td>
+              <td>状态设为“正常”，公式 20 + (V - 10) * 1.5 计算准确</td>
+              <td>4分</td>
+            </tr>
+            <tr>
+              <td>早高峰拥堵封顶</td>
+              <td>处理 V ≥ 30 逻辑</td>
+              <td>状态设为“严重拥堵”，绿灯时长上限封顶 60 秒</td>
+              <td>2分</td>
+            </tr>
+            <tr>
+              <td>规范输出指令</td>
+              <td>完整输出状态与配时</td>
+              <td>正确输出“交通状态”与“绿灯时长”数值</td>
+              <td>1分</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+  </main>
+
+  <script>
+    // 董总统考历届真题标准答案表 (第一册 第 2 章 演算法与程式设计)
+    const correctAnswers = {
+      1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'A',
+      6: 'B', 7: 'C', 8: 'D', 9: 'A', 10: 'B',
+      11: 'C', 12: 'D', 13: 'A', 14: 'B', 15: 'C',
+      16: 'D', 17: 'A', 18: 'B', 19: 'C', 20: 'D'
+    };
+
+    let userAnswers = {};
+
+    // 即选即判核心交互：学生点击选项立即判定正误，展开正确答案与深度解析
+    function selectOption(qid, choice) {
+      const card = document.getElementById(`card-q${qid}`);
+      if (!card) return;
+
+      const correctChoice = correctAnswers[qid];
+      const options = card.querySelectorAll('.option-item');
+      const analysis = document.getElementById(`analysis-${qid}`);
+
+      userAnswers[qid] = choice;
+
+      // 1. 高亮选项：正确选项标绿，错误选项标红
+      options.forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+        const circle = opt.querySelector('.opt-circle');
+        const optLetter = circle ? circle.innerText.trim() : '';
+
+        if (optLetter === correctChoice) {
+          opt.classList.add('correct-answer');
+        } else if (optLetter === choice && choice !== correctChoice) {
+          opt.classList.add('wrong-answer');
+        }
+      });
+
+      // 2. 注入即时正误反馈标签并展开解析
+      if (analysis) {
+        let feedbackEl = analysis.querySelector('.instant-feedback-badge');
+        if (!feedbackEl) {
+          feedbackEl = document.createElement('div');
+          feedbackEl.className = 'instant-feedback-badge';
+          analysis.insertBefore(feedbackEl, analysis.firstChild);
+        }
+
+        if (choice === correctChoice) {
+          feedbackEl.className = 'instant-feedback-badge badge-correct';
+          feedbackEl.innerHTML = '✅ 回答正确！得分 +2分';
+        } else {
+          feedbackEl.className = 'instant-feedback-badge badge-wrong';
+          feedbackEl.innerHTML = `❌ 回答错误！您的选择是 <strong>${choice}</strong>，正确答案是 <strong>${correctChoice}</strong>`;
+        }
+
+        analysis.classList.add('show');
+      }
+
+      // 3. 更新顶部实时进度与正确率
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answeredKeys = Object.keys(userAnswers);
+      const totalAnswered = answeredKeys.length;
+      let corrects = 0;
+      answeredKeys.forEach(qid => {
+        if (userAnswers[qid] === correctAnswers[qid]) {
+          corrects++;
+        }
+      });
+
+      const countEl = document.getElementById('answered-count');
+      if (countEl) countEl.innerText = totalAnswered;
+
+      const scorePill = document.getElementById('score-pill');
+      if (scorePill) {
+        if (totalAnswered > 0) {
+          scorePill.style.display = 'inline-flex';
+          const correctEl = document.getElementById('correct-count');
+          const totalEl = document.getElementById('total-done');
+          if (correctEl) correctEl.innerText = corrects;
+          if (totalEl) totalEl.innerText = totalAnswered;
+        } else {
+          scorePill.style.display = 'none';
+        }
+      }
+    }
+
+    function resetPractice() {
+      if (!confirm('确定要清空作答记录并重新练习吗？')) return;
+      userAnswers = {};
+      document.querySelectorAll('.option-item').forEach(opt => {
+        opt.classList.remove('selected', 'correct-answer', 'wrong-answer');
+      });
+      document.querySelectorAll('.analysis-panel').forEach(panel => {
+        panel.classList.remove('show');
+        const badge = panel.querySelector('.instant-feedback-badge');
+        if (badge) badge.remove();
+      });
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // 展开/折叠评分量规 (乙组作答题)
+    function toggleRubric(id) {
+      const box = document.getElementById(`rubric-${id}`);
+      if (box) box.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

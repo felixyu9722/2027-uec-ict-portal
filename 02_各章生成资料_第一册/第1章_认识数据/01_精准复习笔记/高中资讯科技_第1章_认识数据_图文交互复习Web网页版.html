@@ -133,7 +133,7 @@
       border-left: 3px solid transparent;
       line-height: 1.4;
     }
-    #sidebar a:hover {
+    #sidebar a:hover:not(.nav-back-home-btn) {
       background: #F1F5F9;
       color: #1E40AF;
     }
@@ -881,8 +881,10 @@
       box-sizing: border-box;
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
+    #sidebar .nav-back-home-btn:hover,
+    #sidebar .nav-back-home-btn:hover,
     .nav-back-home-btn:hover {
-      background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a) !important;
       transform: translateY(-1px);
       box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
       color: #ffffff !important;
@@ -3633,3 +3635,4 @@
 </script>
 </body>
 </html>
+

@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一册 第 6 章 资讯安全与社会责任 ｜ 历届真题新纲重构在线测试系统</title>
+  <meta name="description" content="董总统编高中资讯科技第一册第6章《资讯安全与社会责任》历届统考真题新纲重构测试卷 · 满分80分 · 甲组20题机读自评 + 乙组5题官方评分量规精析">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+    :root {
+      --primary-blue: #1E3A8A;
+      --primary-indigo: #2563EB;
+      --primary-hover: #1D4ED8;
+      --bg-slate: #F8FAFC;
+      --border-slate: #E2E8F0;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --success-green: #10B981;
+      --success-bg: #ECFDF5;
+      --error-red: #EF4444;
+      --error-bg: #FEF2F2;
+      --warn-amber: #F59E0B;
+      --warn-bg: #FFFBEB;
+      --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-slate);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 76px;
+    }
+
+    /* 顶部导航状态栏 */
+    .exam-top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 76px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-slate);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .exam-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .btn-back-home:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e3a8a) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+      color: #ffffff !important;
+    }
+
+    .exam-title-group h1 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: -0.2px;
+    }
+    .exam-badge {
+      display: inline-block;
+      background: #EFF6FF;
+      color: var(--primary-indigo);
+      border: 1px solid #BFDBFE;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .exam-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-reset-practice {
+      background: #F1F5F9;
+      color: #475569;
+      border: 1px solid var(--border-slate);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-reset-practice:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    .instant-feedback-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .badge-correct {
+      background: #DCFCE7;
+      color: #15803D;
+      border: 1px solid #86EFAC;
+    }
+    .badge-wrong {
+      background: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* 试卷容器 */
+    .exam-container {
+      max-width: 980px;
+      margin: 28px auto 80px auto;
+      padding: 0 20px;
+    }
+
+    /* 试卷标题区 */
+    .exam-header-card {
+      background: #ffffff;
+      border: 1px solid var(--border-slate);
+      border-radius: 16px;
+      padding: 32px 36px;
+      margin-bottom: 24px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .exam-header-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #1E40AF, #3B82F6, #60A5FA);
+    }
+    .exam-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .exam-main-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+    }
+    .exam-meta-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .exam-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      background: #F1F5F9;
+      color: #475569;
+    }
+    .exam-pill.blue {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #DBEAFE;
+    }
+
+    /* 考试指引说明盒 */
+    .exam-notice-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 13.5px;
+      color: #475569;
+      margin-top: 18px;
+      line-height: 1.6;
+    }
+    .exam-notice-box strong { color: #1E293B; }
+    .exam-notice-box ul {
+      margin-left: 20px;
+      margin-top: 6px;
+    }
+
+    /* 快捷导航定位栏 */
+    .quick-jump-bar {
+      position: sticky;
+      top: 76px;
+      z-index: 900;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-slate);
+      border-radius: 12px;
+      padding: 12px 18px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+    }
+    .jump-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #64748B;
+      white-space: nowrap;
+    }
+    .jump-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+    .jump-pill {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #F1F5F9;
+      color: #475569;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .jump-pill:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+    .jump-pill.active {
+      background: #1E40AF;
+      color: #ffffff;
+    }
+
+    /* 大组分栏标题 */
+    .section-divider {
+      margin: 36px 0 20px 0;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #E2E8F0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::before {
+      content: "";
+      width: 4px;
+      height: 20px;
+      background: #1E40AF;
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .section-subtitle {
+      font-size: 13.5px;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    /* 单选题卡片 */
+    .question-card {
+      background: #ffffff;
+      border: 1px solid var(--border-slate);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 18px;
+      box-shadow: var(--card-shadow);
+      transition: border-color 0.2s;
+      scroll-margin-top: 150px;
+    }
+    .question-card:hover {
+      border-color: #CBD5E1;
+    }
+    .question-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .q-badge-num {
+      background: #1E40AF;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 3px 9px;
+      border-radius: 6px;
+      line-height: 1.3;
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+    .q-stem {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1E293B;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* 选项列表 */
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-bottom: 8px;
+    }
+    .option-item {
+      display: flex;
+      align-items: center;
+      padding: 11px 16px;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 10px;
+      background: #FAFAFA;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      font-size: 14.5px;
+    }
+    .option-item:hover:not(.locked) {
+      background: #F1F5F9;
+      border-color: #94A3B8;
+      transform: translateX(2px);
+    }
+    .option-item.locked {
+      cursor: default;
+    }
+    .option-prefix {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: #E2E8F0;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13.5px;
+      margin-right: 14px;
+      flex-shrink: 0;
+      transition: all 0.15s;
+    }
+    .option-text {
+      color: #334155;
+      font-weight: 500;
+      flex-grow: 1;
+    }
+
+    /* 选项选中与判分状态 */
+    .option-item.selected {
+      border-color: #2563EB;
+      background: #EFF6FF;
+    }
+    .option-item.selected .option-prefix {
+      background: #2563EB;
+      color: #ffffff;
+    }
+
+    .option-item.correct-ans {
+      border-color: #10B981 !important;
+      background: #ECFDF5 !important;
+    }
+    .option-item.correct-ans .option-prefix {
+      background: #10B981 !important;
+      color: #ffffff !important;
+    }
+    .option-item.correct-ans .option-text {
+      color: #065F46 !important;
+      font-weight: 600;
+    }
+
+    .option-item.wrong-ans {
+      border-color: #EF4444 !important;
+      background: #FEF2F2 !important;
+    }
+    .option-item.wrong-ans .option-prefix {
+      background: #EF4444 !important;
+      color: #ffffff !important;
+    }
+    .option-item.wrong-ans .option-text {
+      color: #991B1B !important;
+      font-weight: 600;
+    }
+
+    /* 官方解析盒子 */
+    .analysis-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 10px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      animation: fadeIn 0.25s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .analysis-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .analysis-source {
+      font-size: 12px;
+      color: #64748B;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed #E2E8F0;
+    }
+    .analysis-content {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* 作答题紧凑排版 */
+    .qa-card {
+      background: #ffffff;
+      border: 1px solid var(--border-slate);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: var(--card-shadow);
+      scroll-margin-top: 150px;
+    }
+    .qa-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .qa-badge {
+      background: #0F766E;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .qa-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+    .qa-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .qa-scenario-box {
+      background: #F8FAFC;
+      border-left: 4px solid #0F766E;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 16px;
+      font-size: 14.5px;
+      color: #334155;
+      line-height: 1.6;
+    }
+    .qa-scenario-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0F766E;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .sub-questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .sub-q-item {
+      background: #ffffff;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+    .sub-q-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .sub-q-badge {
+      background: #0F766E;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .sub-q-stem {
+      color: #1E293B;
+      font-weight: 500;
+    }
+
+    /* 折叠答案控制 */
+    .qa-toggle-wrap {
+      margin-top: 14px;
+    }
+    .btn-toggle-ans {
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      color: #1E293B;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-toggle-ans:hover {
+      background: #0F766E;
+      color: #ffffff;
+      border-color: #0F766E;
+    }
+    .qa-answer-panel {
+      margin-top: 14px;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    /* 4栏量规评分表 */
+    .table-responsive {
+      overflow-x: auto;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+    }
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+    .rubric-table th {
+      background: #F8FAFC;
+      color: #475569;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-bottom: 1px solid #E2E8F0;
+      white-space: nowrap;
+    }
+    .rubric-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #F1F5F9;
+      color: #334155;
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .rubric-table tr:last-child td {
+      border-bottom: none;
+    }
+    .rubric-table tr:hover td {
+      background: #FAFAFA;
+    }
+
+    /* 阅卷名师深度点拨 */
+    .teacher-note {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13.5px;
+      color: #166534;
+      line-height: 1.6;
+    }
+    .teacher-note-title {
+      font-weight: 700;
+      font-size: 13.5px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 返回顶部悬浮按钮 */
+    .btn-back-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1E40AF;
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 12px rgba(30, 64, 175, 0.35);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      z-index: 800;
+      opacity: 0.9;
+    }
+    .btn-back-top:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+      background: #1D4ED8;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .exam-top-bar { padding: 0 16px; }
+      .exam-header-card { padding: 20px; }
+      .exam-main-title { font-size: 20px; }
+      .question-card, .qa-card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航状态栏 -->
+  <header class="exam-top-bar">
+    <div class="exam-nav-left">
+      <a href="../../index.html" class="btn-back-home">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>返回大厅</span>
+      </a>
+      <div class="exam-title-group">
+        <h1><span class="exam-badge">第一册 第 6 章</span>资讯安全与社会责任 ｜ 历届真题新纲重构测试</h1>
+      </div>
+    </div>
+    <div class="exam-nav-right">
+      <button class="btn-reset-practice" onclick="resetPractice()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="1 4 1 10 7 10"></polyline>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+        </svg>
+        <span>清空重练</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 试卷容器 -->
+  <main class="exam-container">
+
+    <!-- 试卷头卡片 -->
+    <section class="exam-header-card">
+      <div class="exam-header-top">
+        <div>
+          <h2 class="exam-main-title">第一册 第 6 章 资讯安全与社会责任 · 历届统考真题新纲重构卷</h2>
+          <div class="exam-meta-pills">
+            <span class="exam-pill blue">适用：2027起高一统考新课纲</span>
+            <span class="exam-pill">总分：80分（折合统考标准制）</span>
+            <span class="exam-pill">建议时限：60分钟</span>
+            <span class="exam-pill">甲组：20题机读自评（40分）</span>
+            <span class="exam-pill">乙组：5大题评分量规（40分）</span>
+          </div>
+        </div>
+      </div>
+      <div class="exam-notice-box">
+        <strong>📋 考卷作答须知与新纲说明：</strong>
+        <ul>
+          <li>本套试题严格遵循董总《高中资讯科技》2027年统考评量新纲，融合历届真题与高阶素养原创题重构而成。</li>
+          <li><strong>甲组单项选择题（1~20题）：</strong>支持即时交互自评。点击任意选项将立即呈现正误判定、正确答案与深度解析。</li>
+          <li><strong>乙组综合简答作答题（题1~题5）：</strong>采用紧凑题干与官方 4 栏评分量规（Rubrics）排版，点击各题“查看评分标准与官方解析”即可对照采分点与名师点拨。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 快捷跳转定位栏 -->
+    <nav class="quick-jump-bar" id="quickNav">
+      <span class="jump-label">📍 快速定位：</span>
+      <div class="jump-pills">
+        <a href="#sec-a" class="jump-pill active">甲组客观题(1~20)</a>
+        <a href="#q1" class="jump-pill">Q1</a>
+        <a href="#q5" class="jump-pill">Q5</a>
+        <a href="#q10" class="jump-pill">Q10</a>
+        <a href="#q15" class="jump-pill">Q15</a>
+        <a href="#q20" class="jump-pill">Q20</a>
+        <a href="#sec-b" class="jump-pill">乙组作答题(1~5)</a>
+        <a href="#qa1" class="jump-pill">题1(灾备推演)</a>
+        <a href="#qa2" class="jump-pill">题2(恶意软件)</a>
+        <a href="#qa3" class="jump-pill">题3(Wi-Fi安全)</a>
+        <a href="#qa4" class="jump-pill">题4(PAPA理论)</a>
+        <a href="#qa5" class="jump-pill">题5(数码法规)</a>
+      </div>
+    </nav>
+
+    <!-- 甲组：单项选择题 -->
+    <div class="section-divider" id="sec-a">
+      <div class="section-title">甲组：单项选择题（共 20 题，每题 2 分，共 40 分）</div>
+      <div class="section-subtitle">点击选项立即显示对错判定、参考答案与真题出处</div>
+    </div>
+
+    <!-- 20 MCQ CARDS -->
+    <!-- MCQ 1 -->
+    <div class="question-card" id="q1">
+      <div class="question-head">
+        <span class="q-badge-num">第 1 题</span>
+        <div class="q-stem">资讯系统在为人类社会带来巨大便利的同时，也面临着各种各样的安全威胁。根据课本分类，下列各项威胁中，哪一项属于“人为因素中的无意威胁”？</div>
+      </div>
+      <div class="options-grid" id="opt_group_1">
+        <div class="option-item" onclick="checkMCQ(1, 'A', 'A', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">程序员在操作系统编码时产生的逻辑漏洞，以及普通用户在操作时不慎丢失账号</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(1, 'B', 'A', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">犯罪组织蓄意向医疗系统植入勒索病毒以敲诈巨额赎金</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(1, 'C', 'A', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">黑客在咖啡厅搭建假冒同名无线热点窃听用户密码</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(1, 'D', 'A', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">敌对国家特工通过高频电磁脉冲武器烧毁跨国光缆基站</span>
+        </div>
+      </div>
+      <div id="ans_box_1" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_1"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>A</strong></span>
+        </div>
+        <div class="analysis-source">- 【解析剖析】 课本 6.1.1 节明确指出：无意威胁主要来自软硬件漏洞和人为失误。开发人员在编码时无意留下的逻辑漏洞、用户操作时的错误管理或疏忽大意均属此类。黑客入侵、特种攻击属于蓄意的有意威胁。故选 A。</div>
+        <div class="analysis-content"></div>
+      </div>
+    </div>
+
+    <!-- MCQ 2 -->
+    <div class="question-card" id="q2">
+      <div class="question-head">
+        <span class="q-badge-num">第 2 题</span>
+        <div class="q-stem">恶性软件（Malware）种类繁多、机制各异。关于特洛伊木马（Trojan Horse）的核心行为特征，下列哪项表述最准确？</div>
+      </div>
+      <div class="options-grid" id="opt_group_2">
+        <div class="option-item" onclick="checkMCQ(2, 'A', 'B', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">必须依赖寄生在宿主可执行程序内方可传播，且会自动格式化硬盘</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(2, 'B', 'B', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">外表伪装成看似有用、合法或吸引人的正常程序，但背后却暗中执行窃取机密或破坏系统的恶意操作</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(2, 'C', 'B', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">仅能在没有互联网连接的计算器设备内部自我复制</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(2, 'D', 'B', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">专门用于为电脑主机板上的电容器进行自动降温</span>
+        </div>
+      </div>
+      <div id="ans_box_2" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_2"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>B</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 特洛伊木马（Trojan Horse）的伪装欺骗机制（课本 p.165 及学习评量 p.173 第1题）。</div>
+        <div class="analysis-content">- 【解析剖析】 特洛伊木马取名自古希腊特洛伊木马屠城典故，其核心特征是伪装成看似有用或诱人的正常程序，诱骗用户主动下载运行，但其背后却暗中执行破坏操作或为黑客开启远程控制权限。故选 B。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 3 -->
+    <div class="question-card" id="q3">
+      <div class="question-head">
+        <span class="q-badge-num">第 3 题</span>
+        <div class="q-stem">某种恶性程序不依赖宿主文件或寄生于任何正常文档，而是能够自主利用操作系统网络漏洞进行自我复制，并在局域网各节点电脑间飞速扩散。该程序属于：</div>
+      </div>
+      <div class="options-grid" id="opt_group_3">
+        <div class="option-item" onclick="checkMCQ(3, 'A', 'C', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">广告弹窗软件（Adware）</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(3, 'B', 'C', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">纯文本病毒</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(3, 'C', 'C', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">蠕虫（Worm）</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(3, 'D', 'C', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">静态字模代码</span>
+        </div>
+      </div>
+      <div id="ans_box_3" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_3"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>C</strong></span>
+        </div>
+        <div class="analysis-source">- 【解析剖析】 课本明确定义：“蠕虫类似病毒，但无需宿主文件或附加在任何程式内，能够自我复制和通过网络传播。”广告软件、静态代码不具备这种网络漏洞自主感染特性。故选 C。</div>
+        <div class="analysis-content"></div>
+      </div>
+    </div>
+
+    <!-- MCQ 4 -->
+    <div class="question-card" id="q4">
+      <div class="question-head">
+        <span class="q-badge-num">第 4 题</span>
+        <div class="q-stem">2017年席卷全球的“WannaCry 勒索软件”在短短几天内感染了全球数十万台电脑。WannaCry 之所以能造成灾难性后果，其最核心的技术攻击机理是：</div>
+      </div>
+      <div class="options-grid" id="opt_group_4">
+        <div class="option-item" onclick="checkMCQ(4, 'A', 'D', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">仅仅破坏显示器的荧光粉涂层</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(4, 'B', 'D', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">仅能感染没有安装任何操作系统的裸机电脑</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(4, 'C', 'D', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">强行拔掉受害者机房的市电电源插头</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(4, 'D', 'D', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">利用微软 Windows 系统的网络文件共享协议漏洞，结合蠕虫扩散机制自动蔓延并对用户数据文件实施强加密封锁</span>
+        </div>
+      </div>
+      <div id="ans_box_4" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_4"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>D</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 WannaCry 勒索软件的核心技术攻击机理（课本 p.174~175 及参考答案 p.2~3）。</div>
+        <div class="analysis-content">- 【解析剖析】 官方参考答案指出：WannaCry 利用了微软操作系统的底层 SMB 协议漏洞进行加密袭击，且内嵌了蠕虫病毒的自我复制特性，全自动在局域网内闪电蔓延，对用户文档实施不可逆高强度加密。故选 D。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 5 -->
+    <div class="question-card" id="q5">
+      <div class="question-head">
+        <span class="q-badge-num">第 5 题</span>
+        <div class="q-stem">随着网络钓鱼与撞库攻击日益猖獗，金融与政务系统普遍强制推行“双重验证（2FA）”。关于双重验证的作用机理，下列叙述正确的是：</div>
+      </div>
+      <div class="options-grid" id="opt_group_5">
+        <div class="option-item" onclick="checkMCQ(5, 'A', 'A', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">在常规用户名和静态密码之外，强制引入第二个独立的验证因素（如手机动态 OTP 码或生物指纹），极大提升了非法侵入的门槛</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(5, 'B', 'A', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">强制用户必须连续输入两次一模一样的静态登录密码</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(5, 'C', 'A', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">要求用户必须同时使用两台完全相同的笔记本电脑进行登录</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(5, 'D', 'A', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">彻底废除了传统的登录密码，改由电脑随机向全网所有人广播放行</span>
+        </div>
+      </div>
+      <div id="ans_box_5" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_5"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>A</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 双重验证（2FA）的多因素认证机理（课本 p.166 图6.2）。</div>
+        <div class="analysis-content">- 【解析剖析】 2FA 在第一重静态账号密码（所知）之外，必须引入第二个物理独立的因素（如发送至手机的动态 OTP 码、U盾信物或指纹面部等生物特征），使得即便密码泄露，黑客也无法单独登入。故选 A。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 6 -->
+    <div class="question-card" id="q6">
+      <div class="question-head">
+        <span class="q-badge-num">第 6 题</span>
+        <div class="q-stem">防火墙（Firewall）是企业与家庭网络防御的关键安全屏障。关于防火墙的运作职能，下列哪项表述是完全正确的？</div>
+      </div>
+      <div class="options-grid" id="opt_group_6">
+        <div class="option-item" onclick="checkMCQ(6, 'A', 'B', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">能够自动为受损的电脑外壳喷涂防刮纳米油漆</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(6, 'B', 'B', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">位于内网与外网之间，按照既定安全策略过滤进出数据包、封堵危险业务并实时告警网络攻击</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(6, 'C', 'B', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">能够自动将电脑键盘按键键程缩短一半</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(6, 'D', 'B', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">必须依赖地下深井水循环冷却方可工作</span>
+        </div>
+      </div>
+      <div id="ans_box_6" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_6"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>B</strong></span>
+        </div>
+        <div class="analysis-source">- 【解析剖析】 防火墙位于内外网之间，具备过滤进出网络数据、管理出入访问行为、封堵禁止业务及遇到攻击时实时警告的基本功能。B 选项完全吻合课本原意。</div>
+        <div class="analysis-content"></div>
+      </div>
+    </div>
+
+    <!-- MCQ 7 -->
+    <div class="question-card" id="q7">
+      <div class="question-head">
+        <span class="q-badge-num">第 7 题</span>
+        <div class="q-stem">在企业级数据保护方案中，“增量备份（Incremental Backup）”的最显著特征是：</div>
+      </div>
+      <div class="options-grid" id="opt_group_7">
+        <div class="option-item" onclick="checkMCQ(7, 'A', 'B', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">每次备份均无条件将系统中所有数据完整重新拷贝一份</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(7, 'B', 'B', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">首先建立一个基础备份文件，以后每次备份仅备份相对于上一次备份发生变化的内容</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(7, 'C', 'B', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">每次备份均与上一次完全备份进行比较并备份所有变化</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(7, 'D', 'B', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">备份数据必须用铅笔手抄在笔记本上</span>
+        </div>
+      </div>
+      <div id="ans_box_7" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_7"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>B</strong></span>
+        </div>
+        <div class="analysis-source">- 【解析剖析】 课本明确定义：“增量备份首先建立一个基础备份文件，以后每次备份，仅备份相对于上一次备份发生变化的内容。”故选 B。</div>
+        <div class="analysis-content"></div>
+      </div>
+    </div>
+
+    <!-- MCQ 8 -->
+    <div class="question-card" id="q8">
+      <div class="question-head">
+        <span class="q-badge-num">第 8 题</span>
+        <div class="q-stem">现代电子商务与移动支付中广泛应用非对称加密技术（公开密匙体系）。关于该密码学体系的工作原理，下列阐述完全正确的是：</div>
+      </div>
+      <div class="options-grid" id="opt_group_8">
+        <div class="option-item" onclick="checkMCQ(8, 'A', 'B', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">加密和解密必须使用同一把完全相同的私人密匙</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(8, 'B', 'B', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">公开密匙和私人密匙是一对相互匹配的密钥，任何人均可用公钥加密明文，但唯有持有对应私钥的合法接收者方可解密还原</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(8, 'C', 'B', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">密文在公网传输时任何第三方均可用公钥随意解密偷窥</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(8, 'D', 'B', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">加密后的密文数据体积会自动缩小为零字节</span>
+        </div>
+      </div>
+      <div id="ans_box_8" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_8"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>B</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 非对称公钥密码学体系（Public-Key Cryptography）运作机理（课本 p.169 图6.6）。</div>
+        <div class="analysis-content">- 【解析剖析】 公钥加密体系中，公钥（公开）用于加密，私钥（绝对保密）用于解密。任何发送者均可使用接收方的公钥加密明文，唯独持有对应私钥的接收者才能解密密文，确保了传输信道的绝对机密性。故选 B。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 9 -->
+    <div class="question-card" id="q9">
+      <div class="question-head">
+        <span class="q-badge-num">第 9 题</span>
+        <div class="q-stem">没有任何一款操作系统或应用软件在出厂时是完美无缺的。软件厂商针对新暴露的系统漏洞所发布的针对性修补程序被称为：</div>
+      </div>
+      <div class="options-grid" id="opt_group_9">
+        <div class="option-item" onclick="checkMCQ(9, 'A', 'B', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">驱动安装包</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(9, 'B', 'B', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">补丁程序（Patch Program）</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(9, 'C', 'B', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">游戏辅助外挂</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(9, 'D', 'B', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">视频剪辑模板</span>
+        </div>
+      </div>
+      <div id="ans_box_9" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_9"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>B</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 补丁程序（Patch Program）的定义与定位（课本 p.169~170）。</div>
+        <div class="analysis-content">- 【解析剖析】 软件发布后随着用户深入使用暴露出的漏洞，官方开发团队会专门发布补丁程序（Patch Program）来进行漏洞修补。故选 B。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 10 -->
+    <div class="question-card" id="q10">
+      <div class="question-head">
+        <span class="q-badge-num">第 10 题</span>
+        <div class="q-stem">某中学生在校外快餐店就餐时，需要通过手机登录学校选课系统。为了防范公共网络中的“流氓伪造热点（Evil Twin）”窃听风险，最安全规范的操作是：</div>
+      </div>
+      <div class="options-grid" id="opt_group_10">
+        <div class="option-item" onclick="checkMCQ(10, 'A', 'B', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">只要搜索到免密连接且名字包含该快餐店的 Wi-Fi 就立即连接使用</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(10, 'B', 'B', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">向店员核对官方唯一的无线网络名称与加密密码，或者直接开启手机自身的蜂窝移动数据网络进行登录</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(10, 'C', 'B', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">在公共网络环境下随意进行大额银行转账与密码重置</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(10, 'D', 'B', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">登录后将浏览器设置为“自动记住账号与密码”</span>
+        </div>
+      </div>
+      <div id="ans_box_10" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_10"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>B</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 公共无线网络安全使用规范（课本 p.172 及参考答案 p.4）。</div>
+        <div class="analysis-content">- 【解析剖析】 在公共场所防范恶意仿冒热点，必须向店员确认官方唯一的正式 Wi-Fi 名称，或在处理敏感业务时直接切换为手机自身的蜂窝移动流量。故选 B。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 11 -->
+    <div class="question-card" id="q11">
+      <div class="question-head">
+        <span class="q-badge-num">第 11 题</span>
+        <div class="q-stem">资讯素养（Information Literacy）是信息社会公民必备的基本生存技能。下列哪项行为是具备良好资讯素养的鲜明体现？</div>
+      </div>
+      <div class="options-grid" id="opt_group_11">
+        <div class="option-item" onclick="checkMCQ(11, 'A', 'C', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">遇到任何轰动性网络传闻，立即不加思索地群发转发给所有亲友群组</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(11, 'B', 'C', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">随意在网络公开平台下载盗版破解软件并在全校电脑室广泛传播</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(11, 'C', 'C', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">能够根据学习目标准确检索权威官方学术文献，交叉核验信息时效性，并规范注明知识产权引用出处</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(11, 'D', 'C', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">故意在学术论文中篡改真实的实验统计数据以迎合预期结论</span>
+        </div>
+      </div>
+      <div id="ans_box_11" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_11"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>C</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 资讯素养（Information Literacy）的科学规范体现（课本 p.175~176）。</div>
+        <div class="analysis-content">- 【解析剖析】 资讯素养是指使用者如何有效地确认所需资讯、获取官方可靠资源、严密鉴别真伪时效，并在合乎知识产权法律的前提下创造性应用的综合技能。C 表述完全符合标准素养要求。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 12 -->
+    <div class="question-card" id="q12">
+      <div class="question-head">
+        <span class="q-badge-num">第 12 题</span>
+        <div class="q-stem">1986年，美国资讯管理科学家理查德·梅森（Richard O. Mason）提出了奠定现代资讯伦理学基础的 PAPA 理论。其中首字母“P”代表的核心伦理议题是：</div>
+      </div>
+      <div class="options-grid" id="opt_group_12">
+        <div class="option-item" onclick="checkMCQ(12, 'A', 'C', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">计算机处理性能（Performance）</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(12, 'B', 'C', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">软件商业定价（Price）</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(12, 'C', 'C', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">资讯隐私权（Information Privacy）</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(12, 'D', 'C', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">编程多态性（Polymorphism）</span>
+        </div>
+      </div>
+      <div id="ans_box_12" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_12"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>C</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 理查德·梅森 PAPA 理论的四大维度（课本 p.176 图6.9）。</div>
+        <div class="analysis-content">- 【解析剖析】 1986年梅森提出 PAPA 理论：P (Privacy 隐私权)、A (Accuracy 准确性)、P (Property 产权)、A (Access 存取权)。首字母 P 代表资讯隐私权。故选 C。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 13 -->
+    <div class="question-card" id="q13">
+      <div class="question-head">
+        <span class="q-badge-num">第 13 题</span>
+        <div class="q-stem">某商业机构未经客户本人知情同意，私自将数万名会员的身份证号、手机号码及家庭住址打包出售给第三方推销公司牟利。该机构的行径公然违背了梅森 PAPA 理论中的：</div>
+      </div>
+      <div class="options-grid" id="opt_group_13">
+        <div class="option-item" onclick="checkMCQ(13, 'A', 'A', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">资讯隐私权（Information Privacy）</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(13, 'B', 'A', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">硬件扩展性</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(13, 'C', 'A', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">显示器刷新率标准</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(13, 'D', 'A', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">光纤传输带宽规范</span>
+        </div>
+      </div>
+      <div id="ans_box_13" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_13"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>A</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 PAPA 理论之“资讯隐私权（Information Privacy）”（课本 p.176~177）。</div>
+        <div class="analysis-content">- 【解析剖析】 未经用户本人同意擅自打包倒卖其个人身份证、手机号与住址，属于严重践踏公民资讯隐私权的非法违德行径。故选 A。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 14 -->
+    <div class="question-card" id="q14">
+      <div class="question-head">
+        <span class="q-badge-num">第 14 题</span>
+        <div class="q-stem">知识产权（Intellectual Property）受国家法律严格保护。下列属于受法律保护的数码化作品智力成果的是：</div>
+      </div>
+      <div class="options-grid" id="opt_group_14">
+        <div class="option-item" onclick="checkMCQ(14, 'A', 'C', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">已经公开流传了上千年的中国古典唐诗宋词原文</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(14, 'B', 'C', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">自然界中热带雨林里野生动物的叫声频率</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(14, 'C', 'C', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">软件工程师辛勤编写的原创商业软件程序代码、专业数据库架构及独立网络域名</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(14, 'D', 'C', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">电脑机箱散热风扇每分钟的物理转速数值</span>
+        </div>
+      </div>
+      <div id="ans_box_14" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_14"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>C</strong></span>
+        </div>
+        <div class="analysis-source">- 【解析剖析】 课本明确写明：“除了传统知识产权，电脑软体、数据库、网络域名等数码化作品都是开发者辛勤劳动的结晶，也都享有其知识产权。”故选 C。</div>
+        <div class="analysis-content"></div>
+      </div>
+    </div>
+
+    <!-- MCQ 15 -->
+    <div class="question-card" id="q15">
+      <div class="question-head">
+        <span class="q-badge-num">第 15 题</span>
+        <div class="q-stem">马来西亚国会于 1997 年颁布了《电脑犯罪法令》（Computer Crimes Act 1997）。根据该法令明文规定，下列哪项行为构成了法定的违法犯罪？</div>
+      </div>
+      <div class="options-grid" id="opt_group_15">
+        <div class="option-item" onclick="checkMCQ(15, 'A', 'B', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">自行购买正版防病毒软件对个人电脑进行全盘查杀</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(15, 'B', 'B', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">任何人未经授权非法访问他人电脑中的程序或数据，即便其主观上没有任何破坏或篡改的意图</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(15, 'C', 'B', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">经教师许可在学校机房合规完成日常编程作业</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(15, 'D', 'B', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">在个人电脑上安装合法的正版办公文书处理软件</span>
+        </div>
+      </div>
+      <div id="ans_box_15" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_15"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>B</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 马来西亚《1997年电脑犯罪法令》法定罪行门槛（课本 p.178）。</div>
+        <div class="analysis-content">- 【解析剖析】 该法令第①条明确规定：“未经授权访问电脑资料：任何人在未经授权的情况下访问电脑中的程式或数据，即使没有进一步破坏、修改或使用的意图”即属犯罪。故选 B。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 16 -->
+    <div class="question-card" id="q16">
+      <div class="question-head">
+        <span class="q-badge-num">第 16 题</span>
+        <div class="q-stem">某中学生在校外咖啡厅使用手机时，误连了黑客设置的仿冒恶魔双胞胎（Evil Twin）无线热点。黑客在后台利用嗅探工具（Sniffer）可能对该学生造成的直接危害包括： Ⅰ. 窃听其未加密流经该无线路由器的数据包，截获其社交账号密码 Ⅱ. 利用截获的登录凭证非法登入其账号，实施假冒身份诈骗或盗取隐私 Ⅲ. 导致受害者在不知情的情况下沦为黑客攻击内网的跳板 Ⅳ. 物理烧毁该学生手机内部的锂电池并引发爆炸</div>
+      </div>
+      <div class="options-grid" id="opt_group_16">
+        <div class="option-item" onclick="checkMCQ(16, 'A', 'A', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅲ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(16, 'B', 'A', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">仅 Ⅰ、Ⅲ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(16, 'C', 'A', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">仅 Ⅱ、Ⅲ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(16, 'D', 'A', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+        </div>
+      </div>
+      <div id="ans_box_16" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_16"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>A</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 恶魔双胞胎（Evil Twin）伪造热点攻击的危害辨识（课本参考答案 p.3 高阶思维第1题）。</div>
+        <div class="analysis-content">- 【解析剖析】 Ⅰ、Ⅱ、Ⅲ 准确归纳了黑客通过恶意热点截取明文数据包、盗用登录凭证及作为攻击跳板的网络安全危害；Ⅳ 声称直接物理烧毁手机锂电池纯属荒诞夸大。故选 A。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 17 -->
+    <div class="question-card" id="q17">
+      <div class="question-head">
+        <span class="q-badge-num">第 17 题</span>
+        <div class="q-stem">企业为了构建牢不可破的资讯安全纵深防御体系，在日常管理与技术运维中应当落实下列哪些系统性安全措施？ Ⅰ. 全员安全培训：常态化对员工进行资讯安全意识与防钓鱼培训，强化操作红线 Ⅱ. 严格操作规范：严格执行权限最小化原则与标准化安全操作程序，杜绝人为失误 Ⅲ. 数据容灾备份：推行“全量 + 增量”备份策略，并建立异地容灾备份中心定期演练恢复 Ⅳ. 定期专业评估：聘请外部专业网络安全服务团队进行定期渗透测试与漏洞扫描排查</div>
+      </div>
+      <div class="options-grid" id="opt_group_17">
+        <div class="option-item" onclick="checkMCQ(17, 'A', 'D', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅲ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(17, 'B', 'D', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(17, 'C', 'D', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">仅 Ⅰ、Ⅲ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(17, 'D', 'D', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+        </div>
+      </div>
+      <div id="ans_box_17" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_17"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>D</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 企业全生命周期资讯安全纵深防御体系（课本参考答案 p.1 第5题）。</div>
+        <div class="analysis-content">- 【解析剖析】 官方参考答案第5题全面归纳了五大防范支柱：全员安全培训、严格遵守操作规程、健全安全运作政策、定期备份还原与专人外部渗透评估。Ⅰ、Ⅱ、Ⅲ、Ⅳ 均属标准举措，故选 D。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 18 -->
+    <div class="question-card" id="q18">
+      <div class="question-head">
+        <span class="q-badge-num">第 18 题</span>
+        <div class="q-stem">马来西亚政府高度重视网络空间的信息真实性治理，专门设立了官方求证网站 https://sebenarnya.my。关于该网站的重大社会价值，下列哪些阐述是客观公允的？ Ⅰ. 帮助社会公众在随手点击转发前，一键快速鉴别网络新闻与传闻的真实性 Ⅱ. 为国民提供权威、及时、可信的政府官方事实核查与政策澄清信源 Ⅲ. 有效遏制恶意虚假谣言的裂变式扩散，增强全民网络信息甄别能力与社会责任感 Ⅳ. 强力助推清朗文明的网络空间生态建设，维护国家公共秩序与社会和谐稳定</div>
+      </div>
+      <div class="options-grid" id="opt_group_18">
+        <div class="option-item" onclick="checkMCQ(18, 'A', 'D', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅲ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(18, 'B', 'D', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(18, 'C', 'D', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">仅 Ⅰ、Ⅲ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(18, 'D', 'D', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+        </div>
+      </div>
+      <div id="ans_box_18" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_18"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>D</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 马来西亚官方辟谣网站 sebenarnya.my 的社会治理价值（课本参考答案 p.2 第6.2节第4题）。</div>
+        <div class="analysis-content">- 【解析剖析】 官方参考答案指出：设立 sebenarnya.my 的核心目的在于为公众提供权威可靠的官方信源，帮助大众在分享前鉴别真伪，遏制虚假传闻，维护社会公平稳定。Ⅰ、Ⅱ、Ⅲ、Ⅳ 均正确，故选 D。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 19 -->
+    <div class="question-card" id="q19">
+      <div class="question-head">
+        <span class="q-badge-num">第 19 题</span>
+        <div class="q-stem">遭遇“网络霸凌（Cyberbullying）”是数字时代很多青少年可能面临的精神侵害。课本官方解答推荐的规范应对四部曲包括下列哪些步骤？ Ⅰ. 保持克制冷静，坚决不参与网络对骂与情绪化互撕，切断恶性互动 Ⅱ. 完整截取对方霸凌言论、发帖账号、时间与聊天记录等关键数字凭证 Ⅲ. 及时向家长、班主任、学校辅导老师求助，情节严重时果断向警方报案备案 Ⅳ. 在受害者内心遭受创伤时，学校与家庭应主动提供心理疏导与温暖支持</div>
+      </div>
+      <div class="options-grid" id="opt_group_19">
+        <div class="option-item" onclick="checkMCQ(19, 'A', 'D', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅲ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(19, 'B', 'D', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(19, 'C', 'D', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">仅 Ⅰ、Ⅲ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(19, 'D', 'D', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+        </div>
+      </div>
+      <div id="ans_box_19" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_19"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>D</strong></span>
+        </div>
+        <div class="analysis-source">- 【核心考点】 应对网络霸凌的科学四部曲与人文关怀（课本参考答案 p.3 组别协作第3题）。</div>
+        <div class="analysis-content">- 【解析剖析】 官方参考解答明确指出应对网络霸凌的正确路径为：“不回应 - 截取证据 - 向师长求助 - 需要时报警备案”，同时全社会应拒绝冷漠旁观并给予受害者心理支持。Ⅰ、Ⅱ、Ⅲ、Ⅳ 均正确，故选 D。</div>
+      </div>
+    </div>
+
+    <!-- MCQ 20 -->
+    <div class="question-card" id="q20">
+      <div class="question-head">
+        <span class="q-badge-num">第 20 题</span>
+        <div class="q-stem">马来西亚《1998年通讯及多媒体法令》（Communications and Multimedia Act 1998）确立了四大法定管制途径。这四大管制途径包括： Ⅰ. 经济管制（Economic Regulation） Ⅱ. 技术规范（Technical Regulation） Ⅲ. 消费者保护（Consumer Protection） Ⅳ. 社会管制（Social Regulation）</div>
+      </div>
+      <div class="options-grid" id="opt_group_20">
+        <div class="option-item" onclick="checkMCQ(20, 'A', 'A', this)">
+          <span class="option-prefix">A</span>
+          <span class="option-text">Ⅰ、Ⅱ、Ⅲ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(20, 'B', 'A', this)">
+          <span class="option-prefix">B</span>
+          <span class="option-text">仅 Ⅰ、Ⅱ、Ⅲ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(20, 'C', 'A', this)">
+          <span class="option-prefix">C</span>
+          <span class="option-text">仅 Ⅰ、Ⅲ、Ⅳ</span>
+        </div>
+        <div class="option-item" onclick="checkMCQ(20, 'D', 'A', this)">
+          <span class="option-prefix">D</span>
+          <span class="option-text">仅 Ⅱ、Ⅲ、Ⅳ</span>
+        </div>
+      </div>
+      <div id="ans_box_20" class="analysis-box" style="display: none;">
+        <div id="ans_feedback_20"></div>
+        <div class="analysis-title">
+          <span>📖 正确答案：<strong>A</strong></span>
+        </div>
+        <div class="analysis-source">- 【解析剖析】 课本 6.2.4 节明确载明：CMA 1998 的管制途径分为四方面：经济管制、技术规范、消费者保护、社会管制。四项全部囊括，故选 A。</div>
+        <div class="analysis-content">题3（8分）：公共网络钓鱼防范与合法维权路径解析</div>
+      </div>
+    </div>
+
+    <!-- 乙组：简答与综合作答题 -->
+    <div class="section-divider" id="sec-b">
+      <div class="section-title">乙组：简答与综合作答题（共 5 大题，共 40 分）</div>
+      <div class="section-subtitle">紧扣真实网络社会挑战、密码学实务、灾备推演、PAPA 伦理准则与马来西亚法治治理</div>
+    </div>
+    <!-- QA 1 -->
+    <div class="qa-card" id="qa1">
+      <div class="qa-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="qa-badge">作答题 1 · 共 8分</span>
+          <h3 class="qa-title">题1（8分）：系统级数据容灾备份机制与异地恢复推演</h3>
+        </div>
+      </div>
+      <div class="qa-meta-row">
+        <span class="exam-pill blue">高阶实务灾备架构设计</span>
+        <span class="exam-pill">容灾备份 · 恢复推演</span>
+      </div>
+      <div class="qa-scenario-box">
+        <span class="qa-scenario-label">📌 题干情境</span>
+        <div class="qa-scenario-content">某商业银行在吉隆坡总部设有核心业务数据中心，为保障数十万储户的财产数据安全，银行建立了完善的容灾备份架构。</div>
+      </div>
+      <div class="sub-questions-list">
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(a)</span>
+            <span class="sub-q-stem">课本介绍了三种基本的数据备份类型：全量备份、增量备份与差异备份。请简要阐明全量备份（Full Backup）与增量备份（Incremental Backup）在备份机制上的核心区别。（3分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(b)</span>
+            <span class="sub-q-stem">银行在周日晚执行了一次完全备份，并在周一、周二、周三的每晚各执行一次增量备份。若周四上午吉隆坡机房因雷击火灾导致主数据库损毁，系统管理员若想完整还原截至周三晚上的数据，必须依次执行哪些恢复步骤？（3分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(c)</span>
+            <span class="sub-q-stem">为什么银行除了本地备份之外，还必须在相隔数百公里外的槟城或新山设立“异地容灾备份中心（Disaster Recovery Center）”？（2分）</span>
+          </div>
+        </div>
+      </div>
+      <div class="qa-toggle-wrap">
+        <button class="btn-toggle-ans" onclick="toggleAnswer('qa_ans_1', this)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span>查看评分标准与官方解析</span>
+        </button>
+      </div>
+      <div id="qa_ans_1" class="qa-answer-panel" style="display: none;">
+        <div class="table-responsive">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">小题 / 分值</th>
+                <th style="width: 25%;">考查核心知识点</th>
+                <th style="width: 35%;">标准答案 / 满分要点</th>
+                <th style="width: 25%;">评分准则 / 常见误区</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">1(a) [3分]</td>
+                <td>全量备份（某时间点完整拷贝）；增量备份（仅备份相对上次变化内容）</td>
+                <td>① 全量备份（Full Backup）：针对系统中某一个时间点的所有数据完整无遗漏地进行全面备份，数据最全但占用空间最大、备份耗时最长（1.5分）；<br>② 增量备份（Incremental Backup）：首先建立一个基础备份，以后每次备份仅备份相对于“上一次备份”发生变化的数据内容，备份速度快且占用存储空间小（1.5分）。</td>
+                <td style="color: #64748B;">未指出增量备份是“相对于上一次备份”者扣1分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">1(b) [3分]</td>
+                <td>先还原周日完全备份，再依次重放周一、周二、周三增量备份</td>
+                <td>规范恢复链路步骤：<br>① 第一步：首先完整还原周日晚上的完全备份（Full Backup）（1分）；<br>② 第二步：按时间发生顺序，依次叠加恢复周一晚上、周二晚上以及周三晚上的三次增量备份包（2分），即可完美恢复截至周三晚的全部数据。</td>
+                <td style="color: #64748B;">误写为“只需恢复周三增量备份”或顺序颠倒者扣2分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">1(c) [2分]</td>
+                <td>防范区域性毁灭性自然灾害；实现跨地域异地容灾与业务连续性</td>
+                <td>本地备份与生产机房同处一个城市园区，若遭遇特大火灾、地震、水灾或区域电网瘫痪等毁灭性自然灾害时本地备份介质将一同被毁；设立相隔遥远的“异地容灾备份中心”，能够实现数据的跨地域物理隔离，确保在遭遇毁灭打击时依然能从异地迅速恢复业务，保障系统生命线。（2分）</td>
+                <td style="color: #64748B;">仅答“怕电脑坏”而未提“防范区域性特大自然灾害”者扣1分。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="teacher-note">
+          <div class="teacher-note-title">💡 阅卷名师深度点拨与备考心法</div>
+          <div class="teacher-note-content">灾备推演重点在于“增量备份必须依赖基础完全备份和其后所有各天的增量备份，按时间顺序依次累加恢复”，缺一不可；异地容灾旨在防御地震、火灾、严重洪涝等区域性不可抗力灾难，避免本地机房与备份介质一同覆灭。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QA 2 -->
+    <div class="qa-card" id="qa2">
+      <div class="qa-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="qa-badge">作答题 2 · 共 8分</span>
+          <h3 class="qa-title">题2（8分）：恶性软件分类比对与 2017 WannaCry 世纪风暴剖析</h3>
+        </div>
+      </div>
+      <div class="qa-meta-row">
+        <span class="exam-pill blue">恶性软件分类与世纪网络攻防实务</span>
+        <span class="exam-pill">恶意软件 · WannaCry</span>
+      </div>
+      <div class="qa-scenario-box">
+        <span class="qa-scenario-label">📌 题干情境</span>
+        <div class="qa-scenario-content">恶性软件（Malware）是网络空间最具破坏力的威胁源之一。</div>
+      </div>
+      <div class="sub-questions-list">
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(a)</span>
+            <span class="sub-q-stem">请根据下述恶性程序的具体攻击行为，准确写出其对应的恶性软件类型名称：（3分）<br>• ① 必须依附寄生在正常宿主程序或文件中，通过感染其他正常文件进行破坏：______________<br>• ② 伪装成有用的正常软件（如免费小游戏或破解工具），但背后秘密执行窃密破坏：______________<br>• ③ 通过高强度非对称算法对用户所有数据文件进行加密，逼迫受害者支付巨额赎金换取解密密钥：______________</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(b)</span>
+            <span class="sub-q-stem">2017年席卷全球的 WannaCry 勒索病毒 造成了全球150多个国家各行各业的惨重损失。试结合课本知识，阐明 WannaCry 病毒的核心攻击原理（利用了什么系统漏洞？内嵌了哪类恶意软件的传播机制？）。（3分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(c)</span>
+            <span class="sub-q-stem">面对勒索软件的敲诈，为什么官方教参和安全专家均坚决反对受害者向黑客妥协支付赎金？（2分）</span>
+          </div>
+        </div>
+      </div>
+      <div class="qa-toggle-wrap">
+        <button class="btn-toggle-ans" onclick="toggleAnswer('qa_ans_2', this)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span>查看评分标准与官方解析</span>
+        </button>
+      </div>
+      <div id="qa_ans_2" class="qa-answer-panel" style="display: none;">
+        <div class="table-responsive">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">小题 / 分值</th>
+                <th style="width: 25%;">考查核心知识点</th>
+                <th style="width: 35%;">标准答案 / 满分要点</th>
+                <th style="width: 25%;">评分准则 / 常见误区</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">2(a) [3分]</td>
+                <td>电脑病毒、特洛伊木马、勒索软件</td>
+                <td>① 依附宿主感染：电脑病毒（Computer Virus）（1分）；<br>② 伪装正常程序后台作恶：特洛伊木马（Trojan Horse）（1分）；<br>③ 加密封锁敲诈赎金：勒索软件（Ransomware）（1分）。</td>
+                <td style="color: #64748B;">错别字或英文缩写混淆者不给分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">2(b) [3分]</td>
+                <td>Windows SMB协议漏洞；蠕虫自我复制网络扩散</td>
+                <td>① 漏洞利用：WannaCry 专门利用了微软 Windows 操作系统底层的网络文件共享协议（SMBv1）安全漏洞发动加密袭击（1.5分）；<br>② 传播机制：病毒体内内嵌了蠕虫病毒机制，无需任何人为点击附件即可在同一网络内主动扫描其他未修复漏洞的电脑，实现全自动跨节点爆发式蔓延（1.5分）。</td>
+                <td style="color: #64748B;">未提及“操作系统漏洞”或“蠕虫传播特性”者各扣1.5分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">2(c) [2分]</td>
+                <td>无法保证解密密钥；助长黑客犯罪恶性循环</td>
+                <td>坚决反对支付赎金的两大核心原因（每点1分，共2分）：<br>① 无法确保数据解密：黑客毫无商业信誉，受害者即便支付了赎金，黑客也未必能提供有效密钥甚至直接撕票；<br>② 助长网络犯罪歪风：支付赎金为黑客组织提供了资金供养，使其认为勒索犯罪有利可图，会诱使其变本加厉攻击更多无辜机构。</td>
+                <td style="color: #64748B;">答非所问者不给分。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="teacher-note">
+          <div class="teacher-note-title">💡 阅卷名师深度点拨与备考心法</div>
+          <div class="teacher-note-content">统考高频考点！必须准确区分病毒（依赖宿主）、木马（伪装欺骗）、蠕虫（自主网络扩散）和勒索软件（加密索赎）。坚决反对支付赎金是因为无法保证黑客信守承诺给回密钥，且会助长黑客网络勒索气焰，沦为长期敲诈目标。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QA 3 -->
+    <div class="qa-card" id="qa3">
+      <div class="qa-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="qa-badge">作答题 3 · 共 8分</span>
+          <h3 class="qa-title">题3（8分）：公共网络钓鱼防范与合法维权路径解析</h3>
+        </div>
+      </div>
+      <div class="qa-meta-row">
+        <span class="exam-pill blue">高层次思维生活情境题</span>
+        <span class="exam-pill">公共 Wi-Fi 安全 · Evil Twin</span>
+      </div>
+      <div class="qa-scenario-box">
+        <span class="qa-scenario-label">📌 题干情境</span>
+        <div class="qa-scenario-content">高层次思维情境题：杰克在城中著名咖啡厅享用早餐时，连接了一个首项出现且含有咖啡厅名称的未知 Wi-Fi。杰克自认为安全意识很高，每次使用完社交账号（FB）后都会主动登出，且在公共场所输入密码时三番四次确认身旁无人偷看。然而当天中午回到家中，杰克却发现自己的账号被盗并被用于发送诈骗讯息。</div>
+      </div>
+      <div class="sub-questions-list">
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(a)</span>
+            <span class="sub-q-stem">结合网络通信安全原理，深入剖析杰克的社交账号在“身旁无人窥视”的前提下依然被黑客轻易盗取的根本技术原因。（3分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(b)</span>
+            <span class="sub-q-stem">针对杰克遭遇的 Wi-Fi 窃密事故，请为广大青少年在校外公共场所使用网络提出两条科学可行的防范对策。（3分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(c)</span>
+            <span class="sub-q-stem">假设黑客事后私信杰克，声称只要杰克通过电子钱包向其转账 RM 300，就立即将账号归还。你是否赞同杰克支付这笔钱？请表明立场并说明理由。（2分）</span>
+          </div>
+        </div>
+      </div>
+      <div class="qa-toggle-wrap">
+        <button class="btn-toggle-ans" onclick="toggleAnswer('qa_ans_3', this)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span>查看评分标准与官方解析</span>
+        </button>
+      </div>
+      <div id="qa_ans_3" class="qa-answer-panel" style="display: none;">
+        <div class="table-responsive">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">小题 / 分值</th>
+                <th style="width: 25%;">考查核心知识点</th>
+                <th style="width: 35%;">标准答案 / 满分要点</th>
+                <th style="width: 25%;">评分准则 / 常见误区</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">3(a) [3分]</td>
+                <td>假冒流氓热点（Evil Twin）；中间人攻击；网络数据包嗅探窃密</td>
+                <td>杰克连接的无线网络是由黑客故意搭建的假冒同名流氓热点（Evil Twin）。当杰克通过该 Wi-Fi 发送数据时，所有网络流量全部经由黑客控制的路由器中转；黑客利用网络数据包嗅探工具（Sniffer）在后台截获了杰克在登录时发送的未加密数据包，从中轻而易举提取了明文账号与密码，因此即便身旁无人窥视也能完成远程窃密。（分析透彻得满分3分）</td>
+                <td style="color: #64748B;">答题未指出“假冒 Wi-Fi 热点”或“网络数据包嗅探”机理者酌扣1~2分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">3(b) [3分]</td>
+                <td>向店员核实官方SSID；使用手机蜂窝数据；避免公共网敏感操作</td>
+                <td>科学防范对策（任写两点即给满分3分）：<br>① 向店员核实官方热点：绝不连接未经身份验证的免密网络，主动向店员索取官方唯一的无线名称与加密密码；<br>② 改用手机蜂窝移动数据：在需要输入账号密码或进行支付操作时，断开公共 Wi-Fi，改用个人手机 4G/5G 数据流量；<br>③ 避免公共网络处理敏感业务：不在公共网络环境下进行大额金融交易，并使用无痕浏览模式。</td>
+                <td style="color: #64748B;">仅写“小心一点”等非技术措施者得1分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">3(c) [2分]</td>
+                <td>明确反对；支付无法保证归还；联系官方找回；提醒亲友</td>
+                <td>① 立场鲜明：坚决不同意杰克支付该笔款项（1分）；<br>② 理由阐述：支付赎金无法保障账号安全归还，且会滋长犯罪；杰克应立即通过官方正规申诉渠道联系该社交平台的客服团队，提交必要的原始身份认证信息找回账号，并第一时间通知亲友谨防受骗（1分）。</td>
+                <td style="color: #64748B;">答同意支付者给零分。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="teacher-note">
+          <div class="teacher-note-title">💡 阅卷名师深度点拨与备考心法</div>
+          <div class="teacher-note-content">本题结合生活实境考查“流氓伪造热点（Evil Twin）”与网络嗅探（Sniffer）隐蔽危害。学生必须明白“物理防窥无法防范链路层未加密传输的明文抓包”，树立使用蜂窝网络或核验官方 SSID 与开启 2FA 的防护意识。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QA 4 -->
+    <div class="qa-card" id="qa4">
+      <div class="qa-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="qa-badge">作答题 4 · 共 8分</span>
+          <h3 class="qa-title">题4（8分）：资讯伦理 PAPA 理论与健康网络空间构建</h3>
+        </div>
+      </div>
+      <div class="qa-meta-row">
+        <span class="exam-pill blue">资讯伦理理论奠基与数码公民规范</span>
+        <span class="exam-pill">PAPA 理论 · 网络道德</span>
+      </div>
+      <div class="qa-scenario-box">
+        <span class="qa-scenario-label">📌 题干情境</span>
+        <div class="qa-scenario-content">美国资讯管理科学家理查德·梅森于 1986 年提出的 PAPA 理论，是现代数字公民道德建设的核心指引。</div>
+      </div>
+      <div class="sub-questions-list">
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(a)</span>
+            <span class="sub-q-stem">请完整写出梅森 PAPA 理论所涵盖的四大伦理议题的中文全称。（4分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(b)</span>
+            <span class="sub-q-stem">某网民为了报复他人，私自将他人的真实姓名、电话号码、私人聊天记录及恶意丑化的照片发布在公开网络论坛上。该行为严重违背了 PAPA 理论中的哪项伦理准则？（1分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(c)</span>
+            <span class="sub-q-stem">网络是一个公共精神家园，文明健康的网络空间需要人人共同守护。根据课本 6.2.3 节关于“维护健康的网络空间”的指导规范，作为一名有担当的高中生，我们在网络群组交流中应恪守哪些基本道德规范？（列举三项）（3分）</span>
+          </div>
+        </div>
+      </div>
+      <div class="qa-toggle-wrap">
+        <button class="btn-toggle-ans" onclick="toggleAnswer('qa_ans_4', this)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span>查看评分标准与官方解析</span>
+        </button>
+      </div>
+      <div id="qa_ans_4" class="qa-answer-panel" style="display: none;">
+        <div class="table-responsive">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">小题 / 分值</th>
+                <th style="width: 25%;">考查核心知识点</th>
+                <th style="width: 35%;">标准答案 / 满分要点</th>
+                <th style="width: 25%;">评分准则 / 常见误区</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">4(a) [4分]</td>
+                <td>资讯隐私权、资讯准确性、资讯产权、资讯资源存取权</td>
+                <td>梅森 PAPA 理论四大伦理议题为：① 资讯隐私权（Information Privacy）；② 资讯准确性（Information Accuracy）；③ 资讯产权（Information Property Right）；④ 资讯资源存取权（Information Resources Access Right）。（每个1分，满分4分）</td>
+                <td style="color: #64748B;">错别字或自造词汇者，每处扣1分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">4(b) [1分]</td>
+                <td>违背资讯隐私权（Information Privacy）</td>
+                <td>严重违背了资讯隐私权（Information Privacy）（1分）。</td>
+                <td style="color: #64748B;">错写为其他权利者不得分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">4(c) [3分]</td>
+                <td>不造谣起哄；不刁难围攻他人；不散播垃圾广告；发布正向正能量</td>
+                <td>规范要求（任写三点即给满分3分）：<br>① 不制造纷争与造谣：不恶意编造谎言欺骗他人，不信谣、不传谣、不随意跟风起哄；<br>② 文明沟通不霸凌：不在群组中刻意刁难、挖苦他人，坚决不煽动针对特定个体的言语围攻与人身攻击；<br>③ 不滥发垃圾骚扰资讯：不通过社交软件转发虚假广告与垃圾链接，不为博取眼球转发哗众取宠的无用资讯；<br>④ 传播正能量：发布正面、积极、有利于互助学习的健康资讯，营造充满朝气的文明网络空间。</td>
+                <td style="color: #64748B;">仅答“做个好人”等泛泛而谈者酌扣1~2分。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="teacher-note">
+          <div class="teacher-note-title">💡 阅卷名师深度点拨与备考心法</div>
+          <div class="teacher-note-content">PAPA 理论是 2027 新纲第一册伦理部分绝对必考纲领。学生须能脱口而出“隐私权（Privacy）、准确性（Accuracy）、产权（Property）、存取权（Accessibility）”四大支柱，并能结合人肉搜索、虚假言论、盗版侵权等实际案例进行准确定性。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QA 5 -->
+    <div class="qa-card" id="qa5">
+      <div class="qa-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span class="qa-badge">作答题 5 · 共 8分</span>
+          <h3 class="qa-title">题5（8分）：马来西亚电子资讯法律规制与数字法治治理</h3>
+        </div>
+      </div>
+      <div class="qa-meta-row">
+        <span class="exam-pill blue">马来西亚本土数码法规与事实核查治理</span>
+        <span class="exam-pill">电脑犯罪法令 · 数码签名 · 官方辟谣</span>
+      </div>
+      <div class="qa-scenario-box">
+        <span class="qa-scenario-label">📌 题干情境</span>
+        <div class="qa-scenario-content">“互联网不是超越现实、不受法律约束的空间，每一个网民都要为自己的网络行为承担法律责任。”</div>
+      </div>
+      <div class="sub-questions-list">
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(a)</span>
+            <span class="sub-q-stem">马来西亚《1997年电脑犯罪法令》（Computer Crimes Act 1997）严厉打击各类滥用电脑罪行。请写出该法令明确规制的任意两项具体电脑犯罪行为。（3分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(b)</span>
+            <span class="sub-q-stem">简述《1997年数码签名法令》（Digital Signature Act 1997）的核心立法目的，并说明数码签名在法律上享有怎样的法定效力？（2分）</span>
+          </div>
+        </div>
+        <div class="sub-q-item">
+          <div class="sub-q-header">
+            <span class="sub-q-badge">(c)</span>
+            <span class="sub-q-stem">马来西亚政府专门设立了官方事实求证网站 https://sebenarnya.my。试阐述该官方网站的创建目的及其在维护社会秩序稳定中的重大现实价值。（3分）</span>
+          </div>
+        </div>
+      </div>
+      <div class="qa-toggle-wrap">
+        <button class="btn-toggle-ans" onclick="toggleAnswer('qa_ans_5', this)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span>查看评分标准与官方解析</span>
+        </button>
+      </div>
+      <div id="qa_ans_5" class="qa-answer-panel" style="display: none;">
+        <div class="table-responsive">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">小题 / 分值</th>
+                <th style="width: 25%;">考查核心知识点</th>
+                <th style="width: 35%;">标准答案 / 满分要点</th>
+                <th style="width: 25%;">评分准则 / 常见误区</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">5(a) [3分]</td>
+                <td>未经授权访问；未经授权修改；错误传播；教唆企图</td>
+                <td>电脑犯罪法令打击的法定犯罪行为（写出任意两项得满分3分）：<br>① 未经授权访问电脑资料（无论主观上是否有进一步破坏或篡改的意图）；<br>② 未经授权访问并意图实施或促成进一步犯罪；<br>③ 未经授权修改电脑内容（破坏数据完整性或干扰系统正常运行）；<br>④ 错误传播黑客入侵手段（非法传播密码、访问代码或漏洞工具）；<br>⑤ 教唆和企图实施电脑犯罪。</td>
+                <td style="color: #64748B;">答非所问者不得分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">5(b) [2分]</td>
+                <td>确认数码签名法定地位；享有与纸质手写签名同等效力</td>
+                <td>《数码签名法令》的核心立法目的是在国家法律层面正式确立数码签名的合法法律地位，赋予经过权威认证的数码签名与传统纸质文件上手写签名完全同等的法定法律地位、证据效力与抗抵赖性。</td>
+                <td style="color: #64748B;">仅答“可以用电脑签名”而未提及“与纸质手写签名同等法律效力”者扣1分。</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #0F766E;">5(c) [3分]</td>
+                <td>官方求证平台；帮助公众核验真伪；遏制网络谣言维护社会稳定</td>
+                <td>① 创建目的：作为马来西亚政府官方设立的事实查证与辟谣核心门户，旨在为全社会大众提供一个权威、及时、可信的事实核查与官方政策澄清渠道（1.5分）；<br>② 现实价值：引导国民在随手转发前核实事实，有效阻断虚假恶毒谣言与诈骗资讯的裂变扩散，提升全民族批判性数码素养，维护国家公共秩序、社会互信与和谐稳定（1.5分）。</td>
+                <td style="color: #64748B;">表述完整准确得满分3分。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="teacher-note">
+          <div class="teacher-note-title">💡 阅卷名师深度点拨与备考心法</div>
+          <div class="teacher-note-content">结合马来西亚本土数码法律体系考查。重点掌握 1997 电脑犯罪法令（规制未授权非法存取、非法篡改等）、1997 数码签名法令（赋予数码签名等同手写签名的法律证据效力），以及国家通讯多媒体委员会（MCMC）推出的 sebenarnya.my 辟谣机制。</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 返回顶部悬浮按钮 -->
+  <button class="btn-back-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script>
+    // MCQ 交互判定
+    const mcqState = {};
+
+    function checkMCQ(qid, userOption, correctOption, optionElement) {
+      if (mcqState[qid]) return; // 已作答锁定
+      mcqState[qid] = userOption;
+
+      const group = document.getElementById('opt_group_' + qid);
+      const options = group.getElementsByClassName('option-item');
+      for (let opt of options) {
+        opt.classList.add('locked');
+      }
+
+      const ansBox = document.getElementById('ans_box_' + qid);
+      const feedback = document.getElementById('ans_feedback_' + qid);
+
+      if (userOption === correctOption) {
+        optionElement.classList.add('correct-ans');
+        feedback.innerHTML = '<span class="instant-feedback-badge badge-correct">✓ 回答正确！精准命中核心考点</span>';
+      } else {
+        optionElement.classList.add('wrong-ans');
+        // 高亮正确选项
+        for (let opt of options) {
+          const prefix = opt.querySelector('.option-prefix').textContent.trim();
+          if (prefix === correctOption) {
+            opt.classList.add('correct-ans');
+            break;
+          }
+        }
+        feedback.innerHTML = '<span class="instant-feedback-badge badge-wrong">✗ 回答错误！请认真研读下方名师解析</span>';
+      }
+
+      ansBox.style.display = 'block';
+    }
+
+    // 展开/收起作答题答案
+    function toggleAnswer(panelId, btn) {
+      const panel = document.getElementById(panelId);
+      const isHidden = panel.style.display === 'none';
+      panel.style.display = isHidden ? 'block' : 'none';
+      const textSpan = btn.querySelector('span');
+      if (isHidden) {
+        textSpan.textContent = '收起评分标准与官方解析';
+        btn.style.background = '#0F766E';
+        btn.style.color = '#ffffff';
+        btn.style.borderColor = '#0F766E';
+      } else {
+        textSpan.textContent = '查看评分标准与官方解析';
+        btn.style.background = '#F1F5F9';
+        btn.style.color = '#1E293B';
+        btn.style.borderColor = '#CBD5E1';
+      }
+    }
+
+    // 清空重练
+    function resetPractice() {
+      if (confirm('确定要清空所有已作答选项并重新开始演练吗？')) {
+        for (let qid in mcqState) {
+          delete mcqState[qid];
+          const group = document.getElementById('opt_group_' + qid);
+          if (group) {
+            const options = group.getElementsByClassName('option-item');
+            for (let opt of options) {
+              opt.className = 'option-item';
+            }
+          }
+          const ansBox = document.getElementById('ans_box_' + qid);
+          if (ansBox) ansBox.style.display = 'none';
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
