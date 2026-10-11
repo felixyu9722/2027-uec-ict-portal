@@ -713,7 +713,7 @@
                         <input type="text" id="stuId" placeholder="例如：230105" required>
                     </div>
                     <div class="reg-tip">
-                        <span>💡 请如实填写姓名与学号，交卷后系统将自动上传至教师数据库完成登分。</span>
+                        <span style="color:#059669; font-weight:600;">✓ 个人信息与作答进度实时自动暂存（防意外刷新丢失）· 全部作答完毕后点击右上角【提交答卷】即可上传至教师数据库。</span>
                     </div>
                 </div>
             </div>
@@ -880,6 +880,9 @@
             if (isSubmitted) return; // 提交后锁定
 
             userAnswers[qid] = optKey;
+            try {
+                localStorage.setItem('ict_exam_user_answers', JSON.stringify(userAnswers));
+            } catch(e) {}
 
             ['A', 'B', 'C', 'D'].forEach(k => {
                 const el = document.getElementById(`opt-${qid}-${k}`);
@@ -996,6 +999,7 @@
                 }
 
                 isSubmitted = true;
+                localStorage.removeItem('ict_exam_user_answers');
                 clearInterval(timerInterval);
                 closeSubmitModal();
 
@@ -1097,9 +1101,64 @@
             }
         }
 
+        
+        // 自动暂存功能 (Auto-Save to localStorage)
+        function setupAutoSave() {
+            const nameEl = document.getElementById('stuName');
+            const classEl = document.getElementById('stuClass');
+            const idEl = document.getElementById('stuId');
+
+            // 恢复已暂存的个人信息
+            if (nameEl) {
+                const savedName = localStorage.getItem('ict_exam_stu_name');
+                if (savedName) nameEl.value = savedName;
+                nameEl.addEventListener('input', e => {
+                    localStorage.setItem('ict_exam_stu_name', e.target.value.trim());
+                });
+            }
+
+            if (classEl) {
+                const savedClass = localStorage.getItem('ict_exam_stu_class');
+                if (savedClass) classEl.value = savedClass;
+                classEl.addEventListener('input', e => {
+                    localStorage.setItem('ict_exam_stu_class', e.target.value.trim());
+                });
+            }
+
+            if (idEl) {
+                const savedId = localStorage.getItem('ict_exam_stu_id');
+                if (savedId) idEl.value = savedId;
+                idEl.addEventListener('input', e => {
+                    localStorage.setItem('ict_exam_stu_id', e.target.value.trim());
+                });
+            }
+
+            // 恢复已暂存的作答选项
+            const savedAnswersStr = localStorage.getItem('ict_exam_user_answers');
+            if (savedAnswersStr) {
+                try {
+                    const savedAnswers = JSON.parse(savedAnswersStr);
+                    for (let qid in savedAnswers) {
+                        const optKey = savedAnswers[qid];
+                        userAnswers[qid] = optKey;
+                        const el = document.getElementById(`opt-${qid}-${optKey}`);
+                        if (el) el.classList.add('selected');
+                        const card = document.getElementById(`q-card-${qid}`);
+                        if (card) card.classList.add('answered');
+                        const sheetBtn = document.getElementById(`sheet-btn-${qid}`);
+                        if (sheetBtn) sheetBtn.classList.add('done');
+                    }
+                    updateProgress();
+                } catch (e) {
+                    console.error("恢复作答记录失败:", e);
+                }
+            }
+        }
+    
         window.onload = () => {
             renderQuestions();
             startTimer();
+            setupAutoSave();
         };
     </script>
 </body>
