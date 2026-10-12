@@ -177,7 +177,7 @@
             <input type="password" id="gatePwdInput" placeholder="••••••••" maxlength="20" style="width:100%; padding:12px 16px; background:#0f172a; border:1px solid #475569; border-radius:10px; color:#fff; font-size:1.2rem; letter-spacing:4px; text-align:center; outline:none; margin-bottom:10px;">
             <div id="gateErrMsg" style="color:#f87171; font-size:0.85rem; display:none; margin-bottom:12px;">⚠️ 密码不正确，无权查阅</div>
             <div style="display:flex; gap:10px; margin-top:14px;">
-                <a href="高中资讯科技_第二册_测验导航门户.html" style="flex:1; padding:11px; border-radius:10px; background:#334155; color:#cbd5e1; text-decoration:none; font-size:0.9rem; font-weight:600; display:flex; align-items:center; justify-content:center;">返回门户</a>
+                <a href="index.html" style="flex:1; padding:11px; border-radius:10px; background:#334155; color:#cbd5e1; text-decoration:none; font-size:0.9rem; font-weight:600; display:flex; align-items:center; justify-content:center;">返回门户</a>
                 <button onclick="checkPageSecurity()" style="flex:1; padding:11px; border-radius:10px; background:linear-gradient(135deg, #d97706, #b45309); border:none; color:#fff; font-size:0.95rem; font-weight:700; cursor:pointer;">解锁专区</button>
             </div>
         </div>
@@ -191,7 +191,7 @@
                 <span class="nav-title">高中资讯科技（第二册）教师数据中心</span>
             </div>
             <div class="nav-actions">
-                <a href="高中资讯科技_第二册_测验导航门户.html" class="btn-act btn-orange">🏠 返回测验门户</a>
+                <a href="index.html" class="btn-act btn-orange">🏠 返回测验门户</a>
                 <button class="btn-act" onclick="fetchSubmissionsFromSupabase()">🔄 刷新云端答卷</button>
                 <button class="btn-act" onclick="lockPage()" style="background:#7f1d1d; border-color:#991b1b; color:#fee2e2;">🚪 退出锁定</button>
             </div>
@@ -209,8 +209,8 @@
                 </div>
             </div>
             <div class="link-teacher-answers">
-                <a href="高中资讯科技_第二册_全册50题选择题测验_第一套_教师参考答案与解析版.html" class="btn-ans-link">📖 第一套教师答案与精析</a>
-                <a href="高中资讯科技_第二册_全册50题选择题测验_第二套_教师参考答案与解析版.html" class="btn-ans-link">📖 第二套教师答案与精析</a>
+                <a href="teacher_answers.html" class="btn-ans-link">📖 第一套教师答案与精析</a>
+                <a href="teacher_answers_set2.html" class="btn-ans-link">📖 第二套教师答案与精析</a>
             </div>
         </div>
 
@@ -404,8 +404,8 @@
                 div.className = 'wrong-item';
                 div.onclick = () => {
                     const targetPage = (currentActiveSet === 2) 
-                        ? '高中资讯科技_第二册_全册50题选择题测验_第二套_教师参考答案与解析版.html'
-                        : '高中资讯科技_第二册_全册50题选择题测验_第一套_教师参考答案与解析版.html';
+                        ? 'teacher_answers_set2.html'
+                        : 'teacher_answers.html';
                     window.open(`${targetPage}#q-card-${item.q.id}`, '_blank');
                 };
 

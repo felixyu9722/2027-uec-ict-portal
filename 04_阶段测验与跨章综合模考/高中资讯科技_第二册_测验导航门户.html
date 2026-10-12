@@ -721,7 +721,11 @@
             }
             sessionStorage.setItem('current_student_id', sid);
             sessionStorage.setItem('current_exam_set', selectedExamSet);
-            window.location.href = `${STUDENT_REVIEW_URL}?sid=${encodeURIComponent(sid)}&set=${selectedExamSet}`;
+            if (location.protocol === 'file:') {
+                window.location.href = STUDENT_REVIEW_URL;
+            } else {
+                window.location.href = `${STUDENT_REVIEW_URL}?sid=${encodeURIComponent(sid)}&set=${selectedExamSet}`;
+            }
         }
 
         // 教师密码弹窗

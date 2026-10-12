@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高二资讯科技 · 数据流程图（DFD）交互式实战复习专区</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --accent: #d97706;
+            --emerald: #059669;
+            --bg-page: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.65;
+            padding-bottom: 90px;
+        }
+
+        /* 顶部导航 */
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            border-bottom: 1px solid #334155;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-badge {
+            background: #0284c7;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .nav-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-act {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #f1f5f9;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .btn-act:hover {
+            background: #334155;
+        }
+
+        /* 主体布局 */
+        .main-container {
+            max-width: 1100px;
+            margin: 25px auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部引导横幅 */
+        .hero-banner {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            border-radius: 16px;
+            padding: 32px 36px;
+            color: #fff;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-banner h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.85rem;
+            margin-bottom: 10px;
+            color: #f8fafc;
+        }
+
+        .hero-banner p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            max-width: 860px;
+            margin-bottom: 20px;
+        }
+
+        /* 知识点速查胶囊条 */
+        .rules-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.84rem;
+        }
+
+        .rule-item strong {
+            color: #38bdf8;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* 快捷跳转胶囊栏 */
+        .q-tabs-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .tab-jump-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: #334155;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .tab-jump-btn:hover {
+            background: var(--primary-light);
+            color: #fff;
+            border-color: var(--primary-light);
+        }
+
+        /* 题目卡片 */
+        .dfd-card {
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .dfd-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: #cbd5e1;
+        }
+
+        .card-header {
+            background: #f8fafc;
+            border-bottom: 1px solid var(--border-light);
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .q-badge {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .q-score-tag {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 26px 28px;
+        }
+
+        /* 场景排版强化 */
+        .scen {
+            border: 1.5px solid #334155 !important;
+            border-radius: 8px;
+            padding: 14px 18px !important;
+            margin: 12px 0 !important;
+            background: #f8fafc !important;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .scen b {
+            color: var(--primary);
+            font-size: 1.02rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .steps {
+            background: #eff6ff !important;
+            border-left: 4px solid var(--primary-light) !important;
+            border-radius: 0 8px 8px 0;
+            padding: 12px 18px !important;
+            margin: 12px 0 !important;
+            font-size: 0.92rem;
+        }
+
+        .steps p {
+            color: var(--primary);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .tip {
+            color: #b45309 !important;
+            background: #fffbeb;
+            border: 1px dashed #fcd34d;
+            border-radius: 6px;
+            padding: 8px 14px;
+            margin: 12px 0;
+            font-size: 0.88rem !important;
+        }
+
+        .given {
+            border: 1px solid var(--border) !important;
+            border-radius: 10px;
+            padding: 16px !important;
+            margin: 16px 0 !important;
+            background: #fff !important;
+            text-align: center;
+        }
+
+        .given figcaption {
+            font-size: 0.85rem !important;
+            color: var(--text-muted) !important;
+            margin-bottom: 10px !important;
+            font-weight: 700;
+        }
+
+        /* 交互式答案揭晓控制 */
+        .answer-control-bar {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px dashed var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn-toggle-ans {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+        }
+
+        .btn-toggle-ans:hover {
+            background: linear-gradient(135deg, #047857, #065f46);
+            transform: translateY(-1px);
+        }
+
+        /* 答案抽屉区 */
+        .ans-drawer {
+            margin-top: 20px;
+            background: #f0fdf4;
+            border: 1.5px solid #86efac;
+            border-radius: 12px;
+            padding: 22px 24px;
+            display: none;
+            animation: fadeIn 0.25s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ans-drawer h3 {
+            color: #065f46;
+            font-size: 1.15rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ans-drawer svg {
+            max-width: 100%;
+            height: auto;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            box-shadow: var(--shadow-sm);
+            margin: 12px 0;
+            display: block;
+        }
+
+        .rubric-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            margin-top: 12px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+        }
+
+        .rubric-table th {
+            background: #047857;
+            color: #fff;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .rubric-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* 打印样式 */
+        @media print {
+            .top-navbar, .hero-banner, .answer-control-bar, .tab-jump-btn {
+                display: none !important;
+            }
+            body { background: #fff; }
+            .main-container { max-width: 100%; padding: 0; margin: 0; }
+            .dfd-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; margin-bottom: 20px; }
+            .ans-drawer { display: block !important; border: 1px solid #999; background: #fff; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header class="top-navbar">
+        <div class="nav-inner">
+            <div class="brand-box">
+                <span class="nav-badge">重点专项</span>
+                <span class="nav-title">数据流程图（DFD）交互实战复习专区</span>
+            </div>
+            <div class="nav-actions">
+                <a href="高中资讯科技_第二册_测验导航门户.html" class="btn-act">🏠 返回测验主门户</a>
+                <button class="btn-act" onclick="toggleAllAnswers(true)">📖 展开全部答案</button>
+                <button class="btn-act" onclick="toggleAllAnswers(false)">📕 收起全部答案</button>
+                <button class="btn-act" onclick="window.print()">🖨️ 打印练习题</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- 头部导读与规则备忘 -->
+        <section class="hero-banner">
+            <h1>数据流程图（DFD）与背景图绘制 · 深度交互练习</h1>
+            <p>
+                本专区专为独中高二《资讯科技》第 1 章核心难点设计。包含 <strong>3 道背景图（Context Diagram）</strong> 与 <strong>2 道 0 阶数据流程图（Level-0 DFD）</strong> 典型大题。
+                请先认真阅读业务场景，在纸上构思绘制，随后点击每题下方的【🎯 查看参考答案】展开标准矢量图与评分细则对照核查！
+            </p>
+            <div class="rules-bar">
+                <div class="rule-item">
+                    <strong>1. 外部实体（External Entity）</strong>
+                    方框矩形 · 名词命名 · 系统边界外的人/机构
+                </div>
+                <div class="rule-item">
+                    <strong>2. 处理过程（Process）</strong>
+                    圆角矩形/圆形 · 动词命名 · 背景图标号 0，0阶图标号 1.0, 2.0
+                </div>
+                <div class="rule-item">
+                    <strong>3. 数据存储（Data Store）</strong>
+                    双平行横线 · 名词命名 · 仅在 0 阶及更低层 DFD 中出现
+                </div>
+                <div class="rule-item">
+                    <strong>4. 数据流（Data Flow）</strong>
+                    单向箭头连线 · 名词标注 · 实体之间禁止直接拉线
+                </div>
+            </div>
+        </section>
+
+        <!-- 快捷跳转锚点 -->
+        <nav class="q-tabs-bar">
+            <a href="#dfd-q-1" class="tab-jump-btn">第 1 题：选课系统背景图</a>
+            <a href="#dfd-q-2" class="tab-jump-btn">第 2 题：图书借还背景图</a>
+            <a href="#dfd-q-3" class="tab-jump-btn">第 3 题：外卖订餐背景图</a>
+            <a href="#dfd-q-4" class="tab-jump-btn">第 4 题：库存控制 0 阶图</a>
+            <a href="#dfd-q-5" class="tab-jump-btn">第 5 题：入学注册 0 阶图</a>
+        </nav>
+
+        <!-- 5 道实战卡片 -->
+
+        <!-- 题目 1 -->
+        <article class="dfd-card" id="dfd-q-1">
+            <div class="card-header">
+                <div class="q-badge">
+                    <span>📝 第 1 题：线上选课系统（背景图绘制 · 6%）</span>
+                </div>
+                <span class="q-score-tag">分值权重：6%</span>
+            </div>
+            <div class="card-body">
+                <!-- 题干与场景内容 -->
+                <div class="question-scenario-content">
+                    <span class="qt">1. 请阅读以下场景，绘制该系统的背景图。</span> <span class="mk">（6%）</span><div class="scen"><b>【场景】</b>停车场收费系统是一家购物中心使用的系统。驾驶者驶入停车场时，向系统提出入场请求，系统打印停车卡给驾驶者。驾驶者离开时，需向系统提供停车卡资料，系统计算停车费并显示给驾驶者。驾驶者付款后，系统打印收据给驾驶者。系统每月向停车场经理提交月报告。</div><div class="steps"><p>执行步骤：先阅读场景，找出以下项目：</p><ul><li>标题：哪一类型数据流程图？（系统名称＋背景图）</li><li>外部实体（谁提供／接收数据？）——提供数据者置于左侧，接收资讯者置于右侧</li><li>中心系统（编号 0）——只画一个圆形程序，写上系统名称</li><li>输入数据流（外部实体给系统的数据）</li><li>输出数据流（系统给外部实体的数据）</li><li>核对：本题共有 3 个输入数据流、4 个输出数据流；背景图不绘制数据仓。</li></ul><div class="tip">小提示：同一个实体既提供数据、又接收资讯时，可在左、右两侧各绘制一次。</div></div><div class="ans-box">作答区：请在此绘制背景图</div>
+                </div>
+
+                <!-- 交互式答案控制栏 -->
+                <div class="answer-control-bar">
+                    <span style="font-size:0.85rem; color:#64748b;">先在草稿纸上动笔画图，再点击对照标准解答：</span>
+                    <button class="btn-toggle-ans" id="btn-toggle-1" onclick="toggleSingleAnswer(1)">
+                        <span>🎯 查看参考答案与绘制图</span>
+                    </button>
+                </div>
+
+                <!-- 折叠答案抽屉 -->
+                <div class="ans-drawer" id="ans-drawer-1">
+                    <h3>✓ 标准参考答案与官方绘制规范</h3>
+                    <div class="ans-diagram-wrapper">
+                        <p><b>场景分析</b></p><table><tr><th>内容</th><th>分析</th></tr><tr><td>驾驶者</td><td>实体 Source（提供数据）；亦接收资讯，故左、右两侧各绘一次</td></tr><tr><td>经理</td><td>实体 Sink（接收资讯）</td></tr><tr><td>停车场收费系统</td><td>中心系统：唯一的程序符号，编号 0</td></tr><tr><td>入场请求、停车卡资料、付款</td><td>输入数据流（共 3 个）</td></tr><tr><td>停车卡、停车费、收据</td><td>输出数据流 → 驾驶者（3 个）</td></tr><tr><td>月报告</td><td>输出数据流 → 经理（1 个）</td></tr></table><div class="ans-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 288" role="img" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" fill="#000"><defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs><rect width="860" height="288" fill="#fff"/><text x="430.0" y="30" text-anchor="middle" font-size="19" font-weight="700">停车场收费系统背景图</text><circle cx="430.0" cy="154.0" r="91.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="430.0" y="140.0" text-anchor="middle" font-size="15" font-weight="700">0</text><text x="430.0" y="159.0" text-anchor="middle" font-size="15" >停车场</text><text x="430.0" y="178.0" text-anchor="middle" font-size="15" >收费系统</text><rect x="30" y="95.0" width="140" height="118.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="100.0" y="159.0" text-anchor="middle" font-size="16">驾驶者</text><polyline points="170.0,120.0 345.6,120.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="225.8" y="99.0" width="64.0" height="19" fill="#fff"/><text x="257.7951424596647" y="113.0" text-anchor="middle" font-size="14" fill="#1a3a8a">入场请求</text><polyline points="170.0,154.0 339.0,154.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="215.5" y="133.0" width="78.0" height="19" fill="#fff"/><text x="254.5" y="147.0" text-anchor="middle" font-size="14" fill="#1a3a8a">停车卡资料</text><polyline points="170.0,188.0 345.6,188.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="239.8" y="167.0" width="36.0" height="19" fill="#fff"/><text x="257.7951424596647" y="181.0" text-anchor="middle" font-size="14" fill="#1a3a8a">付款</text><rect x="690" y="60.0" width="140" height="118.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="124.0" text-anchor="middle" font-size="16">驾驶者</text><polyline points="489.3,85.0 690.0,85.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="564.7" y="64.0" width="50.0" height="19" fill="#fff"/><text x="589.6647939483827" y="78.0" text-anchor="middle" font-size="14" fill="#1a3a8a">停车卡</text><polyline points="514.0,119.0 690.0,119.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="577.0" y="98.0" width="50.0" height="19" fill="#fff"/><text x="602.0" y="112.0" text-anchor="middle" font-size="14" fill="#1a3a8a">停车费</text><polyline points="521.0,153.0 690.0,153.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="587.5" y="132.0" width="36.0" height="19" fill="#fff"/><text x="605.4972526643094" y="146.0" text-anchor="middle" font-size="14" fill="#1a3a8a">收据</text><rect x="690" y="198.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="228.0" text-anchor="middle" font-size="16">经理</text><polyline points="489.3,223.0 690.0,223.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="564.7" y="202.0" width="50.0" height="19" fill="#fff"/><text x="589.6647939483827" y="216.0" text-anchor="middle" font-size="14" fill="#1a3a8a">月报告</text></svg></div><p><b>评分标准</b></p><table><tr><th>项目</th><th>要求</th><th>分数</th></tr><tr><td>标题</td><td>写明系统名称及「背景图」</td><td>1</td></tr><tr><td>中心程序</td><td>单一圆形程序，编号 0，系统名称正确</td><td>1</td></tr><tr><td>外部实体</td><td>实体名称正确；提供数据者在左、接收资讯者在右</td><td>1</td></tr><tr><td>输入数据流</td><td>3 个输入数据流的名称及箭头方向正确</td><td>1</td></tr><tr><td>输出数据流</td><td>4 个输出数据流的名称及箭头方向正确</td><td>1</td></tr><tr><td>绘图规范</td><td>不绘数据仓；实体之间不直接连接；不出现系统内部数据流</td><td>1</td></tr></table><div class="err"><b>常犯错误提示</b><ul><li>出现数据仓（背景图不绘制数据仓）。</li><li>实体与实体之间直接连线（数据流必须经过程序）。</li><li>把系统内部的处理步骤画成数据流或多个程序。</li><li>输入／输出方向颠倒，或数据流名称使用动词。</li><li>同一实体既提供又接收数据时漏画其中一侧。</li></ul></div></div><div class="q">
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <!-- 题目 2 -->
+        <article class="dfd-card" id="dfd-q-2">
+            <div class="card-header">
+                <div class="q-badge">
+                    <span>📝 第 2 题：图书借还系统（背景图绘制 · 6%）</span>
+                </div>
+                <span class="q-score-tag">分值权重：6%</span>
+            </div>
+            <div class="card-body">
+                <!-- 题干与场景内容 -->
+                <div class="question-scenario-content">
+                    <span class="qt">2. 请阅读以下场景，绘制该系统的背景图。</span> <span class="mk">（6%）</span><div class="scen"><b>【场景】</b>网咖管理系统是一家网咖使用的系统。顾客入座前，向系统提供会员资料，系统为顾客安排座位并告知座位编号。使用时数即将结束时，系统会向顾客发出时数提醒。顾客离开时向系统付款，系统打印收据给顾客。系统每周向店主提交营业报告。</div><div class="steps"><p>执行步骤：先阅读场景，找出以下项目：</p><ul><li>标题：哪一类型数据流程图？（系统名称＋背景图）</li><li>外部实体（谁提供／接收数据？）——提供数据者置于左侧，接收资讯者置于右侧</li><li>中心系统（编号 0）——只画一个圆形程序，写上系统名称</li><li>输入数据流（外部实体给系统的数据）</li><li>输出数据流（系统给外部实体的数据）</li><li>核对：本题共有 2 个输入数据流、4 个输出数据流；背景图不绘制数据仓。</li></ul><div class="tip">小提示：「时数提醒」是系统主动给顾客的资讯，属于输出数据流。</div></div><div class="ans-box">作答区：请在此绘制背景图</div>
+                </div>
+
+                <!-- 交互式答案控制栏 -->
+                <div class="answer-control-bar">
+                    <span style="font-size:0.85rem; color:#64748b;">先在草稿纸上动笔画图，再点击对照标准解答：</span>
+                    <button class="btn-toggle-ans" id="btn-toggle-2" onclick="toggleSingleAnswer(2)">
+                        <span>🎯 查看参考答案与绘制图</span>
+                    </button>
+                </div>
+
+                <!-- 折叠答案抽屉 -->
+                <div class="ans-drawer" id="ans-drawer-2">
+                    <h3>✓ 标准参考答案与官方绘制规范</h3>
+                    <div class="ans-diagram-wrapper">
+                        <p><b>场景分析</b></p><table><tr><th>内容</th><th>分析</th></tr><tr><td>顾客</td><td>实体 Source（提供数据）；亦接收资讯，故左、右两侧各绘一次</td></tr><tr><td>店主</td><td>实体 Sink（接收资讯）</td></tr><tr><td>网咖管理系统</td><td>中心系统：唯一的程序符号，编号 0</td></tr><tr><td>会员资料、付款</td><td>输入数据流（共 2 个）</td></tr><tr><td>座位编号、时数提醒、收据</td><td>输出数据流 → 顾客（3 个）</td></tr><tr><td>营业报告</td><td>输出数据流 → 店主（1 个）</td></tr></table><div class="ans-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 288" role="img" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" fill="#000"><defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs><rect width="860" height="288" fill="#fff"/><text x="430.0" y="30" text-anchor="middle" font-size="19" font-weight="700">网咖管理系统背景图</text><circle cx="430.0" cy="154.0" r="91.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="430.0" y="140.0" text-anchor="middle" font-size="15" font-weight="700">0</text><text x="430.0" y="159.0" text-anchor="middle" font-size="15" >网咖管理</text><text x="430.0" y="178.0" text-anchor="middle" font-size="15" >系统</text><rect x="30" y="112.0" width="140" height="84.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="100.0" y="159.0" text-anchor="middle" font-size="16">顾客</text><polyline points="170.0,137.0 340.6,137.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="223.3" y="116.0" width="64.0" height="19" fill="#fff"/><text x="255.30100672274597" y="130.0" text-anchor="middle" font-size="14" fill="#1a3a8a">会员资料</text><polyline points="170.0,171.0 340.6,171.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="237.3" y="150.0" width="36.0" height="19" fill="#fff"/><text x="255.30100672274597" y="164.0" text-anchor="middle" font-size="14" fill="#1a3a8a">付款</text><rect x="690" y="60.0" width="140" height="118.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="124.0" text-anchor="middle" font-size="16">顾客</text><polyline points="489.3,85.0 690.0,85.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="557.7" y="64.0" width="64.0" height="19" fill="#fff"/><text x="589.6647939483827" y="78.0" text-anchor="middle" font-size="14" fill="#1a3a8a">座位编号</text><polyline points="514.0,119.0 690.0,119.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="570.0" y="98.0" width="64.0" height="19" fill="#fff"/><text x="602.0" y="112.0" text-anchor="middle" font-size="14" fill="#1a3a8a">时数提醒</text><polyline points="521.0,153.0 690.0,153.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="587.5" y="132.0" width="36.0" height="19" fill="#fff"/><text x="605.4972526643094" y="146.0" text-anchor="middle" font-size="14" fill="#1a3a8a">收据</text><rect x="690" y="198.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="228.0" text-anchor="middle" font-size="16">店主</text><polyline points="489.3,223.0 690.0,223.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="557.7" y="202.0" width="64.0" height="19" fill="#fff"/><text x="589.6647939483827" y="216.0" text-anchor="middle" font-size="14" fill="#1a3a8a">营业报告</text></svg></div><p><b>评分标准</b></p><table><tr><th>项目</th><th>要求</th><th>分数</th></tr><tr><td>标题</td><td>写明系统名称及「背景图」</td><td>1</td></tr><tr><td>中心程序</td><td>单一圆形程序，编号 0，系统名称正确</td><td>1</td></tr><tr><td>外部实体</td><td>实体名称正确；提供数据者在左、接收资讯者在右</td><td>1</td></tr><tr><td>输入数据流</td><td>2 个输入数据流的名称及箭头方向正确</td><td>1</td></tr><tr><td>输出数据流</td><td>4 个输出数据流的名称及箭头方向正确</td><td>1</td></tr><tr><td>绘图规范</td><td>不绘数据仓；实体之间不直接连接；不出现系统内部数据流</td><td>1</td></tr></table><div class="err"><b>常犯错误提示</b><ul><li>出现数据仓（背景图不绘制数据仓）。</li><li>实体与实体之间直接连线（数据流必须经过程序）。</li><li>把系统内部的处理步骤画成数据流或多个程序。</li><li>输入／输出方向颠倒，或数据流名称使用动词。</li><li>同一实体既提供又接收数据时漏画其中一侧。</li></ul></div></div><div class="q">
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <!-- 题目 3 -->
+        <article class="dfd-card" id="dfd-q-3">
+            <div class="card-header">
+                <div class="q-badge">
+                    <span>📝 第 3 题：外卖订餐配送系统（背景图绘制 · 6%）</span>
+                </div>
+                <span class="q-score-tag">分值权重：6%</span>
+            </div>
+            <div class="card-body">
+                <!-- 题干与场景内容 -->
+                <div class="question-scenario-content">
+                    <span class="qt">3. 请阅读以下场景，绘制该系统的背景图。</span> <span class="mk">（6%）</span><div class="scen"><b>【场景】</b>轻快铁售票机系统是供乘客购买车票的系统。乘客在售票机上输入目的地资料后，系统显示车费。乘客付款后，系统打印车票给乘客，并找回零钱。系统每日向运营主管提交销售报告。</div><div class="steps"><p>执行步骤：先阅读场景，找出以下项目：</p><ul><li>标题：哪一类型数据流程图？（系统名称＋背景图）</li><li>外部实体（谁提供／接收数据？）——提供数据者置于左侧，接收资讯者置于右侧</li><li>中心系统（编号 0）——只画一个圆形程序，写上系统名称</li><li>输入数据流（外部实体给系统的数据）</li><li>输出数据流（系统给外部实体的数据）</li><li>核对：本题共有 2 个输入数据流、4 个输出数据流；背景图不绘制数据仓。</li></ul><div class="tip">小提示：「找零」是系统给乘客的资讯，属于输出数据流；背景图不必绘出系统内部的处理步骤。</div></div><div class="ans-box">作答区：请在此绘制背景图</div>
+                </div>
+
+                <!-- 交互式答案控制栏 -->
+                <div class="answer-control-bar">
+                    <span style="font-size:0.85rem; color:#64748b;">先在草稿纸上动笔画图，再点击对照标准解答：</span>
+                    <button class="btn-toggle-ans" id="btn-toggle-3" onclick="toggleSingleAnswer(3)">
+                        <span>🎯 查看参考答案与绘制图</span>
+                    </button>
+                </div>
+
+                <!-- 折叠答案抽屉 -->
+                <div class="ans-drawer" id="ans-drawer-3">
+                    <h3>✓ 标准参考答案与官方绘制规范</h3>
+                    <div class="ans-diagram-wrapper">
+                        <p><b>场景分析</b></p><table><tr><th>内容</th><th>分析</th></tr><tr><td>乘客</td><td>实体 Source（提供数据）；亦接收资讯，故左、右两侧各绘一次</td></tr><tr><td>主管</td><td>实体 Sink（接收资讯）</td></tr><tr><td>轻快铁售票机系统</td><td>中心系统：唯一的程序符号，编号 0</td></tr><tr><td>目的地资料、付款</td><td>输入数据流（共 2 个）</td></tr><tr><td>车费、车票、找零</td><td>输出数据流 → 乘客（3 个）</td></tr><tr><td>销售报告</td><td>输出数据流 → 主管（1 个）</td></tr></table><div class="ans-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 288" role="img" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" fill="#000"><defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs><rect width="860" height="288" fill="#fff"/><text x="430.0" y="30" text-anchor="middle" font-size="19" font-weight="700">轻快铁售票机系统背景图</text><circle cx="430.0" cy="154.0" r="91.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="430.0" y="140.0" text-anchor="middle" font-size="15" font-weight="700">0</text><text x="430.0" y="159.0" text-anchor="middle" font-size="15" >轻快铁</text><text x="430.0" y="178.0" text-anchor="middle" font-size="15" >售票机系统</text><rect x="30" y="112.0" width="140" height="84.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="100.0" y="159.0" text-anchor="middle" font-size="16">乘客</text><polyline points="170.0,137.0 340.6,137.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="216.3" y="116.0" width="78.0" height="19" fill="#fff"/><text x="255.30100672274597" y="130.0" text-anchor="middle" font-size="14" fill="#1a3a8a">目的地资料</text><polyline points="170.0,171.0 340.6,171.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="237.3" y="150.0" width="36.0" height="19" fill="#fff"/><text x="255.30100672274597" y="164.0" text-anchor="middle" font-size="14" fill="#1a3a8a">付款</text><rect x="690" y="60.0" width="140" height="118.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="124.0" text-anchor="middle" font-size="16">乘客</text><polyline points="489.3,85.0 690.0,85.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="571.7" y="64.0" width="36.0" height="19" fill="#fff"/><text x="589.6647939483827" y="78.0" text-anchor="middle" font-size="14" fill="#1a3a8a">车费</text><polyline points="514.0,119.0 690.0,119.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="584.0" y="98.0" width="36.0" height="19" fill="#fff"/><text x="602.0" y="112.0" text-anchor="middle" font-size="14" fill="#1a3a8a">车票</text><polyline points="521.0,153.0 690.0,153.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="587.5" y="132.0" width="36.0" height="19" fill="#fff"/><text x="605.4972526643094" y="146.0" text-anchor="middle" font-size="14" fill="#1a3a8a">找零</text><rect x="690" y="198.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="228.0" text-anchor="middle" font-size="16">主管</text><polyline points="489.3,223.0 690.0,223.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="557.7" y="202.0" width="64.0" height="19" fill="#fff"/><text x="589.6647939483827" y="216.0" text-anchor="middle" font-size="14" fill="#1a3a8a">销售报告</text></svg></div><p><b>评分标准</b></p><table><tr><th>项目</th><th>要求</th><th>分数</th></tr><tr><td>标题</td><td>写明系统名称及「背景图」</td><td>1</td></tr><tr><td>中心程序</td><td>单一圆形程序，编号 0，系统名称正确</td><td>1</td></tr><tr><td>外部实体</td><td>实体名称正确；提供数据者在左、接收资讯者在右</td><td>1</td></tr><tr><td>输入数据流</td><td>2 个输入数据流的名称及箭头方向正确</td><td>1</td></tr><tr><td>输出数据流</td><td>4 个输出数据流的名称及箭头方向正确</td><td>1</td></tr><tr><td>绘图规范</td><td>不绘数据仓；实体之间不直接连接；不出现系统内部数据流</td><td>1</td></tr></table><div class="err"><b>常犯错误提示</b><ul><li>出现数据仓（背景图不绘制数据仓）。</li><li>实体与实体之间直接连线（数据流必须经过程序）。</li><li>把系统内部的处理步骤画成数据流或多个程序。</li><li>输入／输出方向颠倒，或数据流名称使用动词。</li><li>同一实体既提供又接收数据时漏画其中一侧。</li></ul></div></div><div class="q">
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <!-- 题目 4 -->
+        <article class="dfd-card" id="dfd-q-4">
+            <div class="card-header">
+                <div class="q-badge">
+                    <span>📝 第 4 题：库存控制系统（0 阶数据流程图绘制 · 10%）</span>
+                </div>
+                <span class="q-score-tag">分值权重：10%</span>
+            </div>
+            <div class="card-body">
+                <!-- 题干与场景内容 -->
+                <div class="question-scenario-content">
+                    <span class="qt">4. 依照所提供的库存控制系统背景图，绘制其0阶图。</span> <span class="mk">（10%）</span><div class="scen"><b>【场景】</b>库存控制系统是一家文具店使用的系统。仓库员把新到货的库存资料输入系统，库存输入程序将库存记录存入库存主文档。库存检查程序读取库存详情，若库存不足，则向仓库员发出补货通知。销售员向系统提供销售资料，销售更新程序把销售记录存入销售交易文档，并给销售员销售确认。报告制作程序读取库存详情及销售记录，向经理提交库存报告及销售报告。</div><figure class="given"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 324" role="img" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" fill="#000"><defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs><rect width="860" height="324" fill="#fff"/><text x="430.0" y="30" text-anchor="middle" font-size="19" font-weight="700">库存控制系统背景图</text><circle cx="430.0" cy="172.0" r="109.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="430.0" y="158.0" text-anchor="middle" font-size="15" font-weight="700">0</text><text x="430.0" y="177.0" text-anchor="middle" font-size="15" >库存控制</text><text x="430.0" y="196.0" text-anchor="middle" font-size="15" >系统</text><rect x="30" y="112.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="100.0" y="142.0" text-anchor="middle" font-size="16">仓库员</text><polyline points="170.0,137.0 326.8,137.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="216.4" y="116.0" width="64.0" height="19" fill="#fff"/><text x="248.38604839774425" y="130.0" text-anchor="middle" font-size="14" fill="#1a3a8a">库存资料</text><rect x="30" y="182.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="100.0" y="212.0" text-anchor="middle" font-size="16">销售员</text><polyline points="170.0,207.0 326.8,207.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="216.4" y="186.0" width="64.0" height="19" fill="#fff"/><text x="248.38604839774425" y="200.0" text-anchor="middle" font-size="14" fill="#1a3a8a">销售资料</text><rect x="690" y="60.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="90.0" text-anchor="middle" font-size="16">仓库员</text><polyline points="495.7,85.0 690.0,85.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="560.8" y="64.0" width="64.0" height="19" fill="#fff"/><text x="592.832910318764" y="78.0" text-anchor="middle" font-size="14" fill="#1a3a8a">补货通知</text><rect x="690" y="130.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="160.0" text-anchor="middle" font-size="16">销售员</text><polyline points="537.7,155.0 690.0,155.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="581.8" y="134.0" width="64.0" height="19" fill="#fff"/><text x="613.8330753347791" y="148.0" text-anchor="middle" font-size="14" fill="#1a3a8a">销售确认</text><rect x="690" y="200.0" width="140" height="84.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="247.0" text-anchor="middle" font-size="16">经理</text><polyline points="525.2,225.0 690.0,225.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="575.6" y="204.0" width="64.0" height="19" fill="#fff"/><text x="607.6235235991626" y="218.0" text-anchor="middle" font-size="14" fill="#1a3a8a">库存报告</text><polyline points="495.7,259.0 690.0,259.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="560.8" y="238.0" width="64.0" height="19" fill="#fff"/><text x="592.832910318764" y="252.0" text-anchor="middle" font-size="14" fill="#1a3a8a">销售报告</text></svg><figcaption>已知：库存控制系统背景图</figcaption></figure><p><b>0阶图需包含以下内容：</b></p><p>4个程序：</p><ul><li>1.0 库存输入程序（Stock Input Process）</li><li>2.0 库存检查程序（Inventory Checking Process）</li><li>3.0 销售更新程序（Sales Updating Process）</li><li>4.0 报告制作程序（Report Generating Process）</li></ul><p>2个数据仓：</p><ul><li>库存主文档（主文档 Master File）</li><li>销售交易文档（交易文档 Transaction File）</li></ul><div class="steps"><p>执行步骤：</p><ul style="list-style:none;padding-left:0;margin-left:.2em"><li>① 列明标题（系统名称＋0阶图）。</li><li>② 绘制 4 个主要程序（1.0 至 4.0），程序名称以动词描述工作。</li><li>③ 复制背景图中的实体，确保与背景图一致（相同实体可合并）。</li><li>④ 复制背景图中的数据流，方向和名称必须相同。</li><li>⑤ 添加必要的数据仓，用于程序的数据读写。</li><li>⑥ 添加其他数据流：程序与数据仓、程序与程序之间的数据传输（名称用名词）。</li><li>⑦ 检查：每个程序都有输入及输出；实体与数据仓不可直接连接；数据仓之间不可直接连接；数据不可回流同一程序。</li></ul><div class="tip">小提示：背景图共有 2 个输入数据流、4 个输出数据流（外部数据流）；其余数据流为系统内部使用，需自行补充。</div></div><div class="ans-box tall">作答区：请在此绘制0阶图</div>
+                </div>
+
+                <!-- 交互式答案控制栏 -->
+                <div class="answer-control-bar">
+                    <span style="font-size:0.85rem; color:#64748b;">先在草稿纸上动笔画图，再点击对照标准解答：</span>
+                    <button class="btn-toggle-ans" id="btn-toggle-4" onclick="toggleSingleAnswer(4)">
+                        <span>🎯 查看参考答案与绘制图</span>
+                    </button>
+                </div>
+
+                <!-- 折叠答案抽屉 -->
+                <div class="ans-drawer" id="ans-drawer-4">
+                    <h3>✓ 标准参考答案与官方绘制规范</h3>
+                    <div class="ans-diagram-wrapper">
+                        <p><b>数据流分析</b></p><table><tr><th>数据流</th><th>来源</th><th>目的地</th><th>类别</th></tr><tr><td>库存资料</td><td>仓库员</td><td>1.0</td><td>外部数据流（同背景图）</td></tr><tr><td>补货通知</td><td>2.0</td><td>仓库员</td><td>外部数据流（同背景图）</td></tr><tr><td>销售资料</td><td>销售员</td><td>3.0</td><td>外部数据流（同背景图）</td></tr><tr><td>销售确认</td><td>3.0</td><td>销售员</td><td>外部数据流（同背景图）</td></tr><tr><td>库存报告</td><td>4.0</td><td>经理</td><td>外部数据流（同背景图）</td></tr><tr><td>销售报告</td><td>4.0</td><td>经理</td><td>外部数据流（同背景图）</td></tr><tr><td>库存记录</td><td>1.0</td><td>库存主文档</td><td>内部数据流（需自行添加）</td></tr><tr><td>库存详情</td><td>库存主文档</td><td>2.0</td><td>内部数据流（需自行添加）</td></tr><tr><td>销售记录</td><td>3.0</td><td>销售交易文档</td><td>内部数据流（需自行添加）</td></tr><tr><td>库存详情</td><td>库存主文档</td><td>4.0</td><td>内部数据流（需自行添加）</td></tr><tr><td>销售记录</td><td>销售交易文档</td><td>4.0</td><td>内部数据流（需自行添加）</td></tr></table><p class="note">数据流的内部命名可有合理变化（如「库存记录」可写为「库存数据」），只要含义清楚、方向正确即可给分；本答案的版面仅供参考。</p><div class="ans-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 660" role="img" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" fill="#000"><defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs><rect width="880" height="660" fill="#fff"/><text x="440.0" y="30" text-anchor="middle" font-size="19" font-weight="700">库存控制系统0阶图</text><circle cx="360" cy="100" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="86.0" text-anchor="middle" font-size="15" font-weight="700">1.0</text><text x="360" y="105.0" text-anchor="middle" font-size="15" >库存输入</text><text x="360" y="124.0" text-anchor="middle" font-size="15" >程序</text><circle cx="360" cy="260" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="246.0" text-anchor="middle" font-size="15" font-weight="700">2.0</text><text x="360" y="265.0" text-anchor="middle" font-size="15" >库存检查</text><text x="360" y="284.0" text-anchor="middle" font-size="15" >程序</text><circle cx="360" cy="420" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="406.0" text-anchor="middle" font-size="15" font-weight="700">3.0</text><text x="360" y="425.0" text-anchor="middle" font-size="15" >销售更新</text><text x="360" y="444.0" text-anchor="middle" font-size="15" >程序</text><circle cx="360" cy="580" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="566.0" text-anchor="middle" font-size="15" font-weight="700">4.0</text><text x="360" y="585.0" text-anchor="middle" font-size="15" >报告制作</text><text x="360" y="604.0" text-anchor="middle" font-size="15" >程序</text><rect x="30" y="70" width="120" height="225" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="90.0" y="187.5" text-anchor="middle" font-size="16">仓库员</text><rect x="30" y="385" width="120" height="70" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="90.0" y="425.0" text-anchor="middle" font-size="16">销售员</text><rect x="30" y="535" width="120" height="90" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="90.0" y="585.0" text-anchor="middle" font-size="16">经理</text><polyline points="150.0,100.0 305.0,100.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="79.0" width="64.0" height="19" fill="#fff"/><text x="228" y="93" text-anchor="middle" font-size="14" fill="#1a3a8a">库存资料</text><polyline points="305.0,260.0 150.0,260.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="239.0" width="64.0" height="19" fill="#fff"/><text x="228" y="253" text-anchor="middle" font-size="14" fill="#1a3a8a">补货通知</text><polyline points="150.0,405.0 307.1,405.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="384.0" width="64.0" height="19" fill="#fff"/><text x="228" y="398" text-anchor="middle" font-size="14" fill="#1a3a8a">销售资料</text><polyline points="307.1,435.0 150.0,435.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="414.0" width="64.0" height="19" fill="#fff"/><text x="228" y="428" text-anchor="middle" font-size="14" fill="#1a3a8a">销售确认</text><polyline points="308.8,560.0 150.0,560.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="539.0" width="64.0" height="19" fill="#fff"/><text x="228" y="553" text-anchor="middle" font-size="14" fill="#1a3a8a">库存报告</text><polyline points="308.8,600.0 150.0,600.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="579.0" width="64.0" height="19" fill="#fff"/><text x="228" y="593" text-anchor="middle" font-size="14" fill="#1a3a8a">销售报告</text><line x1="560" y1="238.0" x2="760" y2="238.0" stroke="#000" stroke-width="1.7"/><line x1="560" y1="282.0" x2="760" y2="282.0" stroke="#000" stroke-width="1.7"/><text x="660.0" y="265" text-anchor="middle" font-size="15.5">库存主文档</text><line x1="560" y1="398.0" x2="760" y2="398.0" stroke="#000" stroke-width="1.7"/><line x1="560" y1="442.0" x2="760" y2="442.0" stroke="#000" stroke-width="1.7"/><text x="660.0" y="425" text-anchor="middle" font-size="15.5">销售交易文档</text><polyline points="415.0,100.0 660.0,100.0 660.0,238.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="508.0" y="79.0" width="64.0" height="19" fill="#fff"/><text x="540" y="93" text-anchor="middle" font-size="14" fill="#1a3a8a">库存记录</text><polyline points="560.0,260.0 415.0,260.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="455.0" y="239.0" width="64.0" height="19" fill="#fff"/><text x="487" y="253" text-anchor="middle" font-size="14" fill="#1a3a8a">库存详情</text><polyline points="415.0,420.0 560.0,420.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="455.0" y="399.0" width="64.0" height="19" fill="#fff"/><text x="487" y="413" text-anchor="middle" font-size="14" fill="#1a3a8a">销售记录</text><polyline points="760.0,260.0 820.0,260.0 820.0,600.0 411.2,600.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="588.0" y="579.0" width="64.0" height="19" fill="#fff"/><text x="620" y="593" text-anchor="middle" font-size="14" fill="#1a3a8a">库存详情</text><polyline points="660.0,442.0 660.0,560.0 411.2,560.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="508.0" y="539.0" width="64.0" height="19" fill="#fff"/><text x="540" y="553" text-anchor="middle" font-size="14" fill="#1a3a8a">销售记录</text></svg></div><p><b>评分标准</b></p><table><tr><th>项目</th><th>要求</th><th>分数</th></tr><tr><td>标题</td><td>写明系统名称及「0阶图」</td><td>1</td></tr><tr><td>程序</td><td>4 个程序，编号 1.0–4.0，名称正确且以动词描述</td><td>2</td></tr><tr><td>实体</td><td>与背景图的实体一致</td><td>1</td></tr><tr><td>外部数据流</td><td>与背景图的数据流方向、名称一致</td><td>2</td></tr><tr><td>数据仓</td><td>2 个数据仓，名称及符号正确</td><td>2</td></tr><tr><td>内部数据流</td><td>程序与数据仓之间的数据流方向合理；实体不直接连接数据仓</td><td>2</td></tr></table><div class="err"><b>常犯错误提示</b><ul><li>程序只有输入而无输出，或只有输出而无输入。</li><li>数据回流至同一个程序。</li><li>实体与数据仓直接连线（必须经由程序读写）。</li><li>两个数据仓之间直接连线（必须经由程序传输）。</li><li>背景图的数据流在 0 阶图中遗漏、改名或改变方向。</li><li>程序名称使用名词、数据流名称使用动词（程序用动词，数据流用名词）。</li></ul></div></div><div class="q">
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <!-- 题目 5 -->
+        <article class="dfd-card" id="dfd-q-5">
+            <div class="card-header">
+                <div class="q-badge">
+                    <span>📝 第 5 题：学生入学注册系统（0 阶数据流程图绘制 · 10%）</span>
+                </div>
+                <span class="q-score-tag">分值权重：10%</span>
+            </div>
+            <div class="card-body">
+                <!-- 题干与场景内容 -->
+                <div class="question-scenario-content">
+                    <span class="qt">5. 依照所提供的入学注册系统背景图，绘制其0阶图。</span> <span class="mk">（10%）</span><div class="scen"><b>【场景】</b>入学注册系统是一所学校使用的系统。学生提交申请资料，学生申请程序审核后把学生资料存入学生主文档，并告知学生申请结果。生成学号程序读取学生资料，生成学号给学生。分班程序读取学生资料，分配班级后把班级资料存入班级分配文档，并把班级通知给学生。报告制作程序读取学生资料及班级资料，向校长提交注册报告。</div><figure class="given"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 288" role="img" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" fill="#000"><defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs><rect width="860" height="288" fill="#fff"/><text x="430.0" y="30" text-anchor="middle" font-size="19" font-weight="700">入学注册系统背景图</text><circle cx="430.0" cy="154.0" r="91.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="430.0" y="140.0" text-anchor="middle" font-size="15" font-weight="700">0</text><text x="430.0" y="159.0" text-anchor="middle" font-size="15" >入学注册</text><text x="430.0" y="178.0" text-anchor="middle" font-size="15" >系统</text><rect x="30" y="129.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="100.0" y="159.0" text-anchor="middle" font-size="16">学生</text><polyline points="170.0,154.0 339.0,154.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="222.5" y="133.0" width="64.0" height="19" fill="#fff"/><text x="254.5" y="147.0" text-anchor="middle" font-size="14" fill="#1a3a8a">申请资料</text><rect x="690" y="60.0" width="140" height="118.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="124.0" text-anchor="middle" font-size="16">学生</text><polyline points="489.3,85.0 690.0,85.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="557.7" y="64.0" width="64.0" height="19" fill="#fff"/><text x="589.6647939483827" y="78.0" text-anchor="middle" font-size="14" fill="#1a3a8a">申请结果</text><polyline points="514.0,119.0 690.0,119.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="584.0" y="98.0" width="36.0" height="19" fill="#fff"/><text x="602.0" y="112.0" text-anchor="middle" font-size="14" fill="#1a3a8a">学号</text><polyline points="521.0,153.0 690.0,153.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="573.5" y="132.0" width="64.0" height="19" fill="#fff"/><text x="605.4972526643094" y="146.0" text-anchor="middle" font-size="14" fill="#1a3a8a">班级通知</text><rect x="690" y="198.0" width="140" height="50.0" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="760.0" y="228.0" text-anchor="middle" font-size="16">校长</text><polyline points="489.3,223.0 690.0,223.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="557.7" y="202.0" width="64.0" height="19" fill="#fff"/><text x="589.6647939483827" y="216.0" text-anchor="middle" font-size="14" fill="#1a3a8a">注册报告</text></svg><figcaption>已知：入学注册系统背景图</figcaption></figure><p><b>0阶图需包含以下内容：</b></p><p>4个程序：</p><ul><li>1.0 学生申请程序（Student Application Process）</li><li>2.0 生成学号程序（Generating Student ID Process）</li><li>3.0 分班程序（Class Allocation Process）</li><li>4.0 报告制作程序（Report Generating Process）</li></ul><p>2个数据仓：</p><ul><li>学生主文档（主文档 Master File）</li><li>班级分配文档（交易文档 Transaction File）</li></ul><div class="steps"><p>执行步骤：</p><ul style="list-style:none;padding-left:0;margin-left:.2em"><li>① 列明标题（系统名称＋0阶图）。</li><li>② 绘制 4 个主要程序（1.0 至 4.0），程序名称以动词描述工作。</li><li>③ 复制背景图中的实体，确保与背景图一致（相同实体可合并）。</li><li>④ 复制背景图中的数据流，方向和名称必须相同。</li><li>⑤ 添加必要的数据仓，用于程序的数据读写。</li><li>⑥ 添加其他数据流：程序与数据仓、程序与程序之间的数据传输（名称用名词）。</li><li>⑦ 检查：每个程序都有输入及输出；实体与数据仓不可直接连接；数据仓之间不可直接连接；数据不可回流同一程序。</li></ul><div class="tip">小提示：背景图共有 1 个输入数据流、4 个输出数据流（外部数据流）；其余数据流为系统内部使用，需自行补充。</div></div><div class="ans-box tall">作答区：请在此绘制0阶图</div>
+                </div>
+
+                <!-- 交互式答案控制栏 -->
+                <div class="answer-control-bar">
+                    <span style="font-size:0.85rem; color:#64748b;">先在草稿纸上动笔画图，再点击对照标准解答：</span>
+                    <button class="btn-toggle-ans" id="btn-toggle-5" onclick="toggleSingleAnswer(5)">
+                        <span>🎯 查看参考答案与绘制图</span>
+                    </button>
+                </div>
+
+                <!-- 折叠答案抽屉 -->
+                <div class="ans-drawer" id="ans-drawer-5">
+                    <h3>✓ 标准参考答案与官方绘制规范</h3>
+                    <div class="ans-diagram-wrapper">
+                        <p><b>数据流分析</b></p><table><tr><th>数据流</th><th>来源</th><th>目的地</th><th>类别</th></tr><tr><td>申请资料</td><td>学生</td><td>1.0</td><td>外部数据流（同背景图）</td></tr><tr><td>申请结果</td><td>1.0</td><td>学生</td><td>外部数据流（同背景图）</td></tr><tr><td>学号</td><td>2.0</td><td>学生</td><td>外部数据流（同背景图）</td></tr><tr><td>班级通知</td><td>3.0</td><td>学生</td><td>外部数据流（同背景图）</td></tr><tr><td>注册报告</td><td>4.0</td><td>校长</td><td>外部数据流（同背景图）</td></tr><tr><td>学生资料</td><td>1.0</td><td>学生主文档</td><td>内部数据流（需自行添加）</td></tr><tr><td>学生资料</td><td>学生主文档</td><td>2.0</td><td>内部数据流（需自行添加）</td></tr><tr><td>学生资料</td><td>学生主文档</td><td>3.0</td><td>内部数据流（需自行添加）</td></tr><tr><td>班级资料</td><td>3.0</td><td>班级分配文档</td><td>内部数据流（需自行添加）</td></tr><tr><td>学生资料</td><td>学生主文档</td><td>4.0</td><td>内部数据流（需自行添加）</td></tr><tr><td>班级资料</td><td>班级分配文档</td><td>4.0</td><td>内部数据流（需自行添加）</td></tr></table><p class="note">数据流的内部命名可有合理变化（如「库存记录」可写为「库存数据」），只要含义清楚、方向正确即可给分；本答案的版面仅供参考。</p><div class="ans-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 660" role="img" font-family="'Noto Sans CJK SC','Microsoft YaHei','PingFang SC',sans-serif" fill="#000"><defs><marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs><rect width="880" height="660" fill="#fff"/><text x="440.0" y="30" text-anchor="middle" font-size="19" font-weight="700">入学注册系统0阶图</text><circle cx="360" cy="100" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="86.0" text-anchor="middle" font-size="15" font-weight="700">1.0</text><text x="360" y="105.0" text-anchor="middle" font-size="15" >学生申请</text><text x="360" y="124.0" text-anchor="middle" font-size="15" >程序</text><circle cx="360" cy="260" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="246.0" text-anchor="middle" font-size="15" font-weight="700">2.0</text><text x="360" y="265.0" text-anchor="middle" font-size="15" >生成学号</text><text x="360" y="284.0" text-anchor="middle" font-size="15" >程序</text><circle cx="360" cy="420" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="415.5" text-anchor="middle" font-size="15" font-weight="700">3.0</text><text x="360" y="434.5" text-anchor="middle" font-size="15" >分班程序</text><circle cx="360" cy="580" r="55" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="360" y="566.0" text-anchor="middle" font-size="15" font-weight="700">4.0</text><text x="360" y="585.0" text-anchor="middle" font-size="15" >报告制作</text><text x="360" y="604.0" text-anchor="middle" font-size="15" >程序</text><rect x="30" y="65" width="120" height="385" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="90.0" y="262.5" text-anchor="middle" font-size="16">学生</text><rect x="30" y="545" width="120" height="70" fill="#fff" stroke="#000" stroke-width="1.7"/><text x="90.0" y="585.0" text-anchor="middle" font-size="16">校长</text><polyline points="150.0,85.0 307.1,85.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="64.0" width="64.0" height="19" fill="#fff"/><text x="228" y="78" text-anchor="middle" font-size="14" fill="#1a3a8a">申请资料</text><polyline points="307.1,115.0 150.0,115.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="94.0" width="64.0" height="19" fill="#fff"/><text x="228" y="108" text-anchor="middle" font-size="14" fill="#1a3a8a">申请结果</text><polyline points="305.0,260.0 150.0,260.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="210.0" y="239.0" width="36.0" height="19" fill="#fff"/><text x="228" y="253" text-anchor="middle" font-size="14" fill="#1a3a8a">学号</text><polyline points="305.0,420.0 150.0,420.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="399.0" width="64.0" height="19" fill="#fff"/><text x="228" y="413" text-anchor="middle" font-size="14" fill="#1a3a8a">班级通知</text><polyline points="305.0,580.0 150.0,580.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="196.0" y="559.0" width="64.0" height="19" fill="#fff"/><text x="228" y="573" text-anchor="middle" font-size="14" fill="#1a3a8a">注册报告</text><line x1="560" y1="238.0" x2="760" y2="238.0" stroke="#000" stroke-width="1.7"/><line x1="560" y1="282.0" x2="760" y2="282.0" stroke="#000" stroke-width="1.7"/><text x="660.0" y="265" text-anchor="middle" font-size="15.5">学生主文档</text><line x1="560" y1="423.0" x2="760" y2="423.0" stroke="#000" stroke-width="1.7"/><line x1="560" y1="467.0" x2="760" y2="467.0" stroke="#000" stroke-width="1.7"/><text x="660.0" y="450" text-anchor="middle" font-size="15.5">班级分配文档</text><polyline points="415.0,100.0 660.0,100.0 660.0,238.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="508.0" y="79.0" width="64.0" height="19" fill="#fff"/><text x="540" y="93" text-anchor="middle" font-size="14" fill="#1a3a8a">学生资料</text><polyline points="560.0,260.0 415.0,260.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="455.0" y="239.0" width="64.0" height="19" fill="#fff"/><text x="487" y="253" text-anchor="middle" font-size="14" fill="#1a3a8a">学生资料</text><polyline points="600.0,282.0 600.0,395.0 409.0,395.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="468.0" y="374.0" width="64.0" height="19" fill="#fff"/><text x="500" y="388" text-anchor="middle" font-size="14" fill="#1a3a8a">学生资料</text><polyline points="409.0,445.0 560.0,445.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="455.0" y="424.0" width="64.0" height="19" fill="#fff"/><text x="487" y="438" text-anchor="middle" font-size="14" fill="#1a3a8a">班级资料</text><polyline points="760.0,260.0 820.0,260.0 820.0,605.0 409.0,605.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="588.0" y="584.0" width="64.0" height="19" fill="#fff"/><text x="620" y="598" text-anchor="middle" font-size="14" fill="#1a3a8a">学生资料</text><polyline points="660.0,467.0 660.0,560.0 411.2,560.0" fill="none" stroke="#000" stroke-width="1.4" marker-end="url(#ah)"/><rect x="508.0" y="539.0" width="64.0" height="19" fill="#fff"/><text x="540" y="553" text-anchor="middle" font-size="14" fill="#1a3a8a">班级资料</text></svg></div><p><b>评分标准</b></p><table><tr><th>项目</th><th>要求</th><th>分数</th></tr><tr><td>标题</td><td>写明系统名称及「0阶图」</td><td>1</td></tr><tr><td>程序</td><td>4 个程序，编号 1.0–4.0，名称正确且以动词描述</td><td>2</td></tr><tr><td>实体</td><td>与背景图的实体一致</td><td>1</td></tr><tr><td>外部数据流</td><td>与背景图的数据流方向、名称一致</td><td>2</td></tr><tr><td>数据仓</td><td>2 个数据仓，名称及符号正确</td><td>2</td></tr><tr><td>内部数据流</td><td>程序与数据仓之间的数据流方向合理；实体不直接连接数据仓</td><td>2</td></tr></table><div class="err"><b>常犯错误提示</b><ul><li>程序只有输入而无输出，或只有输出而无输入。</li><li>数据回流至同一个程序。</li><li>实体与数据仓直接连线（必须经由程序读写）。</li><li>两个数据仓之间直接连线（必须经由程序传输）。</li><li>背景图的数据流在 0 阶图中遗漏、改名或改变方向。</li><li>程序名称使用名词、数据流名称使用动词（程序用动词，数据流用名词）。</li></ul></div></div></div></div></body></html>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+
+    <script>
+        // 单个答案切换
+        function toggleSingleAnswer(qid) {
+            const drawer = document.getElementById(`ans-drawer-${qid}`);
+            const btn = document.getElementById(`btn-toggle-${qid}`);
+            if (drawer.style.display === 'block') {
+                drawer.style.display = 'none';
+                btn.innerHTML = '<span>🎯 查看参考答案与绘制图</span>';
+            } else {
+                drawer.style.display = 'block';
+                btn.innerHTML = '<span>📕 收起参考答案</span>';
+            }
+        }
+
+        // 一键全部展开 / 全部收起
+        function toggleAllAnswers(show) {
+            for (let i = 1; i <= 5; i++) {
+                const drawer = document.getElementById(`ans-drawer-${i}`);
+                const btn = document.getElementById(`btn-toggle-${i}`);
+                if (drawer && btn) {
+                    drawer.style.display = show ? 'block' : 'none';
+                    btn.innerHTML = show ? '<span>📕 收起参考答案</span>' : '<span>🎯 查看参考答案与绘制图</span>';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

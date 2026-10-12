@@ -653,7 +653,11 @@
                 return;
             }
             sessionStorage.setItem('ict_book1_stu_id_review', idVal);
-            window.location.href = STUDENT_REVIEW_URL + '?stuid=' + encodeURIComponent(idVal);
+            if (location.protocol === 'file:') {
+                window.location.href = STUDENT_REVIEW_URL;
+            } else {
+                window.location.href = STUDENT_REVIEW_URL + '?stuid=' + encodeURIComponent(idVal);
+            }
         }
 
         function confirmTeacherAuth() {
